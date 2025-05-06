@@ -32,7 +32,7 @@
             // 
             // SplashScreen
             // 
-            this.BackgroundImage = global::DockSample.Properties.Resources.SplashScreen;
+            this.BackgroundImage = Image.FromStream(new MemoryStream(Resources.SplashScreen));
             this.ClientSize = new System.Drawing.Size(458, 598);
             this.ControlBox = false;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

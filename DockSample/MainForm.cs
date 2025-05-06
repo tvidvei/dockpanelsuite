@@ -505,7 +505,7 @@ namespace DockSample
             _splashScreen.Visible = true;
             _splashScreen.TopMost = true;
 
-            Timer _timer = new Timer();
+            System.Windows.Forms.Timer _timer = new System.Windows.Forms.Timer();
             _timer.Tick += (sender, e) =>
             {
                 _splashScreen.Visible = false;
