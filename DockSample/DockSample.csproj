@@ -20,10 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WinFormsUI\ThemeVS2003.csproj" />
-    <ProjectReference Include="..\WinFormsUI\ThemeVS2005.csproj" />
-    <ProjectReference Include="..\WinFormsUI\ThemeVS2012.csproj" />
-    <ProjectReference Include="..\WinFormsUI\ThemeVS2013.csproj" />
     <ProjectReference Include="..\WinFormsUI\ThemeVS2015.csproj" />
     <ProjectReference Include="..\WinFormsUI\WinFormsUI.csproj" />
   </ItemGroup>

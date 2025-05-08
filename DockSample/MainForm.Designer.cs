@@ -58,6 +58,7 @@ namespace DockSample
             this.menuItemSchemaVS2015Light = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemSchemaVS2015Blue = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemSchemaVS2015Dark = new System.Windows.Forms.ToolStripMenuItem();
+#if old
             this.menuItemSchemaVS2013Light = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemSchemaVS2013Blue = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemSchemaVS2013Dark = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,6 +67,7 @@ namespace DockSample
             this.menuItemSchemaVS2012Dark = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemSchemaVS2005 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemSchemaVS2003 = new System.Windows.Forms.ToolStripMenuItem();
+#endif
             this.menuItem6 = new System.Windows.Forms.ToolStripSeparator();
             this.menuItemDockingMdi = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemDockingSdi = new System.Windows.Forms.ToolStripMenuItem();
@@ -99,15 +101,15 @@ namespace DockSample
             this.dockPanel = new WeifenLuo.WinFormsUI.Docking.DockPanel();
             this.vS2015DarkTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2015DarkTheme();
             this.vS2015BlueTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2015BlueTheme();
-            this.vS2005Theme1 = new WeifenLuo.WinFormsUI.Docking.VS2005Theme();
-            this.vS2003Theme1 = new WeifenLuo.WinFormsUI.Docking.VS2003Theme();
+            //this.vS2005Theme1 = new WeifenLuo.WinFormsUI.Docking.VS2005Theme();
+            //this.vS2003Theme1 = new WeifenLuo.WinFormsUI.Docking.VS2003Theme();
             this.vS2015LightTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2015LightTheme();
-            this.vS2013LightTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2013LightTheme();
-            this.vS2013BlueTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2013BlueTheme();
-            this.vS2013DarkTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2013DarkTheme();
-            this.vS2012LightTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2012LightTheme();
-            this.vS2012BlueTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2012BlueTheme();
-            this.vS2012DarkTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2012DarkTheme();
+            //this.vS2013LightTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2013LightTheme();
+            //this.vS2013BlueTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2013BlueTheme();
+            //this.vS2013DarkTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2013DarkTheme();
+            //this.vS2012LightTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2012LightTheme();
+            //this.vS2012BlueTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2012BlueTheme();
+            //this.vS2012DarkTheme1 = new WeifenLuo.WinFormsUI.Docking.VS2012DarkTheme();
             this.vsToolStripExtender1 = new WeifenLuo.WinFormsUI.Docking.VisualStudioToolStripExtender(this.components);
             this.mainMenu.SuspendLayout();
             this.toolBar.SuspendLayout();
@@ -306,6 +308,7 @@ namespace DockSample
             this.menuItemSchemaVS2015Light,
             this.menuItemSchemaVS2015Blue,
             this.menuItemSchemaVS2015Dark,
+#if old
             this.menuItemSchemaVS2013Light,
             this.menuItemSchemaVS2013Blue,
             this.menuItemSchemaVS2013Dark,
@@ -314,6 +317,7 @@ namespace DockSample
             this.menuItemSchemaVS2012Dark,
             this.menuItemSchemaVS2005,
             this.menuItemSchemaVS2003,
+#endif
             this.menuItem6,
             this.menuItemDockingMdi,
             this.menuItemDockingSdi,
@@ -366,6 +370,7 @@ namespace DockSample
             this.menuItemSchemaVS2015Dark.Size = new System.Drawing.Size(255, 22);
             this.menuItemSchemaVS2015Dark.Text = "Schema: VS2015 Dark";
             this.menuItemSchemaVS2015Dark.Click += new System.EventHandler(this.SetSchema);
+#if old
             // 
             // menuItemSchemaVS2013Light
             // 
@@ -424,6 +429,7 @@ namespace DockSample
             this.menuItemSchemaVS2003.Size = new System.Drawing.Size(255, 22);
             this.menuItemSchemaVS2003.Text = "Schema: VS200&3";
             this.menuItemSchemaVS2003.Click += new System.EventHandler(this.SetSchema);
+#endif
             // 
             // menuItem6
             // 
@@ -699,7 +705,7 @@ namespace DockSample
             this.PerformLayout();
 
         }
-        #endregion
+#endregion
 
         private WeifenLuo.WinFormsUI.Docking.DockPanel dockPanel;
         private System.Windows.Forms.ImageList imageList;
@@ -755,26 +761,28 @@ namespace DockSample
         private System.Windows.Forms.StatusStrip statusBar;
         private System.Windows.Forms.ToolStripMenuItem showRightToLeft;
         private System.Windows.Forms.ToolStripMenuItem exitWithoutSavingLayout;
+#if old
         private System.Windows.Forms.ToolStripMenuItem menuItemSchemaVS2012Light;
         private System.Windows.Forms.ToolStripMenuItem menuItemSchemaVS2012Blue;
         private System.Windows.Forms.ToolStripMenuItem menuItemSchemaVS2012Dark;
         private System.Windows.Forms.ToolStripMenuItem menuItemSchemaVS2013Light;
         private System.Windows.Forms.ToolStripMenuItem menuItemSchemaVS2013Blue;
         private System.Windows.Forms.ToolStripMenuItem menuItemSchemaVS2013Dark;
+#endif
         private System.Windows.Forms.ToolStripMenuItem menuItemSchemaVS2015Light;
         private System.Windows.Forms.ToolStripMenuItem menuItemSchemaVS2015Blue;
         private System.Windows.Forms.ToolStripMenuItem menuItemSchemaVS2015Dark;
         private WeifenLuo.WinFormsUI.Docking.VS2015LightTheme vS2015LightTheme1;
         private WeifenLuo.WinFormsUI.Docking.VS2015BlueTheme vS2015BlueTheme1;
         private WeifenLuo.WinFormsUI.Docking.VS2015DarkTheme vS2015DarkTheme1;
-        private WeifenLuo.WinFormsUI.Docking.VS2013LightTheme vS2013LightTheme1;
-        private WeifenLuo.WinFormsUI.Docking.VS2013BlueTheme vS2013BlueTheme1;
-        private WeifenLuo.WinFormsUI.Docking.VS2013DarkTheme vS2013DarkTheme1;
-        private WeifenLuo.WinFormsUI.Docking.VS2012LightTheme vS2012LightTheme1;
-        private WeifenLuo.WinFormsUI.Docking.VS2012BlueTheme vS2012BlueTheme1;
-        private WeifenLuo.WinFormsUI.Docking.VS2012DarkTheme vS2012DarkTheme1;
-        private WeifenLuo.WinFormsUI.Docking.VS2003Theme vS2003Theme1;
-        private WeifenLuo.WinFormsUI.Docking.VS2005Theme vS2005Theme1;
+        //private WeifenLuo.WinFormsUI.Docking.VS2013LightTheme vS2013LightTheme1;
+        //private WeifenLuo.WinFormsUI.Docking.VS2013BlueTheme vS2013BlueTheme1;
+        //private WeifenLuo.WinFormsUI.Docking.VS2013DarkTheme vS2013DarkTheme1;
+        //private WeifenLuo.WinFormsUI.Docking.VS2012LightTheme vS2012LightTheme1;
+        //private WeifenLuo.WinFormsUI.Docking.VS2012BlueTheme vS2012BlueTheme1;
+        //private WeifenLuo.WinFormsUI.Docking.VS2012DarkTheme vS2012DarkTheme1;
+        //private WeifenLuo.WinFormsUI.Docking.VS2003Theme vS2003Theme1;
+        //private WeifenLuo.WinFormsUI.Docking.VS2005Theme vS2005Theme1;
         private WeifenLuo.WinFormsUI.Docking.VisualStudioToolStripExtender vsToolStripExtender1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem subMenuToolStripMenuItem;

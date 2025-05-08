@@ -165,6 +165,7 @@ namespace DockSample
             dockPanel.SaveAsXml(configFile);
             CloseAllContents();
 
+#if old
             if (sender == this.menuItemSchemaVS2005)
             {
                 this.dockPanel.Theme = this.vS2005Theme1;
@@ -205,7 +206,9 @@ namespace DockSample
                 this.dockPanel.Theme = this.vS2013DarkTheme1;
                 this.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2013, vS2013DarkTheme1);
             }
-            else if (sender == this.menuItemSchemaVS2015Blue)
+            else
+#endif
+            if (sender == this.menuItemSchemaVS2015Blue)
             {
                 this.dockPanel.Theme = this.vS2015BlueTheme1;
                 this.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2015, vS2015BlueTheme1);
@@ -221,6 +224,7 @@ namespace DockSample
                 this.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2015, vS2015DarkTheme1);
             }
 
+#if old
             menuItemSchemaVS2005.Checked = (sender == menuItemSchemaVS2005);
             menuItemSchemaVS2003.Checked = (sender == menuItemSchemaVS2003);
             menuItemSchemaVS2012Light.Checked = (sender == menuItemSchemaVS2012Light);
@@ -229,6 +233,7 @@ namespace DockSample
             menuItemSchemaVS2013Light.Checked = (sender == menuItemSchemaVS2013Light);
             menuItemSchemaVS2013Blue.Checked = (sender == menuItemSchemaVS2013Blue);
             menuItemSchemaVS2013Dark.Checked = (sender == menuItemSchemaVS2013Dark);
+#endif
             menuItemSchemaVS2015Light.Checked = (sender == menuItemSchemaVS2015Light);
             menuItemSchemaVS2015Blue.Checked = (sender == menuItemSchemaVS2015Blue);
             menuItemSchemaVS2015Dark.Checked = (sender == menuItemSchemaVS2015Dark);
@@ -278,7 +283,7 @@ namespace DockSample
             toolBarButtonLayoutByXml.Enabled = (newStyle != DocumentStyle.SystemMdi);
         }
 
-        #endregion
+#endregion
 
         #region Event Handlers
 
@@ -403,7 +408,7 @@ namespace DockSample
 
         private void MainForm_Load(object sender, System.EventArgs e)
         {
-            SetSchema(this.menuItemSchemaVS2013Blue, null);
+            SetSchema(this.menuItemSchemaVS2015Blue, null);
 
             string configFile = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "DockPanel.config");
 
