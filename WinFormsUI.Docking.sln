@@ -15,6 +15,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{02EA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DockSample", "DockSample\DockSample.csproj", "{6FFD9212-4B07-4FB0-A2BE-58D9C8D35D22}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThemeVS2022", "WinFormsUI\ThemeVS2022\ThemeVS2022.csproj", "{508479EC-DD20-46C0-9ECA-41D01F95BB18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThemeVS2015", "WinFormsUI\ThemeVS2015\ThemeVS2015.csproj", "{FF38D9A4-02D4-8C77-F678-F683C1219D15}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{6FFD9212-4B07-4FB0-A2BE-58D9C8D35D22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FFD9212-4B07-4FB0-A2BE-58D9C8D35D22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FFD9212-4B07-4FB0-A2BE-58D9C8D35D22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{508479EC-DD20-46C0-9ECA-41D01F95BB18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{508479EC-DD20-46C0-9ECA-41D01F95BB18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{508479EC-DD20-46C0-9ECA-41D01F95BB18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{508479EC-DD20-46C0-9ECA-41D01F95BB18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF38D9A4-02D4-8C77-F678-F683C1219D15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF38D9A4-02D4-8C77-F678-F683C1219D15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF38D9A4-02D4-8C77-F678-F683C1219D15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF38D9A4-02D4-8C77-F678-F683C1219D15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

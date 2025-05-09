@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>WeifenLuo.WinFormsUI.ThemeVS2015</RootNamespace>
+    <AssemblyName>WeifenLuo.WinFormsUI.Docking.ThemeVS2015</AssemblyName>
+    <EnableDefaultItems>true</EnableDefaultItems>
+    <NoWarn>$(NoWarn);WFO1000</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\Dockindicator_PaneDiamond_Hotspot.png" />
+    <Content Include="Resources\DockIndicator_PaneDiamond_HotspotIndex.png" />
+    <Content Include="Resources\MaskArrowBottom.png" />
+    <Content Include="Resources\MaskArrowLeft.png" />
+    <Content Include="Resources\MaskArrowRight.png" />
+    <Content Include="Resources\MaskArrowTop.png" />
+    <Content Include="Resources\MaskCoreBottom.png" />
+    <Content Include="Resources\MaskCoreCenter.png" />
+    <Content Include="Resources\MaskCoreLeft.png" />
+    <Content Include="Resources\MaskCoreRight.png" />
+    <Content Include="Resources\MaskCoreTop.png" />
+    <Content Include="Resources\MaskDock.png" />
+    <Content Include="Resources\MaskDockFive.png" />
+    <Content Include="Resources\MaskTabClose.png" />
+    <Content Include="Resources\MaskTabList.png" />
+    <Content Include="Resources\MaskTabOverflow.png" />
+    <Content Include="Resources\MaskToolWindowAutoHide.png" />
+    <Content Include="Resources\MaskToolWindowClose.png" />
+    <Content Include="Resources\MaskToolWindowDock.png" />
+    <Content Include="Resources\MaskToolWindowOption.png" />
+    <Content Include="Resources\MaskWindowBottom.png" />
+    <Content Include="Resources\MaskWindowCenter.png" />
+    <Content Include="Resources\MaskWindowLeft.png" />
+    <Content Include="Resources\MaskWindowRight.png" />
+    <Content Include="Resources\MaskWindowTop.png" />
+    <Content Include="Resources\vs2015blue.vstheme.gz" />
+    <Content Include="Resources\vs2015dark.vstheme.gz" />
+    <Content Include="Resources\vs2015light.vstheme.gz" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WinFormsUI.csproj" />
+  </ItemGroup>
+
+</Project>
