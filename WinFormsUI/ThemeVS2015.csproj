@@ -100,6 +100,34 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ThemeVS2015\Resources\Dockindicator_PaneDiamond_Hotspot.png" />
+    <Content Include="ThemeVS2015\Resources\DockIndicator_PaneDiamond_HotspotIndex.png" />
+    <Content Include="ThemeVS2015\Resources\MaskArrowBottom.png" />
+    <Content Include="ThemeVS2015\Resources\MaskArrowLeft.png" />
+    <Content Include="ThemeVS2015\Resources\MaskArrowRight.png" />
+    <Content Include="ThemeVS2015\Resources\MaskArrowTop.png" />
+    <Content Include="ThemeVS2015\Resources\MaskCoreBottom.png" />
+    <Content Include="ThemeVS2015\Resources\MaskCoreCenter.png" />
+    <Content Include="ThemeVS2015\Resources\MaskCoreLeft.png" />
+    <Content Include="ThemeVS2015\Resources\MaskCoreRight.png" />
+    <Content Include="ThemeVS2015\Resources\MaskCoreTop.png" />
+    <Content Include="ThemeVS2015\Resources\MaskDock.png" />
+    <Content Include="ThemeVS2015\Resources\MaskDockFive.png" />
+    <Content Include="ThemeVS2015\Resources\MaskTabClose.png" />
+    <Content Include="ThemeVS2015\Resources\MaskTabList.png" />
+    <Content Include="ThemeVS2015\Resources\MaskTabOverflow.png" />
+    <Content Include="ThemeVS2015\Resources\MaskToolWindowAutoHide.png" />
+    <Content Include="ThemeVS2015\Resources\MaskToolWindowClose.png" />
+    <Content Include="ThemeVS2015\Resources\MaskToolWindowDock.png" />
+    <Content Include="ThemeVS2015\Resources\MaskToolWindowOption.png" />
+    <Content Include="ThemeVS2015\Resources\MaskWindowBottom.png" />
+    <Content Include="ThemeVS2015\Resources\MaskWindowCenter.png" />
+    <Content Include="ThemeVS2015\Resources\MaskWindowLeft.png" />
+    <Content Include="ThemeVS2015\Resources\MaskWindowRight.png" />
+    <Content Include="ThemeVS2015\Resources\MaskWindowTop.png" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ThemeVS2012\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
