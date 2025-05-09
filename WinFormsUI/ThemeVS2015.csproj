@@ -26,26 +26,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="ThemeVS2012\VS2012AutoHideStrip.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="ThemeVS2012\ImageService.cs" />
     <Compile Include="ThemeVS2012\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ThemeVS2012\VS2012AutoHideStripFactory.cs" />
-    <Compile Include="ThemeVS2012\VS2012AutoHideWindowFactory.cs" />
-    <Compile Include="ThemeVS2012\VS2012DockIndicatorFactory.cs" />
-    <Compile Include="ThemeVS2012\VS2012DockOutlineFactory.cs" />
-    <Compile Include="ThemeVS2012\VS2012DockPaneCaptionInertButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ThemeVS2012\VS2012DockWindowFactory.cs" />
-    <Compile Include="ThemeVS2012\VS2012PaletteFactory.cs" />
-    <Compile Include="ThemeVS2012\VS2012PaneIndicatorFactory.cs" />
-    <Compile Include="ThemeVS2012\VS2012PanelIndicatorFactory.cs" />
     <Compile Include="ThemeVS2013\VS2013DockPane.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -71,6 +57,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ThemeVS2015\VS2012AutoHideStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ThemeVS2015\VS2012AutoHideStripFactory.cs" />
+    <Compile Include="ThemeVS2015\VS2012AutoHideWindowControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ThemeVS2015\VS2012AutoHideWindowFactory.cs" />
+    <Compile Include="ThemeVS2015\VS2012DockIndicatorFactory.cs" />
+    <Compile Include="ThemeVS2015\VS2012DockOutlineFactory.cs" />
+    <Compile Include="ThemeVS2015\VS2012DockPaneCaptionInertButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ThemeVS2015\VS2012DockWindow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ThemeVS2015\VS2012DockWindowFactory.cs" />
+    <Compile Include="ThemeVS2015\VS2012PaletteFactory.cs" />
+    <Compile Include="ThemeVS2015\VS2012PaneIndicatorFactory.cs" />
+    <Compile Include="ThemeVS2015\VS2012PanelIndicatorFactory.cs" />
+    <Compile Include="ThemeVS2015\VS2012WindowSplitterControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ThemeVS2015\VS2015ThemeBase.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -85,15 +94,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ThemeVS2012\VS2012AutoHideWindowControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ThemeVS2012\VS2012DockWindow.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ThemeVS2012\VS2012WindowSplitterControl.cs">
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="ThemeVS2015\VS2015BlueTheme.cs">
       <SubType>Component</SubType>
