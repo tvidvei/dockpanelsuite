@@ -32,26 +32,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ThemeVS2013\VS2013DockPane.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ThemeVS2013\VS2013DockPaneCaption.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ThemeVS2013\VS2013DockPaneCaptionFactory.cs" />
-    <Compile Include="ThemeVS2013\VS2013DockPaneFactory.cs" />
-    <Compile Include="ThemeVS2013\VS2013DockPaneSplitterControlFactory.cs" />
-    <Compile Include="ThemeVS2013\VS2013DockPaneStrip.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ThemeVS2013\VS2013DockPaneStripFactory.cs" />
-    <Compile Include="ThemeVS2013\VS2013SplitterControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ThemeVS2013\VS2013WindowSplitterControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ThemeVS2013\VS2013WindowSplitterControlFactory.cs" />
     <Compile Include="ThemeVS2015\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -80,6 +60,26 @@
     <Compile Include="ThemeVS2015\VS2012WindowSplitterControl.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ThemeVS2015\VS2013DockPane.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ThemeVS2015\VS2013DockPaneCaption.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ThemeVS2015\VS2013DockPaneCaptionFactory.cs" />
+    <Compile Include="ThemeVS2015\VS2013DockPaneFactory.cs" />
+    <Compile Include="ThemeVS2015\VS2013DockPaneSplitterControlFactory.cs" />
+    <Compile Include="ThemeVS2015\VS2013DockPaneStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ThemeVS2015\VS2013DockPaneStripFactory.cs" />
+    <Compile Include="ThemeVS2015\VS2013SplitterControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ThemeVS2015\VS2013WindowSplitterControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ThemeVS2015\VS2013WindowSplitterControlFactory.cs" />
     <Compile Include="ThemeVS2015\VS2015ThemeBase.cs">
       <SubType>Component</SubType>
     </Compile>
