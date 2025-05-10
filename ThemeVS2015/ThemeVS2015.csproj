@@ -29,37 +29,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Dockindicator_PaneDiamond_Hotspot.png" />
-    <EmbeddedResource Include="Resources\DockIndicator_PaneDiamond_HotspotIndex.png" />
-    <EmbeddedResource Include="Resources\MaskArrowBottom.png" />
-    <EmbeddedResource Include="Resources\MaskArrowLeft.png" />
-    <EmbeddedResource Include="Resources\MaskArrowRight.png" />
-    <EmbeddedResource Include="Resources\MaskArrowTop.png" />
-    <EmbeddedResource Include="Resources\MaskCoreBottom.png" />
-    <EmbeddedResource Include="Resources\MaskCoreCenter.png" />
-    <EmbeddedResource Include="Resources\MaskCoreLeft.png" />
-    <EmbeddedResource Include="Resources\MaskCoreRight.png" />
-    <EmbeddedResource Include="Resources\MaskCoreTop.png" />
-    <EmbeddedResource Include="Resources\MaskDock.png" />
-    <EmbeddedResource Include="Resources\MaskDockFive.png" />
-    <EmbeddedResource Include="Resources\MaskTabClose.png" />
-    <EmbeddedResource Include="Resources\MaskTabList.png" />
-    <EmbeddedResource Include="Resources\MaskTabOverflow.png" />
-    <EmbeddedResource Include="Resources\MaskToolWindowAutoHide.png" />
-    <EmbeddedResource Include="Resources\MaskToolWindowClose.png" />
-    <EmbeddedResource Include="Resources\MaskToolWindowDock.png" />
-    <EmbeddedResource Include="Resources\MaskToolWindowOption.png" />
-    <EmbeddedResource Include="Resources\MaskWindowBottom.png" />
-    <EmbeddedResource Include="Resources\MaskWindowCenter.png" />
-    <EmbeddedResource Include="Resources\MaskWindowLeft.png" />
-    <EmbeddedResource Include="Resources\MaskWindowRight.png" />
-    <EmbeddedResource Include="Resources\MaskWindowTop.png" />
-    <EmbeddedResource Include="Resources\vs2015blue.vstheme.gz" />
-    <EmbeddedResource Include="Resources\vs2015dark.vstheme.gz" />
-    <EmbeddedResource Include="Resources\vs2015light.vstheme.gz" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\WinFormsUI\WinFormsUI.csproj" />
   </ItemGroup>
 

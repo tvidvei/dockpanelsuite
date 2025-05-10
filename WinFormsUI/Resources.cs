@@ -27,8 +27,8 @@ namespace WeifenLuo.WinFormsUI.ThemeVS2015
         /// </summary>
         private static readonly Dictionary<string, Image> imageCache = new Dictionary<string, Image>(StringComparer.OrdinalIgnoreCase);
 
-        private static Stream? GetManifestResourceStream(string name) {
-            return typeof(Resources).Assembly.GetManifestResourceStream("WeifenLuo.WinFormsUI.ThemeVS2015.Resources." + name);
+        private static Stream GetManifestResourceStream(string name) {
+            return typeof(Resources).Assembly.GetManifestResourceStream("WeifenLuo.WinFormsUI.Resources." + name);
         }
 
         public static Image GetImage(string name) {
