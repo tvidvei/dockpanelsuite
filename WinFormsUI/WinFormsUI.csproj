@@ -34,124 +34,124 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Docking\Configuration\PatchSection.cs" />
-    <Compile Include="Docking\DefaultTheme.cs" />
-    <Compile Include="Docking\DockPanel.SplitterDragHandler.cs">
+    <Compile Include="Configuration\PatchSection.cs" />
+    <Compile Include="DefaultTheme.cs" />
+    <Compile Include="DockPanel.SplitterDragHandler.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Docking\DockPanel.DragHandler.cs">
+    <Compile Include="DockPanel.DragHandler.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Docking\DockPanelColorPalette.cs" />
-    <Compile Include="Docking\DragForm.cs">
+    <Compile Include="DockPanelColorPalette.cs" />
+    <Compile Include="DragForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Docking\DockPanel.MdiClientController.cs">
+    <Compile Include="DockPanel.MdiClientController.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Docking\AutoHideStripBase.cs">
+    <Compile Include="AutoHideStripBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Docking\DrawingRoutines.cs" />
-    <Compile Include="Docking\IImageService.cs" />
-    <Compile Include="Docking\InertButtonBase.cs">
+    <Compile Include="DrawingRoutines.cs" />
+    <Compile Include="IImageService.cs" />
+    <Compile Include="InertButtonBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Docking\DockPanelSkin.cs">
+    <Compile Include="DockPanelSkin.cs">
     </Compile>
-    <Compile Include="Docking\IPaintingService.cs" />
-    <Compile Include="Docking\LayoutUtils.cs" />
-    <Compile Include="Docking\PatchController.cs" />
-    <Compile Include="Docking\ThemeBase.cs">
+    <Compile Include="IPaintingService.cs" />
+    <Compile Include="LayoutUtils.cs" />
+    <Compile Include="PatchController.cs" />
+    <Compile Include="ThemeBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Docking\VisualStudioColorTable.cs" />
-    <Compile Include="Docking\DockPanel.AutoHideWindow.cs">
+    <Compile Include="VisualStudioColorTable.cs" />
+    <Compile Include="DockPanel.AutoHideWindow.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Docking\VisibleNestedPaneCollection.cs" />
-    <Compile Include="Docking\DockAreasEditor.cs" />
-    <Compile Include="Docking\DockContent.cs">
+    <Compile Include="VisibleNestedPaneCollection.cs" />
+    <Compile Include="DockAreasEditor.cs" />
+    <Compile Include="DockContent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Docking\DockContentCollection.cs" />
-    <Compile Include="Docking\DockContentHandler.cs" />
-    <Compile Include="Docking\DockPanel.DockDragHandler.cs">
+    <Compile Include="DockContentCollection.cs" />
+    <Compile Include="DockContentHandler.cs" />
+    <Compile Include="DockPanel.DockDragHandler.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Docking\Helpers\DockHelper.cs" />
-    <Compile Include="Docking\NestedPaneCollection.cs" />
-    <Compile Include="Docking\DockOutlineBase.cs" />
-    <Compile Include="Docking\DockPane.cs">
+    <Compile Include="Helpers\DockHelper.cs" />
+    <Compile Include="NestedPaneCollection.cs" />
+    <Compile Include="DockOutlineBase.cs" />
+    <Compile Include="DockPane.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Docking\DockPaneCaptionBase.cs">
+    <Compile Include="DockPaneCaptionBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Docking\DockPaneCollection.cs" />
-    <Compile Include="Docking\DockPanel.cs" />
-    <Compile Include="Docking\DockPanelExtender.cs" />
-    <Compile Include="Docking\DockPanel.Persistor.cs">
+    <Compile Include="DockPaneCollection.cs" />
+    <Compile Include="DockPanel.cs" />
+    <Compile Include="DockPanelExtender.cs" />
+    <Compile Include="DockPanel.Persistor.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Docking\DockPane.SplitterControl.cs">
+    <Compile Include="DockPane.SplitterControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Docking\DockPaneStripBase.cs">
+    <Compile Include="DockPaneStripBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Docking\DockWindow.cs">
+    <Compile Include="DockWindow.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Docking\DockWindowCollection.cs" />
-    <Compile Include="Docking\DummyControl.cs">
+    <Compile Include="DockWindowCollection.cs" />
+    <Compile Include="DummyControl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Docking\Enums.cs" />
-    <Compile Include="Docking\DockContentEventArgs.cs" />
-    <Compile Include="Docking\FloatWindow.cs">
+    <Compile Include="Enums.cs" />
+    <Compile Include="DockContentEventArgs.cs" />
+    <Compile Include="FloatWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Docking\FloatWindowCollection.cs" />
-    <Compile Include="Docking\DockPanel.FocusManager.cs">
+    <Compile Include="FloatWindowCollection.cs" />
+    <Compile Include="DockPanel.FocusManager.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Docking\Interfaces.cs" />
-    <Compile Include="Docking\Measures.cs" />
-    <Compile Include="Docking\NestedDockingStatus.cs" />
-    <Compile Include="Docking\SplitterBase.cs">
+    <Compile Include="Interfaces.cs" />
+    <Compile Include="Measures.cs" />
+    <Compile Include="NestedDockingStatus.cs" />
+    <Compile Include="SplitterBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Docking\Helpers\DrawHelper.cs" />
-    <Compile Include="Docking\Localization.cs" />
-    <Compile Include="Docking\Helpers\ResourceHelper.cs" />
-    <Compile Include="Docking\Helpers\Win32Helper.cs" />
-    <Compile Include="Docking\VisualStudioToolStripRenderer.cs" />
-    <Compile Include="Docking\VisualStudioToolStripExtender.cs">
+    <Compile Include="Helpers\DrawHelper.cs" />
+    <Compile Include="Localization.cs" />
+    <Compile Include="Helpers\ResourceHelper.cs" />
+    <Compile Include="Helpers\Win32Helper.cs" />
+    <Compile Include="VisualStudioToolStripRenderer.cs" />
+    <Compile Include="VisualStudioToolStripExtender.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Docking\VisualStudioToolStripExtender.Designer.cs">
+    <Compile Include="VisualStudioToolStripExtender.Designer.cs">
       <DependentUpon>VisualStudioToolStripExtender.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Docking\Strings.Designer.cs">
+    <Compile Include="Strings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
-    <Compile Include="Docking\Win32\Enums.cs" />
-    <Compile Include="Docking\Win32\NativeMethods.cs" />
+    <Compile Include="Win32\Enums.cs" />
+    <Compile Include="Win32\NativeMethods.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Docking\DockContent.resx" />
-    <EmbeddedResource Include="Docking\Strings.resx">
+    <EmbeddedResource Include="DockContent.resx" />
+    <EmbeddedResource Include="Strings.resx">
       <SubType>Designer</SubType>
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Docking\DockPanel.Appearance.cs">
+    <Compile Include="DockPanel.Appearance.cs">
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
@@ -160,7 +160,7 @@
     <None Include="license.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Docking\DockPanel.bmp" />
+    <EmbeddedResource Include="DockPanel.bmp" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net40' OR '$(TargetFramework)' == 'net35'">
     <Reference Include="System.Configuration" />
