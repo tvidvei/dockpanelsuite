@@ -7,12 +7,12 @@ using WeifenLuo.WinFormsUI.Docking;
 namespace WeifenLuo.WinFormsUI.ThemeVS2013
 {
     [ToolboxItem(false)]
-    public class VS2013WindowSplitterControl : SplitterBase
+    public class VS2015WindowSplitterControl2 : SplitterBase
     {
         private SolidBrush _horizontalBrush;
         private readonly ISplitterHost _host;
 
-        public VS2013WindowSplitterControl(ISplitterHost host)
+        public VS2015WindowSplitterControl2(ISplitterHost host)
         {
             _host = host;
         }

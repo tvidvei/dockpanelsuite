@@ -7,26 +7,26 @@ using WeifenLuo.WinFormsUI.Docking;
 namespace WeifenLuo.WinFormsUI.ThemeVS2013
 {
     [ToolboxItem(false)]
-    public class VS2013DockPane : DockPane
+    public class VS2015DockPane : DockPane
     {
-        public VS2013DockPane(IDockContent content, DockState visibleState, bool show)
+        public VS2015DockPane(IDockContent content, DockState visibleState, bool show)
             : base(content, visibleState, show)
         {
         }
 
         [SuppressMessage("Microsoft.Naming", "CA1720:AvoidTypeNamesInParameters", MessageId = "1#")]
-        public VS2013DockPane(IDockContent content, FloatWindow floatWindow, bool show)
+        public VS2015DockPane(IDockContent content, FloatWindow floatWindow, bool show)
             : base(content, floatWindow, show)
         {
         }
 
-        public VS2013DockPane(IDockContent content, DockPane previousPane, DockAlignment alignment, double proportion, bool show)
+        public VS2015DockPane(IDockContent content, DockPane previousPane, DockAlignment alignment, double proportion, bool show)
             : base(content, previousPane, alignment, proportion, show)
         {
         }
 
         [SuppressMessage("Microsoft.Naming", "CA1720:AvoidTypeNamesInParameters", MessageId = "1#")]
-        public VS2013DockPane(IDockContent content, Rectangle floatWindowBounds, bool show)
+        public VS2015DockPane(IDockContent content, Rectangle floatWindowBounds, bool show)
             : base(content, floatWindowBounds, show)
         {
         }

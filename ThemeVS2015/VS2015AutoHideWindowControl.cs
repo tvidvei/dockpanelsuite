@@ -7,9 +7,9 @@ namespace WeifenLuo.WinFormsUI.ThemeVS2012
     using System.ComponentModel;
 
     [ToolboxItem(false)]
-    internal class VS2012AutoHideWindowControl : DockPanel.AutoHideWindowControl
+    internal class VS2015AutoHideWindowControl : DockPanel.AutoHideWindowControl
     {
-        public VS2012AutoHideWindowControl(DockPanel dockPanel)
+        public VS2015AutoHideWindowControl(DockPanel dockPanel)
             : base(dockPanel)
         {
         }

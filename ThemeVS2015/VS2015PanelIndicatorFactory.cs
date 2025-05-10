@@ -5,7 +5,7 @@ using WeifenLuo.WinFormsUI.Docking;
 
 namespace WeifenLuo.WinFormsUI.ThemeVS2012
 {
-    internal class VS2012PanelIndicatorFactory : DockPanelExtender.IPanelIndicatorFactory
+    internal class VS2015PanelIndicatorFactory : DockPanelExtender.IPanelIndicatorFactory
     {
         public DockPanel.IPanelIndicator CreatePanelIndicator(DockStyle style, ThemeBase theme)
         {

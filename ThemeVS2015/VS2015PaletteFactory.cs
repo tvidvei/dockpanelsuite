@@ -6,12 +6,12 @@ using WeifenLuo.WinFormsUI.Docking;
 
 namespace WeifenLuo.WinFormsUI.ThemeVS2012
 {
-    public class VS2012PaletteFactory : IPaletteFactory
+    public class VS2015PaletteFactory : IPaletteFactory
     {
         private const string Env = "Environment";
         private XDocument _xml;
 
-        public VS2012PaletteFactory(byte[] file)
+        public VS2015PaletteFactory(byte[] file)
         {
             _xml = XDocument.Load(new StreamReader(new MemoryStream(file)));
         }

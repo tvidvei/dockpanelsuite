@@ -7,14 +7,14 @@ namespace WeifenLuo.WinFormsUI.Docking
     /// Dock window of Visual Studio 2012 Light theme.
     /// </summary>
     [ToolboxItem(false)]
-    internal class VS2012DockWindow : DockWindow
+    internal class VS2015DockWindow : DockWindow
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="VS2012DockWindow"/> class.
+        /// Initializes a new instance of the <see cref="VS2015DockWindow"/> class.
         /// </summary>
         /// <param name="dockPanel">The dock panel.</param>
         /// <param name="dockState">State of the dock.</param>
-        public VS2012DockWindow(DockPanel dockPanel, DockState dockState) : base(dockPanel, dockState)
+        public VS2015DockWindow(DockPanel dockPanel, DockState dockState) : base(dockPanel, dockState)
         {
         }
 

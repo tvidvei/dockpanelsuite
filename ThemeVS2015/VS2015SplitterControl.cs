@@ -7,12 +7,12 @@ using WeifenLuo.WinFormsUI.Docking;
 namespace WeifenLuo.WinFormsUI.ThemeVS2013
 {
     [ToolboxItem(false)]
-    internal class VS2013SplitterControl : DockPane.SplitterControlBase
+    internal class VS2015SplitterControl : DockPane.SplitterControlBase
     {
         private readonly SolidBrush _horizontalBrush;
         private int SplitterSize { get; }
 
-        public VS2013SplitterControl(DockPane pane)
+        public VS2015SplitterControl(DockPane pane)
             : base(pane)
         {
             _horizontalBrush = pane.DockPanel.Theme.PaintingService.GetBrush(pane.DockPanel.Theme.ColorPalette.MainWindowActive.Background);

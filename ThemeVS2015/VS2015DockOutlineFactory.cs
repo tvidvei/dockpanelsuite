@@ -5,7 +5,7 @@ using WeifenLuo.WinFormsUI.Docking;
 
 namespace WeifenLuo.WinFormsUI.ThemeVS2012
 {
-    internal class VS2012DockOutlineFactory : DockPanelExtender.IDockOutlineFactory
+    internal class VS2015DockOutlineFactory : DockPanelExtender.IDockOutlineFactory
     {
         public DockOutlineBase CreateDockOutline()
         {

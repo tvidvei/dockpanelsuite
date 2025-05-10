@@ -9,7 +9,7 @@ namespace WeifenLuo.WinFormsUI.Docking
     using ThemeVS2012;
 
     [ToolboxItem(false)]
-    internal class VS2013DockPaneCaption : DockPaneCaptionBase
+    internal class VS2015DockPaneCaption : DockPaneCaptionBase
     {
         #region consts
         private const int TextGapTop = 3;
@@ -30,7 +30,7 @@ namespace WeifenLuo.WinFormsUI.Docking
             {
                 if (m_buttonClose == null)
                 {
-                    m_buttonClose = new VS2012DockPaneCaptionInertButton(this,
+                    m_buttonClose = new VS2015DockPaneCaptionInertButton(this,
                         DockPane.DockPanel.Theme.ImageService.DockPaneHover_Close,
                         DockPane.DockPanel.Theme.ImageService.DockPane_Close,
                         DockPane.DockPanel.Theme.ImageService.DockPanePress_Close,
@@ -52,7 +52,7 @@ namespace WeifenLuo.WinFormsUI.Docking
             {
                 if (m_buttonAutoHide == null)
                 {
-                    m_buttonAutoHide = new VS2012DockPaneCaptionInertButton(this,
+                    m_buttonAutoHide = new VS2015DockPaneCaptionInertButton(this,
                         DockPane.DockPanel.Theme.ImageService.DockPaneHover_Dock,
                         DockPane.DockPanel.Theme.ImageService.DockPane_Dock,
                         DockPane.DockPanel.Theme.ImageService.DockPanePress_Dock,
@@ -77,7 +77,7 @@ namespace WeifenLuo.WinFormsUI.Docking
             {
                 if (m_buttonOptions == null)
                 {
-                    m_buttonOptions = new VS2012DockPaneCaptionInertButton(this,
+                    m_buttonOptions = new VS2015DockPaneCaptionInertButton(this,
                         DockPane.DockPanel.Theme.ImageService.DockPaneHover_Option,
                         DockPane.DockPanel.Theme.ImageService.DockPane_Option,
                         DockPane.DockPanel.Theme.ImageService.DockPanePress_Option,
@@ -99,7 +99,7 @@ namespace WeifenLuo.WinFormsUI.Docking
 
         private ToolTip m_toolTip;
 
-        public VS2013DockPaneCaption(DockPane pane) : base(pane)
+        public VS2015DockPaneCaption(DockPane pane) : base(pane)
         {
             SuspendLayout();
 

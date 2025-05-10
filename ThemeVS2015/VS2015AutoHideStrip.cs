@@ -7,7 +7,7 @@ using System.ComponentModel;
 namespace WeifenLuo.WinFormsUI.Docking
 {
     [ToolboxItem(false)]
-    internal class VS2012AutoHideStrip : AutoHideStripBase
+    internal class VS2015AutoHideStrip : AutoHideStripBase
     {
         private class TabVS2012 : Tab
         {
@@ -125,7 +125,7 @@ namespace WeifenLuo.WinFormsUI.Docking
             }
         }
 
-        public VS2012AutoHideStrip(DockPanel panel)
+        public VS2015AutoHideStrip(DockPanel panel)
             : base(panel)
         {
             SetStyle(ControlStyles.ResizeRedraw |
