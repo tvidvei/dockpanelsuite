@@ -8,7 +8,7 @@ namespace WeifenLuo.WinFormsUI.Docking
     public class VS2015BlueTheme : VS2015ThemeBase
     {
         public VS2015BlueTheme()
-            : base(Decompress(Resources.vs2015blue_vstheme))
+            : base(Decompress(Resources.GetBytes("vs2015blue.vstheme.gz")))
         {
         }
     }

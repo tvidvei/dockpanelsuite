@@ -28,11 +28,6 @@
   <ItemGroup>
     <Compile Include="ThemeVS2015\ImageService.cs" />
     <Compile Include="ThemeVS2015\PaintingService.cs" />
-    <Compile Include="ThemeVS2015\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="ThemeVS2015\Strings.Designer.cs">
       <DependentUpon>Strings.resx</DependentUpon>
       <DesignTime>True</DesignTime>
@@ -124,11 +119,6 @@
     <Content Include="ThemeVS2015\Resources\MaskWindowTop.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ThemeVS2015\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="ThemeVS2015\Strings.resx">
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
       <Generator>ResXFileCodeGenerator</Generator>

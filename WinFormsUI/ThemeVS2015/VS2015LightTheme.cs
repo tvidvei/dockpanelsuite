@@ -8,7 +8,7 @@ namespace WeifenLuo.WinFormsUI.Docking
     public class VS2015LightTheme : VS2015ThemeBase
     {
         public VS2015LightTheme()
-            : base(Decompress(Resources.vs2015light_vstheme))
+            : base(Decompress(Resources.GetBytes("vs2015light.vstheme.gz")))
         {
         }
     }

@@ -1,7 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0-windows</TargetFramework>
+    <TargetFrameworks>net9.0-windows</TargetFrameworks>
+    <PackageId>DockPanelSuite.ThemeVS2015</PackageId>
+    <PackageVersion>4.0.0</PackageVersion>
+    <FileVersion>4.0.0.0</FileVersion>    
+    <Authors>Weifen Luo and other contributors</Authors>
+    <Description>Visual Studio 2015 themes for DockPanel Suite.</Description>
+    <Copyright>(C) 2007-2025 Weifen Luo and other contributors</Copyright>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>http://dockpanelsuite.com</PackageProjectUrl>
+    <PackageReleaseNotes>
+      Release notes can be found at GitHub,
+      https://github.com/dockpanelsuite/dockpanelsuite/releases
+    </PackageReleaseNotes>
+    <LangVersion>13.0</LangVersion>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -9,41 +23,50 @@
     <AssemblyName>WeifenLuo.WinFormsUI.Docking.ThemeVS2015</AssemblyName>
     <EnableDefaultItems>true</EnableDefaultItems>
     <NoWarn>$(NoWarn);WFO1000</NoWarn>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>dockpanelsuite.snk</AssemblyOriginatorKeyFile>
+    <!--<GeneratePackageOnBuild>true</GeneratePackageOnBuild>-->
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Resources\Dockindicator_PaneDiamond_Hotspot.png" />
-    <Content Include="Resources\DockIndicator_PaneDiamond_HotspotIndex.png" />
-    <Content Include="Resources\MaskArrowBottom.png" />
-    <Content Include="Resources\MaskArrowLeft.png" />
-    <Content Include="Resources\MaskArrowRight.png" />
-    <Content Include="Resources\MaskArrowTop.png" />
-    <Content Include="Resources\MaskCoreBottom.png" />
-    <Content Include="Resources\MaskCoreCenter.png" />
-    <Content Include="Resources\MaskCoreLeft.png" />
-    <Content Include="Resources\MaskCoreRight.png" />
-    <Content Include="Resources\MaskCoreTop.png" />
-    <Content Include="Resources\MaskDock.png" />
-    <Content Include="Resources\MaskDockFive.png" />
-    <Content Include="Resources\MaskTabClose.png" />
-    <Content Include="Resources\MaskTabList.png" />
-    <Content Include="Resources\MaskTabOverflow.png" />
-    <Content Include="Resources\MaskToolWindowAutoHide.png" />
-    <Content Include="Resources\MaskToolWindowClose.png" />
-    <Content Include="Resources\MaskToolWindowDock.png" />
-    <Content Include="Resources\MaskToolWindowOption.png" />
-    <Content Include="Resources\MaskWindowBottom.png" />
-    <Content Include="Resources\MaskWindowCenter.png" />
-    <Content Include="Resources\MaskWindowLeft.png" />
-    <Content Include="Resources\MaskWindowRight.png" />
-    <Content Include="Resources\MaskWindowTop.png" />
-    <Content Include="Resources\vs2015blue.vstheme.gz" />
-    <Content Include="Resources\vs2015dark.vstheme.gz" />
-    <Content Include="Resources\vs2015light.vstheme.gz" />
+    <EmbeddedResource Include="Resources\Dockindicator_PaneDiamond_Hotspot.png" />
+    <EmbeddedResource Include="Resources\DockIndicator_PaneDiamond_HotspotIndex.png" />
+    <EmbeddedResource Include="Resources\MaskArrowBottom.png" />
+    <EmbeddedResource Include="Resources\MaskArrowLeft.png" />
+    <EmbeddedResource Include="Resources\MaskArrowRight.png" />
+    <EmbeddedResource Include="Resources\MaskArrowTop.png" />
+    <EmbeddedResource Include="Resources\MaskCoreBottom.png" />
+    <EmbeddedResource Include="Resources\MaskCoreCenter.png" />
+    <EmbeddedResource Include="Resources\MaskCoreLeft.png" />
+    <EmbeddedResource Include="Resources\MaskCoreRight.png" />
+    <EmbeddedResource Include="Resources\MaskCoreTop.png" />
+    <EmbeddedResource Include="Resources\MaskDock.png" />
+    <EmbeddedResource Include="Resources\MaskDockFive.png" />
+    <EmbeddedResource Include="Resources\MaskTabClose.png" />
+    <EmbeddedResource Include="Resources\MaskTabList.png" />
+    <EmbeddedResource Include="Resources\MaskTabOverflow.png" />
+    <EmbeddedResource Include="Resources\MaskToolWindowAutoHide.png" />
+    <EmbeddedResource Include="Resources\MaskToolWindowClose.png" />
+    <EmbeddedResource Include="Resources\MaskToolWindowDock.png" />
+    <EmbeddedResource Include="Resources\MaskToolWindowOption.png" />
+    <EmbeddedResource Include="Resources\MaskWindowBottom.png" />
+    <EmbeddedResource Include="Resources\MaskWindowCenter.png" />
+    <EmbeddedResource Include="Resources\MaskWindowLeft.png" />
+    <EmbeddedResource Include="Resources\MaskWindowRight.png" />
+    <EmbeddedResource Include="Resources\MaskWindowTop.png" />
+    <EmbeddedResource Include="Resources\vs2015blue.vstheme.gz" />
+    <EmbeddedResource Include="Resources\vs2015dark.vstheme.gz" />
+    <EmbeddedResource Include="Resources\vs2015light.vstheme.gz" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\WinFormsUI.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources.resx">
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

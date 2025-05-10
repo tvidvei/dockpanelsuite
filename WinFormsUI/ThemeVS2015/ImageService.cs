@@ -52,9 +52,10 @@ namespace WeifenLuo.WinFormsUI.ThemeVS2015
 
         public ImageService(ThemeBase theme)
         {
+            var res = typeof(Person);
             _palette = theme.ColorPalette;
-            Dockindicator_PaneDiamond_Hotspot = Resources.Dockindicator_PaneDiamond_Hotspot;
-            DockIndicator_PaneDiamond_HotspotIndex = Resources.DockIndicator_PaneDiamond_HotspotIndex;
+            Dockindicator_PaneDiamond_Hotspot = Resources.GetBitmap("Dockindicator_PaneDiamond_Hotspot.png");
+            DockIndicator_PaneDiamond_HotspotIndex = Resources.GetBitmap("DockIndicator_PaneDiamond_HotspotIndex.png");
 
             var arrow = _palette.DockTarget.GlyphArrow;
             var outerBorder = _palette.DockTarget.Border;
@@ -70,58 +71,58 @@ namespace WeifenLuo.WinFormsUI.ThemeVS2015
             using (var layerCore = drawCore ? ImageServiceHelper.GetLayerImage(core, 32, theme.PaintingService) : null)
             using (var layerBorder = ImageServiceHelper.GetBackground(innerBorder, outerBorder, 40, theme.PaintingService))
             using (var bottom = ImageServiceHelper.GetDockIcon(
-                Resources.MaskArrowBottom,
+                Resources.GetBitmap("MaskArrowBottom.png"),
                 layerArrow,
-                Resources.MaskWindowBottom,
+                Resources.GetBitmap("MaskWindowBottom.png"),
                 layerWindow,
-                Resources.MaskDock,
+                Resources.GetBitmap("MaskDock.png"),
                 background,
                 theme.PaintingService,
-                Resources.MaskCoreBottom,
+                Resources.GetBitmap("MaskCoreBottom.png"),
                 layerCore,
                 separator))
             using (var center = ImageServiceHelper.GetDockIcon(
                 null,
                 null,
-                Resources.MaskWindowCenter,
+                Resources.GetBitmap("MaskWindowCenter.png"),
                 layerWindow,
-                Resources.MaskDock,
+                Resources.GetBitmap("MaskDock.png"),
                 background,
                 theme.PaintingService,
-                Resources.MaskCoreCenter,
+                Resources.GetBitmap("MaskCoreCenter.png"),
                 layerCore,
                 separator))
             using (var left = ImageServiceHelper.GetDockIcon(
-                Resources.MaskArrowLeft,
+                Resources.GetBitmap("MaskArrowLeft.png"),
                 layerArrow,
-                Resources.MaskWindowLeft,
+                Resources.GetBitmap("MaskWindowLeft.png"),
                 layerWindow,
-                Resources.MaskDock,
+                Resources.GetBitmap("MaskDock.png"),
                 background,
                 theme.PaintingService,
-                Resources.MaskCoreLeft,
+                Resources.GetBitmap("MaskCoreLeft.png"),
                 layerCore,
                 separator))
             using (var right = ImageServiceHelper.GetDockIcon(
-                Resources.MaskArrowRight,
+                Resources.GetBitmap("MaskArrowRight.png"),
                 layerArrow,
-                Resources.MaskWindowRight,
+                Resources.GetBitmap("MaskWindowRight.png"),
                 layerWindow,
-                Resources.MaskDock,
+                Resources.GetBitmap("MaskDock.png"),
                 background,
                 theme.PaintingService,
-                Resources.MaskCoreRight,
+                Resources.GetBitmap("MaskCoreRight.png"),
                 layerCore,
                 separator))
             using (var top = ImageServiceHelper.GetDockIcon(
-                Resources.MaskArrowTop,
+                Resources.GetBitmap("MaskArrowTop.png"),
                 layerArrow,
-                Resources.MaskWindowTop,
+                Resources.GetBitmap("MaskWindowTop.png"),
                 layerWindow,
-                Resources.MaskDock,
+                Resources.GetBitmap("MaskDock.png"),
                 background,
                 theme.PaintingService,
-                Resources.MaskCoreTop,
+                Resources.GetBitmap("MaskCoreTop.png"),
                 layerCore,
                 separator))
             {
@@ -131,55 +132,55 @@ namespace WeifenLuo.WinFormsUI.ThemeVS2015
                 DockIndicator_PanelRight = ImageServiceHelper.GetDockImage(right, layerBorder);
                 DockIndicator_PanelTop = ImageServiceHelper.GetDockImage(top, layerBorder);
 
-                using (var five = ImageServiceHelper.GetFiveBackground(Resources.MaskDockFive, innerBorder, outerBorder, theme.PaintingService))
+                using (var five = ImageServiceHelper.GetFiveBackground(Resources.GetBitmap("MaskDockFive.png"), innerBorder, outerBorder, theme.PaintingService))
                 {
                     Dockindicator_PaneDiamond = ImageServiceHelper.CombineFive(five, bottom, center, left, right, top);
                     Dockindicator_PaneDiamond_Fill = ImageServiceHelper.CombineFive(five, bottom, center, left, right, top);
                 }
             }
 
-            TabActive_Close = ImageServiceHelper.GetImage(Resources.MaskTabClose, _palette.TabSelectedActive.Button, _palette.TabSelectedActive.Background);
-            TabInactive_Close = ImageServiceHelper.GetImage(Resources.MaskTabClose, _palette.TabUnselectedHovered.Button, _palette.TabUnselectedHovered.Background);
-            TabLostFocus_Close = ImageServiceHelper.GetImage(Resources.MaskTabClose, _palette.TabSelectedInactive.Button, _palette.TabSelectedInactive.Background);
-            TabHoverActive_Close = ImageServiceHelper.GetImage(Resources.MaskTabClose, _palette.TabButtonSelectedActiveHovered.Glyph, _palette.TabButtonSelectedActiveHovered.Background, _palette.TabButtonSelectedActiveHovered.Border);
-            TabHoverInactive_Close = ImageServiceHelper.GetImage(Resources.MaskTabClose, _palette.TabButtonUnselectedTabHoveredButtonHovered.Glyph, _palette.TabButtonUnselectedTabHoveredButtonHovered.Background, _palette.TabButtonUnselectedTabHoveredButtonHovered.Border);
-            TabHoverLostFocus_Close = ImageServiceHelper.GetImage(Resources.MaskTabClose, _palette.TabButtonSelectedInactiveHovered.Glyph, _palette.TabButtonSelectedInactiveHovered.Background, _palette.TabButtonSelectedInactiveHovered.Border);
+            TabActive_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabClose.png"), _palette.TabSelectedActive.Button, _palette.TabSelectedActive.Background);
+            TabInactive_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabClose.png"), _palette.TabUnselectedHovered.Button, _palette.TabUnselectedHovered.Background);
+            TabLostFocus_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabClose.png"), _palette.TabSelectedInactive.Button, _palette.TabSelectedInactive.Background);
+            TabHoverActive_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabClose.png"), _palette.TabButtonSelectedActiveHovered.Glyph, _palette.TabButtonSelectedActiveHovered.Background, _palette.TabButtonSelectedActiveHovered.Border);
+            TabHoverInactive_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabClose.png"), _palette.TabButtonUnselectedTabHoveredButtonHovered.Glyph, _palette.TabButtonUnselectedTabHoveredButtonHovered.Background, _palette.TabButtonUnselectedTabHoveredButtonHovered.Border);
+            TabHoverLostFocus_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabClose.png"), _palette.TabButtonSelectedInactiveHovered.Glyph, _palette.TabButtonSelectedInactiveHovered.Background, _palette.TabButtonSelectedInactiveHovered.Border);
 
-            TabPressActive_Close = ImageServiceHelper.GetImage(Resources.MaskTabClose, _palette.TabButtonSelectedActivePressed.Glyph, _palette.TabButtonSelectedActivePressed.Background, _palette.TabButtonSelectedActivePressed.Border);
-            TabPressInactive_Close = ImageServiceHelper.GetImage(Resources.MaskTabClose, _palette.TabButtonUnselectedTabHoveredButtonPressed.Glyph, _palette.TabButtonUnselectedTabHoveredButtonPressed.Background, _palette.TabButtonUnselectedTabHoveredButtonPressed.Border);
-            TabPressLostFocus_Close = ImageServiceHelper.GetImage(Resources.MaskTabClose, _palette.TabButtonSelectedInactivePressed.Glyph, _palette.TabButtonSelectedInactivePressed.Background, _palette.TabButtonSelectedInactivePressed.Border);
+            TabPressActive_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabClose.png"), _palette.TabButtonSelectedActivePressed.Glyph, _palette.TabButtonSelectedActivePressed.Background, _palette.TabButtonSelectedActivePressed.Border);
+            TabPressInactive_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabClose.png"), _palette.TabButtonUnselectedTabHoveredButtonPressed.Glyph, _palette.TabButtonUnselectedTabHoveredButtonPressed.Background, _palette.TabButtonUnselectedTabHoveredButtonPressed.Border);
+            TabPressLostFocus_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabClose.png"), _palette.TabButtonSelectedInactivePressed.Glyph, _palette.TabButtonSelectedInactivePressed.Background, _palette.TabButtonSelectedInactivePressed.Border);
 
-            DockPane_List = ImageServiceHelper.GetImage(Resources.MaskTabList, _palette.OverflowButtonDefault.Glyph, _palette.MainWindowActive.Background);
-            DockPane_OptionOverflow = ImageServiceHelper.GetImage(Resources.MaskTabOverflow, _palette.OverflowButtonDefault.Glyph, _palette.MainWindowActive.Background);
+            DockPane_List = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabList.png"), _palette.OverflowButtonDefault.Glyph, _palette.MainWindowActive.Background);
+            DockPane_OptionOverflow = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabOverflow.png"), _palette.OverflowButtonDefault.Glyph, _palette.MainWindowActive.Background);
 
-            DockPaneHover_List = ImageServiceHelper.GetImage(Resources.MaskTabList, _palette.OverflowButtonHovered.Glyph, _palette.OverflowButtonHovered.Background, _palette.OverflowButtonHovered.Border);
-            DockPaneHover_OptionOverflow = ImageServiceHelper.GetImage(Resources.MaskTabOverflow, _palette.OverflowButtonHovered.Glyph, _palette.OverflowButtonHovered.Background, _palette.OverflowButtonHovered.Border);
+            DockPaneHover_List = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabList.png"), _palette.OverflowButtonHovered.Glyph, _palette.OverflowButtonHovered.Background, _palette.OverflowButtonHovered.Border);
+            DockPaneHover_OptionOverflow = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabOverflow.png"), _palette.OverflowButtonHovered.Glyph, _palette.OverflowButtonHovered.Background, _palette.OverflowButtonHovered.Border);
 
-            DockPanePress_List = ImageServiceHelper.GetImage(Resources.MaskTabList, _palette.OverflowButtonPressed.Glyph, _palette.OverflowButtonPressed.Background, _palette.OverflowButtonPressed.Border);
-            DockPanePress_OptionOverflow = ImageServiceHelper.GetImage(Resources.MaskTabOverflow, _palette.OverflowButtonPressed.Glyph, _palette.OverflowButtonPressed.Background, _palette.OverflowButtonPressed.Border);
+            DockPanePress_List = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabList.png"), _palette.OverflowButtonPressed.Glyph, _palette.OverflowButtonPressed.Background, _palette.OverflowButtonPressed.Border);
+            DockPanePress_OptionOverflow = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabOverflow.png"), _palette.OverflowButtonPressed.Glyph, _palette.OverflowButtonPressed.Background, _palette.OverflowButtonPressed.Border);
 
-            DockPane_Close = ImageServiceHelper.GetImage(Resources.MaskToolWindowClose, _palette.ToolWindowCaptionInactive.Button, _palette.ToolWindowCaptionInactive.Background);
-            DockPane_Dock = ImageServiceHelper.GetImage(Resources.MaskToolWindowDock, _palette.ToolWindowCaptionInactive.Button, _palette.ToolWindowCaptionInactive.Background);
-            DockPane_Option = ImageServiceHelper.GetImage(Resources.MaskToolWindowOption, _palette.ToolWindowCaptionInactive.Button, _palette.ToolWindowCaptionInactive.Background);
+            DockPane_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskToolWindowClose.png"), _palette.ToolWindowCaptionInactive.Button, _palette.ToolWindowCaptionInactive.Background);
+            DockPane_Dock = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskToolWindowDock.png"), _palette.ToolWindowCaptionInactive.Button, _palette.ToolWindowCaptionInactive.Background);
+            DockPane_Option = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskToolWindowOption.png"), _palette.ToolWindowCaptionInactive.Button, _palette.ToolWindowCaptionInactive.Background);
 
-            DockPaneActive_Close = ImageServiceHelper.GetImage(Resources.MaskToolWindowClose, _palette.ToolWindowCaptionActive.Button, _palette.ToolWindowCaptionActive.Background);
-            DockPaneActive_Dock = ImageServiceHelper.GetImage(Resources.MaskToolWindowDock, _palette.ToolWindowCaptionActive.Button, _palette.ToolWindowCaptionActive.Background);
-            DockPaneActive_Option = ImageServiceHelper.GetImage(Resources.MaskToolWindowOption, _palette.ToolWindowCaptionActive.Button, _palette.ToolWindowCaptionActive.Background);
-            DockPaneActive_AutoHide = ImageServiceHelper.GetImage(Resources.MaskToolWindowAutoHide, _palette.ToolWindowCaptionActive.Button, _palette.ToolWindowCaptionActive.Background);
+            DockPaneActive_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskToolWindowClose.png"), _palette.ToolWindowCaptionActive.Button, _palette.ToolWindowCaptionActive.Background);
+            DockPaneActive_Dock = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskToolWindowDock.png"), _palette.ToolWindowCaptionActive.Button, _palette.ToolWindowCaptionActive.Background);
+            DockPaneActive_Option = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskToolWindowOption.png"), _palette.ToolWindowCaptionActive.Button, _palette.ToolWindowCaptionActive.Background);
+            DockPaneActive_AutoHide = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskToolWindowAutoHide.png"), _palette.ToolWindowCaptionActive.Button, _palette.ToolWindowCaptionActive.Background);
 
-            DockPaneHover_Close = ImageServiceHelper.GetImage(Resources.MaskToolWindowClose, _palette.ToolWindowCaptionButtonInactiveHovered.Glyph, _palette.ToolWindowCaptionButtonInactiveHovered.Background, _palette.ToolWindowCaptionButtonInactiveHovered.Border);
-            DockPaneHover_Dock = ImageServiceHelper.GetImage(Resources.MaskToolWindowDock, _palette.ToolWindowCaptionButtonInactiveHovered.Glyph, _palette.ToolWindowCaptionButtonInactiveHovered.Background, _palette.ToolWindowCaptionButtonInactiveHovered.Border);
-            DockPaneHover_Option = ImageServiceHelper.GetImage(Resources.MaskToolWindowOption, _palette.ToolWindowCaptionButtonInactiveHovered.Glyph, _palette.ToolWindowCaptionButtonInactiveHovered.Background, _palette.ToolWindowCaptionButtonInactiveHovered.Border);
+            DockPaneHover_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskToolWindowClose.png"), _palette.ToolWindowCaptionButtonInactiveHovered.Glyph, _palette.ToolWindowCaptionButtonInactiveHovered.Background, _palette.ToolWindowCaptionButtonInactiveHovered.Border);
+            DockPaneHover_Dock = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskToolWindowDock.png"), _palette.ToolWindowCaptionButtonInactiveHovered.Glyph, _palette.ToolWindowCaptionButtonInactiveHovered.Background, _palette.ToolWindowCaptionButtonInactiveHovered.Border);
+            DockPaneHover_Option = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskToolWindowOption.png"), _palette.ToolWindowCaptionButtonInactiveHovered.Glyph, _palette.ToolWindowCaptionButtonInactiveHovered.Background, _palette.ToolWindowCaptionButtonInactiveHovered.Border);
 
-            DockPaneActiveHover_Close = ImageServiceHelper.GetImage(Resources.MaskToolWindowClose, _palette.ToolWindowCaptionButtonActiveHovered.Glyph, _palette.ToolWindowCaptionButtonActiveHovered.Background, _palette.ToolWindowCaptionButtonActiveHovered.Border);
-            DockPaneActiveHover_Dock = ImageServiceHelper.GetImage(Resources.MaskToolWindowDock, _palette.ToolWindowCaptionButtonActiveHovered.Glyph, _palette.ToolWindowCaptionButtonActiveHovered.Background, _palette.ToolWindowCaptionButtonActiveHovered.Border);
-            DockPaneActiveHover_Option = ImageServiceHelper.GetImage(Resources.MaskToolWindowOption, _palette.ToolWindowCaptionButtonActiveHovered.Glyph, _palette.ToolWindowCaptionButtonActiveHovered.Background, _palette.ToolWindowCaptionButtonActiveHovered.Border);
-            DockPaneActiveHover_AutoHide = ImageServiceHelper.GetImage(Resources.MaskToolWindowAutoHide, _palette.ToolWindowCaptionButtonActiveHovered.Glyph, _palette.ToolWindowCaptionButtonActiveHovered.Background, _palette.ToolWindowCaptionButtonActiveHovered.Border);
+            DockPaneActiveHover_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskToolWindowClose.png"), _palette.ToolWindowCaptionButtonActiveHovered.Glyph, _palette.ToolWindowCaptionButtonActiveHovered.Background, _palette.ToolWindowCaptionButtonActiveHovered.Border);
+            DockPaneActiveHover_Dock = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskToolWindowDock.png"), _palette.ToolWindowCaptionButtonActiveHovered.Glyph, _palette.ToolWindowCaptionButtonActiveHovered.Background, _palette.ToolWindowCaptionButtonActiveHovered.Border);
+            DockPaneActiveHover_Option = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskToolWindowOption.png"), _palette.ToolWindowCaptionButtonActiveHovered.Glyph, _palette.ToolWindowCaptionButtonActiveHovered.Background, _palette.ToolWindowCaptionButtonActiveHovered.Border);
+            DockPaneActiveHover_AutoHide = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskToolWindowAutoHide.png"), _palette.ToolWindowCaptionButtonActiveHovered.Glyph, _palette.ToolWindowCaptionButtonActiveHovered.Background, _palette.ToolWindowCaptionButtonActiveHovered.Border);
 
-            DockPanePress_Close = ImageServiceHelper.GetImage(Resources.MaskToolWindowClose, _palette.ToolWindowCaptionButtonPressed.Glyph, _palette.ToolWindowCaptionButtonPressed.Background, _palette.ToolWindowCaptionButtonPressed.Border);
-            DockPanePress_Dock = ImageServiceHelper.GetImage(Resources.MaskToolWindowDock, _palette.ToolWindowCaptionButtonPressed.Glyph, _palette.ToolWindowCaptionButtonPressed.Background, _palette.ToolWindowCaptionButtonPressed.Border);
-            DockPanePress_Option = ImageServiceHelper.GetImage(Resources.MaskToolWindowOption, _palette.ToolWindowCaptionButtonPressed.Glyph, _palette.ToolWindowCaptionButtonPressed.Background, _palette.ToolWindowCaptionButtonPressed.Border);
-            DockPanePress_AutoHide = ImageServiceHelper.GetImage(Resources.MaskToolWindowAutoHide, _palette.ToolWindowCaptionButtonPressed.Glyph, _palette.ToolWindowCaptionButtonPressed.Background, _palette.ToolWindowCaptionButtonPressed.Border);
+            DockPanePress_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskToolWindowClose.png"), _palette.ToolWindowCaptionButtonPressed.Glyph, _palette.ToolWindowCaptionButtonPressed.Background, _palette.ToolWindowCaptionButtonPressed.Border);
+            DockPanePress_Dock = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskToolWindowDock.png"), _palette.ToolWindowCaptionButtonPressed.Glyph, _palette.ToolWindowCaptionButtonPressed.Background, _palette.ToolWindowCaptionButtonPressed.Border);
+            DockPanePress_Option = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskToolWindowOption.png"), _palette.ToolWindowCaptionButtonPressed.Glyph, _palette.ToolWindowCaptionButtonPressed.Background, _palette.ToolWindowCaptionButtonPressed.Border);
+            DockPanePress_AutoHide = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskToolWindowAutoHide.png"), _palette.ToolWindowCaptionButtonPressed.Glyph, _palette.ToolWindowCaptionButtonPressed.Background, _palette.ToolWindowCaptionButtonPressed.Border);
         }
     }
 }
