@@ -142,6 +142,61 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
+    <Compile Include="VS2015AutoHideStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VS2015AutoHideStripFactory.cs" />
+    <Compile Include="VS2015AutoHideWindowControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VS2015AutoHideWindowFactory.cs" />
+    <Compile Include="VS2015BlueTheme.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VS2015DarkTheme.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VS2015DockIndicatorFactory.cs" />
+    <Compile Include="VS2015DockOutlineFactory.cs" />
+    <Compile Include="VS2015DockPane.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="VS2015DockPaneCaption.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VS2015DockPaneCaptionFactory.cs" />
+    <Compile Include="VS2015DockPaneCaptionInertButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VS2015DockPaneFactory.cs" />
+    <Compile Include="VS2015DockPaneSplitterControlFactory.cs" />
+    <Compile Include="VS2015DockPaneStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VS2015DockPaneStripFactory.cs" />
+    <Compile Include="VS2015DockWindow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VS2015DockWindowFactory.cs" />
+    <Compile Include="VS2015LightTheme.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VS2015PaletteFactory.cs" />
+    <Compile Include="VS2015PaneIndicatorFactory.cs" />
+    <Compile Include="VS2015PanelIndicatorFactory.cs" />
+    <Compile Include="VS2015SplitterControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VS2015ThemeBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VS2015WindowSplitterControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VS2015WindowSplitterControl2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VS2015WindowSplitterControlFactory.cs" />
     <Compile Include="Win32\Enums.cs" />
     <Compile Include="Win32\NativeMethods.cs" />
   </ItemGroup>

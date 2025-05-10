@@ -181,7 +181,7 @@ namespace WeifenLuo.WinFormsUI.Docking
             }
         }
 
-        protected override int MeasureHeight()
+        protected internal override int MeasureHeight()
         {
             int height = TextFont.Height + TextGapTop + TextGapBottom;
 
