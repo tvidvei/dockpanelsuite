@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WinFormsUI\ThemeVS2015\ThemeVS2015.csproj" />
+    <ProjectReference Include="..\ThemeVS2015\ThemeVS2015.csproj" />
     <ProjectReference Include="..\WinFormsUI\WinFormsUI.csproj" />
   </ItemGroup>
 

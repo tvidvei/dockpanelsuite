@@ -60,7 +60,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WinFormsUI.csproj" />
+    <ProjectReference Include="..\WinFormsUI\WinFormsUI.csproj" />
   </ItemGroup>
 
   <ItemGroup>
