@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WeifenLuo.WinFormsUI.Docking {
+namespace WeifenLuo.WinFormsUI {
     using System;
     
     
@@ -19,7 +19,7 @@ namespace WeifenLuo.WinFormsUI.Docking {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Strings {
@@ -340,6 +340,15 @@ namespace WeifenLuo.WinFormsUI.Docking {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Press SHIFT for docking to full side..
+        /// </summary>
+        internal static string DockIndicator_ToolTipText {
+            get {
+                return ResourceManager.GetString("DockIndicator_ToolTipText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid Content: ActiveContent must be one of the visible contents, or null if there is no visible content..
         /// </summary>
         internal static string DockPane_ActiveContent_InvalidValue {
@@ -412,6 +421,15 @@ namespace WeifenLuo.WinFormsUI.Docking {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to FloatWindow property can not be set to &quot;null&quot; when DockState is DockState.Float..
+        /// </summary>
+        internal static string DockPane_FloatWindow_InvalidValue {
+            get {
+                return ResourceManager.GetString("DockPane_FloatWindow_InvalidValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid Content: Content not within the collection..
         /// </summary>
         internal static string DockPane_SetContentIndex_InvalidContent {
@@ -435,6 +453,33 @@ namespace WeifenLuo.WinFormsUI.Docking {
         internal static string DockPane_SetDockState_InvalidState {
             get {
                 return ResourceManager.GetString("DockPane_SetDockState_InvalidState", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Auto Hide.
+        /// </summary>
+        internal static string DockPaneCaption_ToolTipAutoHide {
+            get {
+                return ResourceManager.GetString("DockPaneCaption_ToolTipAutoHide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close.
+        /// </summary>
+        internal static string DockPaneCaption_ToolTipClose {
+            get {
+                return ResourceManager.GetString("DockPaneCaption_ToolTipClose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Window Position.
+        /// </summary>
+        internal static string DockPaneCaption_ToolTipOptions {
+            get {
+                return ResourceManager.GetString("DockPaneCaption_ToolTipOptions", resourceCulture);
             }
         }
         
@@ -714,6 +759,15 @@ namespace WeifenLuo.WinFormsUI.Docking {
         internal static string DockPanel_SupportDeeplyNestedContent_Description {
             get {
                 return ResourceManager.GetString("DockPanel_SupportDeeplyNestedContent_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Window List.
+        /// </summary>
+        internal static string DockPaneStrip_ToolTipWindowList {
+            get {
+                return ResourceManager.GetString("DockPaneStrip_ToolTipWindowList", resourceCulture);
             }
         }
         

@@ -357,4 +357,22 @@
   <data name="Theme_PaneNotClosed" xml:space="preserve">
     <value>Before applying themes all panes must be closed.</value>
   </data>
+  <data name="DockIndicator_ToolTipText" xml:space="preserve">
+    <value>Press SHIFT for docking to full side.</value>
+  </data>
+  <data name="DockPane_FloatWindow_InvalidValue" xml:space="preserve">
+    <value>FloatWindow property can not be set to "null" when DockState is DockState.Float.</value>
+  </data>
+  <data name="DockPaneCaption_ToolTipAutoHide" xml:space="preserve">
+    <value>Auto Hide</value>
+  </data>
+  <data name="DockPaneCaption_ToolTipClose" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="DockPaneCaption_ToolTipOptions" xml:space="preserve">
+    <value>Window Position</value>
+  </data>
+  <data name="DockPaneStrip_ToolTipWindowList" xml:space="preserve">
+    <value>Window List</value>
+  </data>
 </root>
