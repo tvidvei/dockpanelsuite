@@ -582,7 +582,8 @@ namespace WeifenLuo.WinFormsUI.Docking
                 handler(this, e);
         }
 
-        private static readonly object ActiveContentChangedEvent = new object();
+        internal static readonly object ActiveContentChangedEvent = new object();
+
         [LocalizedCategory("Category_PropertyChanged")]
         [LocalizedDescription("DockPanel_ActiveContentChanged_Description")]
         public event EventHandler ActiveContentChanged

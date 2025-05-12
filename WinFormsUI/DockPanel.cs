@@ -31,7 +31,7 @@ namespace WeifenLuo.WinFormsUI.Docking
 
     [LocalizedDescription("DockPanel_Description")]
     [Designer("System.Windows.Forms.Design.ControlDesigner, System.Design")]
-    [ToolboxBitmap(typeof(resfinder), "WeifenLuo.WinFormsUI.Docking.DockPanel.bmp")]
+    [ToolboxBitmap(typeof(resfinder), "WeifenLuo.WinFormsUI.Resources.DockPanel.bmp")]
     [DefaultProperty("DocumentStyle")]
     [DefaultEvent("ActiveContentChanged")]
     public partial class DockPanel : Panel
@@ -1172,5 +1172,122 @@ namespace WeifenLuo.WinFormsUI.Docking
             old.Parent = null;
             old.Dispose();
         }
+
+        // ----- From DockPanel.AutoHideWindow -----
+
+        private AutoHideWindowControlBase AutoHideWindow {
+            get { return m_autoHideWindow; }
+        }
+
+        internal Control AutoHideControl {
+            get { return m_autoHideWindow; }
+        }
+
+        internal void RefreshActiveAutoHideContent() {
+            AutoHideWindow.RefreshActiveContent();
+        }
+
+        internal Rectangle AutoHideWindowRectangle {
+            get {
+                DockState state = AutoHideWindow.DockState;
+                Rectangle rectDockArea = DockArea;
+                if (ActiveAutoHideContent == null)
+                    return Rectangle.Empty;
+
+                if (Parent == null)
+                    return Rectangle.Empty;
+
+                Rectangle rect = Rectangle.Empty;
+                double autoHideSize = ActiveAutoHideContent.DockHandler.AutoHidePortion;
+                if (state == DockState.DockLeftAutoHide) {
+                    if (autoHideSize < 1)
+                        autoHideSize = rectDockArea.Width * autoHideSize;
+                    if (autoHideSize > rectDockArea.Width - MeasurePane.MinSize)
+                        autoHideSize = rectDockArea.Width - MeasurePane.MinSize;
+                    rect.X = rectDockArea.X - Theme.Measures.DockPadding;
+                    rect.Y = rectDockArea.Y;
+                    rect.Width = (int)autoHideSize;
+                    rect.Height = rectDockArea.Height;
+                } else if (state == DockState.DockRightAutoHide) {
+                    if (autoHideSize < 1)
+                        autoHideSize = rectDockArea.Width * autoHideSize;
+                    if (autoHideSize > rectDockArea.Width - MeasurePane.MinSize)
+                        autoHideSize = rectDockArea.Width - MeasurePane.MinSize;
+                    rect.X = rectDockArea.X + rectDockArea.Width - (int)autoHideSize + Theme.Measures.DockPadding;
+                    rect.Y = rectDockArea.Y;
+                    rect.Width = (int)autoHideSize;
+                    rect.Height = rectDockArea.Height;
+                } else if (state == DockState.DockTopAutoHide) {
+                    if (autoHideSize < 1)
+                        autoHideSize = rectDockArea.Height * autoHideSize;
+                    if (autoHideSize > rectDockArea.Height - MeasurePane.MinSize)
+                        autoHideSize = rectDockArea.Height - MeasurePane.MinSize;
+                    rect.X = rectDockArea.X;
+                    rect.Y = rectDockArea.Y - Theme.Measures.DockPadding;
+                    rect.Width = rectDockArea.Width;
+                    rect.Height = (int)autoHideSize;
+                } else if (state == DockState.DockBottomAutoHide) {
+                    if (autoHideSize < 1)
+                        autoHideSize = rectDockArea.Height * autoHideSize;
+                    if (autoHideSize > rectDockArea.Height - MeasurePane.MinSize)
+                        autoHideSize = rectDockArea.Height - MeasurePane.MinSize;
+                    rect.X = rectDockArea.X;
+                    rect.Y = rectDockArea.Y + rectDockArea.Height - (int)autoHideSize + Theme.Measures.DockPadding;
+                    rect.Width = rectDockArea.Width;
+                    rect.Height = (int)autoHideSize;
+                }
+
+                return rect;
+            }
+        }
+
+        internal Rectangle GetAutoHideWindowBounds(Rectangle rectAutoHideWindow) {
+            if (DocumentStyle == DocumentStyle.SystemMdi ||
+                DocumentStyle == DocumentStyle.DockingMdi)
+                return (Parent == null) ? Rectangle.Empty : Parent.RectangleToClient(RectangleToScreen(rectAutoHideWindow));
+            else
+                return rectAutoHideWindow;
+        }
+
+        internal void RefreshAutoHideStrip() {
+            AutoHideStripControl.RefreshChanges();
+        }
+
+
+        // ----- From DockPanel.Appearance -----
+
+        [LocalizedCategory("Category_Docking")]
+        [LocalizedDescription("DockPanel_DockPanelSkin")]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        [Browsable(false)]
+        [Obsolete("Use Theme.Skin instead.")]
+        public DockPanelSkin Skin {
+            get { return null; }
+        }
+
+        private ThemeBase m_dockPanelTheme = new DefaultTheme();
+
+        [LocalizedCategory("Category_Docking")]
+        [LocalizedDescription("DockPanel_DockPanelTheme")]
+        public ThemeBase Theme {
+            get { return m_dockPanelTheme; }
+            set {
+                if (value == null) {
+                    return;
+                }
+
+                if (m_dockPanelTheme.GetType() == value.GetType()) {
+                    return;
+                }
+
+                m_dockPanelTheme?.CleanUp(this);
+                m_dockPanelTheme = value;
+                m_dockPanelTheme.ApplyTo(this);
+                m_dockPanelTheme.PostApply(this);
+            }
+        }
+
+        //
+
     }
 }

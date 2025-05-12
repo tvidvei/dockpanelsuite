@@ -35,6 +35,7 @@
 
   <ItemGroup>
     <Compile Include="Attributes.cs" />
+    <Compile Include="AutoHideWindowControlBase.cs" />
     <Compile Include="Configuration\PatchSection.cs" />
     <Compile Include="DefaultTheme.cs" />
     <Compile Include="DockPanel.SplitterDragHandler.cs">
@@ -70,9 +71,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="VisualStudioColorTable.cs" />
-    <Compile Include="DockPanel.AutoHideWindow.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="VisibleNestedPaneCollection.cs" />
     <Compile Include="DockAreasEditor.cs" />
     <Compile Include="DockContent.cs">
@@ -203,6 +201,8 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DockContent.resx" />
+    <EmbeddedResource Include="DockPane.SplitterControl.resx" />
+    <EmbeddedResource Include="Resources\DockPanel.bmp" />
     <EmbeddedResource Include="Resources\Dockindicator_PaneDiamond_Hotspot.png" />
     <EmbeddedResource Include="Resources\DockIndicator_PaneDiamond_HotspotIndex.png" />
     <EmbeddedResource Include="Resources\MaskArrowBottom.png" />
@@ -238,16 +238,8 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DockPanel.Appearance.cs">
-      <SubType>Component</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="dockpanelsuite.snk" />
     <None Include="license.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="DockPanel.bmp" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net40' OR '$(TargetFramework)' == 'net35'">
     <Reference Include="System.Configuration" />
