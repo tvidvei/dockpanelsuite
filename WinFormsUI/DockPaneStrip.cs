@@ -9,7 +9,8 @@ using WeifenLuo.WinFormsUI.ThemeVS2012;
 namespace WeifenLuo.WinFormsUI.ThemeVS2013
 {
     [ToolboxItem(false)]
-    internal class VS2015DockPaneStrip : DockPaneStripBase
+    [VS2015]
+    internal class DockPaneStrip : DockPaneStripBase
     {
         private class TabVS2013 : Tab
         {
@@ -240,7 +241,7 @@ namespace WeifenLuo.WinFormsUI.ThemeVS2013
 
         private static GraphicsPath GraphicsPath
         {
-            get { return VS2015AutoHideStrip.GraphicsPath; }
+            get { return AutoHideStrip.GraphicsPath; }
         }
 
         private IContainer Components
@@ -501,7 +502,7 @@ namespace WeifenLuo.WinFormsUI.ThemeVS2013
 
         #endregion
 
-        public VS2015DockPaneStrip(DockPane pane)
+        public DockPaneStrip(DockPane pane)
             : base(pane)
         {
             SetStyle(ControlStyles.ResizeRedraw |

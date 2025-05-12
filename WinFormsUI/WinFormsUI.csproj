@@ -34,6 +34,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Attributes.cs" />
     <Compile Include="Configuration\PatchSection.cs" />
     <Compile Include="DefaultTheme.cs" />
     <Compile Include="DockPanel.SplitterDragHandler.cs">
@@ -142,11 +143,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
-    <Compile Include="VS2015AutoHideStrip.cs">
+    <Compile Include="AutoHideStrip.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="VS2015AutoHideStripFactory.cs" />
-    <Compile Include="VS2015AutoHideWindowControl.cs">
+    <Compile Include="AutoHideStripFactory.cs" />
+    <Compile Include="AutoHideWindowControl.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="VS2015AutoHideWindowFactory.cs" />
@@ -170,7 +171,7 @@
     </Compile>
     <Compile Include="VS2015DockPaneFactory.cs" />
     <Compile Include="VS2015DockPaneSplitterControlFactory.cs" />
-    <Compile Include="VS2015DockPaneStrip.cs">
+    <Compile Include="DockPaneStrip.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="VS2015DockPaneStripFactory.cs" />

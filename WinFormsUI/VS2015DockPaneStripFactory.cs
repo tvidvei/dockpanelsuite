@@ -6,7 +6,7 @@ namespace WeifenLuo.WinFormsUI.ThemeVS2013
     {
         public DockPaneStripBase CreateDockPaneStrip(DockPane pane)
         {
-            return new VS2015DockPaneStrip(pane);
+            return new DockPaneStrip(pane);
         }
     }
 }

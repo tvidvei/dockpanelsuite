@@ -65,7 +65,7 @@ namespace WeifenLuo.WinFormsUI.Docking
 
         public interface IAutoHideWindowFactory
         {
-            AutoHideWindowControl CreateAutoHideWindow(DockPanel panel);
+            AutoHideWindowControlBase CreateAutoHideWindow(DockPanel panel);
         }
 
         public interface IPaneIndicatorFactory

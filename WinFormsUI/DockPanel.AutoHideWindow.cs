@@ -8,17 +8,17 @@ namespace WeifenLuo.WinFormsUI.Docking
     partial class DockPanel
     {
         [ToolboxItem(false)]
-        public class AutoHideWindowControl : Panel, ISplitterHost
+        public class AutoHideWindowControlBase : Panel, ISplitterHost
         {
             protected class SplitterControl : SplitterBase
             {
-                public SplitterControl(AutoHideWindowControl autoHideWindow)
+                public SplitterControl(AutoHideWindowControlBase autoHideWindow)
                 {
                     m_autoHideWindow = autoHideWindow;
                 }
 
-                private AutoHideWindowControl m_autoHideWindow;
-                private AutoHideWindowControl AutoHideWindow
+                private AutoHideWindowControlBase m_autoHideWindow;
+                private AutoHideWindowControlBase AutoHideWindow
                 {
                     get { return m_autoHideWindow; }
                 }
@@ -41,7 +41,7 @@ namespace WeifenLuo.WinFormsUI.Docking
             private Timer m_timerMouseTrack;
             protected SplitterBase m_splitter { get; private set; }
 
-            public AutoHideWindowControl(DockPanel dockPanel)
+            public AutoHideWindowControlBase(DockPanel dockPanel)
             {
                 m_dockPanel = dockPanel;
 
@@ -480,7 +480,7 @@ namespace WeifenLuo.WinFormsUI.Docking
             #endregion
         }
 
-        private AutoHideWindowControl AutoHideWindow
+        private AutoHideWindowControlBase AutoHideWindow
         {
             get { return m_autoHideWindow; }
         }

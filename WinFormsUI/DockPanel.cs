@@ -39,7 +39,7 @@ namespace WeifenLuo.WinFormsUI.Docking
         private readonly FocusManagerImpl m_focusManager;
         private readonly DockPaneCollection m_panes;
         private readonly FloatWindowCollection m_floatWindows;
-        private AutoHideWindowControl m_autoHideWindow;
+        private AutoHideWindowControlBase m_autoHideWindow;
         private DockWindowCollection m_dockWindows;
         private readonly DockContent m_dummyContent; 
         private readonly Control m_dummyControl;

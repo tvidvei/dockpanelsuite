@@ -23,7 +23,7 @@ namespace WeifenLuo.WinFormsUI.ThemeVS2015
             Measures.AutoHideSplitterSize = 3;
             Measures.DockPadding = 6;
             ShowAutoHideContentOnHover = false;
-            Extender.AutoHideStripFactory = new VS2015AutoHideStripFactory();
+            Extender.AutoHideStripFactory = new AutoHideStripFactory();
             Extender.AutoHideWindowFactory = new VS2015AutoHideWindowFactory();
             Extender.DockPaneFactory = new VS2015DockPaneFactory();
             Extender.DockPaneCaptionFactory = new VS2015DockPaneCaptionFactory();

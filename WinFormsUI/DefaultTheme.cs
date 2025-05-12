@@ -55,12 +55,12 @@ namespace WeifenLuo.WinFormsUI.Docking
 
         private class DefaultAutoHideWindowFactory : DockPanelExtender.IAutoHideWindowFactory
         {
-            public DockPanel.AutoHideWindowControl CreateAutoHideWindow(DockPanel panel)
+            public DockPanel.AutoHideWindowControlBase CreateAutoHideWindow(DockPanel panel)
             {
                 return new DefaultAutoHideWindowControl(panel);
             }
 
-            private class DefaultAutoHideWindowControl : DockPanel.AutoHideWindowControl
+            private class DefaultAutoHideWindowControl : DockPanel.AutoHideWindowControlBase
             {
                 public DefaultAutoHideWindowControl(DockPanel dockPanel) : base(dockPanel)
                 {

@@ -4,9 +4,9 @@ namespace WeifenLuo.WinFormsUI.ThemeVS2012
 {
     internal class VS2015AutoHideWindowFactory : DockPanelExtender.IAutoHideWindowFactory
     {
-        public DockPanel.AutoHideWindowControl CreateAutoHideWindow(DockPanel panel)
+        public DockPanel.AutoHideWindowControlBase CreateAutoHideWindow(DockPanel panel)
         {
-            return new VS2015AutoHideWindowControl(panel);
+            return new AutoHideWindowControl(panel);
         }
     }
 }
