@@ -43,9 +43,6 @@
     <Compile Include="DragForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DockPanel.MdiClientController.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="AutoHideStripBase.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -64,8 +61,10 @@
     </Compile>
     <Compile Include="IPaintingService.cs" />
     <Compile Include="LayoutUtils.cs" />
+    <Compile Include="MdiClientController.cs" />
     <Compile Include="PaintingService.cs" />
     <Compile Include="PatchController.cs" />
+    <Compile Include="Persistor.cs" />
     <Compile Include="Resources.cs" />
     <Compile Include="SplitterDragHandler.cs" />
     <Compile Include="ThemeBase.cs">

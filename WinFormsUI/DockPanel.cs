@@ -5,6 +5,8 @@ using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Collections.Generic;
 using System.Drawing.Drawing2D;
+using System.IO;
+using System.Text;
 
 // To simplify the process of finding the toolbox bitmap resource:
 // #1 Create an internal class called "resfinder" outside of the root namespace.
@@ -1464,9 +1466,147 @@ namespace WeifenLuo.WinFormsUI.Docking
         }
 
 
-        // ----- From DockPanel.FocusManager -----
+        // ----- From DockPanel.MdiClientController -----
+
+        private MdiClientController m_mdiClientController = null;
+
+        private MdiClientController GetMdiClientController() {
+            if (m_mdiClientController == null) {
+                m_mdiClientController = new MdiClientController();
+                m_mdiClientController.HandleAssigned += new EventHandler(MdiClientHandleAssigned);
+                m_mdiClientController.MdiChildActivate += new EventHandler(ParentFormMdiChildActivate);
+                m_mdiClientController.Layout += new LayoutEventHandler(MdiClient_Layout);
+            }
+
+            return m_mdiClientController;
+        }
+
+        internal void ParentFormMdiChildActivate(object sender, EventArgs e) {
+            if (GetMdiClientController().ParentForm == null)
+                return;
+
+            IDockContent content = GetMdiClientController().ParentForm.ActiveMdiChild as IDockContent;
+            if (content == null)
+                return;
+
+            if (content.DockHandler.DockPanel == this && content.DockHandler.Pane != null) {
+                if (content.DockHandler.Pane.DisplayingContents.Contains(content)) {
+                    content.DockHandler.Pane.ActiveContent = content;
+                } else if (PatchController.EnableActiveControlFix != true) {
+                    content.DockHandler.Pane.ActiveContent = content;
+                }
+            }
+        }
+
+        internal bool MdiClientExists {
+            get { return GetMdiClientController().MdiClient != null; }
+        }
+
+        internal void SetMdiClientBounds(Rectangle bounds) {
+            GetMdiClientController().MdiClient.Bounds = bounds;
+        }
+
+        internal void SuspendMdiClientLayout() {
+            if (GetMdiClientController().MdiClient != null)
+                GetMdiClientController().MdiClient.SuspendLayout();
+        }
+
+        internal void ResumeMdiClientLayout(bool perform) {
+            if (GetMdiClientController().MdiClient != null)
+                GetMdiClientController().MdiClient.ResumeLayout(perform);
+        }
+
+        internal void PerformMdiClientLayout() {
+            if (GetMdiClientController().MdiClient != null)
+                GetMdiClientController().MdiClient.PerformLayout();
+        }
+
+        // Called when:
+        // 1. DockPanel.DocumentStyle changed
+        // 2. DockPanel.Visible changed
+        // 3. MdiClientController.Handle assigned
+        internal void SetMdiClient() {
+            MdiClientController controller = GetMdiClientController();
+
+            if (this.DocumentStyle == DocumentStyle.DockingMdi) {
+                controller.AutoScroll = false;
+                controller.BorderStyle = BorderStyle.None;
+                if (MdiClientExists)
+                    controller.MdiClient.Dock = DockStyle.Fill;
+            } else if (DocumentStyle == DocumentStyle.DockingSdi || DocumentStyle == DocumentStyle.DockingWindow) {
+                controller.AutoScroll = true;
+                controller.BorderStyle = BorderStyle.Fixed3D;
+                if (MdiClientExists)
+                    controller.MdiClient.Dock = DockStyle.Fill;
+            } else if (this.DocumentStyle == DocumentStyle.SystemMdi) {
+                controller.AutoScroll = true;
+                controller.BorderStyle = BorderStyle.Fixed3D;
+                if (controller.MdiClient != null) {
+                    controller.MdiClient.Dock = DockStyle.None;
+                    controller.MdiClient.Bounds = SystemMdiClientBounds;
+                }
+            }
+        }
+
+        internal Rectangle RectangleToMdiClient(Rectangle rect) {
+            if (MdiClientExists)
+                return GetMdiClientController().MdiClient.RectangleToClient(rect);
+            else
+                return Rectangle.Empty;
+        }
 
 
+        // ----- From DockPanel.Persistor -----
+
+        public void SaveAsXml(string fileName) {
+            Persistor.SaveAsXml(this, fileName);
+        }
+
+        public void SaveAsXml(string fileName, Encoding encoding) {
+            Persistor.SaveAsXml(this, fileName, encoding);
+        }
+
+        public void SaveAsXml(Stream stream, Encoding encoding) {
+            Persistor.SaveAsXml(this, stream, encoding);
+        }
+
+        public void SaveAsXml(Stream stream, Encoding encoding, bool upstream) {
+            Persistor.SaveAsXml(this, stream, encoding, upstream);
+        }
+
+        /// <summary>
+        /// Loads layout from XML file.
+        /// </summary>
+        /// <param name="fileName">The file name.</param>
+        /// <param name="deserializeContent">Deserialization handler.</param>
+        /// <exception cref="Exception">Deserialization might throw exceptions.</exception>
+        public void LoadFromXml(string fileName, DeserializeDockContent deserializeContent) {
+            Persistor.LoadFromXml(this, fileName, deserializeContent);
+        }
+
+        /// <summary>
+        /// Loads layout from a stream.
+        /// </summary>
+        /// <param name="stream">The stream.</param>
+        /// <param name="deserializeContent">Deserialization handler.</param>
+        /// <exception cref="Exception">Deserialization might throw exceptions.</exception>
+        /// <remarks>
+        /// The stream is closed after deserialization.
+        /// </remarks>
+        public void LoadFromXml(Stream stream, DeserializeDockContent deserializeContent) {
+            Persistor.LoadFromXml(this, stream, deserializeContent, true);
+        }
+
+        /// <summary>
+        /// Loads layout from a stream.
+        /// </summary>
+        /// <param name="stream">The stream.</param>
+        /// <param name="deserializeContent">Deserialization handler.</param>
+        /// <param name="closeStream">The flag to close the stream after deserialization.</param>
+        /// <exception cref="Exception">Deserialization might throw exceptions.</exception>
+        public void LoadFromXml(Stream stream, DeserializeDockContent deserializeContent, bool closeStream) {
+            Persistor.LoadFromXml(this, stream, deserializeContent, closeStream);
+        }
 
     }
 }
