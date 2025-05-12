@@ -333,6 +333,7 @@ namespace WeifenLuo.WinFormsUI.Docking
         }
 
         private MdiClientController m_mdiClientController = null;
+
         private MdiClientController GetMdiClientController()
         {
             if (m_mdiClientController == null)
@@ -346,7 +347,7 @@ namespace WeifenLuo.WinFormsUI.Docking
             return m_mdiClientController;
         }
 
-        private void ParentFormMdiChildActivate(object sender, EventArgs e)
+        internal void ParentFormMdiChildActivate(object sender, EventArgs e)
         {
             if (GetMdiClientController().ParentForm == null)
                 return;
@@ -368,29 +369,29 @@ namespace WeifenLuo.WinFormsUI.Docking
             }
         }
 
-        private bool MdiClientExists
+        internal bool MdiClientExists
         {
             get { return GetMdiClientController().MdiClient != null; }
         }
 
-        private void SetMdiClientBounds(Rectangle bounds)
+        internal void SetMdiClientBounds(Rectangle bounds)
         {
             GetMdiClientController().MdiClient.Bounds = bounds;
         }
 
-        private void SuspendMdiClientLayout()
+        internal void SuspendMdiClientLayout()
         {
             if (GetMdiClientController().MdiClient != null)
                 GetMdiClientController().MdiClient.SuspendLayout();
         }
 
-        private void ResumeMdiClientLayout(bool perform)
+        internal void ResumeMdiClientLayout(bool perform)
         {
             if (GetMdiClientController().MdiClient != null)
                 GetMdiClientController().MdiClient.ResumeLayout(perform);
         }
 
-        private void PerformMdiClientLayout()
+        internal void PerformMdiClientLayout()
         {
             if (GetMdiClientController().MdiClient != null)
                 GetMdiClientController().MdiClient.PerformLayout();
@@ -400,7 +401,7 @@ namespace WeifenLuo.WinFormsUI.Docking
         // 1. DockPanel.DocumentStyle changed
         // 2. DockPanel.Visible changed
         // 3. MdiClientController.Handle assigned
-        private void SetMdiClient()
+        internal void SetMdiClient()
         {
             MdiClientController controller = GetMdiClientController();
 

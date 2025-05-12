@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Collections.Generic;
+using System.Drawing.Drawing2D;
 
 // To simplify the process of finding the toolbox bitmap resource:
 // #1 Create an internal class called "resfinder" outside of the root namespace.
@@ -559,7 +560,7 @@ namespace WeifenLuo.WinFormsUI.Docking
             }
         }
 
-        private Control DummyControl
+        internal Control DummyControl
         {
             get { return m_dummyControl; }
         }
@@ -1175,7 +1176,7 @@ namespace WeifenLuo.WinFormsUI.Docking
 
         // ----- From DockPanel.AutoHideWindow -----
 
-        private AutoHideWindowControlBase AutoHideWindow {
+        internal AutoHideWindowControlBase AutoHideWindow {
             get { return m_autoHideWindow; }
         }
 
@@ -1287,7 +1288,185 @@ namespace WeifenLuo.WinFormsUI.Docking
             }
         }
 
-        //
+        // ----- From DockPanel.DockDragHandler -----
+
+        #region IHitTest
+        public interface IHitTest
+        {
+            DockStyle HitTest(Point pt);
+            DockStyle Status { get; set; }
+        }
+
+        public interface IPaneIndicator : IHitTest
+        {
+            Point Location { get; set; }
+            bool Visible { get; set; }
+            int Left { get; }
+            int Top { get; }
+            int Right { get; }
+            int Bottom { get; }
+            Rectangle ClientRectangle { get; }
+            int Width { get; }
+            int Height { get; }
+            GraphicsPath DisplayingGraphicsPath { get; }
+        }
+
+        public interface IPanelIndicator : IHitTest
+        {
+            Point Location { get; set; }
+            bool Visible { get; set; }
+            Rectangle Bounds { get; }
+            int Width { get; }
+            int Height { get; }
+        }
+
+        public struct HotSpotIndex
+        {
+            public HotSpotIndex(int x, int y, DockStyle dockStyle) {
+                m_x = x;
+                m_y = y;
+                m_dockStyle = dockStyle;
+            }
+
+            private int m_x;
+            public int X {
+                get { return m_x; }
+            }
+
+            private int m_y;
+            public int Y {
+                get { return m_y; }
+            }
+
+            private DockStyle m_dockStyle;
+            public DockStyle DockStyle {
+                get { return m_dockStyle; }
+            }
+        }
+
+        #endregion
+
+        private DockDragHandler m_dockDragHandler = null;
+        private DockDragHandler GetDockDragHandler() {
+            if (m_dockDragHandler == null)
+                m_dockDragHandler = new DockDragHandler(this);
+            return m_dockDragHandler;
+        }
+
+        internal void BeginDrag(IDockDragSource dragSource) {
+            GetDockDragHandler().BeginDrag(dragSource);
+        }
+
+
+        // ----- From DockPanel.SplitterDragHandler -----
+
+        private SplitterDragHandler m_splitterDragHandler = null;
+        private SplitterDragHandler GetSplitterDragHandler() {
+            if (m_splitterDragHandler == null)
+                m_splitterDragHandler = new SplitterDragHandler(this);
+            return m_splitterDragHandler;
+        }
+
+        public void BeginDrag(ISplitterDragSource dragSource, Rectangle rectSplitter) {
+            GetSplitterDragHandler().BeginDrag(dragSource, rectSplitter);
+        }
+
+
+        // ----- From DockPanel.FocusManager -----
+
+        private IFocusManager FocusManager {
+            get { return m_focusManager; }
+        }
+
+        internal IContentFocusManager ContentFocusManager {
+            get { return m_focusManager; }
+        }
+
+        internal void SaveFocus() {
+            DummyControl.Focus();
+        }
+
+        [Browsable(false)]
+        public IDockContent ActiveContent {
+            get { return FocusManager.ActiveContent; }
+        }
+
+        [Browsable(false)]
+        public DockPane ActivePane {
+            get { return FocusManager.ActivePane; }
+        }
+
+        [Browsable(false)]
+        public IDockContent ActiveDocument {
+            get { return FocusManager.ActiveDocument; }
+        }
+
+        [Browsable(false)]
+        public DockPane ActiveDocumentPane {
+            get { return FocusManager.ActiveDocumentPane; }
+        }
+
+        internal static readonly object ActiveDocumentChangedEvent = new object();
+
+        [LocalizedCategory("Category_PropertyChanged")]
+        [LocalizedDescription("DockPanel_ActiveDocumentChanged_Description")]
+        public event EventHandler ActiveDocumentChanged {
+            add { Events.AddHandler(ActiveDocumentChangedEvent, value); }
+            remove { Events.RemoveHandler(ActiveDocumentChangedEvent, value); }
+        }
+        internal virtual void OnActiveDocumentChanged(EventArgs e) {
+            EventHandler handler = (EventHandler)Events[ActiveDocumentChangedEvent];
+            if (handler != null)
+                handler(this, e);
+        }
+
+        internal static readonly object ActiveContentChangedEvent = new object();
+
+        [LocalizedCategory("Category_PropertyChanged")]
+        [LocalizedDescription("DockPanel_ActiveContentChanged_Description")]
+        public event EventHandler ActiveContentChanged {
+            add { Events.AddHandler(ActiveContentChangedEvent, value); }
+            remove { Events.RemoveHandler(ActiveContentChangedEvent, value); }
+        }
+
+        internal void OnActiveContentChanged(EventArgs e) {
+            EventHandler handler = (EventHandler)Events[ActiveContentChangedEvent];
+            if (handler != null)
+                handler(this, e);
+        }
+
+        internal static readonly object DocumentDraggedEvent = new object();
+
+        [LocalizedCategory("Category_PropertyChanged")]
+        [LocalizedDescription("DockPanel_ActiveContentChanged_Description")]
+        public event EventHandler DocumentDragged {
+            add { Events.AddHandler(DocumentDraggedEvent, value); }
+            remove { Events.RemoveHandler(DocumentDraggedEvent, value); }
+        }
+
+        internal void OnDocumentDragged() {
+            EventHandler handler = (EventHandler)Events[DocumentDraggedEvent];
+            if (handler != null)
+                handler(this, EventArgs.Empty);
+        }
+
+        internal static readonly object ActivePaneChangedEvent = new object();
+        [LocalizedCategory("Category_PropertyChanged")]
+        [LocalizedDescription("DockPanel_ActivePaneChanged_Description")]
+        public event EventHandler ActivePaneChanged {
+            add { Events.AddHandler(ActivePaneChangedEvent, value); }
+            remove { Events.RemoveHandler(ActivePaneChangedEvent, value); }
+        }
+        internal virtual void OnActivePaneChanged(EventArgs e) {
+            EventHandler handler = (EventHandler)Events[ActivePaneChangedEvent];
+            if (handler != null)
+                handler(this, e);
+        }
+
+
+        // ----- From DockPanel.FocusManager -----
+
+
 
     }
 }

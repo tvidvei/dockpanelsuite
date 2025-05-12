@@ -2,7 +2,7 @@ using System.Drawing;
 using System.Diagnostics.CodeAnalysis;
 using System.Windows.Forms;
 using static WeifenLuo.WinFormsUI.Docking.DockPanel;
-using static WeifenLuo.WinFormsUI.Docking.DockPanel.DockDragHandler;
+using static WeifenLuo.WinFormsUI.Docking.DockDragHandler;
 
 namespace WeifenLuo.WinFormsUI.Docking
 {

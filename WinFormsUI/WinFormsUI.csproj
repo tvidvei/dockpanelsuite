@@ -38,12 +38,7 @@
     <Compile Include="AutoHideWindowControlBase.cs" />
     <Compile Include="Configuration\PatchSection.cs" />
     <Compile Include="DefaultTheme.cs" />
-    <Compile Include="DockPanel.SplitterDragHandler.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="DockPanel.DragHandler.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="DockDragHandler.cs" />
     <Compile Include="DockPanelColorPalette.cs" />
     <Compile Include="DragForm.cs">
       <SubType>Form</SubType>
@@ -54,7 +49,12 @@
     <Compile Include="AutoHideStripBase.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DragHandler.cs" />
+    <Compile Include="DragHandlerBase.cs" />
     <Compile Include="DrawingRoutines.cs" />
+    <Compile Include="FocusManager.cs" />
+    <Compile Include="IContentFocusManager.cs" />
+    <Compile Include="IFocusManager.cs" />
     <Compile Include="IImageService.cs" />
     <Compile Include="ImageService.cs" />
     <Compile Include="InertButtonBase.cs">
@@ -67,6 +67,7 @@
     <Compile Include="PaintingService.cs" />
     <Compile Include="PatchController.cs" />
     <Compile Include="Resources.cs" />
+    <Compile Include="SplitterDragHandler.cs" />
     <Compile Include="ThemeBase.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -78,9 +79,6 @@
     </Compile>
     <Compile Include="DockContentCollection.cs" />
     <Compile Include="DockContentHandler.cs" />
-    <Compile Include="DockPanel.DockDragHandler.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Helpers\DockHelper.cs" />
     <Compile Include="NestedPaneCollection.cs" />
     <Compile Include="DockOutlineBase.cs" />
@@ -115,9 +113,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FloatWindowCollection.cs" />
-    <Compile Include="DockPanel.FocusManager.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Interfaces.cs" />
     <Compile Include="Measures.cs" />
     <Compile Include="NestedDockingStatus.cs" />

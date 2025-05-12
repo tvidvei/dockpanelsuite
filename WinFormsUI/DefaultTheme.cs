@@ -153,9 +153,9 @@ namespace WeifenLuo.WinFormsUI.Docking
 
         private class DefaultDockIndicatorFactory : DockPanelExtender.IDockIndicatorFactory
         {
-            public DockPanel.DockDragHandler.DockIndicator CreateDockIndicator(DockPanel.DockDragHandler dockDragHandler)
+            public DockDragHandler.DockIndicator CreateDockIndicator(DockDragHandler dockDragHandler)
             {
-                return new DockPanel.DockDragHandler.DockIndicator(dockDragHandler);
+                return new DockDragHandler.DockIndicator(dockDragHandler);
             }
         }
 

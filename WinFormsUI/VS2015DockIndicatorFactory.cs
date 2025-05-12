@@ -4,9 +4,9 @@ namespace WeifenLuo.WinFormsUI.ThemeVS2012
 {
     internal class VS2015DockIndicatorFactory : DockPanelExtender.IDockIndicatorFactory
     {
-        public DockPanel.DockDragHandler.DockIndicator CreateDockIndicator(DockPanel.DockDragHandler dockDragHandler)
+        public DockDragHandler.DockIndicator CreateDockIndicator(DockDragHandler dockDragHandler)
         {
-            return new DockPanel.DockDragHandler.DockIndicator(dockDragHandler) { Opacity = 0.7 };
+            return new DockDragHandler.DockIndicator(dockDragHandler) { Opacity = 0.7 };
         }
     }
 }
