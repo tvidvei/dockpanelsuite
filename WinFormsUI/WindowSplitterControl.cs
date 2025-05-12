@@ -2,17 +2,16 @@
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
-using WeifenLuo.WinFormsUI.Docking;
 
-namespace WeifenLuo.WinFormsUI.ThemeVS2013
+namespace WeifenLuo.WinFormsUI.Docking
 {
     [ToolboxItem(false)]
-    public class VS2015WindowSplitterControl2 : SplitterBase
+    public class WindowSplitterControl : SplitterBase
     {
         private SolidBrush _horizontalBrush;
         private readonly ISplitterHost _host;
 
-        public VS2015WindowSplitterControl2(ISplitterHost host)
+        public WindowSplitterControl(ISplitterHost host)
         {
             _host = host;
         }

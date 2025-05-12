@@ -319,6 +319,11 @@ namespace WeifenLuo.WinFormsUI.Docking
                 int width = rectWindow.Width;
                 int height = rectWindow.Height - rectCaption.Height - rectTabStrip.Height;
 
+                // ----- From VS2015DockPane -----
+                if (DockState == DockState.Document || Contents.Count == 1) height--;
+                width -= 2;
+                x++;
+
                 return new Rectangle(x, y, width, height);
             }
         }
@@ -1355,6 +1360,7 @@ namespace WeifenLuo.WinFormsUI.Docking
         /// perform a layout to flush the cached args, if they exist.
         /// </summary>
         private DockWindow _lastParentWindow;
+
         protected override void OnParentChanged(EventArgs e)
         {
             base.OnParentChanged(e);
@@ -1382,6 +1388,16 @@ namespace WeifenLuo.WinFormsUI.Docking
         internal DockAlignment SplitterAlignment {
             set { Splitter.Alignment = value; }
         }
+
+
+        // ----- From VS2015DockPane -----
+
+        protected override void OnPaint(PaintEventArgs e) {
+            base.OnPaint(e);
+            var color = DockPanel.Theme.ColorPalette.ToolWindowBorder;
+            e.Graphics.FillRectangle(DockPanel.Theme.PaintingService.GetBrush(color), e.ClipRectangle);
+        }
+
 
     }
 }

@@ -7,7 +7,6 @@ using System.ComponentModel;
 namespace WeifenLuo.WinFormsUI.Docking
 {
     [ToolboxItem(false)]
-    [VS2015]
     internal class DockPaneStrip : DockPaneStripBase
     {
         private class TabVS2013 : Tab

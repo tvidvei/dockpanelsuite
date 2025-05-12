@@ -2,11 +2,10 @@
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-using WeifenLuo.WinFormsUI.Docking;
 
-namespace WeifenLuo.WinFormsUI.ThemeVS2012
+namespace WeifenLuo.WinFormsUI.Docking
 {
-    internal class VS2015PaneIndicatorFactory : DockPanelExtender.IPaneIndicatorFactory
+    internal class PaneIndicatorFactory : DockPanelExtender.IPaneIndicatorFactory
     {
         public DockPanel.IPaneIndicator CreatePaneIndicator(ThemeBase theme)
         {

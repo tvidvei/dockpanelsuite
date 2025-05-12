@@ -2,16 +2,15 @@
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
-using WeifenLuo.WinFormsUI.Docking;
 
-namespace WeifenLuo.WinFormsUI.ThemeVS2012
+namespace WeifenLuo.WinFormsUI.Docking
 {
-    public class VS2015PaletteFactory : IPaletteFactory
+    public class PaletteFactory : IPaletteFactory
     {
         private const string Env = "Environment";
         private XDocument _xml;
 
-        public VS2015PaletteFactory(byte[] file)
+        public PaletteFactory(byte[] file)
         {
             _xml = XDocument.Load(new StreamReader(new MemoryStream(file)));
         }

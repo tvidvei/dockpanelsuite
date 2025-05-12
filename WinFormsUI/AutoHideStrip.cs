@@ -8,7 +8,6 @@ namespace WeifenLuo.WinFormsUI.Docking
 {
     [ToolboxItem(false)]
 
-    [VS2015]
     internal class AutoHideStrip : AutoHideStripBase
     {
         private class TabVS2012 : Tab

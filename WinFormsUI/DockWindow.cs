@@ -8,7 +8,7 @@ namespace WeifenLuo.WinFormsUI.Docking
     /// Dock window base class.
     /// </summary>
     [ToolboxItem(false)]
-    public partial class DockWindow : Panel, INestedPanesContainer, ISplitterHost
+    public class DockWindow : Panel, INestedPanesContainer, ISplitterHost
     {
         private DockPanel m_dockPanel;
         private DockState m_dockState;
@@ -98,27 +98,44 @@ namespace WeifenLuo.WinFormsUI.Docking
         {
             get
             {
+                //Rectangle rect = ClientRectangle;
+                //// if DockWindow is document, exclude the border
+                //if (DockState == DockState.Document)
+                //{
+                //    rect.X += 1;
+                //    rect.Y += 1;
+                //    rect.Width -= 2;
+                //    rect.Height -= 2;
+                //}
+                //// exclude the splitter
+                //else if (DockState == DockState.DockLeft)
+                //    rect.Width -= DockPanel.Theme.Measures.SplitterSize;
+                //else if (DockState == DockState.DockRight)
+                //{
+                //    rect.X += DockPanel.Theme.Measures.SplitterSize;
+                //    rect.Width -= DockPanel.Theme.Measures.SplitterSize;
+                //}
+                //else if (DockState == DockState.DockTop)
+                //    rect.Height -= DockPanel.Theme.Measures.SplitterSize;
+                //else if (DockState == DockState.DockBottom)
+                //{
+                //    rect.Y += DockPanel.Theme.Measures.SplitterSize;
+                //    rect.Height -= DockPanel.Theme.Measures.SplitterSize;
+                //}
+
+                //return rect;
+
+                // ----- From VS2015DockWindow -----
+
                 Rectangle rect = ClientRectangle;
-                // if DockWindow is document, exclude the border
-                if (DockState == DockState.Document)
-                {
-                    rect.X += 1;
-                    rect.Y += 1;
-                    rect.Width -= 2;
-                    rect.Height -= 2;
-                }
-                // exclude the splitter
-                else if (DockState == DockState.DockLeft)
+                if (DockState == DockState.DockLeft)
                     rect.Width -= DockPanel.Theme.Measures.SplitterSize;
-                else if (DockState == DockState.DockRight)
-                {
+                else if (DockState == DockState.DockRight) {
                     rect.X += DockPanel.Theme.Measures.SplitterSize;
                     rect.Width -= DockPanel.Theme.Measures.SplitterSize;
-                }
-                else if (DockState == DockState.DockTop)
+                } else if (DockState == DockState.DockTop)
                     rect.Height -= DockPanel.Theme.Measures.SplitterSize;
-                else if (DockState == DockState.DockBottom)
-                {
+                else if (DockState == DockState.DockBottom) {
                     rect.Y += DockPanel.Theme.Measures.SplitterSize;
                     rect.Height -= DockPanel.Theme.Measures.SplitterSize;
                 }
@@ -227,14 +244,13 @@ namespace WeifenLuo.WinFormsUI.Docking
             }
         }
 
-        #region IDragSource Members
-
         Control IDragSource.DragControl
         {
             get { return this; }
         }
 
         #endregion
-        #endregion
+
+
     }
 }

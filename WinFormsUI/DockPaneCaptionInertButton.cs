@@ -1,11 +1,10 @@
 ﻿using System.ComponentModel;
 using System.Drawing;
-using WeifenLuo.WinFormsUI.Docking;
 
-namespace WeifenLuo.WinFormsUI.ThemeVS2012
+namespace WeifenLuo.WinFormsUI.Docking
 {
     [ToolboxItem(false)]
-    public class VS2015DockPaneCaptionInertButton : InertButtonBase
+    public class DockPaneCaptionInertButton : InertButtonBase
     {
         private Bitmap _hovered;
         private Bitmap _normal;
@@ -16,7 +15,7 @@ namespace WeifenLuo.WinFormsUI.ThemeVS2012
         private Bitmap _autoHide;
         private Bitmap _pressedAutoHide;
 
-        public VS2015DockPaneCaptionInertButton(DockPaneCaptionBase dockPaneCaption, Bitmap hovered, Bitmap normal, Bitmap pressed, Bitmap hoveredActive, Bitmap active, Bitmap hoveredAutoHide = null, Bitmap autoHide = null, Bitmap pressedAutoHide = null)
+        public DockPaneCaptionInertButton(DockPaneCaptionBase dockPaneCaption, Bitmap hovered, Bitmap normal, Bitmap pressed, Bitmap hoveredActive, Bitmap active, Bitmap hoveredAutoHide = null, Bitmap autoHide = null, Bitmap pressedAutoHide = null)
         {
             m_dockPaneCaption = dockPaneCaption;
             _hovered = hovered;

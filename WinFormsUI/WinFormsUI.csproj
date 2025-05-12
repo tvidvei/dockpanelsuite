@@ -34,7 +34,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Attributes.cs" />
     <Compile Include="AutoHideWindowControlBase.cs" />
     <Compile Include="Configuration\PatchSection.cs" />
     <Compile Include="DefaultTheme.cs" />
@@ -82,15 +81,13 @@
     <Compile Include="Helpers\DockHelper.cs" />
     <Compile Include="NestedPaneCollection.cs" />
     <Compile Include="DockOutlineBase.cs" />
-    <Compile Include="DockPane.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="DockPane.cs" />
     <Compile Include="DockPaneCaptionBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DockPaneCollection.cs" />
     <Compile Include="DockPanel.cs" />
-    <Compile Include="DockPanelExtender.cs" />
+    <Compile Include="DockPanelExtender\DockPanelExtender.cs" />
     <Compile Include="DockPaneStripBase.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -133,58 +130,52 @@
     <Compile Include="AutoHideStrip.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AutoHideStripFactory.cs" />
+    <Compile Include="DockPanelExtender\AutoHideStripFactory.cs" />
     <Compile Include="AutoHideWindowControl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AutoHideWindowFactory.cs" />
+    <Compile Include="DockPanelExtender\AutoHideWindowFactory.cs" />
     <Compile Include="Themes\VS2015BlueTheme.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Themes\VS2015DarkTheme.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DockIndicatorFactory.cs" />
-    <Compile Include="DockOutlineFactory.cs" />
-    <Compile Include="VS2015DockPane.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="VS2015DockPaneCaption.cs">
+    <Compile Include="DockPanelExtender\DockIndicatorFactory.cs" />
+    <Compile Include="DockPanelExtender\DockOutlineFactory.cs" />
+    <Compile Include="DockPaneCaption.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="VS2015DockPaneCaptionFactory.cs" />
-    <Compile Include="VS2015DockPaneCaptionInertButton.cs">
+    <Compile Include="DockPanelExtender\DockPaneCaptionFactory.cs" />
+    <Compile Include="DockPaneCaptionInertButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="VS2015DockPaneFactory.cs" />
-    <Compile Include="VS2015DockPaneSplitterControlFactory.cs" />
+    <Compile Include="DockPanelExtender\DockPaneFactory.cs" />
+    <Compile Include="DockPanelExtender\DockPaneSplitterControlFactory.cs" />
     <Compile Include="DockPaneStrip.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="VS2015DockPaneStripFactory.cs" />
-    <Compile Include="VS2015DockWindow.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="VS2015DockWindowFactory.cs" />
+    <Compile Include="DockPanelExtender\DockPaneStripFactory.cs" />
+    <Compile Include="DockPanelExtender\DockWindowFactory.cs" />
     <Compile Include="Themes\VS2015LightTheme.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="VS2015PaletteFactory.cs" />
-    <Compile Include="VS2015PaneIndicatorFactory.cs" />
-    <Compile Include="VS2015PanelIndicatorFactory.cs" />
+    <Compile Include="Themes\PaletteFactory.cs" />
+    <Compile Include="DockPanelExtender\PaneIndicatorFactory.cs" />
+    <Compile Include="DockPanelExtender\PanelIndicatorFactory.cs" />
     <Compile Include="PaneSplitterControl.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Themes\VS2015ThemeBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="VS2015WindowSplitterControl.cs">
+    <Compile Include="WindowSplitterControlOld.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="VS2015WindowSplitterControl2.cs">
+    <Compile Include="WindowSplitterControl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="VS2015WindowSplitterControlFactory.cs" />
+    <Compile Include="DockPanelExtender\WindowSplitterControlFactory.cs" />
     <Compile Include="Win32\Enums.cs" />
     <Compile Include="Win32\NativeMethods.cs" />
   </ItemGroup>
@@ -225,7 +216,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="VS2015DockPane.resx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dockpanelsuite.snk" />

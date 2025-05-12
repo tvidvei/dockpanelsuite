@@ -4,12 +4,11 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
-using WeifenLuo.WinFormsUI.Docking;
 
-namespace WeifenLuo.WinFormsUI.ThemeVS2012
+namespace WeifenLuo.WinFormsUI.Docking
 {
     [ToolboxItem(false)]
-    public class VS2015WindowSplitterControl : SplitterBase
+    public class WindowSplitterControlOld : SplitterBase
     {
         private readonly SolidBrush _horizontalBrush;
         private readonly SolidBrush _backgroundBrush;
@@ -17,7 +16,7 @@ namespace WeifenLuo.WinFormsUI.ThemeVS2012
         private readonly Color[] _verticalSurroundColors;
         private readonly ISplitterHost _host;
 
-        public VS2015WindowSplitterControl(ISplitterHost host)
+        public WindowSplitterControlOld(ISplitterHost host)
         {
             _host = host;
             _horizontalBrush = host.DockPanel.Theme.PaintingService.GetBrush(host.DockPanel.Theme.ColorPalette.TabSelectedInactive.Background);

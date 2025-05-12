@@ -6,7 +6,6 @@ namespace WeifenLuo.WinFormsUI.Docking
 {
 
     [ToolboxItem(false)]
-    [VS2015]
     internal class AutoHideWindowControl : AutoHideWindowControlBase
     {
         public AutoHideWindowControl(DockPanel dockPanel)
