@@ -1,7 +1,6 @@
 ﻿using System.Drawing;
-using WeifenLuo.WinFormsUI.Docking;
 
-namespace WeifenLuo.WinFormsUI.ThemeVS2015
+namespace WeifenLuo.WinFormsUI.Docking
 {
     public class ImageService : IImageService
     {

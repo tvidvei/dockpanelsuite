@@ -66,6 +66,7 @@
     <Compile Include="PatchController.cs" />
     <Compile Include="Persistor.cs" />
     <Compile Include="Resources.cs" />
+    <Compile Include="PaneSplitterControlBase.cs" />
     <Compile Include="SplitterDragHandler.cs" />
     <Compile Include="ThemeBase.cs">
       <SubType>Component</SubType>
@@ -90,9 +91,6 @@
     <Compile Include="DockPaneCollection.cs" />
     <Compile Include="DockPanel.cs" />
     <Compile Include="DockPanelExtender.cs" />
-    <Compile Include="DockPane.SplitterControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="DockPaneStripBase.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -139,15 +137,15 @@
     <Compile Include="AutoHideWindowControl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="VS2015AutoHideWindowFactory.cs" />
-    <Compile Include="VS2015BlueTheme.cs">
+    <Compile Include="AutoHideWindowFactory.cs" />
+    <Compile Include="Themes\VS2015BlueTheme.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="VS2015DarkTheme.cs">
+    <Compile Include="Themes\VS2015DarkTheme.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="VS2015DockIndicatorFactory.cs" />
-    <Compile Include="VS2015DockOutlineFactory.cs" />
+    <Compile Include="DockIndicatorFactory.cs" />
+    <Compile Include="DockOutlineFactory.cs" />
     <Compile Include="VS2015DockPane.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -168,16 +166,16 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="VS2015DockWindowFactory.cs" />
-    <Compile Include="VS2015LightTheme.cs">
+    <Compile Include="Themes\VS2015LightTheme.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="VS2015PaletteFactory.cs" />
     <Compile Include="VS2015PaneIndicatorFactory.cs" />
     <Compile Include="VS2015PanelIndicatorFactory.cs" />
-    <Compile Include="VS2015SplitterControl.cs">
+    <Compile Include="PaneSplitterControl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="VS2015ThemeBase.cs">
+    <Compile Include="Themes\VS2015ThemeBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="VS2015WindowSplitterControl.cs">
@@ -192,7 +190,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DockContent.resx" />
-    <EmbeddedResource Include="DockPane.SplitterControl.resx" />
+    <EmbeddedResource Include="DockPane.resx" />
     <EmbeddedResource Include="Resources\DockPanel.bmp" />
     <EmbeddedResource Include="Resources\Dockindicator_PaneDiamond_Hotspot.png" />
     <EmbeddedResource Include="Resources\DockIndicator_PaneDiamond_HotspotIndex.png" />
@@ -227,6 +225,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="VS2015DockPane.resx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dockpanelsuite.snk" />
@@ -234,9 +233,6 @@
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net40' OR '$(TargetFramework)' == 'net35'">
     <Reference Include="System.Configuration" />
-  </ItemGroup>
-  <ItemGroup>
-    <!--<PackageReference Include="Vanara.PInvoke.SHCore" Version="3.3.4" />-->
   </ItemGroup>
 
 </Project>

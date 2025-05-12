@@ -2,17 +2,16 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
-using WeifenLuo.WinFormsUI.Docking;
 
-namespace WeifenLuo.WinFormsUI.ThemeVS2013
+namespace WeifenLuo.WinFormsUI.Docking
 {
     [ToolboxItem(false)]
-    internal class VS2015SplitterControl : DockPane.SplitterControlBase
+    internal class PaneSplitterControl : PaneSplitterControlBase
     {
         private readonly SolidBrush _horizontalBrush;
         private int SplitterSize { get; }
 
-        public VS2015SplitterControl(DockPane pane)
+        public PaneSplitterControl(DockPane pane)
             : base(pane)
         {
             _horizontalBrush = pane.DockPanel.Theme.PaintingService.GetBrush(pane.DockPanel.Theme.ColorPalette.MainWindowActive.Background);

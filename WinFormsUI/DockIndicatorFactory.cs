@@ -1,8 +1,6 @@
-﻿using WeifenLuo.WinFormsUI.Docking;
-
-namespace WeifenLuo.WinFormsUI.ThemeVS2012
+﻿namespace WeifenLuo.WinFormsUI.Docking
 {
-    internal class VS2015DockIndicatorFactory : DockPanelExtender.IDockIndicatorFactory
+    internal class DockIndicatorFactory : DockPanelExtender.IDockIndicatorFactory
     {
         public DockDragHandler.DockIndicator CreateDockIndicator(DockDragHandler dockDragHandler)
         {

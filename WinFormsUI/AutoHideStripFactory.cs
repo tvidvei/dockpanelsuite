@@ -1,6 +1,4 @@
-﻿using WeifenLuo.WinFormsUI.Docking;
-
-namespace WeifenLuo.WinFormsUI.ThemeVS2012
+﻿namespace WeifenLuo.WinFormsUI.Docking
 {
     [VS2015]
     internal class AutoHideStripFactory : DockPanelExtender.IAutoHideStripFactory

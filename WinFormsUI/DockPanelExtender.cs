@@ -25,7 +25,7 @@ namespace WeifenLuo.WinFormsUI.Docking
 
         public interface IDockPaneSplitterControlFactory
         {
-            DockPane.SplitterControlBase CreateSplitterControl(DockPane pane);
+            PaneSplitterControlBase CreateSplitterControl(DockPane pane);
         }
         
         public interface IWindowSplitterControlFactory

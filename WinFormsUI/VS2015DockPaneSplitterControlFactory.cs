@@ -1,12 +1,10 @@
-﻿using WeifenLuo.WinFormsUI.Docking;
-
-namespace WeifenLuo.WinFormsUI.ThemeVS2013
+﻿namespace WeifenLuo.WinFormsUI.Docking
 {
     internal class VS2015DockPaneSplitterControlFactory : DockPanelExtender.IDockPaneSplitterControlFactory
     {
-        public DockPane.SplitterControlBase CreateSplitterControl(DockPane pane)
+        public PaneSplitterControlBase CreateSplitterControl(DockPane pane)
         {
-            return new VS2015SplitterControl(pane);
+            return new PaneSplitterControl(pane);
         }
     }
 }

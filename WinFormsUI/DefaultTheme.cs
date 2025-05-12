@@ -86,9 +86,9 @@ namespace WeifenLuo.WinFormsUI.Docking
 
         private class DefaultDockPaneSplitterControlFactory : DockPanelExtender.IDockPaneSplitterControlFactory
         {
-            public DockPane.SplitterControlBase CreateSplitterControl(DockPane pane)
+            public PaneSplitterControlBase CreateSplitterControl(DockPane pane)
             {
-                return new DockPane.SplitterControlBase(pane);
+                return new PaneSplitterControlBase(pane);
             }
         }
 

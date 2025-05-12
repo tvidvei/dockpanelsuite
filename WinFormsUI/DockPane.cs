@@ -1366,6 +1366,22 @@ namespace WeifenLuo.WinFormsUI.Docking
                 _lastParentWindow = newParent;
             }
         }
-#endregion
+        #endregion
+
+        // ----- From DockPane.SplitterControl -----
+
+        private PaneSplitterControlBase m_splitter;
+        private PaneSplitterControlBase Splitter {
+            get { return m_splitter; }
+        }
+
+        internal Rectangle SplitterBounds {
+            set { Splitter.Bounds = value; }
+        }
+
+        internal DockAlignment SplitterAlignment {
+            set { Splitter.Alignment = value; }
+        }
+
     }
 }

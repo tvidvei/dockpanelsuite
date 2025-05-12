@@ -1,10 +1,9 @@
 using System.Drawing;
 using System.Windows.Forms;
+using System.ComponentModel;
 
-namespace WeifenLuo.WinFormsUI.ThemeVS2012
+namespace WeifenLuo.WinFormsUI.Docking
 {
-    using Docking;
-    using System.ComponentModel;
 
     [ToolboxItem(false)]
     [VS2015]

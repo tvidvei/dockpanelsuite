@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Drawing;
 
-namespace WeifenLuo.WinFormsUI.ThemeVS2015
+namespace WeifenLuo.WinFormsUI.Docking
 {
 
     public class Person
