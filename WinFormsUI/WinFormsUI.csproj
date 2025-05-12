@@ -90,9 +90,6 @@
     <Compile Include="DockPaneCollection.cs" />
     <Compile Include="DockPanel.cs" />
     <Compile Include="DockPanelExtender.cs" />
-    <Compile Include="DockPanel.Persistor.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="DockPane.SplitterControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
