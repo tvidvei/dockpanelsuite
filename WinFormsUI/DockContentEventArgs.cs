@@ -1,6 +1,6 @@
 using System;
 
-namespace WeifenLuo.WinFormsUI.Docking
+namespace WeifenLuo.Docking
 {
     public class DockContentEventArgs : EventArgs
     {

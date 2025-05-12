@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel;
 
-namespace WeifenLuo.WinFormsUI.Docking
+namespace WeifenLuo.Docking
 {
     [Flags]
     [Serializable]

@@ -7,7 +7,7 @@ using System.IO.Compression;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace WeifenLuo.WinFormsUI.Docking
+namespace WeifenLuo.Docking
 {
     public abstract class ThemeBase : Component
     {

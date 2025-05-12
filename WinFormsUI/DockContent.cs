@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics.CodeAnalysis;
 
-namespace WeifenLuo.WinFormsUI.Docking
+namespace WeifenLuo.Docking
 {
     public class DockContent : Form, IDockContent
     {

@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace WeifenLuo.WinFormsUI.Docking
+namespace WeifenLuo.Docking
 {
     public class PaletteFactory : IPaletteFactory
     {

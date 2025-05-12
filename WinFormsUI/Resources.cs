@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Drawing;
 
-namespace WeifenLuo.WinFormsUI.Docking
+namespace WeifenLuo.Docking
 {
 
     public class Person
@@ -25,7 +25,7 @@ namespace WeifenLuo.WinFormsUI.Docking
         private static readonly Dictionary<string, Image> imageCache = new Dictionary<string, Image>(StringComparer.OrdinalIgnoreCase);
 
         private static Stream GetManifestResourceStream(string name) {
-            return typeof(Resources).Assembly.GetManifestResourceStream("WeifenLuo.WinFormsUI.Resources." + name);
+            return typeof(Resources).Assembly.GetManifestResourceStream("WeifenLuo.Docking.Resources." + name);
         }
 
         public static Image GetImage(string name) {

@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace WeifenLuo.WinFormsUI.Docking
+namespace WeifenLuo.Docking
 {
     internal class PanelIndicatorFactory : DockPanelExtender.IPanelIndicatorFactory
     {

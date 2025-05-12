@@ -2,7 +2,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace WeifenLuo.WinFormsUI.Docking
+namespace WeifenLuo.Docking
 {
     [ToolboxItem(false)]
     public class SplitterBase : Control

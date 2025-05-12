@@ -1,7 +1,7 @@
 ﻿using System.Windows.Forms;
 using System.Drawing;
 
-namespace WeifenLuo.WinFormsUI.Docking
+namespace WeifenLuo.Docking
 {
 
     public abstract class DragHandler : DragHandlerBase

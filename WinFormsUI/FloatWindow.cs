@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using System.Security.Permissions;
 using System.Diagnostics.CodeAnalysis;
 
-namespace WeifenLuo.WinFormsUI.Docking
+namespace WeifenLuo.Docking
 {
     public class FloatWindow : Form, INestedPanesContainer, IDockDragSource
     {

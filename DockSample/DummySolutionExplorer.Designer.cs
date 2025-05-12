@@ -34,7 +34,7 @@ namespace DockSample
             System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("System.Drawing", 6, 6);
             System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("System.Windows.Forms", 6, 6);
             System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("System.XML", 6, 6);
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("WeifenLuo.WinFormsUI.Docking", 6, 6);
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("WeifenLuo.Docking", 6, 6);
             System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("References", 4, 4, new System.Windows.Forms.TreeNode[] {
             treeNode2,
             treeNode3,
@@ -134,7 +134,7 @@ namespace DockSample
             System.Windows.Forms.TreeNode treeNode60 = new System.Windows.Forms.TreeNode("Measures.cs", 7, 7);
             System.Windows.Forms.TreeNode treeNode61 = new System.Windows.Forms.TreeNode("NormalTabStripWindow.cs", 8, 8);
             System.Windows.Forms.TreeNode treeNode62 = new System.Windows.Forms.TreeNode("ResourceHelper.cs", 7, 7);
-            System.Windows.Forms.TreeNode treeNode63 = new System.Windows.Forms.TreeNode("WeifenLuo.WinFormsUI.Docking", 3, 3, new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode63 = new System.Windows.Forms.TreeNode("WeifenLuo.Docking", 3, 3, new System.Windows.Forms.TreeNode[] {
             treeNode35,
             treeNode44,
             treeNode49,
@@ -189,7 +189,7 @@ namespace DockSample
             treeNode7.ImageIndex = 6;
             treeNode7.Name = "";
             treeNode7.SelectedImageIndex = 6;
-            treeNode7.Text = "WeifenLuo.WinFormsUI.Docking";
+            treeNode7.Text = "WeifenLuo.Docking";
             treeNode8.ImageIndex = 4;
             treeNode8.Name = "";
             treeNode8.SelectedImageIndex = 4;
@@ -413,7 +413,7 @@ namespace DockSample
             treeNode63.ImageIndex = 3;
             treeNode63.Name = "";
             treeNode63.SelectedImageIndex = 3;
-            treeNode63.Text = "WeifenLuo.WinFormsUI.Docking";
+            treeNode63.Text = "WeifenLuo.Docking";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode28,
@@ -441,14 +441,14 @@ namespace DockSample
             // 
             this.ClientSize = new System.Drawing.Size(245, 322);
             this.Controls.Add(this.treeView1);
-            this.DockAreas = ((WeifenLuo.WinFormsUI.Docking.DockAreas)((((WeifenLuo.WinFormsUI.Docking.DockAreas.DockLeft | WeifenLuo.WinFormsUI.Docking.DockAreas.DockRight)
-                        | WeifenLuo.WinFormsUI.Docking.DockAreas.DockTop)
-                        | WeifenLuo.WinFormsUI.Docking.DockAreas.DockBottom)));
+            this.DockAreas = ((WeifenLuo.Docking.DockAreas)((((WeifenLuo.Docking.DockAreas.DockLeft | WeifenLuo.Docking.DockAreas.DockRight)
+                        | WeifenLuo.Docking.DockAreas.DockTop)
+                        | WeifenLuo.Docking.DockAreas.DockBottom)));
             this.HideOnClose = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DummySolutionExplorer";
             this.Padding = new System.Windows.Forms.Padding(0, 24, 0, 1);
-            this.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.DockRight;
+            this.ShowHint = WeifenLuo.Docking.DockState.DockRight;
             this.TabText = "Solution Explorer";
             this.Text = "Solution Explorer - WinFormsUI";
             this.ResumeLayout(false);

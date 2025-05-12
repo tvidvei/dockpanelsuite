@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Drawing;
 
-namespace WeifenLuo.WinFormsUI.Docking
+namespace WeifenLuo.Docking
 {
     [ToolboxItem(false)]
     public class DockPaneCaptionInertButton : InertButtonBase

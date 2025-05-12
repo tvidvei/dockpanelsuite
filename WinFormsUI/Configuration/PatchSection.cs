@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace WeifenLuo.WinFormsUI.Docking.Configuration
+namespace WeifenLuo.Docking.Configuration
 {
 #if NET35 || NET40
     public class PatchSection : ConfigurationSection

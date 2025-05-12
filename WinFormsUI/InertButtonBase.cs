@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Imaging;
 
-namespace WeifenLuo.WinFormsUI.Docking
+namespace WeifenLuo.Docking
 {
     public abstract class InertButtonBase : Control
     {

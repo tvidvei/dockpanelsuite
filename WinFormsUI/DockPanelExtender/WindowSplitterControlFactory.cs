@@ -1,4 +1,4 @@
-﻿namespace WeifenLuo.WinFormsUI.Docking
+﻿namespace WeifenLuo.Docking
 {
     internal class WindowSplitterControlFactory : DockPanelExtender.IWindowSplitterControlFactory
     {

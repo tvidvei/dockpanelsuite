@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using System.Collections.Generic;
 
-namespace WeifenLuo.WinFormsUI.Docking
+namespace WeifenLuo.Docking
 {
     [ProvideProperty("EnableVSStyle", typeof(ToolStrip))]
     public partial class VisualStudioToolStripExtender : Component, IExtenderProvider

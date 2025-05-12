@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using System.Security.Permissions;
 using System.Diagnostics.CodeAnalysis;
 
-namespace WeifenLuo.WinFormsUI.Docking
+namespace WeifenLuo.Docking
 {
     [ToolboxItem(false)]
     public partial class DockPane : UserControl, IDockDragSource

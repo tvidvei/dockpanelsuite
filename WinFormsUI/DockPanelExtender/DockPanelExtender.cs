@@ -1,10 +1,10 @@
 using System.Drawing;
 using System.Diagnostics.CodeAnalysis;
 using System.Windows.Forms;
-using static WeifenLuo.WinFormsUI.Docking.DockPanel;
-using static WeifenLuo.WinFormsUI.Docking.DockDragHandler;
+using static WeifenLuo.Docking.DockPanel;
+using static WeifenLuo.Docking.DockDragHandler;
 
-namespace WeifenLuo.WinFormsUI.Docking
+namespace WeifenLuo.Docking
 {
     public sealed class DockPanelExtender
     {

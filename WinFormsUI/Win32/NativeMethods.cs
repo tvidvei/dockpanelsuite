@@ -2,9 +2,9 @@ using System;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Diagnostics.CodeAnalysis;
-using WeifenLuo.WinFormsUI.Docking.Win32;
+using WeifenLuo.Docking.Win32;
 
-namespace WeifenLuo.WinFormsUI.Docking
+namespace WeifenLuo.Docking
 {
     internal static class NativeMethods
     {

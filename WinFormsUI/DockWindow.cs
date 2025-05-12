@@ -2,7 +2,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.ComponentModel;
 
-namespace WeifenLuo.WinFormsUI.Docking
+namespace WeifenLuo.Docking
 {
     /// <summary>
     /// Dock window base class.

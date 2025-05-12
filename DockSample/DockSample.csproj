@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WinFormsUI\WinFormsUI.csproj" />
+    <ProjectReference Include="..\WinFormsUI\WeifenLuo.Docking.csproj" />
   </ItemGroup>
 
   <ItemGroup>

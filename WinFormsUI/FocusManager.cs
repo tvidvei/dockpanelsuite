@@ -5,7 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace WeifenLuo.WinFormsUI.Docking
+namespace WeifenLuo.Docking
 {
     internal class FocusManagerImpl : Component, IContentFocusManager, IFocusManager
     {

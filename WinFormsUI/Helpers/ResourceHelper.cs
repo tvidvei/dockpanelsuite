@@ -1,6 +1,6 @@
 using System.Resources;
 
-namespace WeifenLuo.WinFormsUI.Docking
+namespace WeifenLuo.Docking
 {
     internal static class ResourceHelper
     {
@@ -11,7 +11,7 @@ namespace WeifenLuo.WinFormsUI.Docking
             get
             {
                 if (_resourceManager == null)
-                    _resourceManager = new ResourceManager("WeifenLuo.WinFormsUI.Docking.Strings", typeof(ResourceHelper).Assembly);
+                    _resourceManager = new ResourceManager("WeifenLuo.Docking.Strings", typeof(ResourceHelper).Assembly);
                 return _resourceManager;
             }
 

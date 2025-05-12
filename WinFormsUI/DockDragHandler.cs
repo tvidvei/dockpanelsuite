@@ -1,9 +1,9 @@
 ﻿using System.Windows.Forms;
 using System.Drawing;
-using static WeifenLuo.WinFormsUI.Docking.DockPanel;
+using static WeifenLuo.Docking.DockPanel;
 using System.Drawing.Drawing2D;
 
-namespace WeifenLuo.WinFormsUI.Docking
+namespace WeifenLuo.Docking
 {
     public sealed class DockDragHandler : DragHandler
     {

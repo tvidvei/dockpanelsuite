@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.ComponentModel;
 
-namespace WeifenLuo.WinFormsUI.Docking
+namespace WeifenLuo.Docking
 {
     [ToolboxItem(false)]
 

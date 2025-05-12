@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 
-namespace WeifenLuo.WinFormsUI.Docking
+namespace WeifenLuo.Docking
 {
     internal static class Persistor
     {

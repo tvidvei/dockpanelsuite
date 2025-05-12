@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace WeifenLuo.WinFormsUI.Docking
+namespace WeifenLuo.Docking
 {
     public interface IPaintingService
     {

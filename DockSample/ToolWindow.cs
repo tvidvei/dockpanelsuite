@@ -1,5 +1,5 @@
 using System.Windows.Forms;
-using WeifenLuo.WinFormsUI.Docking;
+using WeifenLuo.Docking;
 
 namespace DockSample
 {

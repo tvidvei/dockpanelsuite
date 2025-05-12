@@ -73,15 +73,15 @@ namespace DockSample
             this.ClientSize = new System.Drawing.Size(221, 365);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
-            this.DockAreas = ((WeifenLuo.WinFormsUI.Docking.DockAreas)(((((WeifenLuo.WinFormsUI.Docking.DockAreas.Float | WeifenLuo.WinFormsUI.Docking.DockAreas.DockLeft)
-                        | WeifenLuo.WinFormsUI.Docking.DockAreas.DockRight)
-                        | WeifenLuo.WinFormsUI.Docking.DockAreas.DockTop)
-                        | WeifenLuo.WinFormsUI.Docking.DockAreas.DockBottom)));
+            this.DockAreas = ((WeifenLuo.Docking.DockAreas)(((((WeifenLuo.Docking.DockAreas.Float | WeifenLuo.Docking.DockAreas.DockLeft)
+                        | WeifenLuo.Docking.DockAreas.DockRight)
+                        | WeifenLuo.Docking.DockAreas.DockTop)
+                        | WeifenLuo.Docking.DockAreas.DockBottom)));
             this.HideOnClose = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DummyToolbox";
             this.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.DockLeftAutoHide;
+            this.ShowHint = WeifenLuo.Docking.DockState.DockLeftAutoHide;
             this.TabText = "Toolbox";
             this.Text = "Toolbox";
             this.ResumeLayout(false);

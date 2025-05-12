@@ -1,4 +1,4 @@
-﻿namespace WeifenLuo.WinFormsUI.Docking
+﻿namespace WeifenLuo.Docking
 {
     internal class AutoHideStripFactory : DockPanelExtender.IAutoHideStripFactory
     {

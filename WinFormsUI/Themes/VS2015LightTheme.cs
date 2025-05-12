@@ -1,4 +1,4 @@
-namespace WeifenLuo.WinFormsUI.Docking
+namespace WeifenLuo.Docking
 {
     /// <summary>
     /// Visual Studio 2015 Light theme.

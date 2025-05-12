@@ -2,7 +2,7 @@ using System.Drawing;
 using System.Security.Permissions;
 using System.Windows.Forms;
 
-namespace WeifenLuo.WinFormsUI.Docking
+namespace WeifenLuo.Docking
 {
     public abstract class DockPaneCaptionBase : Control
     {

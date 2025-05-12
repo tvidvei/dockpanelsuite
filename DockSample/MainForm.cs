@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
-using WeifenLuo.WinFormsUI.Docking;
+using WeifenLuo.Docking;
 
 namespace DockSample
 {
