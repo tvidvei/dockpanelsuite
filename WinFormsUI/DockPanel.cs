@@ -306,13 +306,6 @@ namespace WeifenLuo.Docking
         public DocumentTabStripLocation DocumentTabStripLocation { get; set; } = DocumentTabStripLocation.Top;
 
         [Browsable(false)]
-        [Obsolete("Use Theme.Extender instead.")]
-        public DockPanelExtender Extender
-        {
-            get { return null; }
-        }
-
-        [Browsable(false)]
         public DockPaneCollection Panes
         {
             get { return m_panes; }

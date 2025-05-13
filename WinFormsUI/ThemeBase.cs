@@ -14,10 +14,20 @@ namespace WeifenLuo.Docking
         private Color _dockBackColor;
         private bool _showAutoHideContentOnHover;
 
-        protected ThemeBase()
-        {
-            Extender = new DockPanelExtender();
+        public ThemeBase(byte[] resources) {
+            ColorPalette = new DockPanelColorPalette(new PaletteFactory(resources));
+            Skin = new DockPanelSkin();
+            PaintingService = new PaintingService();
+            ImageService = new ImageService(this);
+            ToolStripRenderer = new VisualStudioToolStripRenderer(ColorPalette) {
+                UseGlassOnMenuStrip = false,
+            };
+            Measures.SplitterSize = 6;
+            Measures.AutoHideSplitterSize = 3;
+            Measures.DockPadding = 6;
+            ShowAutoHideContentOnHover = false;
         }
+
 
         public DockPanelSkin Skin { get; protected set; }
 
@@ -75,23 +85,6 @@ namespace WeifenLuo.Docking
 
         public void ApplyTo(DockPanel dockPanel)
         {
-            if (false //Extender.AutoHideStripFactory == null
-                 //  Extender.AutoHideWindowFactory == null
-                 // Extender.DockIndicatorFactory == null
-                //|| Extender.DockOutlineFactory == null
-                //|| Extender.DockPaneCaptionFactory == null
-                //|| Extender.DockPaneSplitterControlFactory == null
-                //|| Extender.DockPaneStripFactory == null
-                //|| Extender.DockWindowFactory == null
-                //|| Extender.FloatWindowFactory == null
-                //|| Extender.PaneIndicatorFactory == null
-                //|| Extender.PanelIndicatorFactory == null)
-                //|| Extender.WindowSplitterControlFactory == null)
-                )
-            {
-                throw new InvalidOperationException(Strings.Theme_MissingFactory);
-            }
-
             if (dockPanel.Panes.Count > 0)
                 throw new InvalidOperationException(Strings.Theme_PaneNotClosed);
 
@@ -125,6 +118,7 @@ namespace WeifenLuo.Docking
 
         public virtual void CleanUp(DockPanel dockPanel)
         {
+            PaintingService.CleanUp();
             if (dockPanel != null)
             {
                 if (ColorPalette != null)
@@ -161,8 +155,6 @@ namespace WeifenLuo.Docking
                 ToolStripManager.RenderMode = _managerBefore.Key;
             }
         }
-
-        public DockPanelExtender Extender { get; private set; }
 
         public static byte[] Decompress(byte[] fileToDecompress)
         {

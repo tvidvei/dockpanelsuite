@@ -90,7 +90,6 @@
     </Compile>
     <Compile Include="DockPaneCollection.cs" />
     <Compile Include="DockPanel.cs" />
-    <Compile Include="DockPanelExtender\DockPanelExtender.cs" />
     <Compile Include="DockPaneStripBase.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -156,9 +155,6 @@
     </Compile>
     <Compile Include="Themes\PaletteFactory.cs" />
     <Compile Include="PaneSplitterControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Themes\VS2015ThemeBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="WindowSplitterControlOld.cs">
