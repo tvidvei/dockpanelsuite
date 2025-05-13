@@ -1617,5 +1617,13 @@ namespace WeifenLuo.Docking
             return new DockPane(content, floatWindowBounds, show);
         }
 
+        public virtual PaneSplitterBase CreatePaneSplitterControl(DockPane pane) {
+            return new PaneSplitterControl(pane);
+        }
+
+        public virtual WindowSplitterBase CreateWindowSplitterControl(ISplitterHost host) {
+            return new WindowSplitterControl(host);
+        }
+
     }
 }

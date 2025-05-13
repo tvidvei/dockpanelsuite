@@ -5,11 +5,11 @@ using System.Windows.Forms;
 namespace WeifenLuo.Docking;
 
 [ToolboxItem(false)]
-public class PaneSplitterControlBase : Control, ISplitterDragSource
+public class PaneSplitterBase : Control, ISplitterDragSource
 {
     DockPane m_pane;
 
-    public PaneSplitterControlBase(DockPane pane) {
+    public PaneSplitterBase(DockPane pane) {
         SetStyle(ControlStyles.Selectable, false);
         m_pane = pane;
     }

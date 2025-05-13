@@ -9,16 +9,6 @@ namespace WeifenLuo.Docking
     public sealed class DockPanelExtender
     {
 
-        public interface IDockPaneSplitterControlFactory
-        {
-            PaneSplitterControlBase CreateSplitterControl(DockPane pane);
-        }
-        
-        public interface IWindowSplitterControlFactory
-        {
-            SplitterBase CreateSplitterControl(ISplitterHost host);
-        }
-
         [SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
         public interface IFloatWindowFactory
         {
@@ -90,10 +80,6 @@ namespace WeifenLuo.Docking
         }
 
         #endregion
-
-        public IDockPaneSplitterControlFactory DockPaneSplitterControlFactory { get; set; }
-
-        public IWindowSplitterControlFactory WindowSplitterControlFactory { get; set; }
 
         private IFloatWindowFactory m_floatWindowFactory = null;
 

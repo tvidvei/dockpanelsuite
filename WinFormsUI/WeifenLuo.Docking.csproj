@@ -65,7 +65,7 @@
     <Compile Include="PatchController.cs" />
     <Compile Include="Persistor.cs" />
     <Compile Include="Resources.cs" />
-    <Compile Include="PaneSplitterControlBase.cs" />
+    <Compile Include="PaneSplitterBase.cs" />
     <Compile Include="SplitterDragHandler.cs" />
     <Compile Include="ThemeBase.cs">
       <SubType>Component</SubType>
@@ -107,7 +107,7 @@
     <Compile Include="Interfaces.cs" />
     <Compile Include="Measures.cs" />
     <Compile Include="NestedDockingStatus.cs" />
-    <Compile Include="SplitterBase.cs">
+    <Compile Include="WindowSplitterBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Helpers\DrawHelper.cs" />
@@ -150,7 +150,6 @@
     <Compile Include="DockPaneCaptionInertButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DockPanelExtender\DockPaneSplitterControlFactory.cs" />
     <Compile Include="DockPaneStrip.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -174,7 +173,6 @@
     <Compile Include="WindowSplitterControl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DockPanelExtender\WindowSplitterControlFactory.cs" />
     <Compile Include="Win32\Enums.cs" />
     <Compile Include="Win32\NativeMethods.cs" />
   </ItemGroup>

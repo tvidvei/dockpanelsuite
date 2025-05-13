@@ -6,7 +6,7 @@ using System.Windows.Forms;
 namespace WeifenLuo.Docking
 {
     [ToolboxItem(false)]
-    public class WindowSplitterControl : SplitterBase
+    public class WindowSplitterControl : WindowSplitterBase
     {
         private SolidBrush _horizontalBrush;
         private readonly ISplitterHost _host;

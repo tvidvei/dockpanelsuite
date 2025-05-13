@@ -6,7 +6,7 @@ using System.Windows.Forms;
 namespace WeifenLuo.Docking
 {
     [ToolboxItem(false)]
-    internal class PaneSplitterControl : PaneSplitterControlBase
+    internal class PaneSplitterControl : PaneSplitterBase
     {
         private readonly SolidBrush _horizontalBrush;
         private int SplitterSize { get; }

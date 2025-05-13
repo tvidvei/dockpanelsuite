@@ -97,7 +97,7 @@ namespace WeifenLuo.Docking
             m_dockPanel = content.DockHandler.DockPanel;
             m_dockPanel.AddPane(this);
 
-            m_splitter = content.DockHandler.DockPanel.Theme.Extender.DockPaneSplitterControlFactory.CreateSplitterControl(this);
+            m_splitter = content.DockHandler.DockPanel.CreatePaneSplitterControl(this);
 
             m_nestedDockingStatus = new NestedDockingStatus(this);
 
@@ -1376,8 +1376,8 @@ namespace WeifenLuo.Docking
 
         // ----- From DockPane.SplitterControl -----
 
-        private PaneSplitterControlBase m_splitter;
-        private PaneSplitterControlBase Splitter {
+        private PaneSplitterBase m_splitter;
+        private PaneSplitterBase Splitter {
             get { return m_splitter; }
         }
 

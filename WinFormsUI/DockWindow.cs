@@ -12,7 +12,7 @@ namespace WeifenLuo.Docking
     {
         private DockPanel m_dockPanel;
         private DockState m_dockState;
-        private SplitterBase m_splitter;
+        private WindowSplitterBase m_splitter;
         private NestedPaneCollection m_nestedPanes;
 
         protected internal DockWindow(DockPanel dockPanel, DockState dockState)
@@ -27,7 +27,7 @@ namespace WeifenLuo.Docking
             if (DockState == DockState.DockLeft || DockState == DockState.DockRight ||
                 DockState == DockState.DockTop || DockState == DockState.DockBottom)
             {
-                m_splitter = DockPanel.Theme.Extender.WindowSplitterControlFactory.CreateSplitterControl(this);
+                m_splitter = DockPanel.CreateWindowSplitterControl(this);
                 Controls.Add(m_splitter);
             }
 

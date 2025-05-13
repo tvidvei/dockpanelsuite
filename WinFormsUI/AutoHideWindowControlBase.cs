@@ -8,7 +8,7 @@ namespace WeifenLuo.Docking
     [ToolboxItem(false)]
     public class AutoHideWindowControlBase : Panel, ISplitterHost
     {
-        protected class SplitterControl : SplitterBase
+        protected class SplitterControl : WindowSplitterBase
         {
             public SplitterControl(AutoHideWindowControlBase autoHideWindow) {
                 m_autoHideWindow = autoHideWindow;
@@ -33,7 +33,7 @@ namespace WeifenLuo.Docking
         #endregion
 
         private Timer m_timerMouseTrack;
-        protected SplitterBase m_splitter { get; private set; }
+        protected WindowSplitterBase m_splitter { get; private set; }
 
         public AutoHideWindowControlBase(DockPanel dockPanel) {
             m_dockPanel = dockPanel;
@@ -42,7 +42,7 @@ namespace WeifenLuo.Docking
             m_timerMouseTrack.Tick += new EventHandler(TimerMouseTrack_Tick);
 
             Visible = false;
-            m_splitter = DockPanel.Theme.Extender.WindowSplitterControlFactory.CreateSplitterControl(this);
+            m_splitter = DockPanel.CreateWindowSplitterControl(this);
             Controls.Add(m_splitter);
         }
 
