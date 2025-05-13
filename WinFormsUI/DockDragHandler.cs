@@ -42,7 +42,7 @@ namespace WeifenLuo.Docking
             private IPanelIndicator PanelLeft {
                 get {
                     if (m_panelLeft == null)
-                        m_panelLeft = m_dragHandler.DockPanel.Theme.Extender.PanelIndicatorFactory.CreatePanelIndicator(DockStyle.Left, m_dragHandler.DockPanel.Theme);
+                        m_panelLeft = m_dragHandler.DockPanel.CreatePanelIndicator(DockStyle.Left, m_dragHandler.DockPanel.Theme);
 
                     return m_panelLeft;
                 }
@@ -52,7 +52,7 @@ namespace WeifenLuo.Docking
             private IPanelIndicator PanelRight {
                 get {
                     if (m_panelRight == null)
-                        m_panelRight = m_dragHandler.DockPanel.Theme.Extender.PanelIndicatorFactory.CreatePanelIndicator(DockStyle.Right, m_dragHandler.DockPanel.Theme);
+                        m_panelRight = m_dragHandler.DockPanel.CreatePanelIndicator(DockStyle.Right, m_dragHandler.DockPanel.Theme);
 
                     return m_panelRight;
                 }
@@ -62,7 +62,7 @@ namespace WeifenLuo.Docking
             private IPanelIndicator PanelTop {
                 get {
                     if (m_panelTop == null)
-                        m_panelTop = m_dragHandler.DockPanel.Theme.Extender.PanelIndicatorFactory.CreatePanelIndicator(DockStyle.Top, m_dragHandler.DockPanel.Theme);
+                        m_panelTop = m_dragHandler.DockPanel.CreatePanelIndicator(DockStyle.Top, m_dragHandler.DockPanel.Theme);
 
                     return m_panelTop;
                 }
@@ -72,7 +72,7 @@ namespace WeifenLuo.Docking
             private IPanelIndicator PanelBottom {
                 get {
                     if (m_panelBottom == null)
-                        m_panelBottom = m_dragHandler.DockPanel.Theme.Extender.PanelIndicatorFactory.CreatePanelIndicator(DockStyle.Bottom, m_dragHandler.DockPanel.Theme);
+                        m_panelBottom = m_dragHandler.DockPanel.CreatePanelIndicator(DockStyle.Bottom, m_dragHandler.DockPanel.Theme);
 
                     return m_panelBottom;
                 }
@@ -82,7 +82,7 @@ namespace WeifenLuo.Docking
             private IPanelIndicator PanelFill {
                 get {
                     if (m_panelFill == null)
-                        m_panelFill = m_dragHandler.DockPanel.Theme.Extender.PanelIndicatorFactory.CreatePanelIndicator(DockStyle.Fill, m_dragHandler.DockPanel.Theme);
+                        m_panelFill = m_dragHandler.DockPanel.CreatePanelIndicator(DockStyle.Fill, m_dragHandler.DockPanel.Theme);
 
                     return m_panelFill;
                 }
@@ -317,7 +317,7 @@ namespace WeifenLuo.Docking
                 return;
             }
 
-            Outline = DockPanel.Theme.Extender.DockOutlineFactory.CreateDockOutline();
+            Outline = DockPanel.CreateDockOutline();
             Indicator = DockPanel.Theme.Extender.DockIndicatorFactory.CreateDockIndicator(this);
             Indicator.Show(false);
 

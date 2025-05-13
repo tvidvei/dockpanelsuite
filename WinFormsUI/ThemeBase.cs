@@ -78,15 +78,16 @@ namespace WeifenLuo.Docking
             if ( //Extender.AutoHideStripFactory == null
                  //  Extender.AutoHideWindowFactory == null
                    Extender.DockIndicatorFactory == null
-                || Extender.DockOutlineFactory == null
+                //|| Extender.DockOutlineFactory == null
                 //|| Extender.DockPaneCaptionFactory == null
                 //|| Extender.DockPaneSplitterControlFactory == null
                 //|| Extender.DockPaneStripFactory == null
                 //|| Extender.DockWindowFactory == null
                 //|| Extender.FloatWindowFactory == null
                 //|| Extender.PaneIndicatorFactory == null
-                || Extender.PanelIndicatorFactory == null)
+                //|| Extender.PanelIndicatorFactory == null)
                 //|| Extender.WindowSplitterControlFactory == null)
+                )
             {
                 throw new InvalidOperationException(Strings.Theme_MissingFactory);
             }

@@ -38,6 +38,7 @@
     <Compile Include="AutoHideWindowControlBase.cs" />
     <Compile Include="Configuration\PatchSection.cs" />
     <Compile Include="DockDragHandler.cs" />
+    <Compile Include="DockOutline.cs" />
     <Compile Include="DockPanelColorPalette.cs" />
     <Compile Include="DragForm.cs">
       <SubType>Form</SubType>
@@ -63,6 +64,7 @@
     <Compile Include="MdiClientController.cs" />
     <Compile Include="PaintingService.cs" />
     <Compile Include="PaneIndicator.cs" />
+    <Compile Include="PanelIndicator.cs" />
     <Compile Include="PatchController.cs" />
     <Compile Include="Persistor.cs" />
     <Compile Include="Resources.cs" />
@@ -141,7 +143,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DockPanelExtender\DockIndicatorFactory.cs" />
-    <Compile Include="DockPanelExtender\DockOutlineFactory.cs" />
     <Compile Include="DockPaneCaption.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -155,7 +156,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Themes\PaletteFactory.cs" />
-    <Compile Include="DockPanelExtender\PanelIndicatorFactory.cs" />
     <Compile Include="PaneSplitterControl.cs">
       <SubType>Component</SubType>
     </Compile>

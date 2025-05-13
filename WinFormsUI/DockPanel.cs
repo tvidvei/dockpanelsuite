@@ -1653,9 +1653,18 @@ namespace WeifenLuo.Docking
             return new AutoHideWindowControl(panel);
         }
 
-        public IPaneIndicator CreatePaneIndicator(ThemeBase theme) {
+        public virtual IPaneIndicator CreatePaneIndicator(ThemeBase theme) {
             return new PaneIndicator(theme);
         }
+
+        public virtual IPanelIndicator CreatePanelIndicator(DockStyle style, ThemeBase theme) {
+            return new PanelIndicator(style, theme);
+        }
+
+        public virtual DockOutlineBase CreateDockOutline() {
+            return new DockOutline();
+        }
+
 
     }
 }
