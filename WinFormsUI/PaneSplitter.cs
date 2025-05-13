@@ -6,12 +6,12 @@ using System.Windows.Forms;
 namespace WeifenLuo.Docking
 {
     [ToolboxItem(false)]
-    internal class PaneSplitterControl : PaneSplitterBase
+    internal class PaneSplitter : PaneSplitterBase
     {
         private readonly SolidBrush _horizontalBrush;
         private int SplitterSize { get; }
 
-        public PaneSplitterControl(DockPane pane)
+        public PaneSplitter(DockPane pane)
             : base(pane)
         {
             _horizontalBrush = pane.DockPanel.Theme.PaintingService.GetBrush(pane.DockPanel.Theme.ColorPalette.MainWindowActive.Background);

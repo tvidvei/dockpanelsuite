@@ -153,14 +153,11 @@
     <Compile Include="Themes\VS2015LightTheme.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Themes\PaletteFactory.cs" />
-    <Compile Include="PaneSplitterControl.cs">
+    <Compile Include="PaletteFactory.cs" />
+    <Compile Include="PaneSplitter.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="WindowSplitterControlOld.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="WindowSplitterControl.cs">
+    <Compile Include="WindowSplitter.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Win32\Enums.cs" />

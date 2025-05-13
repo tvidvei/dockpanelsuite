@@ -42,7 +42,7 @@ namespace WeifenLuo.Docking
             m_timerMouseTrack.Tick += new EventHandler(TimerMouseTrack_Tick);
 
             Visible = false;
-            m_splitter = DockPanel.CreateWindowSplitterControl(this);
+            m_splitter = DockPanel.CreateWindowSplitter(this);
             Controls.Add(m_splitter);
         }
 

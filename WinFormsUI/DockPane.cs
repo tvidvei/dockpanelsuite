@@ -8,7 +8,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace WeifenLuo.Docking
 {
     [ToolboxItem(false)]
-    public partial class DockPane : UserControl, IDockDragSource
+    public class DockPane : UserControl, IDockDragSource
     {
         public enum AppearanceStyle
         {
@@ -97,7 +97,7 @@ namespace WeifenLuo.Docking
             m_dockPanel = content.DockHandler.DockPanel;
             m_dockPanel.AddPane(this);
 
-            m_splitter = content.DockHandler.DockPanel.CreatePaneSplitterControl(this);
+            m_splitter = content.DockHandler.DockPanel.CreatePaneSplitter(this);
 
             m_nestedDockingStatus = new NestedDockingStatus(this);
 
@@ -1223,7 +1223,6 @@ namespace WeifenLuo.Docking
             DockPanel.ResumeLayout(true, true);
         }
 
-        [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         protected override void WndProc(ref Message m)
         {
             if (m.Msg == (int)Win32.Msgs.WM_MOUSEACTIVATE)

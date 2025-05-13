@@ -27,7 +27,7 @@ namespace WeifenLuo.Docking
             if (DockState == DockState.DockLeft || DockState == DockState.DockRight ||
                 DockState == DockState.DockTop || DockState == DockState.DockBottom)
             {
-                m_splitter = DockPanel.CreateWindowSplitterControl(this);
+                m_splitter = DockPanel.CreateWindowSplitter(this);
                 Controls.Add(m_splitter);
             }
 

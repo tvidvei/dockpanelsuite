@@ -13,7 +13,7 @@ using System.Text;
 // #2 Use "resfinder" in the toolbox bitmap attribute instead of the control name.
 // #3 use the "<default namespace>.<resourcename>" string to locate the resource.
 // See: http://www.bobpowell.net/toolboxbitmap.htm
-internal class resfinder
+internal class ResFinder
 {
 }
 
@@ -35,7 +35,7 @@ namespace WeifenLuo.Docking
 
     [LocalizedDescription("DockPanel_Description")]
     [Designer("System.Windows.Forms.Design.ControlDesigner, System.Design")]
-    [ToolboxBitmap(typeof(resfinder), "WeifenLuo.Resources.DockPanel.bmp")]
+    [ToolboxBitmap(typeof(ResFinder), "WeifenLuo.Resources.DockPanel.bmp")]
     [DefaultProperty("DocumentStyle")]
     [DefaultEvent("ActiveContentChanged")]
     public class DockPanel : Panel
@@ -1607,12 +1607,12 @@ namespace WeifenLuo.Docking
             return new DockPane(content, floatWindowBounds, show);
         }
 
-        public virtual PaneSplitterBase CreatePaneSplitterControl(DockPane pane) {
-            return new PaneSplitterControl(pane);
+        public virtual PaneSplitterBase CreatePaneSplitter(DockPane pane) {
+            return new PaneSplitter(pane);
         }
 
-        public virtual WindowSplitterBase CreateWindowSplitterControl(ISplitterHost host) {
-            return new WindowSplitterControl(host);
+        public virtual WindowSplitterBase CreateWindowSplitter(ISplitterHost host) {
+            return new WindowSplitter(host);
         }
 
         public virtual FloatWindow CreateFloatWindow(DockPanel dockPanel, DockPane pane) {
