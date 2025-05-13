@@ -82,7 +82,7 @@ namespace WeifenLuo.Docking
                 || Extender.DockPaneCaptionFactory == null
                 //|| Extender.DockPaneSplitterControlFactory == null
                 || Extender.DockPaneStripFactory == null
-                || Extender.DockWindowFactory == null
+                //|| Extender.DockWindowFactory == null
                 //|| Extender.FloatWindowFactory == null
                 || Extender.PaneIndicatorFactory == null
                 || Extender.PanelIndicatorFactory == null)

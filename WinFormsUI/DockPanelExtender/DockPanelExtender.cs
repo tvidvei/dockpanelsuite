@@ -10,18 +10,6 @@ namespace WeifenLuo.Docking
     {
 
         [SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
-        public interface IFloatWindowFactory
-        {
-            FloatWindow CreateFloatWindow(DockPanel dockPanel, DockPane pane);
-            FloatWindow CreateFloatWindow(DockPanel dockPanel, DockPane pane, Rectangle bounds);
-        }
-
-        public interface IDockWindowFactory
-        {
-            DockWindow CreateDockWindow(DockPanel dockPanel, DockState dockState);
-        }
-
-        [SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
         public interface IDockPaneCaptionFactory
         {
             DockPaneCaptionBase CreateDockPaneCaption(DockPane pane);
@@ -63,8 +51,6 @@ namespace WeifenLuo.Docking
         {
             DockIndicator CreateDockIndicator(DockDragHandler dockDragHandler);
         }
-
-        public IDockWindowFactory DockWindowFactory { get; set; }
 
         public IDockPaneCaptionFactory DockPaneCaptionFactory { get; set; }
 

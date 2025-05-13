@@ -1625,13 +1625,16 @@ namespace WeifenLuo.Docking
             return new WindowSplitterControl(host);
         }
 
-
         public virtual FloatWindow CreateFloatWindow(DockPanel dockPanel, DockPane pane) {
             return new FloatWindow(dockPanel, pane);
         }
 
         public virtual FloatWindow CreateFloatWindow(DockPanel dockPanel, DockPane pane, Rectangle bounds) {
             return new FloatWindow(dockPanel, pane, bounds);
+        }
+
+        public virtual DockWindow CreateDockWindow(DockPanel dockPanel, DockState dockState) {
+            return new DockWindow(dockPanel, dockState);
         }
 
 

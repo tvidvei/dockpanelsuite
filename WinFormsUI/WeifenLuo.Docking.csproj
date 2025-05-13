@@ -154,7 +154,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DockPanelExtender\DockPaneStripFactory.cs" />
-    <Compile Include="DockPanelExtender\DockWindowFactory.cs" />
     <Compile Include="Themes\VS2015LightTheme.cs">
       <SubType>Component</SubType>
     </Compile>
