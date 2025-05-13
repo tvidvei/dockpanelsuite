@@ -151,7 +151,6 @@
     <Compile Include="DockPaneCaptionInertButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DockPanelExtender\DockPaneFactory.cs" />
     <Compile Include="DockPanelExtender\DockPaneSplitterControlFactory.cs" />
     <Compile Include="DockPaneStrip.cs">
       <SubType>Component</SubType>

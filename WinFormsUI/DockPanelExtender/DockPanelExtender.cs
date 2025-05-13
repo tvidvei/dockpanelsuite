@@ -133,25 +133,6 @@ namespace WeifenLuo.Docking
 
         #endregion
 
-        private IDockPaneFactory m_dockPaneFactory = null;
-
-        public IDockPaneFactory DockPaneFactory
-        {
-            get
-            {
-                if (m_dockPaneFactory == null)
-                {
-                    m_dockPaneFactory = new DefaultDockPaneFactory();
-                }
-
-                return m_dockPaneFactory;
-            }
-            set
-            {
-                m_dockPaneFactory = value;
-            }
-        }
-
         public IDockPaneSplitterControlFactory DockPaneSplitterControlFactory { get; set; }
 
         public IWindowSplitterControlFactory WindowSplitterControlFactory { get; set; }

@@ -22,7 +22,6 @@ namespace WeifenLuo.Docking
             ShowAutoHideContentOnHover = false;
             Extender.AutoHideStripFactory = new AutoHideStripFactory();
             Extender.AutoHideWindowFactory = new AutoHideWindowFactory();
-            Extender.DockPaneFactory = new DockPaneFactory();
             Extender.DockPaneCaptionFactory = new DockPaneCaptionFactory();
             Extender.DockPaneStripFactory = new DockPaneStripFactory();
             Extender.DockPaneSplitterControlFactory = new DockPaneSplitterControlFactory();

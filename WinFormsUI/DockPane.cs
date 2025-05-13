@@ -1079,9 +1079,9 @@ namespace WeifenLuo.Docking
             DockPane pane;
             DockPanel.DummyContent.DockPanel = DockPanel;
             if (container.IsFloat)
-                pane = DockPanel.Theme.Extender.DockPaneFactory.CreateDockPane(DockPanel.DummyContent, (FloatWindow)container, true);
+                pane = DockPanel.CreateDockPane(DockPanel.DummyContent, (FloatWindow)container, true);
             else
-                pane = DockPanel.Theme.Extender.DockPaneFactory.CreateDockPane(DockPanel.DummyContent, container.DockState, true);
+                pane = DockPanel.CreateDockPane(DockPanel.DummyContent, container.DockState, true);
 
             pane.DockTo(container, previousPane, alignment, proportion);
             SetVisibleContentsToPane(pane);
@@ -1162,7 +1162,7 @@ namespace WeifenLuo.Docking
                     return null;
                 }
 
-                floatPane = DockPanel.Theme.Extender.DockPaneFactory.CreateDockPane(firstContent, DockState.Float, true);
+                floatPane = DockPanel.CreateDockPane(firstContent, DockState.Float, true);
             }
 
             SetVisibleContentsToPane(floatPane, activeContent);

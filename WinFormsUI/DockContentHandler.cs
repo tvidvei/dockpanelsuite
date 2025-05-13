@@ -565,13 +565,13 @@ namespace WeifenLuo.Docking
                 m_isFloat = (m_visibleState == DockState.Float);
 
                 if (Pane == null)
-                    Pane = DockPanel.Theme.Extender.DockPaneFactory.CreateDockPane(Content, visibleState, true);
+                    Pane = DockPanel.CreateDockPane(Content, visibleState, true);
                 else if (Pane.DockState != visibleState)
                 {
                     if (Pane.Contents.Count == 1)
                         Pane.SetDockState(visibleState);
                     else
-                        Pane = DockPanel.Theme.Extender.DockPaneFactory.CreateDockPane(Content, visibleState, true);
+                        Pane = DockPanel.CreateDockPane(Content, visibleState, true);
                 }
             }
 
@@ -929,7 +929,7 @@ namespace WeifenLuo.Docking
             if (dockState == DockState.Float)
             {
                 if (FloatPane == null)
-                    Pane = DockPanel.Theme.Extender.DockPaneFactory.CreateDockPane(Content, DockState.Float, true);
+                    Pane = DockPanel.CreateDockPane(Content, DockState.Float, true);
             }
             else if (PanelPane == null)
             {
@@ -945,7 +945,7 @@ namespace WeifenLuo.Docking
                     }
 
                 if (paneExisting == null)
-                    Pane = DockPanel.Theme.Extender.DockPaneFactory.CreateDockPane(Content, dockState, true);
+                    Pane = DockPanel.CreateDockPane(Content, dockState, true);
                 else
                     Pane = paneExisting;
             }
@@ -967,7 +967,7 @@ namespace WeifenLuo.Docking
             if (FloatPane == null)
             {
                 IsHidden = true;	// to reduce the screen flicker
-                FloatPane = DockPanel.Theme.Extender.DockPaneFactory.CreateDockPane(Content, DockState.Float, false);
+                FloatPane = DockPanel.CreateDockPane(Content, DockState.Float, false);
                 FloatPane.FloatWindow.StartPosition = FormStartPosition.Manual;
             }
 
@@ -1008,7 +1008,7 @@ namespace WeifenLuo.Docking
             previousPane.DockPanel.SuspendLayout(true);
 
             DockPanel = previousPane.DockPanel;
-            DockPanel.Theme.Extender.DockPaneFactory.CreateDockPane(Content, previousPane, alignment, proportion, true);
+            DockPanel.CreateDockPane(Content, previousPane, alignment, proportion, true);
             Show();
 
             previousPane.DockPanel.ResumeLayout(true, true);
@@ -1174,7 +1174,7 @@ namespace WeifenLuo.Docking
         public void FloatAt(Rectangle floatWindowBounds)
         {
             // TODO: where is the pane used?
-            DockPane pane = DockPanel.Theme.Extender.DockPaneFactory.CreateDockPane(Content, floatWindowBounds, true);
+            DockPane pane = DockPanel.CreateDockPane(Content, floatWindowBounds, true);
         }
 
         public void DockTo(DockPane pane, DockStyle dockStyle, int contentIndex)
@@ -1216,7 +1216,7 @@ namespace WeifenLuo.Docking
             }
             else
             {
-                DockPane paneFrom = DockPanel.Theme.Extender.DockPaneFactory.CreateDockPane(Content, pane.DockState, true);
+                DockPane paneFrom = DockPanel.CreateDockPane(Content, pane.DockState, true);
                 INestedPanesContainer container = pane.NestedPanesContainer;
                 if (dockStyle == DockStyle.Left)
                     paneFrom.DockTo(container, pane, DockAlignment.Left, 0.5);
@@ -1242,15 +1242,15 @@ namespace WeifenLuo.Docking
             DockPane pane;
 
             if (dockStyle == DockStyle.Top)
-                pane = DockPanel.Theme.Extender.DockPaneFactory.CreateDockPane(Content, DockState.DockTop, true);
+                pane = DockPanel.CreateDockPane(Content, DockState.DockTop, true);
             else if (dockStyle == DockStyle.Bottom)
-                pane = DockPanel.Theme.Extender.DockPaneFactory.CreateDockPane(Content, DockState.DockBottom, true);
+                pane = DockPanel.CreateDockPane(Content, DockState.DockBottom, true);
             else if (dockStyle == DockStyle.Left)
-                pane = DockPanel.Theme.Extender.DockPaneFactory.CreateDockPane(Content, DockState.DockLeft, true);
+                pane = DockPanel.CreateDockPane(Content, DockState.DockLeft, true);
             else if (dockStyle == DockStyle.Right)
-                pane = DockPanel.Theme.Extender.DockPaneFactory.CreateDockPane(Content, DockState.DockRight, true);
+                pane = DockPanel.CreateDockPane(Content, DockState.DockRight, true);
             else if (dockStyle == DockStyle.Fill)
-                pane = DockPanel.Theme.Extender.DockPaneFactory.CreateDockPane(Content, DockState.Document, true);
+                pane = DockPanel.CreateDockPane(Content, DockState.Document, true);
             else
                 return;
         }

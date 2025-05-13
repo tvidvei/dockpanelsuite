@@ -543,7 +543,7 @@ namespace WeifenLuo.Docking
                 for (int j = 0; j < panes[i].IndexContents.Length; j++) {
                     IDockContent content = dockPanel.Contents[panes[i].IndexContents[j]];
                     if (j == 0)
-                        pane = dockPanel.Theme.Extender.DockPaneFactory.CreateDockPane(content, panes[i].DockState, false);
+                        pane = dockPanel.CreateDockPane(content, panes[i].DockState, false);
                     else if (panes[i].DockState == DockState.Float)
                         content.DockHandler.FloatPane = pane;
                     else

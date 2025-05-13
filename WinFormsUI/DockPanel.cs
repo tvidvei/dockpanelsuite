@@ -19,6 +19,7 @@ internal class resfinder
 
 namespace WeifenLuo.Docking
 {
+
     /// <summary>
     /// Deserialization handler of layout file/stream.
     /// </summary>
@@ -305,27 +306,6 @@ namespace WeifenLuo.Docking
         [Browsable(false)]
         [Obsolete("Use Theme.Extender instead.")]
         public DockPanelExtender Extender
-        {
-            get { return null; }
-        }
-
-        [Browsable(false)]
-        [Obsolete("Use Theme.Extender instead.")]
-        public DockPanelExtender.IDockPaneFactory DockPaneFactory
-        {
-            get { return null; }
-        }
-
-        [Browsable(false)]
-        [Obsolete("Use Theme.Extender instead.")]
-        public DockPanelExtender.IFloatWindowFactory FloatWindowFactory
-        {
-            get { return null; }
-        }
-
-        [Browsable(false)]
-        [Obsolete("Use Theme.Extender instead.")]
-        public DockPanelExtender.IDockWindowFactory DockWindowFactory
         {
             get { return null; }
         }
@@ -1606,6 +1586,29 @@ namespace WeifenLuo.Docking
         /// <exception cref="Exception">Deserialization might throw exceptions.</exception>
         public void LoadFromXml(Stream stream, DeserializeDockContent deserializeContent, bool closeStream) {
             Persistor.LoadFromXml(this, stream, deserializeContent, closeStream);
+        }
+
+
+        // ----- From DockPanelExtender -----
+
+
+        // --- From DockPanelExtender.DefaultDockPaneFactory
+
+        public virtual DockPane CreateDockPane(IDockContent content, DockState visibleState, bool show) {
+            return new DockPane(content, visibleState, show);
+        }
+
+        public virtual DockPane CreateDockPane(IDockContent content, FloatWindow floatWindow, bool show) {
+            return new DockPane(content, floatWindow, show);
+        }
+
+        public virtual DockPane CreateDockPane(IDockContent content, DockPane prevPane, DockAlignment alignment,
+                                       double proportion, bool show) {
+            return new DockPane(content, prevPane, alignment, proportion, show);
+        }
+
+        public virtual DockPane CreateDockPane(IDockContent content, Rectangle floatWindowBounds, bool show) {
+            return new DockPane(content, floatWindowBounds, show);
         }
 
     }
