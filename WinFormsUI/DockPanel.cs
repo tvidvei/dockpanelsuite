@@ -66,7 +66,7 @@ namespace WeifenLuo.Docking
 
             Theme.ApplyTo(this);
 
-            m_autoHideWindow = Theme.Extender.AutoHideWindowFactory.CreateAutoHideWindow(this);
+            m_autoHideWindow = CreateAutoHideWindow(this);
             m_autoHideWindow.Visible = false;
             m_autoHideWindow.ActiveContentChanged += m_autoHideWindow_ActiveContentChanged; 
             SetAutoHideWindowParent();
@@ -1149,7 +1149,7 @@ namespace WeifenLuo.Docking
         public void ResetAutoHideStripWindow()
         {
             var old = m_autoHideWindow;
-            m_autoHideWindow = Theme.Extender.AutoHideWindowFactory.CreateAutoHideWindow(this);
+            m_autoHideWindow = CreateAutoHideWindow(this);
             m_autoHideWindow.Visible = false;
             SetAutoHideWindowParent();
 
@@ -1645,8 +1645,12 @@ namespace WeifenLuo.Docking
             return new DockPaneStrip(pane);
         }
 
-        public AutoHideStripBase CreateAutoHideStrip(DockPanel panel) {
+        public virtual AutoHideStripBase CreateAutoHideStrip(DockPanel panel) {
             return new AutoHideStrip(panel);
+        }
+
+        public virtual AutoHideWindowControlBase CreateAutoHideWindow(DockPanel panel) {
+            return new AutoHideWindowControl(panel);
         }
 
     }

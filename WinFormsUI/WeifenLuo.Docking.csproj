@@ -133,7 +133,6 @@
     <Compile Include="AutoHideWindowControl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DockPanelExtender\AutoHideWindowFactory.cs" />
     <Compile Include="Themes\VS2015BlueTheme.cs">
       <SubType>Component</SubType>
     </Compile>

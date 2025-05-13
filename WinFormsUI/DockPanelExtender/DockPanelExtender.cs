@@ -9,11 +9,6 @@ namespace WeifenLuo.Docking
     public sealed class DockPanelExtender
     {
 
-        public interface IAutoHideWindowFactory
-        {
-            AutoHideWindowControlBase CreateAutoHideWindow(DockPanel panel);
-        }
-
         public interface IPaneIndicatorFactory
         {
             IPaneIndicator CreatePaneIndicator(ThemeBase theme);
@@ -32,22 +27,6 @@ namespace WeifenLuo.Docking
         public interface IDockIndicatorFactory
         {
             DockIndicator CreateDockIndicator(DockDragHandler dockDragHandler);
-        }
-
-        private IAutoHideWindowFactory m_autoHideWindowFactory;
-        
-        public IAutoHideWindowFactory AutoHideWindowFactory
-        {
-            get { return m_autoHideWindowFactory; }
-            set
-            {
-                if (m_autoHideWindowFactory == value)
-                {
-                    return;
-                }
-
-                m_autoHideWindowFactory = value;
-            }
         }
 
         public IPaneIndicatorFactory PaneIndicatorFactory { get; set; }
