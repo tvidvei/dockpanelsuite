@@ -9,12 +9,6 @@ namespace WeifenLuo.Docking
     public sealed class DockPanelExtender
     {
 
-        [SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
-        public interface IAutoHideStripFactory
-        {
-            AutoHideStripBase CreateAutoHideStrip(DockPanel panel);
-        }
-
         public interface IAutoHideWindowFactory
         {
             AutoHideWindowControlBase CreateAutoHideWindow(DockPanel panel);
@@ -38,25 +32,6 @@ namespace WeifenLuo.Docking
         public interface IDockIndicatorFactory
         {
             DockIndicator CreateDockIndicator(DockDragHandler dockDragHandler);
-        }
-
-        private IAutoHideStripFactory m_autoHideStripFactory = null;
-
-        public IAutoHideStripFactory AutoHideStripFactory
-        {
-            get
-            {
-                return m_autoHideStripFactory;
-            }
-            set
-            {
-                if (m_autoHideStripFactory == value)
-                {
-                    return;
-                }
-
-                m_autoHideStripFactory = value;
-            }
         }
 
         private IAutoHideWindowFactory m_autoHideWindowFactory;

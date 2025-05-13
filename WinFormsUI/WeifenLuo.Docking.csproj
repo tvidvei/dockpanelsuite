@@ -130,7 +130,6 @@
     <Compile Include="AutoHideStrip.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DockPanelExtender\AutoHideStripFactory.cs" />
     <Compile Include="AutoHideWindowControl.cs">
       <SubType>Component</SubType>
     </Compile>

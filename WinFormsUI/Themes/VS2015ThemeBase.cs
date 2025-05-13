@@ -20,7 +20,6 @@ namespace WeifenLuo.Docking
             Measures.AutoHideSplitterSize = 3;
             Measures.DockPadding = 6;
             ShowAutoHideContentOnHover = false;
-            Extender.AutoHideStripFactory = new AutoHideStripFactory();
             Extender.AutoHideWindowFactory = new AutoHideWindowFactory();
             Extender.PaneIndicatorFactory = new PaneIndicatorFactory();
             Extender.PanelIndicatorFactory = new PanelIndicatorFactory();

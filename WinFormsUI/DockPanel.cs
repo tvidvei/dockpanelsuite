@@ -131,7 +131,7 @@ namespace WeifenLuo.Docking
             {	
                 if (m_autoHideStripControl == null)
                 {
-                    m_autoHideStripControl = Theme.Extender.AutoHideStripFactory.CreateAutoHideStrip(this);
+                    m_autoHideStripControl = CreateAutoHideStrip(this);
                     Controls.Add(m_autoHideStripControl);
                 }
 
@@ -1645,6 +1645,9 @@ namespace WeifenLuo.Docking
             return new DockPaneStrip(pane);
         }
 
+        public AutoHideStripBase CreateAutoHideStrip(DockPanel panel) {
+            return new AutoHideStrip(panel);
+        }
 
     }
 }
