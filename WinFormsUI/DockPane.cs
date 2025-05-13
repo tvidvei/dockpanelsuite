@@ -107,7 +107,7 @@ namespace WeifenLuo.Docking
 
             DockPanel.SuspendLayout(true);
             if (flagBounds)
-                FloatWindow = DockPanel.Theme.Extender.FloatWindowFactory.CreateFloatWindow(DockPanel, this, floatWindowBounds);
+                FloatWindow = DockPanel.CreateFloatWindow(DockPanel, this, floatWindowBounds);
             else if (prevPane != null)
                 DockTo(prevPane.NestedPanesContainer, prevPane, alignment, proportion);
 
@@ -940,7 +940,7 @@ namespace WeifenLuo.Docking
             if (!IsFloat)
                 DockWindow = DockPanel.DockWindows[DockState];
             else if (FloatWindow == null)
-                FloatWindow = DockPanel.Theme.Extender.FloatWindowFactory.CreateFloatWindow(DockPanel, this);
+                FloatWindow = DockPanel.CreateFloatWindow(DockPanel, this);
 
             if (contentFocused != null)
             {
@@ -1285,7 +1285,7 @@ namespace WeifenLuo.Docking
         public void FloatAt(Rectangle floatWindowBounds)
         {
             if (FloatWindow == null || FloatWindow.NestedPanes.Count != 1)
-                FloatWindow = DockPanel.Theme.Extender.FloatWindowFactory.CreateFloatWindow(DockPanel, this, floatWindowBounds);
+                FloatWindow = DockPanel.CreateFloatWindow(DockPanel, this, floatWindowBounds);
             else
                 FloatWindow.Bounds = floatWindowBounds;
 

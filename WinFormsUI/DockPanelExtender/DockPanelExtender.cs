@@ -64,42 +64,6 @@ namespace WeifenLuo.Docking
             DockIndicator CreateDockIndicator(DockDragHandler dockDragHandler);
         }
 
-        #region DefaultFloatWindowFactory
-
-        private class DefaultFloatWindowFactory : IFloatWindowFactory
-        {
-            public FloatWindow CreateFloatWindow(DockPanel dockPanel, DockPane pane)
-            {
-                return new FloatWindow(dockPanel, pane);
-            }
-
-            public FloatWindow CreateFloatWindow(DockPanel dockPanel, DockPane pane, Rectangle bounds)
-            {
-                return new FloatWindow(dockPanel, pane, bounds);
-            }
-        }
-
-        #endregion
-
-        private IFloatWindowFactory m_floatWindowFactory = null;
-
-        public IFloatWindowFactory FloatWindowFactory
-        {
-            get
-            {
-                if (m_floatWindowFactory == null)
-                {
-                    m_floatWindowFactory = new DefaultFloatWindowFactory();
-                }
-
-                return m_floatWindowFactory;
-            }
-            set
-            {
-                m_floatWindowFactory = value;
-            }
-        }
-
         public IDockWindowFactory DockWindowFactory { get; set; }
 
         public IDockPaneCaptionFactory DockPaneCaptionFactory { get; set; }

@@ -574,7 +574,7 @@ namespace WeifenLuo.Docking
                     int indexPane = floatWindows[i].NestedPanes[j].IndexPane;
                     DockPane pane = dockPanel.Panes[indexPane];
                     if (j == 0)
-                        fw = dockPanel.Theme.Extender.FloatWindowFactory.CreateFloatWindow(dockPanel, pane, floatWindows[i].Bounds);
+                        fw = dockPanel.CreateFloatWindow(dockPanel, pane, floatWindows[i].Bounds);
                     else {
                         int indexPrevPane = floatWindows[i].NestedPanes[j].IndexPrevPane;
                         DockPane prevPane = indexPrevPane == -1 ? null : dockPanel.Panes[indexPrevPane];
