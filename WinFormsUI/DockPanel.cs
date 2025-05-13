@@ -37,7 +37,7 @@ namespace WeifenLuo.Docking
     [ToolboxBitmap(typeof(resfinder), "WeifenLuo.Resources.DockPanel.bmp")]
     [DefaultProperty("DocumentStyle")]
     [DefaultEvent("ActiveContentChanged")]
-    public partial class DockPanel : Panel
+    public class DockPanel : Panel
     {
         private readonly FocusManagerImpl m_focusManager;
         private readonly DockPaneCollection m_panes;
