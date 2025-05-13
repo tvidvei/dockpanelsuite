@@ -101,8 +101,8 @@ namespace WeifenLuo.Docking
 
             m_nestedDockingStatus = new NestedDockingStatus(this);
 
-            m_captionControl = DockPanel.Theme.Extender.DockPaneCaptionFactory.CreateDockPaneCaption(this);
-            m_tabStripControl = DockPanel.Theme.Extender.DockPaneStripFactory.CreateDockPaneStrip(this);
+            m_captionControl = DockPanel.CreateDockPaneCaption(this);
+            m_tabStripControl = DockPanel.CreateDockPaneStrip(this);
             Controls.AddRange(new Control[] { m_captionControl, m_tabStripControl });
 
             DockPanel.SuspendLayout(true);

@@ -146,14 +146,12 @@
     <Compile Include="DockPaneCaption.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DockPanelExtender\DockPaneCaptionFactory.cs" />
     <Compile Include="DockPaneCaptionInertButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DockPaneStrip.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DockPanelExtender\DockPaneStripFactory.cs" />
     <Compile Include="Themes\VS2015LightTheme.cs">
       <SubType>Component</SubType>
     </Compile>

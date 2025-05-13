@@ -79,9 +79,9 @@ namespace WeifenLuo.Docking
                 || Extender.AutoHideWindowFactory == null
                 || Extender.DockIndicatorFactory == null
                 || Extender.DockOutlineFactory == null
-                || Extender.DockPaneCaptionFactory == null
+                //|| Extender.DockPaneCaptionFactory == null
                 //|| Extender.DockPaneSplitterControlFactory == null
-                || Extender.DockPaneStripFactory == null
+                //|| Extender.DockPaneStripFactory == null
                 //|| Extender.DockWindowFactory == null
                 //|| Extender.FloatWindowFactory == null
                 || Extender.PaneIndicatorFactory == null

@@ -1637,6 +1637,14 @@ namespace WeifenLuo.Docking
             return new DockWindow(dockPanel, dockState);
         }
 
+        public virtual DockPaneCaptionBase CreateDockPaneCaption(DockPane pane) {
+            return new DockPaneCaption(pane);
+        }
+
+        public virtual DockPaneStripBase CreateDockPaneStrip(DockPane pane) {
+            return new DockPaneStrip(pane);
+        }
+
 
     }
 }
