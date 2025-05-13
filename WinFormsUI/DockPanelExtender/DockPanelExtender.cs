@@ -8,20 +8,6 @@ namespace WeifenLuo.Docking
 {
     public sealed class DockPanelExtender
     {
-        [SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
-        public interface IDockPaneFactory
-        {
-            DockPane CreateDockPane(IDockContent content, DockState visibleState, bool show);
-
-            [SuppressMessage("Microsoft.Naming", "CA1720:AvoidTypeNamesInParameters", MessageId = "1#")]
-            DockPane CreateDockPane(IDockContent content, FloatWindow floatWindow, bool show);
-
-            DockPane CreateDockPane(IDockContent content, DockPane previousPane, DockAlignment alignment,
-                                    double proportion, bool show);
-
-            [SuppressMessage("Microsoft.Naming", "CA1720:AvoidTypeNamesInParameters", MessageId = "1#")]
-            DockPane CreateDockPane(IDockContent content, Rectangle floatWindowBounds, bool show);
-        }
 
         public interface IDockPaneSplitterControlFactory
         {
@@ -87,34 +73,6 @@ namespace WeifenLuo.Docking
         {
             DockIndicator CreateDockIndicator(DockDragHandler dockDragHandler);
         }
-
-        #region DefaultDockPaneFactory
-
-        private class DefaultDockPaneFactory : IDockPaneFactory
-        {
-            public DockPane CreateDockPane(IDockContent content, DockState visibleState, bool show)
-            {
-                return new DockPane(content, visibleState, show);
-            }
-
-            public DockPane CreateDockPane(IDockContent content, FloatWindow floatWindow, bool show)
-            {
-                return new DockPane(content, floatWindow, show);
-            }
-
-            public DockPane CreateDockPane(IDockContent content, DockPane prevPane, DockAlignment alignment,
-                                           double proportion, bool show)
-            {
-                return new DockPane(content, prevPane, alignment, proportion, show);
-            }
-
-            public DockPane CreateDockPane(IDockContent content, Rectangle floatWindowBounds, bool show)
-            {
-                return new DockPane(content, floatWindowBounds, show);
-            }
-        }
-
-        #endregion
 
         #region DefaultFloatWindowFactory
 
