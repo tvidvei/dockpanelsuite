@@ -62,6 +62,7 @@
     <Compile Include="LayoutUtils.cs" />
     <Compile Include="MdiClientController.cs" />
     <Compile Include="PaintingService.cs" />
+    <Compile Include="PaneIndicator.cs" />
     <Compile Include="PatchController.cs" />
     <Compile Include="Persistor.cs" />
     <Compile Include="Resources.cs" />
@@ -154,7 +155,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Themes\PaletteFactory.cs" />
-    <Compile Include="DockPanelExtender\PaneIndicatorFactory.cs" />
     <Compile Include="DockPanelExtender\PanelIndicatorFactory.cs" />
     <Compile Include="PaneSplitterControl.cs">
       <SubType>Component</SubType>

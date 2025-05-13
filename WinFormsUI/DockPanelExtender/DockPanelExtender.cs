@@ -29,8 +29,6 @@ namespace WeifenLuo.Docking
             DockIndicator CreateDockIndicator(DockDragHandler dockDragHandler);
         }
 
-        public IPaneIndicatorFactory PaneIndicatorFactory { get; set; }
-
         public IPanelIndicatorFactory PanelIndicatorFactory { get; set; }
 
         public IDockOutlineFactory DockOutlineFactory { get; set; }

@@ -32,7 +32,7 @@ namespace WeifenLuo.Docking
             private IPaneIndicator PaneDiamond {
                 get {
                     if (m_paneDiamond == null)
-                        m_paneDiamond = m_dragHandler.DockPanel.Theme.Extender.PaneIndicatorFactory.CreatePaneIndicator(m_dragHandler.DockPanel.Theme);
+                        m_paneDiamond = m_dragHandler.DockPanel.CreatePaneIndicator(m_dragHandler.DockPanel.Theme);
 
                     return m_paneDiamond;
                 }
