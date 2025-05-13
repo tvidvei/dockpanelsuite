@@ -37,7 +37,6 @@
   <ItemGroup>
     <Compile Include="AutoHideWindowControlBase.cs" />
     <Compile Include="Configuration\PatchSection.cs" />
-    <Compile Include="DefaultTheme.cs" />
     <Compile Include="DockDragHandler.cs" />
     <Compile Include="DockPanelColorPalette.cs" />
     <Compile Include="DragForm.cs">

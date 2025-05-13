@@ -919,7 +919,7 @@ namespace WeifenLuo.Docking
             if (dockState == DockState.Unknown || dockState == DockState.Hidden)
                 throw (new ArgumentException(Strings.DockContentHandler_Show_InvalidDockState));
 
-            if (dockPanel.Theme.GetType() == typeof(DefaultTheme))
+            if (dockPanel.Theme.GetType() == null)
                 throw new ArgumentException(Strings.Theme_NoTheme);
 
             dockPanel.SuspendLayout(true);

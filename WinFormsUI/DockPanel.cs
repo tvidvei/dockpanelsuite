@@ -50,6 +50,8 @@ namespace WeifenLuo.Docking
         
         public DockPanel()
         {
+            m_dockPanelTheme = CreateDefaultTheme();
+
             ShowAutoHideContentOnHover = true;
 
             m_focusManager = new FocusManagerImpl(this);
@@ -1248,7 +1250,7 @@ namespace WeifenLuo.Docking
             get { return null; }
         }
 
-        private ThemeBase m_dockPanelTheme = new DefaultTheme();
+        private ThemeBase m_dockPanelTheme;
 
         [LocalizedCategory("Category_Docking")]
         [LocalizedDescription("DockPanel_DockPanelTheme")]
@@ -1590,6 +1592,10 @@ namespace WeifenLuo.Docking
 
 
         // ----- From DockPanelExtender -----
+
+        public virtual ThemeBase CreateDefaultTheme() {
+            return new VS2015BlueTheme();
+        }  
 
 
         // --- From DockPanelExtender.DefaultDockPaneFactory
