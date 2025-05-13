@@ -1590,9 +1590,6 @@ namespace WeifenLuo.Docking
             return new VS2015BlueTheme();
         }  
 
-
-        // --- From DockPanelExtender.DefaultDockPaneFactory
-
         public virtual DockPane CreateDockPane(IDockContent content, DockState visibleState, bool show) {
             return new DockPane(content, visibleState, show);
         }
