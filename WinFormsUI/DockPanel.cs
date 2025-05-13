@@ -1665,6 +1665,9 @@ namespace WeifenLuo.Docking
             return new DockOutline();
         }
 
+        public virtual DockDragHandler.DockIndicator CreateDockIndicator(DockDragHandler dockDragHandler) {
+            return new DockDragHandler.DockIndicator(dockDragHandler) { Opacity = 0.7 };
+        }
 
     }
 }

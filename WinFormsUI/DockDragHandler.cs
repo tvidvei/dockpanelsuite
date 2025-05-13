@@ -318,7 +318,7 @@ namespace WeifenLuo.Docking
             }
 
             Outline = DockPanel.CreateDockOutline();
-            Indicator = DockPanel.Theme.Extender.DockIndicatorFactory.CreateDockIndicator(this);
+            Indicator = DockPanel.CreateDockIndicator(this);
             Indicator.Show(false);
 
             FloatOutlineBounds = DragSource.BeginDrag(StartMousePosition);

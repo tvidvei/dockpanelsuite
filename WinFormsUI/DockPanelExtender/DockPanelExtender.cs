@@ -9,11 +9,5 @@ namespace WeifenLuo.Docking
     public sealed class DockPanelExtender
     {
 
-        public interface IDockIndicatorFactory
-        {
-            DockIndicator CreateDockIndicator(DockDragHandler dockDragHandler);
-        }
-
-        public IDockIndicatorFactory DockIndicatorFactory { get; set; }
     }
 }

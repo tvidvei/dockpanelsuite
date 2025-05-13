@@ -142,7 +142,6 @@
     <Compile Include="Themes\VS2015DarkTheme.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DockPanelExtender\DockIndicatorFactory.cs" />
     <Compile Include="DockPaneCaption.cs">
       <SubType>Component</SubType>
     </Compile>

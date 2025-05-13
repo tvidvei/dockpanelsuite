@@ -20,7 +20,6 @@ namespace WeifenLuo.Docking
             Measures.AutoHideSplitterSize = 3;
             Measures.DockPadding = 6;
             ShowAutoHideContentOnHover = false;
-            Extender.DockIndicatorFactory = new DockIndicatorFactory();
         }
 
         public override void CleanUp(DockPanel dockPanel)

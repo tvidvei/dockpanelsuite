@@ -75,9 +75,9 @@ namespace WeifenLuo.Docking
 
         public void ApplyTo(DockPanel dockPanel)
         {
-            if ( //Extender.AutoHideStripFactory == null
+            if (false //Extender.AutoHideStripFactory == null
                  //  Extender.AutoHideWindowFactory == null
-                   Extender.DockIndicatorFactory == null
+                 // Extender.DockIndicatorFactory == null
                 //|| Extender.DockOutlineFactory == null
                 //|| Extender.DockPaneCaptionFactory == null
                 //|| Extender.DockPaneSplitterControlFactory == null
