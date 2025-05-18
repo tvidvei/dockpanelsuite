@@ -35,11 +35,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="AutoHideStripTabAccessibleObject.cs" />
     <Compile Include="AutoHideStripPane.cs" />
     <Compile Include="AutoHideStripPaneCollection.cs" />
+    <Compile Include="AutoHideStripAccessibleObject.cs" />
     <Compile Include="AutoHideStripTab.cs" />
     <Compile Include="AutoHideStripTabCollection.cs" />
     <Compile Include="AutoHideWindowControlBase.cs" />
+    <Compile Include="AutoHideStripsAccessibleObject.cs" />
     <Compile Include="Configuration\PatchSection.cs" />
     <Compile Include="DockDragHandler.cs" />
     <Compile Include="DockOutline.cs" />

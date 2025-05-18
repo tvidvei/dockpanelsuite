@@ -398,7 +398,7 @@ namespace WeifenLuo.Docking
                 return null;
         }
 
-        protected override Rectangle GetTabBounds(AutoHideStripTab tab)
+        internal override Rectangle GetTabBounds(AutoHideStripTab tab)
         {
             GraphicsPath path = GetTabOutline((TabVS2012)tab, true);
             RectangleF bounds = path.GetBounds();
