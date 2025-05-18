@@ -35,6 +35,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="AutoHideStripPane.cs" />
+    <Compile Include="AutoHideStripPaneCollection.cs" />
     <Compile Include="AutoHideStripTab.cs" />
     <Compile Include="AutoHideStripTabCollection.cs" />
     <Compile Include="AutoHideWindowControlBase.cs" />
