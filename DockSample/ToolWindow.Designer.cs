@@ -66,10 +66,10 @@ namespace DockSample
             // ToolWindow
             // 
             this.ClientSize = new System.Drawing.Size(292, 266);
-            this.DockAreas = ((WeifenLuo.WinFormsUI.Docking.DockAreas)(((((WeifenLuo.WinFormsUI.Docking.DockAreas.Float | WeifenLuo.WinFormsUI.Docking.DockAreas.DockLeft)
-                        | WeifenLuo.WinFormsUI.Docking.DockAreas.DockRight)
-                        | WeifenLuo.WinFormsUI.Docking.DockAreas.DockTop)
-                        | WeifenLuo.WinFormsUI.Docking.DockAreas.DockBottom)));
+            this.DockAreas = ((WeifenLuo.Docking.DockAreas)(((((WeifenLuo.Docking.DockAreas.Float | WeifenLuo.Docking.DockAreas.DockLeft)
+                        | WeifenLuo.Docking.DockAreas.DockRight)
+                        | WeifenLuo.Docking.DockAreas.DockTop)
+                        | WeifenLuo.Docking.DockAreas.DockBottom)));
             this.Name = "ToolWindow";
             this.TabPageContextMenuStrip = this.contextMenuStrip1;
             this.TabText = "ToolWindow";

@@ -69,16 +69,16 @@ namespace DockSample
             this.ClientSize = new System.Drawing.Size(208, 289);
             this.Controls.Add(this.comboBox);
             this.Controls.Add(this.propertyGrid);
-            this.DockAreas = ((WeifenLuo.WinFormsUI.Docking.DockAreas)(((((WeifenLuo.WinFormsUI.Docking.DockAreas.Float | WeifenLuo.WinFormsUI.Docking.DockAreas.DockLeft)
-                        | WeifenLuo.WinFormsUI.Docking.DockAreas.DockRight)
-                        | WeifenLuo.WinFormsUI.Docking.DockAreas.DockTop)
-                        | WeifenLuo.WinFormsUI.Docking.DockAreas.DockBottom)));
+            this.DockAreas = ((WeifenLuo.Docking.DockAreas)(((((WeifenLuo.Docking.DockAreas.Float | WeifenLuo.Docking.DockAreas.DockLeft)
+                        | WeifenLuo.Docking.DockAreas.DockRight)
+                        | WeifenLuo.Docking.DockAreas.DockTop)
+                        | WeifenLuo.Docking.DockAreas.DockBottom)));
             this.HideOnClose = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mainMenu1;
             this.Name = "DummyPropertyWindow";
             this.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.ShowHint = WeifenLuo.WinFormsUI.Docking.DockState.DockRight;
+            this.ShowHint = WeifenLuo.Docking.DockState.DockRight;
             this.TabText = "Properties";
             this.Text = "Properties";
             this.ResumeLayout(false);

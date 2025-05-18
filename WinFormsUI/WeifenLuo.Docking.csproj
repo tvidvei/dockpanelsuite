@@ -1,0 +1,212 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>DockPanelSuite</PackageId>
+    <VersionPrefix>4.0.0</VersionPrefix>
+    <FileVersion>4.0.0.0</FileVersion>
+    <Authors>Weifen Luo and other contributors</Authors>
+    <Description>The docking library for .Net Windows Forms development which mimics Visual Studio .Net.</Description>
+    <Copyright>(C) 2007-2020 Weifen Luo and other contributors</Copyright>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>http://dockpanelsuite.com</PackageProjectUrl>
+    <PackageReleaseNotes>
+      Release notes can be found at GitHub,
+      https://github.com/dockpanelsuite/dockpanelsuite/releases
+
+      Visual Studio 2003 Theme: https://www.nuget.org/packages/DockPanelSuite.ThemeVS2003/
+      Visual Studio 2005 Theme: https://www.nuget.org/packages/DockPanelSuite.ThemeVS2005/
+      Visual Studio 2012 Themes: https://www.nuget.org/packages/DockPanelSuite.ThemeVS2012/
+      Visual Studio 2013 Themes: https://www.nuget.org/packages/DockPanelSuite.ThemeVS2013/
+      Visual Studio 2015 Themes: https://www.nuget.org/packages/DockPanelSuite.ThemeVS2015/
+    </PackageReleaseNotes>
+    <TargetFrameworks>net9.0-windows</TargetFrameworks>
+    <NoWarn>$(NoWarn);WFO1000</NoWarn>
+    <UseWindowsForms>true</UseWindowsForms>
+    <StartupObject />
+    <RootNamespace>WeifenLuo.Docking</RootNamespace>
+    <AssemblyName>WeifenLuo.Docking</AssemblyName>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>dockpanelsuite.snk</AssemblyOriginatorKeyFile>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>$(VersionPrefix)-dev001</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="AutoHideWindowControlBase.cs" />
+    <Compile Include="Configuration\PatchSection.cs" />
+    <Compile Include="DockDragHandler.cs" />
+    <Compile Include="DockOutline.cs" />
+    <Compile Include="DockPanelColorPalette.cs" />
+    <Compile Include="DragForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AutoHideStripBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DragHandler.cs" />
+    <Compile Include="DragHandlerBase.cs" />
+    <Compile Include="DrawingRoutines.cs" />
+    <Compile Include="FocusManager.cs" />
+    <Compile Include="IContentFocusManager.cs" />
+    <Compile Include="IFocusManager.cs" />
+    <Compile Include="IImageService.cs" />
+    <Compile Include="ImageService.cs" />
+    <Compile Include="InertButtonBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DockPanelSkin.cs">
+    </Compile>
+    <Compile Include="IPaintingService.cs" />
+    <Compile Include="LayoutUtils.cs" />
+    <Compile Include="MdiClientController.cs" />
+    <Compile Include="PaintingService.cs" />
+    <Compile Include="PaneIndicator.cs" />
+    <Compile Include="PanelIndicator.cs" />
+    <Compile Include="PatchController.cs" />
+    <Compile Include="Persistor.cs" />
+    <Compile Include="Resources.cs" />
+    <Compile Include="PaneSplitterBase.cs" />
+    <Compile Include="SplitterDragHandler.cs" />
+    <Compile Include="ThemeBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VisualStudioColorTable.cs" />
+    <Compile Include="VisibleNestedPaneCollection.cs" />
+    <Compile Include="DockAreasEditor.cs" />
+    <Compile Include="DockContent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DockContentCollection.cs" />
+    <Compile Include="DockContentHandler.cs" />
+    <Compile Include="Helpers\DockHelper.cs" />
+    <Compile Include="NestedPaneCollection.cs" />
+    <Compile Include="DockOutlineBase.cs" />
+    <Compile Include="DockPane.cs" />
+    <Compile Include="DockPaneCaptionBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DockPaneCollection.cs" />
+    <Compile Include="DockPanel.cs" />
+    <Compile Include="DockPaneStripBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DockWindow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DockWindowCollection.cs" />
+    <Compile Include="DummyControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Enums.cs" />
+    <Compile Include="DockContentEventArgs.cs" />
+    <Compile Include="FloatWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FloatWindowCollection.cs" />
+    <Compile Include="Interfaces.cs" />
+    <Compile Include="Measures.cs" />
+    <Compile Include="NestedDockingStatus.cs" />
+    <Compile Include="WindowSplitterBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Helpers\DrawHelper.cs" />
+    <Compile Include="Localization.cs" />
+    <Compile Include="Helpers\ResourceHelper.cs" />
+    <Compile Include="Helpers\Win32Helper.cs" />
+    <Compile Include="VisualStudioToolStripRenderer.cs" />
+    <Compile Include="VisualStudioToolStripExtender.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VisualStudioToolStripExtender.Designer.cs">
+      <DependentUpon>VisualStudioToolStripExtender.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Strings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="AutoHideStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AutoHideWindowControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Themes\VS2015BlueTheme.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Themes\VS2015DarkTheme.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DockPaneCaption.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DockPaneCaptionInertButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DockPaneStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Themes\VS2015LightTheme.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PaletteFactory.cs" />
+    <Compile Include="PaneSplitter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WindowSplitter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Win32\Enums.cs" />
+    <Compile Include="Win32\NativeMethods.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DockContent.resx" />
+    <EmbeddedResource Include="DockPane.resx" />
+    <EmbeddedResource Include="Resources\DockPanel.bmp" />
+    <EmbeddedResource Include="Resources\Dockindicator_PaneDiamond_Hotspot.png" />
+    <EmbeddedResource Include="Resources\DockIndicator_PaneDiamond_HotspotIndex.png" />
+    <EmbeddedResource Include="Resources\MaskArrowBottom.png" />
+    <EmbeddedResource Include="Resources\MaskArrowLeft.png" />
+    <EmbeddedResource Include="Resources\MaskArrowRight.png" />
+    <EmbeddedResource Include="Resources\MaskArrowTop.png" />
+    <EmbeddedResource Include="Resources\MaskCoreBottom.png" />
+    <EmbeddedResource Include="Resources\MaskCoreCenter.png" />
+    <EmbeddedResource Include="Resources\MaskCoreLeft.png" />
+    <EmbeddedResource Include="Resources\MaskCoreRight.png" />
+    <EmbeddedResource Include="Resources\MaskCoreTop.png" />
+    <EmbeddedResource Include="Resources\MaskDock.png" />
+    <EmbeddedResource Include="Resources\MaskDockFive.png" />
+    <EmbeddedResource Include="Resources\MaskTabClose.png" />
+    <EmbeddedResource Include="Resources\MaskTabList.png" />
+    <EmbeddedResource Include="Resources\MaskTabOverflow.png" />
+    <EmbeddedResource Include="Resources\MaskToolWindowAutoHide.png" />
+    <EmbeddedResource Include="Resources\MaskToolWindowClose.png" />
+    <EmbeddedResource Include="Resources\MaskToolWindowDock.png" />
+    <EmbeddedResource Include="Resources\MaskToolWindowOption.png" />
+    <EmbeddedResource Include="Resources\MaskWindowBottom.png" />
+    <EmbeddedResource Include="Resources\MaskWindowCenter.png" />
+    <EmbeddedResource Include="Resources\MaskWindowLeft.png" />
+    <EmbeddedResource Include="Resources\MaskWindowRight.png" />
+    <EmbeddedResource Include="Resources\MaskWindowTop.png" />
+    <EmbeddedResource Include="Resources\vs2015blue.vstheme.gz" />
+    <EmbeddedResource Include="Resources\vs2015dark.vstheme.gz" />
+    <EmbeddedResource Include="Resources\vs2015light.vstheme.gz" />
+    <EmbeddedResource Include="Strings.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dockpanelsuite.snk" />
+    <None Include="license.txt" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net40' OR '$(TargetFramework)' == 'net35'">
+    <Reference Include="System.Configuration" />
+  </ItemGroup>
+
+</Project>

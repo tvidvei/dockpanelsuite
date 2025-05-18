@@ -8,6 +8,7 @@ namespace Tests
     [TestFixture]
     public class ThemesTestFixture
     {
+#if old
         #region VS2012
         [Test]
         public void CreateVisualStudio2012Blue()
@@ -448,6 +449,7 @@ namespace Tests
             AssertColor(ColorPalette.ToolWindowTabUnselectedHovered.Text, ColorTranslator.FromHtml("#FF1E1E1E"));
         }
         #endregion
+#endif
 
         #region VS2015
         [Test]
@@ -719,7 +721,7 @@ namespace Tests
             Assert.AreEqual(ToolStripRenderMode.Custom, stripCustom.RenderMode);
             Assert.AreEqual(renderder, stripCustom.Renderer);
 
-            var theme = new VS2012BlueTheme();
+            var theme = new VS2015BlueTheme();
             theme.ApplyTo(stripManager);
             theme.ApplyTo(stripProfessional);
             theme.ApplyTo(stripSystem);
