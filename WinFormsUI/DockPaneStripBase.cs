@@ -11,129 +11,7 @@ namespace WeifenLuo.Docking
 {
     public abstract class DockPaneStripBase : Control
     {
-        [SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]        
-        protected internal class DockPaneStripTab : IDisposable
-        {
-            private IDockContent m_content;
 
-            public DockPaneStripTab(IDockContent content)
-            {
-                m_content = content;
-            }
-
-            ~DockPaneStripTab()
-            {
-                Dispose(false);
-            }
-
-            public IDockContent Content
-            {
-                get { return m_content; }
-            }
-
-            public Form ContentForm
-            {
-                get { return m_content as Form; }
-            }
-
-            public void Dispose()
-            {
-                Dispose(true);
-                GC.SuppressFinalize(this);
-            }
-
-            protected virtual void Dispose(bool disposing)
-            {
-            }
-
-            private Rectangle? _rect;
-
-            public Rectangle? Rectangle
-            {
-                get
-                {
-                    if (_rect != null)
-                    {
-                        return _rect;
-                    }
-
-                    return _rect = System.Drawing.Rectangle.Empty;
-                }
-
-                set
-                {
-                    _rect = value;
-                }
-            }
-        }
-
-        [SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]        
-        protected sealed class DockPaneStripTabCollection : IEnumerable<DockPaneStripTab>
-        {
-            #region IEnumerable Members
-            IEnumerator<DockPaneStripTab> IEnumerable<DockPaneStripTab>.GetEnumerator()
-            {
-                for (int i = 0; i < Count; i++)
-                    yield return this[i];
-            }
-
-            IEnumerator IEnumerable.GetEnumerator()
-            {
-                for (int i = 0; i < Count; i++)
-                    yield return this[i];
-            }
-            #endregion
-
-            internal DockPaneStripTabCollection(DockPane pane)
-            {
-                m_dockPane = pane;
-            }
-
-            private DockPane m_dockPane;
-            public DockPane DockPane
-            {
-                get { return m_dockPane; }
-            }
-
-            public int Count
-            {
-                get { return DockPane.DisplayingContents.Count; }
-            }
-
-            public DockPaneStripTab this[int index]
-            {
-                get
-                {
-                    IDockContent content = DockPane.DisplayingContents[index];
-                    if (content == null)
-                        throw (new ArgumentOutOfRangeException(nameof(index)));
-                    return content.DockHandler.GetTab(DockPane.TabStripControl);
-                }
-            }
-
-            public bool Contains(DockPaneStripTab tab)
-            {
-                return (IndexOf(tab) != -1);
-            }
-
-            public bool Contains(IDockContent content)
-            {
-                return (IndexOf(content) != -1);
-            }
-
-            public int IndexOf(DockPaneStripTab tab)
-            {
-                if (tab == null)
-                    return -1;
-
-                return DockPane.DisplayingContents.IndexOf(tab.Content);
-            }
-
-            public int IndexOf(IDockContent content)
-            {
-                return DockPane.DisplayingContents.IndexOf(content);
-            }
-        }
 
         protected DockPaneStripBase(DockPane pane)
         {
@@ -157,7 +35,7 @@ namespace WeifenLuo.Docking
 
         private DockPaneStripTabCollection m_tabs;
 
-        protected DockPaneStripTabCollection Tabs
+        internal DockPaneStripTabCollection Tabs
         {
             get
             {
@@ -195,7 +73,7 @@ namespace WeifenLuo.Docking
 
         public abstract GraphicsPath GetOutline(int index);
 
-        protected internal virtual DockPaneStripTab CreateTab(IDockContent content)
+        internal virtual DockPaneStripTab CreateTab(IDockContent content)
         {
             return new DockPaneStripTab(content);
         }
@@ -334,7 +212,7 @@ namespace WeifenLuo.Docking
             }
         }
 
-        protected abstract Rectangle GetTabBounds(DockPaneStripTab tab);
+        internal abstract Rectangle GetTabBounds(DockPaneStripTab tab);
 
         internal static Rectangle ToScreen(Rectangle rectangle, Control parent)
         {
@@ -347,101 +225,6 @@ namespace WeifenLuo.Docking
         protected override AccessibleObject CreateAccessibilityInstance()
         {
             return new DockPaneStripAccessibleObject(this);
-        }
-
-        public class DockPaneStripAccessibleObject : Control.ControlAccessibleObject
-        {
-            private DockPaneStripBase _strip;
-
-            public DockPaneStripAccessibleObject(DockPaneStripBase strip)
-                : base(strip)
-            {
-                _strip = strip;
-            }
-
-            public override AccessibleRole Role
-            {
-                get
-                {
-                    return AccessibleRole.PageTabList;
-                }
-            }
-
-            public override int GetChildCount()
-            {
-                return _strip.Tabs.Count;
-            }
-
-            public override AccessibleObject GetChild(int index)
-            {
-                return new DockPaneStripTabAccessibleObject(_strip, _strip.Tabs[index], this);
-            }
-
-            public override AccessibleObject HitTest(int x, int y)
-            {
-                Point point = new Point(x, y);
-                foreach (DockPaneStripTab tab in _strip.Tabs)
-                {
-                    Rectangle rectangle = _strip.GetTabBounds(tab);
-                    if (ToScreen(rectangle, _strip).Contains(point))
-                        return new DockPaneStripTabAccessibleObject(_strip, tab, this);
-                }
-
-                return null;
-            }
-        }
-
-        protected class DockPaneStripTabAccessibleObject : AccessibleObject
-        {
-            private DockPaneStripBase _strip;
-            private DockPaneStripTab _tab;
-
-            private AccessibleObject _parent;
-
-            internal DockPaneStripTabAccessibleObject(DockPaneStripBase strip, DockPaneStripTab tab, AccessibleObject parent)
-            {
-                _strip = strip;
-                _tab = tab;
-
-                _parent = parent;
-            }
-
-            public override AccessibleObject Parent
-            {
-                get
-                {
-                    return _parent;
-                }
-            }
-
-            public override AccessibleRole Role
-            {
-                get
-                {
-                    return AccessibleRole.PageTab;
-                }
-            }
-
-            public override Rectangle Bounds
-            {
-                get
-                {
-                    Rectangle rectangle = _strip.GetTabBounds(_tab);
-                    return ToScreen(rectangle, _strip);
-                }
-            }
-
-            public override string Name
-            {
-                get
-                {
-                    return _tab.Content.DockHandler.TabText;
-                }
-                set
-                {
-                    //base.Name = value;
-                }
-            }
         }
  
     }

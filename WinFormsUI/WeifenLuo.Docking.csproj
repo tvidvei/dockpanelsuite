@@ -47,6 +47,10 @@
     <Compile Include="DockDragHandler.cs" />
     <Compile Include="DockOutline.cs" />
     <Compile Include="DockPanelColorPalette.cs" />
+    <Compile Include="DockPaneStripAccessibleObject.cs" />
+    <Compile Include="DockPaneStripTab.cs" />
+    <Compile Include="DockPaneStripTabAccessibleObject.cs" />
+    <Compile Include="DockPaneStripTabCollection.cs" />
     <Compile Include="DragForm.cs">
       <SubType>Form</SubType>
     </Compile>

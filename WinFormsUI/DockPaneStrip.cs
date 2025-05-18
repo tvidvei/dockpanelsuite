@@ -45,7 +45,7 @@ namespace WeifenLuo.Docking
             }
         }
 
-        protected internal override DockPaneStripTab CreateTab(IDockContent content)
+        internal override DockPaneStripTab CreateTab(IDockContent content)
         {
             return new TabVS2013(content);
         }
@@ -1466,7 +1466,7 @@ namespace WeifenLuo.Docking
             return result;
         }
 
-        protected override Rectangle GetTabBounds(DockPaneStripTab tab)
+        internal override Rectangle GetTabBounds(DockPaneStripTab tab)
         {
             GraphicsPath path = GetTabOutline(tab, true, false);
             RectangleF rectangle = path.GetBounds();
