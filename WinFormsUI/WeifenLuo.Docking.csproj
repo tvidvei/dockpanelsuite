@@ -35,6 +35,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="AutoHideStripTab.cs" />
+    <Compile Include="AutoHideStripTabCollection.cs" />
     <Compile Include="AutoHideWindowControlBase.cs" />
     <Compile Include="Configuration\PatchSection.cs" />
     <Compile Include="DockDragHandler.cs" />

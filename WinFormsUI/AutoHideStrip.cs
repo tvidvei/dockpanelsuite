@@ -471,7 +471,7 @@ namespace WeifenLuo.Docking
             Invalidate();
         }
 
-        protected override AutoHideStripBase.AutoHideStripTab CreateTab(IDockContent content)
+        public override AutoHideStripTab CreateTab(IDockContent content)
         {
             return new TabVS2012(content);
         }

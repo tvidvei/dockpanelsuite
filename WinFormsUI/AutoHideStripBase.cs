@@ -10,114 +10,9 @@ namespace WeifenLuo.Docking
 {
     public abstract class AutoHideStripBase : Control
     {
-        [SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
-        protected class AutoHideStripTab : IDisposable
-        {
-            private IDockContent m_content;
-
-            protected internal AutoHideStripTab(IDockContent content)
-            {
-                m_content = content;
-            }
-
-            ~AutoHideStripTab()
-            {
-                Dispose(false);
-            }
-
-            public IDockContent Content
-            {
-                get { return m_content; }
-            }
-
-            public void Dispose()
-            {
-                Dispose(true);
-                GC.SuppressFinalize(this);
-            }
-
-            protected virtual void Dispose(bool disposing)
-            {
-            }
-        }
 
         [SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
-        protected sealed class AutoHideStripTabCollection : IEnumerable<AutoHideStripTab>
-        {
-            #region IEnumerable Members
-            IEnumerator<AutoHideStripTab> IEnumerable<AutoHideStripTab>.GetEnumerator()
-            {
-                for (int i = 0; i < Count; i++)
-                    yield return this[i];
-            }
-
-            IEnumerator IEnumerable.GetEnumerator()
-            {
-                for (int i = 0; i < Count; i++)
-                    yield return this[i];
-            }
-            #endregion
-
-            internal AutoHideStripTabCollection(DockPane pane)
-            {
-                m_dockPane = pane;
-            }
-
-            private DockPane m_dockPane = null;
-            public DockPane DockPane
-            {
-                get { return m_dockPane; }
-            }
-
-            public DockPanel DockPanel
-            {
-                get { return DockPane.DockPanel; }
-            }
-
-            public int Count
-            {
-                get { return DockPane.DisplayingContents.Count; }
-            }
-
-            public AutoHideStripTab this[int index]
-            {
-                get
-                {
-                    IDockContent content = DockPane.DisplayingContents[index];
-                    if (content == null)
-                        throw new ArgumentOutOfRangeException(nameof(index));
-                    if (content.DockHandler.AutoHideTab == null)
-                        content.DockHandler.AutoHideTab = (DockPanel.AutoHideStripControl.CreateTab(content));
-                    return content.DockHandler.AutoHideTab as AutoHideStripTab;
-                }
-            }
-
-            public bool Contains(AutoHideStripTab tab)
-            {
-                return (IndexOf(tab) != -1);
-            }
-
-            public bool Contains(IDockContent content)
-            {
-                return (IndexOf(content) != -1);
-            }
-
-            public int IndexOf(AutoHideStripTab tab)
-            {
-                if (tab == null)
-                    return -1;
-
-                return IndexOf(tab.Content);
-            }
-
-            public int IndexOf(IDockContent content)
-            {
-                return DockPane.DisplayingContents.IndexOf(content);
-            }
-        }
-
-        [SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
-        protected class AutoHideStripPane : IDisposable
+        public class AutoHideStripPane : IDisposable
         {
             private DockPane m_dockPane;
 
@@ -542,12 +437,12 @@ namespace WeifenLuo.Docking
             return HitTest(ptMouse);
         }
 
-        protected virtual AutoHideStripTab CreateTab(IDockContent content)
+        public virtual AutoHideStripTab CreateTab(IDockContent content)
         {
             return new AutoHideStripTab(content);
         }
 
-        protected virtual AutoHideStripPane CreatePane(DockPane dockPane)
+        public virtual AutoHideStripPane CreatePane(DockPane dockPane)
         {
             return new AutoHideStripPane(dockPane);
         }
