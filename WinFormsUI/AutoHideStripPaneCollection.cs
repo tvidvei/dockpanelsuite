@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WeifenLuo.Docking
 {
-    [SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
+
     public sealed class AutoHideStripPaneCollection : IEnumerable<AutoHideStripPane>
     {
         private class AutoHideState
