@@ -12,16 +12,16 @@ namespace WeifenLuo.Docking
     public abstract class DockPaneStripBase : Control
     {
         [SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]        
-        protected internal class Tab : IDisposable
+        protected internal class DockPaneStripTab : IDisposable
         {
             private IDockContent m_content;
 
-            public Tab(IDockContent content)
+            public DockPaneStripTab(IDockContent content)
             {
                 m_content = content;
             }
 
-            ~Tab()
+            ~DockPaneStripTab()
             {
                 Dispose(false);
             }
@@ -68,10 +68,10 @@ namespace WeifenLuo.Docking
         }
 
         [SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]        
-        protected sealed class TabCollection : IEnumerable<Tab>
+        protected sealed class DockPaneStripTabCollection : IEnumerable<DockPaneStripTab>
         {
             #region IEnumerable Members
-            IEnumerator<Tab> IEnumerable<Tab>.GetEnumerator()
+            IEnumerator<DockPaneStripTab> IEnumerable<DockPaneStripTab>.GetEnumerator()
             {
                 for (int i = 0; i < Count; i++)
                     yield return this[i];
@@ -84,7 +84,7 @@ namespace WeifenLuo.Docking
             }
             #endregion
 
-            internal TabCollection(DockPane pane)
+            internal DockPaneStripTabCollection(DockPane pane)
             {
                 m_dockPane = pane;
             }
@@ -100,7 +100,7 @@ namespace WeifenLuo.Docking
                 get { return DockPane.DisplayingContents.Count; }
             }
 
-            public Tab this[int index]
+            public DockPaneStripTab this[int index]
             {
                 get
                 {
@@ -111,7 +111,7 @@ namespace WeifenLuo.Docking
                 }
             }
 
-            public bool Contains(Tab tab)
+            public bool Contains(DockPaneStripTab tab)
             {
                 return (IndexOf(tab) != -1);
             }
@@ -121,7 +121,7 @@ namespace WeifenLuo.Docking
                 return (IndexOf(content) != -1);
             }
 
-            public int IndexOf(Tab tab)
+            public int IndexOf(DockPaneStripTab tab)
             {
                 if (tab == null)
                     return -1;
@@ -155,13 +155,13 @@ namespace WeifenLuo.Docking
             get { return DockPane.Appearance; }
         }
 
-        private TabCollection m_tabs;
+        private DockPaneStripTabCollection m_tabs;
 
-        protected TabCollection Tabs
+        protected DockPaneStripTabCollection Tabs
         {
             get
             {
-                return m_tabs ?? (m_tabs = new TabCollection(DockPane));
+                return m_tabs ?? (m_tabs = new DockPaneStripTabCollection(DockPane));
             }
         }
 
@@ -195,9 +195,9 @@ namespace WeifenLuo.Docking
 
         public abstract GraphicsPath GetOutline(int index);
 
-        protected internal virtual Tab CreateTab(IDockContent content)
+        protected internal virtual DockPaneStripTab CreateTab(IDockContent content)
         {
-            return new Tab(content);
+            return new DockPaneStripTab(content);
         }
 
         private Rectangle _dragBox = Rectangle.Empty;
@@ -334,7 +334,7 @@ namespace WeifenLuo.Docking
             }
         }
 
-        protected abstract Rectangle GetTabBounds(Tab tab);
+        protected abstract Rectangle GetTabBounds(DockPaneStripTab tab);
 
         internal static Rectangle ToScreen(Rectangle rectangle, Control parent)
         {
@@ -380,7 +380,7 @@ namespace WeifenLuo.Docking
             public override AccessibleObject HitTest(int x, int y)
             {
                 Point point = new Point(x, y);
-                foreach (Tab tab in _strip.Tabs)
+                foreach (DockPaneStripTab tab in _strip.Tabs)
                 {
                     Rectangle rectangle = _strip.GetTabBounds(tab);
                     if (ToScreen(rectangle, _strip).Contains(point))
@@ -394,11 +394,11 @@ namespace WeifenLuo.Docking
         protected class DockPaneStripTabAccessibleObject : AccessibleObject
         {
             private DockPaneStripBase _strip;
-            private Tab _tab;
+            private DockPaneStripTab _tab;
 
             private AccessibleObject _parent;
 
-            internal DockPaneStripTabAccessibleObject(DockPaneStripBase strip, Tab tab, AccessibleObject parent)
+            internal DockPaneStripTabAccessibleObject(DockPaneStripBase strip, DockPaneStripTab tab, AccessibleObject parent)
             {
                 _strip = strip;
                 _tab = tab;

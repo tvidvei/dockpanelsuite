@@ -11,16 +11,16 @@ namespace WeifenLuo.Docking
     public abstract class AutoHideStripBase : Control
     {
         [SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
-        protected class Tab : IDisposable
+        protected class AutoHideStripTab : IDisposable
         {
             private IDockContent m_content;
 
-            protected internal Tab(IDockContent content)
+            protected internal AutoHideStripTab(IDockContent content)
             {
                 m_content = content;
             }
 
-            ~Tab()
+            ~AutoHideStripTab()
             {
                 Dispose(false);
             }
@@ -42,10 +42,10 @@ namespace WeifenLuo.Docking
         }
 
         [SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
-        protected sealed class TabCollection : IEnumerable<Tab>
+        protected sealed class AutoHideStripTabCollection : IEnumerable<AutoHideStripTab>
         {
             #region IEnumerable Members
-            IEnumerator<Tab> IEnumerable<Tab>.GetEnumerator()
+            IEnumerator<AutoHideStripTab> IEnumerable<AutoHideStripTab>.GetEnumerator()
             {
                 for (int i = 0; i < Count; i++)
                     yield return this[i];
@@ -58,7 +58,7 @@ namespace WeifenLuo.Docking
             }
             #endregion
 
-            internal TabCollection(DockPane pane)
+            internal AutoHideStripTabCollection(DockPane pane)
             {
                 m_dockPane = pane;
             }
@@ -79,7 +79,7 @@ namespace WeifenLuo.Docking
                 get { return DockPane.DisplayingContents.Count; }
             }
 
-            public Tab this[int index]
+            public AutoHideStripTab this[int index]
             {
                 get
                 {
@@ -88,11 +88,11 @@ namespace WeifenLuo.Docking
                         throw new ArgumentOutOfRangeException(nameof(index));
                     if (content.DockHandler.AutoHideTab == null)
                         content.DockHandler.AutoHideTab = (DockPanel.AutoHideStripControl.CreateTab(content));
-                    return content.DockHandler.AutoHideTab as Tab;
+                    return content.DockHandler.AutoHideTab as AutoHideStripTab;
                 }
             }
 
-            public bool Contains(Tab tab)
+            public bool Contains(AutoHideStripTab tab)
             {
                 return (IndexOf(tab) != -1);
             }
@@ -102,7 +102,7 @@ namespace WeifenLuo.Docking
                 return (IndexOf(content) != -1);
             }
 
-            public int IndexOf(Tab tab)
+            public int IndexOf(AutoHideStripTab tab)
             {
                 if (tab == null)
                     return -1;
@@ -117,16 +117,16 @@ namespace WeifenLuo.Docking
         }
 
         [SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
-        protected class Pane : IDisposable
+        protected class AutoHideStripPane : IDisposable
         {
             private DockPane m_dockPane;
 
-            protected internal Pane(DockPane dockPane)
+            protected internal AutoHideStripPane(DockPane dockPane)
             {
                 m_dockPane = dockPane;
             }
 
-            ~Pane()
+            ~AutoHideStripPane()
             {
                 Dispose(false);
             }
@@ -136,13 +136,13 @@ namespace WeifenLuo.Docking
                 get { return m_dockPane; }
             }
 
-            public TabCollection AutoHideTabs
+            public AutoHideStripTabCollection AutoHideTabs
             {
                 get
                 {
                     if (DockPane.AutoHideTabs == null)
-                        DockPane.AutoHideTabs = new TabCollection(DockPane);
-                    return DockPane.AutoHideTabs as TabCollection;
+                        DockPane.AutoHideTabs = new AutoHideStripTabCollection(DockPane);
+                    return DockPane.AutoHideTabs as AutoHideStripTabCollection;
                 }
             }
 
@@ -158,7 +158,7 @@ namespace WeifenLuo.Docking
         }
 
         [SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
-        protected sealed class PaneCollection : IEnumerable<Pane>
+        protected sealed class AutoHideStripPaneCollection : IEnumerable<AutoHideStripPane>
         {
             private class AutoHideState
             {
@@ -223,7 +223,7 @@ namespace WeifenLuo.Docking
                 }
             }
 
-            internal PaneCollection(DockPanel panel, DockState dockState)
+            internal AutoHideStripPaneCollection(DockPanel panel, DockState dockState)
             {
                 m_dockPanel = panel;
                 m_states = new AutoHideStateCollection();
@@ -260,7 +260,7 @@ namespace WeifenLuo.Docking
                 }
             }
 
-            public Pane this[int index]
+            public AutoHideStripPane this[int index]
             {
                 get
                 {
@@ -274,7 +274,7 @@ namespace WeifenLuo.Docking
                         {
                             if (pane.AutoHidePane == null)
                                 pane.AutoHidePane = DockPanel.AutoHideStripControl.CreatePane(pane);
-                            return pane.AutoHidePane as Pane;
+                            return pane.AutoHidePane as AutoHideStripPane;
                         }
 
                         count++;
@@ -283,12 +283,12 @@ namespace WeifenLuo.Docking
                 }
             }
 
-            public bool Contains(Pane pane)
+            public bool Contains(AutoHideStripPane pane)
             {
                 return (IndexOf(pane) != -1);
             }
 
-            public int IndexOf(Pane pane)
+            public int IndexOf(AutoHideStripPane pane)
             {
                 if (pane == null)
                     return -1;
@@ -309,7 +309,7 @@ namespace WeifenLuo.Docking
 
             #region IEnumerable Members
 
-            IEnumerator<Pane> IEnumerable<Pane>.GetEnumerator()
+            IEnumerator<AutoHideStripPane> IEnumerable<AutoHideStripPane>.GetEnumerator()
             {
                 for (int i = 0; i < Count; i++)
                     yield return this[i];
@@ -327,10 +327,10 @@ namespace WeifenLuo.Docking
         protected AutoHideStripBase(DockPanel panel)
         {
             DockPanel = panel;
-            PanesTop = new PaneCollection(panel, DockState.DockTopAutoHide);
-            PanesBottom = new PaneCollection(panel, DockState.DockBottomAutoHide);
-            PanesLeft = new PaneCollection(panel, DockState.DockLeftAutoHide);
-            PanesRight = new PaneCollection(panel, DockState.DockRightAutoHide);
+            PanesTop = new AutoHideStripPaneCollection(panel, DockState.DockTopAutoHide);
+            PanesBottom = new AutoHideStripPaneCollection(panel, DockState.DockBottomAutoHide);
+            PanesLeft = new AutoHideStripPaneCollection(panel, DockState.DockLeftAutoHide);
+            PanesRight = new AutoHideStripPaneCollection(panel, DockState.DockRightAutoHide);
 
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             SetStyle(ControlStyles.Selectable, false);
@@ -338,12 +338,12 @@ namespace WeifenLuo.Docking
 
         protected DockPanel DockPanel { get; private set; }
 
-        protected PaneCollection PanesTop { get; private set; }
-        protected PaneCollection PanesBottom { get; private set; }
-        protected PaneCollection PanesLeft { get; private set; }
-        protected PaneCollection PanesRight { get; private set; }
+        protected AutoHideStripPaneCollection PanesTop { get; private set; }
+        protected AutoHideStripPaneCollection PanesBottom { get; private set; }
+        protected AutoHideStripPaneCollection PanesLeft { get; private set; }
+        protected AutoHideStripPaneCollection PanesRight { get; private set; }
 
-        protected PaneCollection GetPanes(DockState dockState)
+        protected AutoHideStripPaneCollection GetPanes(DockState dockState)
         {
             if (dockState == DockState.DockTopAutoHide)
                 return PanesTop;
@@ -542,14 +542,14 @@ namespace WeifenLuo.Docking
             return HitTest(ptMouse);
         }
 
-        protected virtual Tab CreateTab(IDockContent content)
+        protected virtual AutoHideStripTab CreateTab(IDockContent content)
         {
-            return new Tab(content);
+            return new AutoHideStripTab(content);
         }
 
-        protected virtual Pane CreatePane(DockPane dockPane)
+        protected virtual AutoHideStripPane CreatePane(DockPane dockPane)
         {
-            return new Pane(dockPane);
+            return new AutoHideStripPane(dockPane);
         }
 
         protected abstract IDockContent HitTest(Point point);
@@ -559,7 +559,7 @@ namespace WeifenLuo.Docking
             return new AutoHideStripsAccessibleObject(this);
         }
 
-        protected abstract Rectangle GetTabBounds(Tab tab);
+        protected abstract Rectangle GetTabBounds(AutoHideStripTab tab);
 
         internal static Rectangle ToScreen(Rectangle rectangle, Control parent)
         {
@@ -662,7 +662,7 @@ namespace WeifenLuo.Docking
             public override int GetChildCount()
             {
                 int count = 0;
-                foreach (Pane pane in _strip.GetPanes(_state))
+                foreach (AutoHideStripPane pane in _strip.GetPanes(_state))
                 {
                     count += pane.AutoHideTabs.Count;
                 }
@@ -671,8 +671,8 @@ namespace WeifenLuo.Docking
 
             public override AccessibleObject GetChild(int index)
             {
-                List<Tab> tabs = new List<Tab>();
-                foreach (Pane pane in _strip.GetPanes(_state))
+                List<AutoHideStripTab> tabs = new List<AutoHideStripTab>();
+                foreach (AutoHideStripPane pane in _strip.GetPanes(_state))
                 {
                     tabs.AddRange(pane.AutoHideTabs);
                 }
@@ -693,11 +693,11 @@ namespace WeifenLuo.Docking
         protected class AutoHideStripTabAccessibleObject : AccessibleObject
         {
             private AutoHideStripBase _strip;
-            private Tab _tab;
+            private AutoHideStripTab _tab;
 
             private AccessibleObject _parent;
 
-            internal AutoHideStripTabAccessibleObject(AutoHideStripBase strip, Tab tab, AccessibleObject parent)
+            internal AutoHideStripTabAccessibleObject(AutoHideStripBase strip, AutoHideStripTab tab, AccessibleObject parent)
             {
                 _strip = strip;
                 _tab = tab;

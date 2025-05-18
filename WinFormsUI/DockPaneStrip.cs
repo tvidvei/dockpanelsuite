@@ -9,7 +9,7 @@ namespace WeifenLuo.Docking
     [ToolboxItem(false)]
     internal class DockPaneStrip : DockPaneStripBase
     {
-        private class TabVS2013 : Tab
+        private class TabVS2013 : DockPaneStripTab
         {
             public TabVS2013(IDockContent content)
                 : base(content)
@@ -45,7 +45,7 @@ namespace WeifenLuo.Docking
             }
         }
 
-        protected internal override Tab CreateTab(IDockContent content)
+        protected internal override DockPaneStripTab CreateTab(IDockContent content)
         {
             return new TabVS2013(content);
         }
@@ -999,7 +999,7 @@ namespace WeifenLuo.Docking
                 DrawTab_Document(g, tab);
         }
 
-        private GraphicsPath GetTabOutline(Tab tab, bool rtlTransform, bool toScreen)
+        private GraphicsPath GetTabOutline(DockPaneStripTab tab, bool rtlTransform, bool toScreen)
         {
             if (Appearance == DockPane.AppearanceStyle.ToolWindow)
                 return GetTabOutline_ToolWindow(tab, rtlTransform, toScreen);
@@ -1007,7 +1007,7 @@ namespace WeifenLuo.Docking
                 return GetTabOutline_Document(tab, rtlTransform, toScreen, false);
         }
 
-        private GraphicsPath GetTabOutline_ToolWindow(Tab tab, bool rtlTransform, bool toScreen)
+        private GraphicsPath GetTabOutline_ToolWindow(DockPaneStripTab tab, bool rtlTransform, bool toScreen)
         {
             Rectangle rect = GetTabRectangle(Tabs.IndexOf(tab));
             if (rtlTransform)
@@ -1019,7 +1019,7 @@ namespace WeifenLuo.Docking
             return GraphicsPath;
         }
 
-        private GraphicsPath GetTabOutline_Document(Tab tab, bool rtlTransform, bool toScreen, bool full)
+        private GraphicsPath GetTabOutline_Document(DockPaneStripTab tab, bool rtlTransform, bool toScreen, bool full)
         {
             GraphicsPath.Reset();
             Rectangle rect = GetTabRectangle(Tabs.IndexOf(tab));
@@ -1434,7 +1434,7 @@ namespace WeifenLuo.Docking
             if (!TabsRectangle.Contains(point))
                 return -1;
 
-            foreach (Tab tab in Tabs)
+            foreach (DockPaneStripTab tab in Tabs)
             {
                 GraphicsPath path = GetTabOutline(tab, true, false);
                 if (path.IsVisible(point))
@@ -1466,7 +1466,7 @@ namespace WeifenLuo.Docking
             return result;
         }
 
-        protected override Rectangle GetTabBounds(Tab tab)
+        protected override Rectangle GetTabBounds(DockPaneStripTab tab)
         {
             GraphicsPath path = GetTabOutline(tab, true, false);
             RectangleF rectangle = path.GetBounds();

@@ -10,7 +10,7 @@ namespace WeifenLuo.Docking
 
     internal class AutoHideStrip : AutoHideStripBase
     {
-        private class TabVS2012 : Tab
+        private class TabVS2012 : AutoHideStripTab
         {
             internal TabVS2012(IDockContent content)
                 : base(content)
@@ -173,7 +173,7 @@ namespace WeifenLuo.Docking
                 g.Transform = matrixRotated;
             }
 
-            foreach (Pane pane in GetPanes(dockState))
+            foreach (AutoHideStripPane pane in GetPanes(dockState))
             {
                 foreach (TabVS2012 tab in pane.AutoHideTabs)
                     DrawTab(g, tab);
@@ -195,7 +195,7 @@ namespace WeifenLuo.Docking
             Rectangle rectTabStrip = GetLogicalTabStripRectangle(dockState);
 
             int x = TabGapLeft + rectTabStrip.X;
-            foreach (Pane pane in GetPanes(dockState))
+            foreach (AutoHideStripPane pane in GetPanes(dockState))
             {
                 foreach (TabVS2012 tab in pane.AutoHideTabs)
                 {
@@ -390,7 +390,7 @@ namespace WeifenLuo.Docking
 
         protected override IDockContent HitTest(Point point)
         {
-            Tab tab = TabHitTest(point);
+            AutoHideStripTab tab = TabHitTest(point);
 
             if (tab != null)
                 return tab.Content;
@@ -398,14 +398,14 @@ namespace WeifenLuo.Docking
                 return null;
         }
 
-        protected override Rectangle GetTabBounds(Tab tab)
+        protected override Rectangle GetTabBounds(AutoHideStripTab tab)
         {
             GraphicsPath path = GetTabOutline((TabVS2012)tab, true);
             RectangleF bounds = path.GetBounds();
             return new Rectangle((int)bounds.Left, (int)bounds.Top, (int)bounds.Width, (int)bounds.Height);
         }
 
-        protected Tab TabHitTest(Point ptMouse)
+        protected AutoHideStripTab TabHitTest(Point ptMouse)
         {
             foreach (DockState state in DockStates)
             {
@@ -413,7 +413,7 @@ namespace WeifenLuo.Docking
                 if (!rectTabStrip.Contains(ptMouse))
                     continue;
 
-                foreach (Pane pane in GetPanes(state))
+                foreach (AutoHideStripPane pane in GetPanes(state))
                 {
                     foreach (TabVS2012 tab in pane.AutoHideTabs)
                     {
@@ -471,7 +471,7 @@ namespace WeifenLuo.Docking
             Invalidate();
         }
 
-        protected override AutoHideStripBase.Tab CreateTab(IDockContent content)
+        protected override AutoHideStripBase.AutoHideStripTab CreateTab(IDockContent content)
         {
             return new TabVS2012(content);
         }
