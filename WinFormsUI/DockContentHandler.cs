@@ -1024,8 +1024,8 @@ namespace WeifenLuo.Docking
                 dockPanel.ResumeLayout(true, true);
         }
 
-        private DockPaneStripTab m_tab = null;
-        internal DockPaneStripTab GetTab(DockPaneStripBase dockPaneStrip)
+        private DockPaneStripTabBase m_tab = null;
+        internal DockPaneStripTabBase GetTab(DockPaneStripBase dockPaneStrip)
         {
             if (m_tab == null)
                 m_tab = dockPaneStrip.CreateTab(Content);

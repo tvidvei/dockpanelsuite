@@ -9,74 +9,9 @@ namespace WeifenLuo.Docking
     [ToolboxItem(false)]
     internal class DockPaneStrip : DockPaneStripBase
     {
-        private class TabVS2013 : DockPaneStripTab
+        internal override DockPaneStripTabBase CreateTab(IDockContent content)
         {
-            public TabVS2013(IDockContent content)
-                : base(content)
-            {
-            }
-
-            private int m_tabX;
-            public int TabX
-            {
-                get { return m_tabX; }
-                set { m_tabX = value; }
-            }
-
-            private int m_tabWidth;
-            public int TabWidth
-            {
-                get { return m_tabWidth; }
-                set { m_tabWidth = value; }
-            }
-
-            private int m_maxWidth;
-            public int MaxWidth
-            {
-                get { return m_maxWidth; }
-                set { m_maxWidth = value; }
-            }
-
-            private bool m_flag;
-            protected internal bool Flag
-            {
-                get { return m_flag; }
-                set { m_flag = value; }
-            }
-        }
-
-        internal override DockPaneStripTab CreateTab(IDockContent content)
-        {
-            return new TabVS2013(content);
-        }
-
-        [ToolboxItem(false)]
-        private sealed class InertButton : InertButtonBase
-        {
-            private Bitmap _hovered, _normal, _pressed;
-
-            public InertButton(Bitmap hovered, Bitmap normal, Bitmap pressed)
-                : base()
-            {
-                _hovered = hovered;
-                _normal = normal;
-                _pressed = pressed;
-            }
-
-            public override Bitmap Image
-            {
-                get { return _normal; }
-            }
-
-            public override Bitmap HoverImage
-            {
-                get { return _hovered; }
-            }
-
-            public override Bitmap PressImage
-            {
-                get { return _pressed; }
-            }
+            return new DockPaneStripTab(content);
         }
 
         #region Constants
@@ -117,8 +52,8 @@ namespace WeifenLuo.Docking
         #region Members
 
         private ContextMenuStrip m_selectMenu;
-        private InertButton m_buttonOverflow;
-        private InertButton m_buttonWindowList;
+        private DockPaneStripInertButton m_buttonOverflow;
+        private DockPaneStripInertButton m_buttonWindowList;
         private IContainer m_components;
         private ToolTip m_toolTip;
         private Font m_font;
@@ -200,13 +135,13 @@ namespace WeifenLuo.Docking
             set { _selectMenuMargin = value; }
         }
 
-        private InertButton ButtonOverflow
+        private DockPaneStripInertButton ButtonOverflow
         {
             get
             {
                 if (m_buttonOverflow == null)
                 {
-                    m_buttonOverflow = new InertButton(
+                    m_buttonOverflow = new DockPaneStripInertButton(
                         DockPane.DockPanel.Theme.ImageService.DockPaneHover_OptionOverflow, 
                         DockPane.DockPanel.Theme.ImageService.DockPane_OptionOverflow,
                         DockPane.DockPanel.Theme.ImageService.DockPanePress_OptionOverflow);
@@ -218,13 +153,13 @@ namespace WeifenLuo.Docking
             }
         }
 
-        private InertButton ButtonWindowList
+        private DockPaneStripInertButton ButtonWindowList
         {
             get
             {
                 if (m_buttonWindowList == null)
                 {
-                    m_buttonWindowList = new InertButton(
+                    m_buttonWindowList = new DockPaneStripInertButton(
                         DockPane.DockPanel.Theme.ImageService.DockPaneHover_List,
                         DockPane.DockPanel.Theme.ImageService.DockPane_List,
                         DockPane.DockPanel.Theme.ImageService.DockPanePress_List);
@@ -653,7 +588,7 @@ namespace WeifenLuo.Docking
 
             // Calculate tab widths
             int countTabs = Tabs.Count;
-            foreach (TabVS2013 tab in Tabs)
+            foreach (DockPaneStripTab tab in Tabs)
             {
                 tab.MaxWidth = GetMaxTabWidth(Tabs.IndexOf(tab));
                 tab.Flag = false;
@@ -668,7 +603,7 @@ namespace WeifenLuo.Docking
             for (anyWidthWithinAverage = true; anyWidthWithinAverage && remainedTabs > 0; )
             {
                 anyWidthWithinAverage = false;
-                foreach (TabVS2013 tab in Tabs)
+                foreach (DockPaneStripTab tab in Tabs)
                 {
                     if (tab.Flag)
                         continue;
@@ -690,7 +625,7 @@ namespace WeifenLuo.Docking
             if (remainedTabs > 0)
             {
                 int roundUpWidth = (totalWidth - totalAllocatedWidth) - (averageWidth * remainedTabs);
-                foreach (TabVS2013 tab in Tabs)
+                foreach (DockPaneStripTab tab in Tabs)
                 {
                     if (tab.Flag)
                         continue;
@@ -708,7 +643,7 @@ namespace WeifenLuo.Docking
 
             // Set the X position of the tabs
             int x = rectTabStrip.X + ToolWindowStripGapLeft;
-            foreach (TabVS2013 tab in Tabs)
+            foreach (DockPaneStripTab tab in Tabs)
             {
                 tab.TabX = x;
                 x += tab.TabWidth;
@@ -719,7 +654,7 @@ namespace WeifenLuo.Docking
         {
             bool overflow = false;
 
-            var tab = Tabs[index] as TabVS2013;
+            var tab = Tabs[index] as DockPaneStripTab;
             tab.MaxWidth = GetMaxTabWidth(index);
             int width = Math.Min(tab.MaxWidth, DocumentTabMaxWidth);
             if (x + width < rectTabStrip.Right || index == StartDisplayingTab)
@@ -760,7 +695,7 @@ namespace WeifenLuo.Docking
             if (m_startDisplayingTab > 0)
             {
                 int tempX = x;
-                var tab = Tabs[m_startDisplayingTab] as TabVS2013;
+                var tab = Tabs[m_startDisplayingTab] as DockPaneStripTab;
                 tab.MaxWidth = GetMaxTabWidth(m_startDisplayingTab);
 
                 // Add the active tab and tabs to the left
@@ -798,7 +733,7 @@ namespace WeifenLuo.Docking
                 m_startDisplayingTab = 0;
                 FirstDisplayingTab = 0;
                 x = rectTabStrip.X;
-                foreach (TabVS2013 tab in Tabs)
+                foreach (DockPaneStripTab tab in Tabs)
                 {
                     tab.TabX = x;
                     x += tab.TabWidth;
@@ -823,7 +758,7 @@ namespace WeifenLuo.Docking
             if (index == -1) // TODO: should prevent it from being -1;
                 return false;
 
-            var tab = Tabs[index] as TabVS2013;
+            var tab = Tabs[index] as DockPaneStripTab;
             if (tab.TabWidth != 0)
                 return false;
 
@@ -892,21 +827,21 @@ namespace WeifenLuo.Docking
             // Draw the tabs
             Rectangle rectTabOnly = TabsRectangle;
             Rectangle rectTab = Rectangle.Empty;
-            TabVS2013 tabActive = null;
+            DockPaneStripTab tabActive = null;
             g.SetClip(DrawHelper.RtlTransform(this, rectTabOnly));
             for (int i = 0; i < count; i++)
             {
                 rectTab = GetTabRectangle(i);
                 if (Tabs[i].Content == DockPane.ActiveContent)
                 {
-                    tabActive = Tabs[i] as TabVS2013;
+                    tabActive = Tabs[i] as DockPaneStripTab;
                     tabActive.Rectangle = rectTab;
                     continue;
                 }
 
                 if (rectTab.IntersectsWith(rectTabOnly))
                 {
-                    var tab = Tabs[i] as TabVS2013;
+                    var tab = Tabs[i] as DockPaneStripTab;
                     tab.Rectangle = rectTab;
                     DrawTab(g, tab);
                 }
@@ -951,7 +886,7 @@ namespace WeifenLuo.Docking
 
             for (int i = 0; i < Tabs.Count; i++)
             {
-                var tab = Tabs[i] as TabVS2013;
+                var tab = Tabs[i] as DockPaneStripTab;
                 tab.Rectangle = GetTabRectangle(i);
                 DrawTab(g, tab);
             }
@@ -969,14 +904,14 @@ namespace WeifenLuo.Docking
         {
             Rectangle rectTabStrip = TabStripRectangle;
 
-            TabVS2013 tab = (TabVS2013)Tabs[index];
+            DockPaneStripTab tab = (DockPaneStripTab)Tabs[index];
             return new Rectangle(tab.TabX, rectTabStrip.Y, tab.TabWidth, rectTabStrip.Height);
         }
 
         private Rectangle GetTabRectangle_Document(int index)
         {
             Rectangle rectTabStrip = TabStripRectangle;
-            var tab = (TabVS2013)Tabs[index];
+            var tab = (DockPaneStripTab)Tabs[index];
 
             Rectangle rect = new Rectangle();
             rect.X = tab.TabX;
@@ -991,7 +926,7 @@ namespace WeifenLuo.Docking
             return rect;
         }
 
-        private void DrawTab(Graphics g, TabVS2013 tab)
+        private void DrawTab(Graphics g, DockPaneStripTab tab)
         {
             if (Appearance == DockPane.AppearanceStyle.ToolWindow)
                 DrawTab_ToolWindow(g, tab);
@@ -999,7 +934,7 @@ namespace WeifenLuo.Docking
                 DrawTab_Document(g, tab);
         }
 
-        private GraphicsPath GetTabOutline(DockPaneStripTab tab, bool rtlTransform, bool toScreen)
+        private GraphicsPath GetTabOutline(DockPaneStripTabBase tab, bool rtlTransform, bool toScreen)
         {
             if (Appearance == DockPane.AppearanceStyle.ToolWindow)
                 return GetTabOutline_ToolWindow(tab, rtlTransform, toScreen);
@@ -1007,7 +942,7 @@ namespace WeifenLuo.Docking
                 return GetTabOutline_Document(tab, rtlTransform, toScreen, false);
         }
 
-        private GraphicsPath GetTabOutline_ToolWindow(DockPaneStripTab tab, bool rtlTransform, bool toScreen)
+        private GraphicsPath GetTabOutline_ToolWindow(DockPaneStripTabBase tab, bool rtlTransform, bool toScreen)
         {
             Rectangle rect = GetTabRectangle(Tabs.IndexOf(tab));
             if (rtlTransform)
@@ -1019,7 +954,7 @@ namespace WeifenLuo.Docking
             return GraphicsPath;
         }
 
-        private GraphicsPath GetTabOutline_Document(DockPaneStripTab tab, bool rtlTransform, bool toScreen, bool full)
+        private GraphicsPath GetTabOutline_Document(DockPaneStripTabBase tab, bool rtlTransform, bool toScreen, bool full)
         {
             GraphicsPath.Reset();
             Rectangle rect = GetTabRectangle(Tabs.IndexOf(tab));
@@ -1037,7 +972,7 @@ namespace WeifenLuo.Docking
             return GraphicsPath;
         }
 
-        private void DrawTab_ToolWindow(Graphics g, TabVS2013 tab)
+        private void DrawTab_ToolWindow(Graphics g, DockPaneStripTab tab)
         {
             var rect = tab.Rectangle.Value;
             Rectangle rectIcon = new Rectangle(
@@ -1109,7 +1044,7 @@ namespace WeifenLuo.Docking
                 g.DrawIcon(tab.Content.DockHandler.Icon, rectIcon);
         }
 
-        private void DrawTab_Document(Graphics g, TabVS2013 tab)
+        private void DrawTab_Document(Graphics g, DockPaneStripTab tab)
         {
             var rect = tab.Rectangle.Value;
             if (tab.TabWidth == 0)
@@ -1251,7 +1186,7 @@ namespace WeifenLuo.Docking
             bool buttonUpdate = false;
             if (index != -1)
             {
-                var tab = Tabs[index] as TabVS2013;
+                var tab = Tabs[index] as DockPaneStripTab;
                 if (Appearance == DockPane.AppearanceStyle.ToolWindow || Appearance == DockPane.AppearanceStyle.Document)
                 {
                     tabUpdate = SetMouseOverTab(tab.Content == DockPane.ActiveContent ? null : tab.Content);
@@ -1319,7 +1254,7 @@ namespace WeifenLuo.Docking
         private void WindowList_Click(object sender, EventArgs e)
         {
             SelectMenu.Items.Clear();
-            foreach (TabVS2013 tab in Tabs)
+            foreach (DockPaneStripTab tab in Tabs)
             {
                 IDockContent content = tab.Content;
                 ToolStripItem item = SelectMenu.Items.Add(content.DockHandler.TabText, content.DockHandler.Icon.ToBitmap());
@@ -1434,7 +1369,7 @@ namespace WeifenLuo.Docking
             if (!TabsRectangle.Contains(point))
                 return -1;
 
-            foreach (DockPaneStripTab tab in Tabs)
+            foreach (DockPaneStripTabBase tab in Tabs)
             {
                 GraphicsPath path = GetTabOutline(tab, true, false);
                 if (path.IsVisible(point))
@@ -1466,7 +1401,7 @@ namespace WeifenLuo.Docking
             return result;
         }
 
-        internal override Rectangle GetTabBounds(DockPaneStripTab tab)
+        internal override Rectangle GetTabBounds(DockPaneStripTabBase tab)
         {
             GraphicsPath path = GetTabOutline(tab, true, false);
             RectangleF rectangle = path.GetBounds();

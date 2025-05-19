@@ -43,7 +43,7 @@ namespace WeifenLuo.Docking
         private readonly FocusManagerImpl m_focusManager;
         private readonly DockPaneCollection m_panes;
         private readonly FloatWindowCollection m_floatWindows;
-        private AutoHideWindowControlBase m_autoHideWindow;
+        private AutoHidePanelBase m_autoHideWindow;
         private DockWindowCollection m_dockWindows;
         private readonly DockContent m_dummyContent; 
         private readonly Control m_dummyControl;
@@ -1153,7 +1153,7 @@ namespace WeifenLuo.Docking
 
         // ----- From DockPanel.AutoHideWindow -----
 
-        internal AutoHideWindowControlBase AutoHideWindow {
+        internal AutoHidePanelBase AutoHideWindow {
             get { return m_autoHideWindow; }
         }
 
@@ -1611,7 +1611,7 @@ namespace WeifenLuo.Docking
             return new PaneSplitter(pane);
         }
 
-        public virtual WindowSplitterBase CreateWindowSplitter(ISplitterHost host) {
+        public virtual SplitterBase CreateWindowSplitter(ISplitterHost host) {
             return new WindowSplitter(host);
         }
 
@@ -1639,8 +1639,8 @@ namespace WeifenLuo.Docking
             return new AutoHideStrip(panel);
         }
 
-        public virtual AutoHideWindowControlBase CreateAutoHideWindow(DockPanel panel) {
-            return new AutoHideWindowControl(panel);
+        public virtual AutoHidePanelBase CreateAutoHideWindow(DockPanel panel) {
+            return new AutoHidePanel(panel);
         }
 
         public virtual IPaneIndicator CreatePaneIndicator(ThemeBase theme) {

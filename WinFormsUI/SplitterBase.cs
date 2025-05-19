@@ -5,9 +5,9 @@ using System.Windows.Forms;
 namespace WeifenLuo.Docking
 {
     [ToolboxItem(false)]
-    public class WindowSplitterBase : Control
+    public class SplitterBase : Control
     {
-        public WindowSplitterBase()
+        public SplitterBase()
         {
             SetStyle(ControlStyles.Selectable, false);
         }

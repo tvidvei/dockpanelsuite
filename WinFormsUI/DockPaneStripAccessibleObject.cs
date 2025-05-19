@@ -33,7 +33,7 @@ namespace WeifenLuo.Docking
 
         public override AccessibleObject HitTest(int x, int y) {
             Point point = new Point(x, y);
-            foreach (DockPaneStripTab tab in _strip.Tabs) {
+            foreach (DockPaneStripTabBase tab in _strip.Tabs) {
                 Rectangle rectangle = _strip.GetTabBounds(tab);
                 if (DockPaneStripBase.ToScreen(rectangle, _strip).Contains(point))
                     return new DockPaneStripTabAccessibleObject(_strip, tab, this);

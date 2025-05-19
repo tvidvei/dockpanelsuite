@@ -6,9 +6,9 @@ namespace WeifenLuo.Docking
 {
 
     [ToolboxItem(false)]
-    internal class AutoHideWindowControl : AutoHideWindowControlBase
+    internal class AutoHidePanel : AutoHidePanelBase
     {
-        public AutoHideWindowControl(DockPanel dockPanel)
+        public AutoHidePanel(DockPanel dockPanel)
             : base(dockPanel)
         {
         }

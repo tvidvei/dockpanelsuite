@@ -41,14 +41,16 @@
     <Compile Include="AutoHideStripAccessibleObject.cs" />
     <Compile Include="AutoHideStripTab.cs" />
     <Compile Include="AutoHideStripTabCollection.cs" />
-    <Compile Include="AutoHideWindowControlBase.cs" />
+    <Compile Include="AutoHidePanelBase.cs" />
     <Compile Include="AutoHideStripsAccessibleObject.cs" />
     <Compile Include="Configuration\PatchSection.cs" />
     <Compile Include="DockDragHandler.cs" />
     <Compile Include="DockOutline.cs" />
     <Compile Include="DockPanelColorPalette.cs" />
     <Compile Include="DockPaneStripAccessibleObject.cs" />
+    <Compile Include="DockPaneStripInertButton.cs" />
     <Compile Include="DockPaneStripTab.cs" />
+    <Compile Include="DockPaneStripTabBase.cs" />
     <Compile Include="DockPaneStripTabAccessibleObject.cs" />
     <Compile Include="DockPaneStripTabCollection.cs" />
     <Compile Include="DragForm.cs">
@@ -76,6 +78,7 @@
     <Compile Include="PaintingService.cs" />
     <Compile Include="PaneIndicator.cs" />
     <Compile Include="PanelIndicator.cs" />
+    <Compile Include="PanelSplitter.cs" />
     <Compile Include="PatchController.cs" />
     <Compile Include="Persistor.cs" />
     <Compile Include="Resources.cs" />
@@ -120,7 +123,7 @@
     <Compile Include="Interfaces.cs" />
     <Compile Include="Measures.cs" />
     <Compile Include="NestedDockingStatus.cs" />
-    <Compile Include="WindowSplitterBase.cs">
+    <Compile Include="SplitterBase.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Helpers\DrawHelper.cs" />
@@ -143,7 +146,7 @@
     <Compile Include="AutoHideStrip.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="AutoHideWindowControl.cs">
+    <Compile Include="AutoHidePanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Themes\VS2015BlueTheme.cs">

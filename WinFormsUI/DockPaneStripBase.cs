@@ -12,7 +12,6 @@ namespace WeifenLuo.Docking
     public abstract class DockPaneStripBase : Control
     {
 
-
         protected DockPaneStripBase(DockPane pane)
         {
             m_dockPane = pane;
@@ -73,9 +72,9 @@ namespace WeifenLuo.Docking
 
         public abstract GraphicsPath GetOutline(int index);
 
-        internal virtual DockPaneStripTab CreateTab(IDockContent content)
+        internal virtual DockPaneStripTabBase CreateTab(IDockContent content)
         {
-            return new DockPaneStripTab(content);
+            return new DockPaneStripTabBase(content);
         }
 
         private Rectangle _dragBox = Rectangle.Empty;
@@ -212,7 +211,7 @@ namespace WeifenLuo.Docking
             }
         }
 
-        internal abstract Rectangle GetTabBounds(DockPaneStripTab tab);
+        internal abstract Rectangle GetTabBounds(DockPaneStripTabBase tab);
 
         internal static Rectangle ToScreen(Rectangle rectangle, Control parent)
         {

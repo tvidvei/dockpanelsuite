@@ -11,11 +11,11 @@ namespace WeifenLuo.Docking
     internal class DockPaneStripTabAccessibleObject : AccessibleObject
     {
         private DockPaneStripBase _strip;
-        private DockPaneStripTab _tab;
+        private DockPaneStripTabBase _tab;
 
         private AccessibleObject _parent;
 
-        internal DockPaneStripTabAccessibleObject(DockPaneStripBase strip, DockPaneStripTab tab, AccessibleObject parent) {
+        internal DockPaneStripTabAccessibleObject(DockPaneStripBase strip, DockPaneStripTabBase tab, AccessibleObject parent) {
             _strip = strip;
             _tab = tab;
 

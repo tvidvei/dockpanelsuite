@@ -1,57 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace WeifenLuo.Docking
+﻿namespace WeifenLuo.Docking
 {
-
-    internal class DockPaneStripTab : IDisposable
+    internal class DockPaneStripTab : DockPaneStripTabBase
     {
-        private IDockContent m_content;
-
-        public DockPaneStripTab(IDockContent content) {
-            m_content = content;
+        public DockPaneStripTab(IDockContent content)
+            : base(content) {
         }
 
-        ~DockPaneStripTab() {
-            Dispose(false);
+        private int m_tabX;
+        public int TabX {
+            get { return m_tabX; }
+            set { m_tabX = value; }
         }
 
-        public IDockContent Content {
-            get { return m_content; }
+        private int m_tabWidth;
+        public int TabWidth {
+            get { return m_tabWidth; }
+            set { m_tabWidth = value; }
         }
 
-        public Form ContentForm {
-            get { return m_content as Form; }
+        private int m_maxWidth;
+        public int MaxWidth {
+            get { return m_maxWidth; }
+            set { m_maxWidth = value; }
         }
 
-        public void Dispose() {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        protected virtual void Dispose(bool disposing) {
-        }
-
-        private Rectangle? _rect;
-
-        public Rectangle? Rectangle {
-            get {
-                if (_rect != null) {
-                    return _rect;
-                }
-
-                return _rect = System.Drawing.Rectangle.Empty;
-            }
-
-            set {
-                _rect = value;
-            }
+        private bool m_flag;
+        protected internal bool Flag {
+            get { return m_flag; }
+            set { m_flag = value; }
         }
     }
 

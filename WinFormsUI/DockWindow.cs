@@ -12,7 +12,7 @@ namespace WeifenLuo.Docking
     {
         private DockPanel m_dockPanel;
         private DockState m_dockState;
-        private WindowSplitterBase m_splitter;
+        private SplitterBase m_splitter;
         private NestedPaneCollection m_nestedPanes;
 
         protected internal DockWindow(DockPanel dockPanel, DockState dockState)

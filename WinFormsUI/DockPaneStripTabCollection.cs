@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace WeifenLuo.Docking
 {
-    internal sealed class DockPaneStripTabCollection : IEnumerable<DockPaneStripTab>
+    internal sealed class DockPaneStripTabCollection : IEnumerable<DockPaneStripTabBase>
     {
         #region IEnumerable Members
-        IEnumerator<DockPaneStripTab> IEnumerable<DockPaneStripTab>.GetEnumerator() {
+        IEnumerator<DockPaneStripTabBase> IEnumerable<DockPaneStripTabBase>.GetEnumerator() {
             for (int i = 0; i < Count; i++)
                 yield return this[i];
         }
@@ -35,7 +35,7 @@ namespace WeifenLuo.Docking
             get { return DockPane.DisplayingContents.Count; }
         }
 
-        public DockPaneStripTab this[int index] {
+        public DockPaneStripTabBase this[int index] {
             get {
                 IDockContent content = DockPane.DisplayingContents[index];
                 if (content == null)
@@ -44,7 +44,7 @@ namespace WeifenLuo.Docking
             }
         }
 
-        public bool Contains(DockPaneStripTab tab) {
+        public bool Contains(DockPaneStripTabBase tab) {
             return (IndexOf(tab) != -1);
         }
 
@@ -52,7 +52,7 @@ namespace WeifenLuo.Docking
             return (IndexOf(content) != -1);
         }
 
-        public int IndexOf(DockPaneStripTab tab) {
+        public int IndexOf(DockPaneStripTabBase tab) {
             if (tab == null)
                 return -1;
 

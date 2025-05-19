@@ -6,36 +6,16 @@ using System.Windows.Forms;
 namespace WeifenLuo.Docking
 {
     [ToolboxItem(false)]
-    public class AutoHideWindowControlBase : Panel, ISplitterHost
+    public class AutoHidePanelBase : Panel, ISplitterHost
     {
-        protected class SplitterControl : WindowSplitterBase
-        {
-            public SplitterControl(AutoHideWindowControlBase autoHideWindow) {
-                m_autoHideWindow = autoHideWindow;
-            }
-
-            private AutoHideWindowControlBase m_autoHideWindow;
-            private AutoHideWindowControlBase AutoHideWindow {
-                get { return m_autoHideWindow; }
-            }
-
-            protected override int SplitterSize {
-                get { return AutoHideWindow.DockPanel.Theme.Measures.AutoHideSplitterSize; }
-            }
-
-            protected override void StartDrag() {
-                AutoHideWindow.DockPanel.BeginDrag(AutoHideWindow, AutoHideWindow.RectangleToScreen(Bounds));
-            }
-        }
-
         #region consts
         private const int ANIMATE_TIME = 100;    // in mini-seconds
         #endregion
 
         private Timer m_timerMouseTrack;
-        protected WindowSplitterBase m_splitter { get; private set; }
+        protected SplitterBase m_splitter { get; private set; }
 
-        public AutoHideWindowControlBase(DockPanel dockPanel) {
+        public AutoHidePanelBase(DockPanel dockPanel) {
             m_dockPanel = dockPanel;
 
             m_timerMouseTrack = new Timer();
