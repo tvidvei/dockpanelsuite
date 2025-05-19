@@ -35,7 +35,7 @@ namespace WeifenLuo.Docking
 
     [LocalizedDescription("DockPanel_Description")]
     [Designer("System.Windows.Forms.Design.ControlDesigner, System.Design")]
-    [ToolboxBitmap(typeof(ResFinder), "WeifenLuo.Resources.DockPanel.bmp")]
+    [ToolboxBitmap(typeof(ResFinder), "WeifenLuo.Docking.Resources.DockPanel.bmp")]
     [DefaultProperty("DocumentStyle")]
     [DefaultEvent("ActiveContentChanged")]
     public class DockPanel : Panel
