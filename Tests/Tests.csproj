@@ -52,13 +52,13 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WinFormsUI\ThemeVS2015.csproj">
+    <ProjectReference Include="..\WeifenLuo.Docking\ThemeVS2015.csproj">
       <Project>{007d4ac8-948f-4816-86ad-b9d1343672c1}</Project>
       <Name>ThemeVS2015</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WinFormsUI\WinFormsUI.csproj">
+    <ProjectReference Include="..\WeifenLuo.Docking\WeifenLuo.Docking.csproj">
       <Project>{C75532C4-765B-418E-B09B-46D36B2ABDB1}</Project>
-      <Name>WinFormsUI</Name>
+      <Name>WeifenLuo.Docking</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

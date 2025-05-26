@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeifenLuo.Docking", "WinFormsUI\WeifenLuo.Docking.csproj", "{C75532C4-765B-418E-B09B-46D36B2ABDB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeifenLuo.Docking", "WeifenLuo.Docking\WeifenLuo.Docking.csproj", "{C75532C4-765B-418E-B09B-46D36B2ABDB1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject

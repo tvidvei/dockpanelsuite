@@ -52,9 +52,9 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WinFormsUI\WinFormsUI.csproj">
+    <ProjectReference Include="..\WeifenLuo.Docking\WeifenLuo.Docking.csproj">
       <Project>{c75532c4-765b-418e-b09b-46d36b2abdb1}</Project>
-      <Name>WinFormsUI</Name>
+      <Name>WeifenLuo.Docking</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
