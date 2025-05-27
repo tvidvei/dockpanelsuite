@@ -99,17 +99,6 @@ namespace DockSample
             this.itemBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.disabledItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dockPanel = new WeifenLuo.Docking.DockPanel();
-            this.vS2015DarkTheme1 = new WeifenLuo.Docking.VS2015DarkTheme();
-            this.vS2015BlueTheme1 = new WeifenLuo.Docking.VS2015BlueTheme();
-            //this.vS2005Theme1 = new WeifenLuo.Docking.VS2005Theme();
-            //this.vS2003Theme1 = new WeifenLuo.Docking.VS2003Theme();
-            this.vS2015LightTheme1 = new WeifenLuo.Docking.VS2015LightTheme();
-            //this.vS2013LightTheme1 = new WeifenLuo.Docking.VS2013LightTheme();
-            //this.vS2013BlueTheme1 = new WeifenLuo.Docking.VS2013BlueTheme();
-            //this.vS2013DarkTheme1 = new WeifenLuo.Docking.VS2013DarkTheme();
-            //this.vS2012LightTheme1 = new WeifenLuo.Docking.VS2012LightTheme();
-            //this.vS2012BlueTheme1 = new WeifenLuo.Docking.VS2012BlueTheme();
-            //this.vS2012DarkTheme1 = new WeifenLuo.Docking.VS2012DarkTheme();
             this.vsToolStripExtender1 = new WeifenLuo.Docking.VisualStudioToolStripExtender(this.components);
             this.mainMenu.SuspendLayout();
             this.toolBar.SuspendLayout();
@@ -772,9 +761,6 @@ namespace DockSample
         private System.Windows.Forms.ToolStripMenuItem menuItemSchemaVS2015Light;
         private System.Windows.Forms.ToolStripMenuItem menuItemSchemaVS2015Blue;
         private System.Windows.Forms.ToolStripMenuItem menuItemSchemaVS2015Dark;
-        private WeifenLuo.Docking.VS2015LightTheme vS2015LightTheme1;
-        private WeifenLuo.Docking.VS2015BlueTheme vS2015BlueTheme1;
-        private WeifenLuo.Docking.VS2015DarkTheme vS2015DarkTheme1;
         //private WeifenLuo.Docking.VS2013LightTheme vS2013LightTheme1;
         //private WeifenLuo.Docking.VS2013BlueTheme vS2013BlueTheme1;
         //private WeifenLuo.Docking.VS2013DarkTheme vS2013DarkTheme1;

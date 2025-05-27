@@ -46,7 +46,6 @@
     <Compile Include="Configuration\PatchSection.cs" />
     <Compile Include="DockDragHandler.cs" />
     <Compile Include="DockOutline.cs" />
-    <Compile Include="Themes\DockPanelColorPalette.cs" />
     <Compile Include="DockPaneStripAccessibleObject.cs" />
     <Compile Include="DockPaneStripInertButton.cs" />
     <Compile Include="DockPaneStripTab.cs" />
@@ -84,9 +83,10 @@
     <Compile Include="Resources.cs" />
     <Compile Include="PaneSplitterBase.cs" />
     <Compile Include="SplitterDragHandler.cs" />
-    <Compile Include="Themes\JsonConverters.cs" />
-    <Compile Include="Themes\Theme.cs" />
-    <Compile Include="Themes\VisualStudioColorTable.cs" />
+    <Compile Include="Theming\DockPanelColorPalette.cs" />
+    <Compile Include="Theming\JsonConverters.cs" />
+    <Compile Include="Theming\Theme.cs" />
+    <Compile Include="Theming\VisualStudioColorTable.cs" />
     <Compile Include="VisibleNestedPaneCollection.cs" />
     <Compile Include="DockAreasEditor.cs" />
     <Compile Include="DockContent.cs">
@@ -148,8 +148,6 @@
     <Compile Include="AutoHidePanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Themes\VS2015BlueTheme.cs" />
-    <Compile Include="Themes\VS2015DarkTheme.cs" />
     <Compile Include="DockPaneCaption.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -159,8 +157,7 @@
     <Compile Include="DockPaneStrip.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Themes\VS2015LightTheme.cs" />
-    <Compile Include="Themes\PaletteFactory.cs" />
+    <Compile Include="Theming\PaletteFactory.cs" />
     <Compile Include="PaneSplitter.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -211,6 +208,10 @@
   <ItemGroup>
     <None Include="dockpanelsuite.snk" />
     <None Include="license.txt" />
+    <None Include="Themes\default.json" />
+    <None Include="Themes\vs2015blue.json" />
+    <None Include="Themes\vs2015dark.json" />
+    <None Include="Themes\vs2015light.json" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net40' OR '$(TargetFramework)' == 'net35'">
     <Reference Include="System.Configuration" />

@@ -92,4 +92,8 @@
     </None>
   </ItemGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="rd $(OutDir)\themes /s /q&#xD;&#xA;xcopy themes $(OutDir)\themes /s /e /i" />
+  </Target>
+
 </Project>

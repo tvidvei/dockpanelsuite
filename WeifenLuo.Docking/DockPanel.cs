@@ -1254,9 +1254,11 @@ namespace WeifenLuo.Docking
                     return;
                 }
 
-                if (m_dockPanelTheme.GetType() == value.GetType()) {
-                    return;
-                }
+                if (m_dockPanelTheme == value) return;
+                //if (m_dockPanelTheme.GetType() == value.GetType())
+                //    {
+                //        return;
+                //}
 
                 m_dockPanelTheme?.CleanUp(this);
                 m_dockPanelTheme = value;
@@ -1587,7 +1589,7 @@ namespace WeifenLuo.Docking
         // ----- From DockPanelExtender -----
 
         public virtual Theme CreateDefaultTheme() {
-            return new VS2015BlueTheme();
+            return Theme.LoadFromFile("default.json");
         }  
 
         public virtual DockPane CreateDockPane(IDockContent content, DockState visibleState, bool show) {

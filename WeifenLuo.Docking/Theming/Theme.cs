@@ -6,6 +6,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Windows.Forms;
 using ThemeEditor;
 
@@ -17,30 +18,45 @@ namespace WeifenLuo.Docking
 
         private bool _showAutoHideContentOnHover;
 
-        public Theme() { 
-        
-        }
-
-        public Theme(byte[] resources) {
-            ColorPalette = new DockPanelColorPalette(new PaletteFactory(resources));
+        public Theme() {
             Skin = new DockPanelSkin();
             PaintingService = new PaintingService();
-            ImageService = new ImageService(this);
-            ToolStripRenderer = new VisualStudioToolStripRenderer(ColorPalette) {
-                UseGlassOnMenuStrip = false,
-            };
-
             Measures = new Measures();
             Measures.SplitterSize = 6;
             Measures.AutoHideSplitterSize = 3;
             Measures.DockPadding = 6;
-
             ShowAutoHideContentOnHover = false;
+        }
+
+        public Theme(byte[] resources) : this() {
+            ColorPalette = new DockPanelColorPalette(new PaletteFactory(resources));
+
+            //Skin = new DockPanelSkin();
+            //PaintingService = new PaintingService();
+            //Measures = new Measures();
+            //Measures.SplitterSize = 6;
+            //Measures.AutoHideSplitterSize = 3;
+            //Measures.DockPadding = 6;
+            //ShowAutoHideContentOnHover = false;
+            //Setup();
+        }
+
+        /// <summary>
+        /// Setup to be called after initialization
+        /// </summary>
+        internal void Setup()
+        {
+            ImageService = new ImageService(this);
+            ToolStripRenderer = new VisualStudioToolStripRenderer(ColorPalette)
+            {
+                UseGlassOnMenuStrip = false,
+            };
         }
 
         /// <summary>
         /// Filepath for this Theme
         /// </summary>
+        [JsonIgnore]
         [Browsable(false)]
         public string FileName { get; protected set; }
 
@@ -49,21 +65,27 @@ namespace WeifenLuo.Docking
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public DockPanelColorPalette ColorPalette { get; set; }
 
+        [JsonIgnore]
         [Browsable(false)]
         public DockPanelSkin Skin { get; set; }
 
+        [JsonIgnore]
         [Browsable(false)]
         public IImageService ImageService { get; set; }
 
+        [JsonIgnore]
         [Browsable(false)]
         public IPaintingService PaintingService { get; set; }
 
+        [JsonIgnore]
         [Browsable(false)]
         protected ToolStripRenderer ToolStripRenderer { get; set; }
 
+        [JsonIgnore]
         [Browsable(false)]
         public Measures Measures { get; set; }
 
+        [JsonIgnore]
         [Browsable(false)]
         public bool ShowAutoHideContentOnHover { get; set; } //= true;
 
@@ -182,10 +204,17 @@ namespace WeifenLuo.Docking
 
         private static JsonSerializerOptions JsonSerializerOptions = new JsonSerializerOptions();
 
+        [JsonIgnore]
+        [Browsable(false)]
+        public static string ThemesPath { get; set; }
 
         public static Theme LoadFromFile(string fileName)
         {
             Theme result = null;
+            if (Path.GetDirectoryName(fileName) == String.Empty)
+            {
+                fileName = Path.Combine(ThemesPath, fileName);
+            }
             var fileExt = Path.GetExtension(fileName);
             if (fileExt == null)
             {
@@ -195,11 +224,19 @@ namespace WeifenLuo.Docking
             if (fileExt.ToLower() == ".gz")
             {
                 result = Theme.loadFromCompressedFile(fileName);
+                result.Setup();
+
+                // Temp:
+                //string outfileName = Path.Combine("c:\\tmp", Path.GetFileNameWithoutExtension(fileName)+".json");
+                //string jsonString = JsonSerializer.Serialize(result, typeof(Theme), JsonSerializerOptions);
+                //File.WriteAllText(outfileName, jsonString);
+
             }
             else if (fileExt.ToLower() == ".json")
             {
                 var jsonString = File.ReadAllText(fileName);
                 result = JsonSerializer.Deserialize<Theme>(jsonString, JsonSerializerOptions);
+                result.Setup();
             }
             else
             {
@@ -242,6 +279,7 @@ namespace WeifenLuo.Docking
         {
             JsonSerializerOptions.WriteIndented = true;
             JsonSerializerOptions.Converters.Add(new ColorJsonConverter());
+            ThemesPath = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location),"Themes");
         }
     }
 }

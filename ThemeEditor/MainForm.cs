@@ -210,18 +210,18 @@ namespace ThemeEditor
 #endif
             if (sender == this.menuItemSchemaVS2015Blue)
             {
-                this.dockPanel.Theme = this.vS2015BlueTheme1;
-                this.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2015, vS2015BlueTheme1);
+                this.dockPanel.Theme = Theme.LoadFromFile("VS2015Blue.json");
+                this.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2015, dockPanel.Theme);
             }
             else if (sender == this.menuItemSchemaVS2015Light)
             {
-                this.dockPanel.Theme = this.vS2015LightTheme1;
-                this.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2015, vS2015LightTheme1);
+                this.dockPanel.Theme = Theme.LoadFromFile("VS2015Light.json");
+                this.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2015, dockPanel.Theme);
             }
             else if (sender == this.menuItemSchemaVS2015Dark)
             {
-                this.dockPanel.Theme = this.vS2015DarkTheme1;
-                this.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2015, vS2015DarkTheme1);
+                this.dockPanel.Theme = Theme.LoadFromFile("VS2015Dark.json");
+                this.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2015, dockPanel.Theme);
             }
 
 #if old
