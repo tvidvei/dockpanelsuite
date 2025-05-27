@@ -49,7 +49,7 @@ namespace WeifenLuo.Docking
 
         readonly DockPanelColorPalette _palette;
 
-        public ImageService(ThemeBase theme)
+        public ImageService(Theme theme)
         {
             var res = typeof(Person);
             _palette = theme.ColorPalette;

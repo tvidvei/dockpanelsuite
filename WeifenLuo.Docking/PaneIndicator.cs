@@ -28,7 +28,7 @@ namespace WeifenLuo.Docking
 
         private GraphicsPath _displayingGraphicsPath;
 
-        public PaneIndicator(ThemeBase theme) {
+        public PaneIndicator(Theme theme) {
             _bitmapPaneDiamond = theme.ImageService.Dockindicator_PaneDiamond;
             _bitmapPaneDiamondLeft = theme.ImageService.Dockindicator_PaneDiamond_Fill;
             _bitmapPaneDiamondRight = theme.ImageService.Dockindicator_PaneDiamond_Fill;

@@ -84,7 +84,7 @@ namespace WeifenLuo.Docking
             return VsVersion.Unknown;
         }
 
-        public void SetStyle(ToolStrip strip, VsVersion version, ThemeBase theme)
+        public void SetStyle(ToolStrip strip, VsVersion version, Theme theme)
         {
             ToolStripProperties properties = null;
 

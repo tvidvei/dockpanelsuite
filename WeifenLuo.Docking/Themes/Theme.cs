@@ -5,16 +5,23 @@ using System.Drawing;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
+using System.Text.Json;
 using System.Windows.Forms;
+using ThemeEditor;
 
 namespace WeifenLuo.Docking
 {
-    public abstract class ThemeBase : Component
+    public class Theme
     {
         private Color _dockBackColor;
+
         private bool _showAutoHideContentOnHover;
 
-        public ThemeBase(byte[] resources) {
+        public Theme() { 
+        
+        }
+
+        public Theme(byte[] resources) {
             ColorPalette = new DockPanelColorPalette(new PaletteFactory(resources));
             Skin = new DockPanelSkin();
             PaintingService = new PaintingService();
@@ -22,22 +29,43 @@ namespace WeifenLuo.Docking
             ToolStripRenderer = new VisualStudioToolStripRenderer(ColorPalette) {
                 UseGlassOnMenuStrip = false,
             };
+
+            Measures = new Measures();
             Measures.SplitterSize = 6;
             Measures.AutoHideSplitterSize = 3;
             Measures.DockPadding = 6;
+
             ShowAutoHideContentOnHover = false;
         }
 
+        /// <summary>
+        /// Filepath for this Theme
+        /// </summary>
+        [Browsable(false)]
+        public string FileName { get; protected set; }
 
-        public DockPanelSkin Skin { get; protected set; }
 
-        public DockPanelColorPalette ColorPalette { get; protected set; }
+        [Category("Colors")]
+        [TypeConverter(typeof(ExpandableObjectConverter))]
+        public DockPanelColorPalette ColorPalette { get; set; }
 
-        public IImageService ImageService { get; protected set; }
+        [Browsable(false)]
+        public DockPanelSkin Skin { get; set; }
 
-        public IPaintingService PaintingService { get; protected set; }
+        [Browsable(false)]
+        public IImageService ImageService { get; set; }
 
-        protected ToolStripRenderer ToolStripRenderer { get; set;}
+        [Browsable(false)]
+        public IPaintingService PaintingService { get; set; }
+
+        [Browsable(false)]
+        protected ToolStripRenderer ToolStripRenderer { get; set; }
+
+        [Browsable(false)]
+        public Measures Measures { get; set; }
+
+        [Browsable(false)]
+        public bool ShowAutoHideContentOnHover { get; set; } //= true;
 
         private Dictionary<ToolStrip, KeyValuePair<ToolStripRenderMode, ToolStripRenderer>> _stripBefore
             = new Dictionary<ToolStrip, KeyValuePair<ToolStripRenderMode, ToolStripRenderer>>();
@@ -78,10 +106,6 @@ namespace WeifenLuo.Docking
         {
             _managerBefore = new KeyValuePair<ToolStripManagerRenderMode, ToolStripRenderer>(ToolStripManager.RenderMode, ToolStripManager.Renderer);
         }
-
-        public Measures Measures { get; } = new Measures();
-
-        public bool ShowAutoHideContentOnHover { get; protected set; } = true;
 
         public void ApplyTo(DockPanel dockPanel)
         {
@@ -156,6 +180,42 @@ namespace WeifenLuo.Docking
             }
         }
 
+        private static JsonSerializerOptions JsonSerializerOptions = new JsonSerializerOptions();
+
+
+        public static Theme LoadFromFile(string fileName)
+        {
+            Theme result = null;
+            var fileExt = Path.GetExtension(fileName);
+            if (fileExt == null)
+            {
+                fileName += ".json";
+                fileExt = "json";
+            }
+            if (fileExt.ToLower() == ".gz")
+            {
+                result = Theme.loadFromCompressedFile(fileName);
+            }
+            else if (fileExt.ToLower() == ".json")
+            {
+                var jsonString = File.ReadAllText(fileName);
+                result = JsonSerializer.Deserialize<Theme>(jsonString, JsonSerializerOptions);
+            }
+            else
+            {
+                throw new Exception("Error in Theme.LoadFromFile: File must have extension '.json' or '.gz'");
+            }
+            result.FileName = fileName;
+            return result;
+        }
+
+        private static Theme loadFromCompressedFile(string fileName)
+        {
+            byte[] gzdata = File.ReadAllBytes(fileName);
+            var data = Decompress(gzdata);
+            return new Theme(data);
+        }
+
         public static byte[] Decompress(byte[] fileToDecompress)
         {
             using (MemoryStream originalFileStream = new MemoryStream(fileToDecompress))
@@ -176,6 +236,12 @@ namespace WeifenLuo.Docking
                     }
                 }
             }
+        }
+
+        static Theme()
+        {
+            JsonSerializerOptions.WriteIndented = true;
+            JsonSerializerOptions.Converters.Add(new ColorJsonConverter());
         }
     }
 }

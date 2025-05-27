@@ -3,7 +3,7 @@ namespace WeifenLuo.Docking
     /// <summary>
     /// Visual Studio 2015 Light theme.
     /// </summary>
-    public class VS2015BlueTheme : ThemeBase
+    public class VS2015BlueTheme : Theme
     {
         public VS2015BlueTheme()
             : base(Decompress(Resources.GetBytes("vs2015blue.vstheme.gz")))

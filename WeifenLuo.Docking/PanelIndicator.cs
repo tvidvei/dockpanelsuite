@@ -23,7 +23,7 @@ namespace WeifenLuo.Docking
         private Image _imagePanelBottomActive;
         private Image _imagePanelFillActive;
 
-        public PanelIndicator(DockStyle dockStyle, ThemeBase theme) {
+        public PanelIndicator(DockStyle dockStyle, Theme theme) {
             _imagePanelLeft = theme.ImageService.DockIndicator_PanelLeft;
             _imagePanelRight = theme.ImageService.DockIndicator_PanelRight;
             _imagePanelTop = theme.ImageService.DockIndicator_PanelTop;

@@ -46,7 +46,7 @@
     <Compile Include="Configuration\PatchSection.cs" />
     <Compile Include="DockDragHandler.cs" />
     <Compile Include="DockOutline.cs" />
-    <Compile Include="DockPanelColorPalette.cs" />
+    <Compile Include="Themes\DockPanelColorPalette.cs" />
     <Compile Include="DockPaneStripAccessibleObject.cs" />
     <Compile Include="DockPaneStripInertButton.cs" />
     <Compile Include="DockPaneStripTab.cs" />
@@ -84,10 +84,9 @@
     <Compile Include="Resources.cs" />
     <Compile Include="PaneSplitterBase.cs" />
     <Compile Include="SplitterDragHandler.cs" />
-    <Compile Include="ThemeBase.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="VisualStudioColorTable.cs" />
+    <Compile Include="Themes\JsonConverters.cs" />
+    <Compile Include="Themes\Theme.cs" />
+    <Compile Include="Themes\VisualStudioColorTable.cs" />
     <Compile Include="VisibleNestedPaneCollection.cs" />
     <Compile Include="DockAreasEditor.cs" />
     <Compile Include="DockContent.cs">
@@ -149,12 +148,8 @@
     <Compile Include="AutoHidePanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Themes\VS2015BlueTheme.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Themes\VS2015DarkTheme.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Themes\VS2015BlueTheme.cs" />
+    <Compile Include="Themes\VS2015DarkTheme.cs" />
     <Compile Include="DockPaneCaption.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -164,10 +159,8 @@
     <Compile Include="DockPaneStrip.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Themes\VS2015LightTheme.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="PaletteFactory.cs" />
+    <Compile Include="Themes\VS2015LightTheme.cs" />
+    <Compile Include="Themes\PaletteFactory.cs" />
     <Compile Include="PaneSplitter.cs">
       <SubType>Component</SubType>
     </Compile>

@@ -1243,11 +1243,11 @@ namespace WeifenLuo.Docking
             get { return null; }
         }
 
-        private ThemeBase m_dockPanelTheme;
+        private Theme m_dockPanelTheme;
 
         [LocalizedCategory("Category_Docking")]
         [LocalizedDescription("DockPanel_DockPanelTheme")]
-        public ThemeBase Theme {
+        public Theme Theme {
             get { return m_dockPanelTheme; }
             set {
                 if (value == null) {
@@ -1586,7 +1586,7 @@ namespace WeifenLuo.Docking
 
         // ----- From DockPanelExtender -----
 
-        public virtual ThemeBase CreateDefaultTheme() {
+        public virtual Theme CreateDefaultTheme() {
             return new VS2015BlueTheme();
         }  
 
@@ -1643,11 +1643,11 @@ namespace WeifenLuo.Docking
             return new AutoHidePanel(panel);
         }
 
-        public virtual IPaneIndicator CreatePaneIndicator(ThemeBase theme) {
+        public virtual IPaneIndicator CreatePaneIndicator(Theme theme) {
             return new PaneIndicator(theme);
         }
 
-        public virtual IPanelIndicator CreatePanelIndicator(DockStyle style, ThemeBase theme) {
+        public virtual IPanelIndicator CreatePanelIndicator(DockStyle style, Theme theme) {
             return new PanelIndicator(style, theme);
         }
 

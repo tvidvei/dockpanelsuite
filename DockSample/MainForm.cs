@@ -246,7 +246,7 @@ namespace DockSample
                 dockPanel.LoadFromXml(configFile, m_deserializeDockContent);
         }
 
-        private void EnableVSRenderer(VisualStudioToolStripExtender.VsVersion version, ThemeBase theme)
+        private void EnableVSRenderer(VisualStudioToolStripExtender.VsVersion version, Theme theme)
         {
             vsToolStripExtender1.SetStyle(mainMenu, version, theme);
             vsToolStripExtender1.SetStyle(toolBar, version, theme);
