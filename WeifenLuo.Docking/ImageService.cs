@@ -51,7 +51,6 @@ namespace WeifenLuo.Docking
 
         public ImageService(ThemeBase theme)
         {
-            var res = typeof(Person);
             _palette = theme.ColorPalette;
             Dockindicator_PaneDiamond_Hotspot = Resources.GetBitmap("Dockindicator_PaneDiamond_Hotspot.png");
             DockIndicator_PaneDiamond_HotspotIndex = Resources.GetBitmap("DockIndicator_PaneDiamond_HotspotIndex.png");

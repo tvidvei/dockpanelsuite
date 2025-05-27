@@ -6,6 +6,11 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace WeifenLuo.Docking
 {
+    [LocalizedDescription("DockContent_Description")]
+    [Designer("System.Windows.Forms.Design.ControlDesigner, System.Design")]
+    [ToolboxBitmap(typeof(ResFinder), "WeifenLuo.Docking.Resources.DockContent.bmp")]
+    //[DefaultProperty("DocumentStyle")]
+    //[DefaultEvent("ActiveContentChanged")]
     public class DockContent : Form, IDockContent
     {
         public DockContent()

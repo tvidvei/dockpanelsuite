@@ -9,6 +9,14 @@
     <NoWarn>$(NoWarn);WFO1000</NoWarn>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>$(DefineConstants);new</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>$(DefineConstants);new</DefineConstants>
+  </PropertyGroup>
+
   <ItemGroup>
     <Content Include="Images\Logo.ico" />
     <EmbeddedResource Include="Images\SplashScreen.png" />
@@ -27,7 +35,7 @@
     <Compile Update="AboutDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="DummyDoc.cs">
+    <Compile Update="ThemeDoc.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="DummyOutputWindow.cs">
@@ -60,7 +68,7 @@
     <EmbeddedResource Update="AboutDialog.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Update="DummyDoc.resx">
+    <EmbeddedResource Update="ThemeDoc.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Update="DummyOutputWindow.resx">

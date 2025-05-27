@@ -5,9 +5,9 @@ using System.IO;
 
 namespace ThemeEditor
 {
-    public partial class DummyDoc : DockContent
+    public partial class ThemeDoc : DockContent
     {
-        public DummyDoc()
+        public ThemeDoc()
         {
             InitializeComponent();
             AutoScaleMode = AutoScaleMode.Dpi;
@@ -15,6 +15,7 @@ namespace ThemeEditor
         }
 
         private string m_fileName = string.Empty;
+
         public string FileName
         {
             get	{	return m_fileName;	}

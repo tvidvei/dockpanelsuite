@@ -59,27 +59,27 @@ namespace ThemeEditor
             }
         }
 
-        private DummyDoc CreateNewDocument()
+        private ThemeDoc CreateNewDocument()
         {
-            DummyDoc dummyDoc = new DummyDoc();
+            ThemeDoc themeDoc = new ThemeDoc();
 
             int count = 1;
-            string text = $"Document{count}";
+            string text = $"Theme{count}";
             while (FindDocument(text) != null)
             {
                 count++;
-                text = $"Document{count}";
+                text = $"Theme{count}";
             }
 
-            dummyDoc.Text = text;
-            return dummyDoc;
+            themeDoc.Text = text;
+            return themeDoc;
         }
 
-        private DummyDoc CreateNewDocument(string text)
+        private ThemeDoc CreateNewDocument(string text)
         {
-            DummyDoc dummyDoc = new DummyDoc();
-            dummyDoc.Text = text;
-            return dummyDoc;
+            ThemeDoc themeDoc = new ThemeDoc();
+            themeDoc.Text = text;
+            return themeDoc;
         }
 
         private void CloseAllDocuments()
@@ -121,16 +121,16 @@ namespace ThemeEditor
                 if (parsedStrings.Length != 3)
                     return null;
 
-                if (parsedStrings[0] != typeof(DummyDoc).ToString())
+                if (parsedStrings[0] != typeof(ThemeDoc).ToString())
                     return null;
 
-                DummyDoc dummyDoc = new DummyDoc();
+                ThemeDoc themeDoc = new ThemeDoc();
                 if (parsedStrings[1] != string.Empty)
-                    dummyDoc.FileName = parsedStrings[1];
+                    themeDoc.FileName = parsedStrings[1];
                 if (parsedStrings[2] != string.Empty)
-                    dummyDoc.Text = parsedStrings[2];
+                    themeDoc.Text = parsedStrings[2];
 
-                return dummyDoc;
+                return themeDoc;
             }
         }
 
@@ -325,14 +325,14 @@ namespace ThemeEditor
 
         private void menuItemNew_Click(object sender, System.EventArgs e)
         {
-            DummyDoc dummyDoc = CreateNewDocument();
+            ThemeDoc themeDoc = CreateNewDocument();
             if (dockPanel.DocumentStyle == DocumentStyle.SystemMdi)
             {
-                dummyDoc.MdiParent = this;
-                dummyDoc.Show();
+                themeDoc.MdiParent = this;
+                themeDoc.Show();
             }
             else
-                dummyDoc.Show(dockPanel);
+                themeDoc.Show(dockPanel);
         }
 
         private void menuItemOpen_Click(object sender, System.EventArgs e)
@@ -355,22 +355,22 @@ namespace ThemeEditor
                     return;
                 }
 
-                DummyDoc dummyDoc = new DummyDoc();
-                dummyDoc.Text = fileName;
+                ThemeDoc themeDoc = new ThemeDoc();
+                themeDoc.Text = fileName;
                 if (dockPanel.DocumentStyle == DocumentStyle.SystemMdi)
                 {
-                    dummyDoc.MdiParent = this;
-                    dummyDoc.Show();
+                    themeDoc.MdiParent = this;
+                    themeDoc.Show();
                 }
                 else
-                    dummyDoc.Show(dockPanel);
+                    themeDoc.Show(dockPanel);
                 try
                 {
-                    dummyDoc.FileName = fullName;
+                    themeDoc.FileName = fullName;
                 }
                 catch (Exception exception)
                 {
-                    dummyDoc.Close();
+                    themeDoc.Close();
                     MessageBox.Show(exception.Message);
                 }
 
@@ -488,10 +488,10 @@ namespace ThemeEditor
             m_outputWindow.Show(m_solutionExplorer.Pane, DockAlignment.Bottom, 0.35);
             m_taskList.Show(m_toolbox.Pane, DockAlignment.Left, 0.4);
 
-            DummyDoc doc1 = CreateNewDocument("Document1");
-            DummyDoc doc2 = CreateNewDocument("Document2");
-            DummyDoc doc3 = CreateNewDocument("Document3");
-            DummyDoc doc4 = CreateNewDocument("Document4");
+            ThemeDoc doc1 = CreateNewDocument("Theme1");
+            ThemeDoc doc2 = CreateNewDocument("Theme2");
+            ThemeDoc doc3 = CreateNewDocument("Theme3");
+            ThemeDoc doc4 = CreateNewDocument("Theme4");
             doc1.Show(dockPanel, DockState.Document);
             doc2.Show(doc1.Pane, null);
             doc3.Show(doc1.Pane, DockAlignment.Bottom, 0.5);

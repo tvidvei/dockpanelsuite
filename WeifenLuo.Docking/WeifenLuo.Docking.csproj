@@ -46,7 +46,7 @@
     <Compile Include="Configuration\PatchSection.cs" />
     <Compile Include="DockDragHandler.cs" />
     <Compile Include="DockOutline.cs" />
-    <Compile Include="DockPanelColorPalette.cs" />
+    <Compile Include="Theming\DockPanelColorPalette.cs" />
     <Compile Include="DockPaneStripAccessibleObject.cs" />
     <Compile Include="DockPaneStripInertButton.cs" />
     <Compile Include="DockPaneStripTab.cs" />
@@ -70,7 +70,7 @@
     <Compile Include="InertButtonBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DockPanelSkin.cs">
+    <Compile Include="Theming\DockPanelSkin.cs">
     </Compile>
     <Compile Include="IPaintingService.cs" />
     <Compile Include="LayoutUtils.cs" />
@@ -84,10 +84,10 @@
     <Compile Include="Resources.cs" />
     <Compile Include="PaneSplitterBase.cs" />
     <Compile Include="SplitterDragHandler.cs" />
-    <Compile Include="ThemeBase.cs">
+    <Compile Include="Theming\ThemeBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="VisualStudioColorTable.cs" />
+    <Compile Include="Theming\VisualStudioColorTable.cs" />
     <Compile Include="VisibleNestedPaneCollection.cs" />
     <Compile Include="DockAreasEditor.cs" />
     <Compile Include="DockContent.cs">
@@ -167,7 +167,7 @@
     <Compile Include="Themes\VS2015LightTheme.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="PaletteFactory.cs" />
+    <Compile Include="Theming\PaletteFactory.cs" />
     <Compile Include="PaneSplitter.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -180,6 +180,7 @@
   <ItemGroup>
     <EmbeddedResource Include="DockContent.resx" />
     <EmbeddedResource Include="DockPane.resx" />
+    <EmbeddedResource Include="Resources\DockContent.bmp" />
     <EmbeddedResource Include="Resources\DockPanel.bmp" />
     <EmbeddedResource Include="Resources\Dockindicator_PaneDiamond_Hotspot.png" />
     <EmbeddedResource Include="Resources\DockIndicator_PaneDiamond_HotspotIndex.png" />
