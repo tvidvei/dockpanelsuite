@@ -1,8 +1,11 @@
+#define imp
+
 using System;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text.Json;
 using System.Windows.Forms;
 using WeifenLuo.Docking;
 
@@ -20,6 +23,18 @@ namespace ThemeEditor
         private bool _showSplash;
         private SplashScreen _splashScreen;
 
+#if imp
+        // From ThemeEditor.sln
+
+        string CurrentDirectory { get; set; } = "%Documents%";
+
+        JsonSerializerOptions JsonSerializerOptions = new JsonSerializerOptions();
+
+        // ThemeEditor Editor { get; set; }
+
+#endif
+
+
         public MainForm()
         {
             InitializeComponent();
@@ -35,7 +50,106 @@ namespace ThemeEditor
             m_deserializeDockContent = new DeserializeDockContent(GetContentFromPersistString);
 
             vsToolStripExtender1.DefaultRenderer = _toolStripProfessionalRenderer;
+
+#if imp
+            // From ThemeEditor.sln
+
+            // propertyGrid1.HelpVisible = true;
+
+            JsonSerializerOptions.WriteIndented = true;
+            JsonSerializerOptions.Converters.Add(new ColorJsonConverter());
+
+            // Editor = new ThemeEditor();
+            openFileDialog1.InitialDirectory = CurrentDirectory;
+            saveFileDialog1.InitialDirectory = CurrentDirectory;
+            //if (!String.IsNullOrWhiteSpace(Properties.Settings.Default.LastTheme))
+            //{
+            //    LoadTheme(Properties.Settings.Default.LastTheme);
+            //}
+            if (Properties.Settings.Default.MainFormPosition != Point.Empty)
+            {
+                this.Location = Properties.Settings.Default.MainFormPosition;
+            }
+            if (Properties.Settings.Default.MainFormSize != Size.Empty)
+            {
+                this.Size = Properties.Settings.Default.MainFormSize;
+            }
+            if (!String.IsNullOrWhiteSpace(Properties.Settings.Default.MainFormWindowState))
+            {
+                this.WindowState = Enum.Parse<FormWindowState>(Properties.Settings.Default.MainFormWindowState);
+            }
+#endif
+
         }
+
+#if impX
+
+        public void LoadTheme(string fileName)
+        {
+            try
+            {
+                var fileExt = Path.GetExtension(fileName);
+                if (fileExt == null)
+                {
+                    fileName += ".json";
+                    fileExt = "json";
+                }
+                if (fileExt.ToLower() == ".gz")
+                {
+                    Editor.Theme = Theme.LoadFromCompressedFile(fileName);
+                }
+                else if (fileExt.ToLower() == ".json")
+                {
+                    var jsonString = File.ReadAllText(fileName);
+                    Editor.Theme = JsonSerializer.Deserialize<Theme>(jsonString, JsonSerializerOptions);
+                }
+                else
+                {
+                    MessageBox.Show("Error: File must have extension '.json' or '.gz'");
+                    return;
+                }
+                Editor.FileName = fileName;
+                this.Text = "Theme Editor - " + fileName;
+                this.propertyGrid1.SelectedObject = Editor.Theme;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+
+        public void SaveTheme(string fileName)
+        {
+            try
+            {
+                var fileExt = Path.GetExtension(fileName);
+                if (fileExt == null)
+                {
+                    fileName += ".json";
+                    fileExt = "json";
+                }
+                if (fileExt.ToLower() != ".json")
+                {
+                    MessageBox.Show("Error: File must have extension '.json'");
+                    return;
+                }
+                string jsonString = JsonSerializer.Serialize(Editor.Theme, typeof(Theme), JsonSerializerOptions);
+                File.WriteAllText(fileName, jsonString);
+                Editor.FileName = fileName;
+                this.Text = "Theme Editor - " + fileName;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+
+#endif
+
+
+
 
         #region Methods
 
@@ -156,7 +270,7 @@ namespace ThemeEditor
         }
 
         private readonly ToolStripRenderer _toolStripProfessionalRenderer = new ToolStripProfessionalRenderer();
-        
+
         private void SetSchema(object sender, System.EventArgs e)
         {
             // Persist settings when rebuilding UI
@@ -283,14 +397,9 @@ namespace ThemeEditor
             toolBarButtonLayoutByXml.Enabled = (newStyle != DocumentStyle.SystemMdi);
         }
 
-#endregion
+        #endregion
 
         #region Event Handlers
-
-        private void menuItemExit_Click(object sender, System.EventArgs e)
-        {
-            Close();
-        }
 
         private void menuItemSolutionExplorer_Click(object sender, System.EventArgs e)
         {
@@ -381,7 +490,7 @@ namespace ThemeEditor
         {
             if (dockPanel.DocumentStyle == DocumentStyle.SystemMdi)
             {
-                menuItemClose.Enabled = 
+                menuItemClose.Enabled =
                     menuItemCloseAll.Enabled =
                     menuItemCloseAllButThisOne.Enabled = (ActiveMdiChild != null);
             }
@@ -502,7 +611,7 @@ namespace ThemeEditor
 
         private void SetSplashScreen()
         {
-            
+
             _showSplash = true;
             _splashScreen = new SplashScreen();
 
@@ -523,15 +632,16 @@ namespace ThemeEditor
 
         private void ResizeSplash()
         {
-            if (_showSplash) {
-                
-            var centerXMain = (this.Location.X + this.Width) / 2.0;
-            var LocationXSplash = Math.Max(0, centerXMain - (_splashScreen.Width / 2.0));
+            if (_showSplash)
+            {
 
-            var centerYMain = (this.Location.Y + this.Height) / 2.0;
-            var LocationYSplash = Math.Max(0, centerYMain - (_splashScreen.Height / 2.0));
+                var centerXMain = (this.Location.X + this.Width) / 2.0;
+                var LocationXSplash = Math.Max(0, centerXMain - (_splashScreen.Width / 2.0));
 
-            _splashScreen.Location = new Point((int)Math.Round(LocationXSplash), (int)Math.Round(LocationYSplash));
+                var centerYMain = (this.Location.Y + this.Height) / 2.0;
+                var LocationYSplash = Math.Max(0, centerYMain - (_splashScreen.Height / 2.0));
+
+                _splashScreen.Location = new Point((int)Math.Round(LocationXSplash), (int)Math.Round(LocationYSplash));
             }
         }
 
@@ -611,11 +721,27 @@ namespace ThemeEditor
             m_bSaveLayout = true;
         }
 
+        private void menuItemExit_Click(object sender, System.EventArgs e)
+        {
+            Close();
+        }
+
+
         #endregion
 
         private void MainForm_SizeChanged(object sender, EventArgs e)
         {
             ResizeSplash();
         }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Properties.Settings.Default.LastTheme = Editor.FileName;
+            Properties.Settings.Default.MainFormPosition = this.Location;
+            Properties.Settings.Default.MainFormSize = this.Size;
+            Properties.Settings.Default.MainFormWindowState = this.WindowState.ToString();
+            Properties.Settings.Default.Save();
+        }
+
     }
 }

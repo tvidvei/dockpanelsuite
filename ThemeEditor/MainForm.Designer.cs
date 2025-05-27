@@ -96,6 +96,8 @@ namespace ThemeEditor
             vS2015BlueTheme1 = new WeifenLuo.Docking.VS2015BlueTheme();
             vS2015LightTheme1 = new WeifenLuo.Docking.VS2015LightTheme();
             vsToolStripExtender1 = new WeifenLuo.Docking.VisualStudioToolStripExtender(components);
+            openFileDialog1 = new OpenFileDialog();
+            saveFileDialog1 = new SaveFileDialog();
             mainMenu.SuspendLayout();
             toolBar.SuspendLayout();
             SuspendLayout();
@@ -565,6 +567,10 @@ namespace ThemeEditor
             // 
             vsToolStripExtender1.DefaultRenderer = null;
             // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
+            // 
             // MainForm
             // 
             ClientSize = new Size(579, 409);
@@ -579,6 +585,7 @@ namespace ThemeEditor
             Text = "ThemeEditor";
             WindowState = FormWindowState.Maximized;
             Closing += MainForm_Closing;
+            FormClosing += MainForm_FormClosing;
             Load += MainForm_Load;
             SizeChanged += MainForm_SizeChanged;
             mainMenu.ResumeLayout(false);
@@ -676,5 +683,7 @@ namespace ThemeEditor
         private ToolStripMenuItem saveToolStripMenuItem;
         private ToolStripMenuItem saveasToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator2;
+        private OpenFileDialog openFileDialog1;
+        private SaveFileDialog saveFileDialog1;
     }
 }
