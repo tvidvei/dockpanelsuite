@@ -157,7 +157,6 @@
     <Compile Include="DockPaneStrip.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Theming\PaletteFactory.cs" />
     <Compile Include="PaneSplitter.cs">
       <SubType>Component</SubType>
     </Compile>

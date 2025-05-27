@@ -28,19 +28,6 @@ namespace WeifenLuo.Docking
             ShowAutoHideContentOnHover = false;
         }
 
-        public Theme(byte[] resources) : this() {
-            ColorPalette = new DockPanelColorPalette(new PaletteFactory(resources));
-
-            //Skin = new DockPanelSkin();
-            //PaintingService = new PaintingService();
-            //Measures = new Measures();
-            //Measures.SplitterSize = 6;
-            //Measures.AutoHideSplitterSize = 3;
-            //Measures.DockPadding = 6;
-            //ShowAutoHideContentOnHover = false;
-            //Setup();
-        }
-
         /// <summary>
         /// Setup to be called after initialization
         /// </summary>
@@ -221,18 +208,7 @@ namespace WeifenLuo.Docking
                 fileName += ".json";
                 fileExt = "json";
             }
-            if (fileExt.ToLower() == ".gz")
-            {
-                result = Theme.loadFromCompressedFile(fileName);
-                result.Setup();
-
-                // Temp:
-                //string outfileName = Path.Combine("c:\\tmp", Path.GetFileNameWithoutExtension(fileName)+".json");
-                //string jsonString = JsonSerializer.Serialize(result, typeof(Theme), JsonSerializerOptions);
-                //File.WriteAllText(outfileName, jsonString);
-
-            }
-            else if (fileExt.ToLower() == ".json")
+            if (fileExt.ToLower() == ".json")
             {
                 var jsonString = File.ReadAllText(fileName);
                 result = JsonSerializer.Deserialize<Theme>(jsonString, JsonSerializerOptions);
@@ -240,40 +216,12 @@ namespace WeifenLuo.Docking
             }
             else
             {
-                throw new Exception("Error in Theme.LoadFromFile: File must have extension '.json' or '.gz'");
+                throw new Exception("Error in Theme.LoadFromFile: File must have extension '.json'");
             }
             result.FileName = fileName;
             return result;
         }
 
-        private static Theme loadFromCompressedFile(string fileName)
-        {
-            byte[] gzdata = File.ReadAllBytes(fileName);
-            var data = Decompress(gzdata);
-            return new Theme(data);
-        }
-
-        public static byte[] Decompress(byte[] fileToDecompress)
-        {
-            using (MemoryStream originalFileStream = new MemoryStream(fileToDecompress))
-            {
-                using (MemoryStream decompressedFileStream = new MemoryStream())
-                {
-                    using (GZipStream decompressionStream = new GZipStream(originalFileStream, CompressionMode.Decompress))
-                    {
-                        //Copy the decompression stream into the output file.
-                        byte[] buffer = new byte[4096];
-                        int numRead;
-                        while ((numRead = decompressionStream.Read(buffer, 0, buffer.Length)) != 0)
-                        {
-                            decompressedFileStream.Write(buffer, 0, numRead);
-                        }
-
-                        return decompressedFileStream.ToArray();
-                    }
-                }
-            }
-        }
 
         static Theme()
         {

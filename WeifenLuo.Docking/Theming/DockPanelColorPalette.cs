@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.DirectoryServices;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,50 +18,52 @@ namespace WeifenLuo.Docking
             ColorTable = new VisualStudioColorTable(this);
         }
 
-        public DockPanelColorPalette(IPaletteFactory factory) : this()
+        public DockPanelColorPalette(bool setup) : this() 
         {
-            AutoHideStripDefault = new AutoHideStripPalette();
-            AutoHideStripHovered = new AutoHideStripPalette();
-            OverflowButtonDefault = new ButtonPalette();
-            OverflowButtonHovered = new HoveredButtonPalette();
-            OverflowButtonPressed = new HoveredButtonPalette();
-            TabSelectedActive = new TabPalette();
-            TabSelectedInactive = new TabPalette();
-            TabUnselected = new UnselectedTabPalette();
-            TabUnselectedHovered = new TabPalette();
-            TabButtonSelectedActiveHovered = new HoveredButtonPalette();
-            TabButtonSelectedActivePressed = new HoveredButtonPalette();
-            TabButtonSelectedInactiveHovered = new HoveredButtonPalette();
-            TabButtonSelectedInactivePressed = new HoveredButtonPalette();
-            TabButtonUnselectedTabHoveredButtonHovered = new HoveredButtonPalette();
-            TabButtonUnselectedTabHoveredButtonPressed = new HoveredButtonPalette();
-            MainWindowActive = new MainWindowPalette();
-            MainWindowStatusBarDefault = new MainWindowStatusBarPalette();
-            ToolWindowCaptionActive = new ToolWindowCaptionPalette();
-            ToolWindowCaptionInactive = new ToolWindowCaptionPalette();
-            ToolWindowCaptionButtonActiveHovered = new HoveredButtonPalette();
-            ToolWindowCaptionButtonPressed = new HoveredButtonPalette();
-            ToolWindowCaptionButtonInactiveHovered = new HoveredButtonPalette();
-            ToolWindowTabSelectedActive = new ToolWindowTabPalette();
-            ToolWindowTabSelectedInactive = new ToolWindowTabPalette();
-            ToolWindowTabUnselected = new ToolWindowUnselectedTabPalette();
-            ToolWindowTabUnselectedHovered = new ToolWindowTabPalette();
-            DockTarget = new DockTargetPalette();
-            CommandBarMenuDefault = new CommandBarMenuPalette();
-            CommandBarMenuPopupDefault = new CommandBarMenuPopupPalette();
-            CommandBarMenuPopupDisabled = new CommandBarMenuPopupDisabledPalette();
-            CommandBarMenuPopupHovered = new CommandBarMenuPopupHoveredPalette();
-            CommandBarMenuTopLevelHeaderHovered = new CommandBarMenuTopLevelHeaderPalette();
-            CommandBarToolbarDefault = new CommandBarToolbarPalette();
-            CommandBarToolbarButtonChecked = new CommandBarToolbarButtonCheckedPalette();
-            CommandBarToolbarButtonCheckedHovered = new CommandBarToolbarButtonCheckedHoveredPalette();
-            CommandBarToolbarButtonDefault = new CommandBarToolbarButtonPalette();
-            CommandBarToolbarButtonHovered = new CommandBarToolbarButtonHoveredPalette();
-            CommandBarToolbarButtonPressed = new CommandBarToolbarButtonPressedPalette();
-            CommandBarToolbarOverflowHovered = new CommandBarToolbarOverflowButtonPalette();
-            CommandBarToolbarOverflowPressed = new CommandBarToolbarOverflowButtonPalette();
+            var res = new DockPanelColorPalette();
 
-            factory.Initialize(this);
+            if (setup) {
+                AutoHideStripDefault = new AutoHideStripPalette();
+                AutoHideStripHovered = new AutoHideStripPalette();
+                OverflowButtonDefault = new ButtonPalette();
+                OverflowButtonHovered = new HoveredButtonPalette();
+                OverflowButtonPressed = new HoveredButtonPalette();
+                TabSelectedActive = new TabPalette();
+                TabSelectedInactive = new TabPalette();
+                TabUnselected = new UnselectedTabPalette();
+                TabUnselectedHovered = new TabPalette();
+                TabButtonSelectedActiveHovered = new HoveredButtonPalette();
+                TabButtonSelectedActivePressed = new HoveredButtonPalette();
+                TabButtonSelectedInactiveHovered = new HoveredButtonPalette();
+                TabButtonSelectedInactivePressed = new HoveredButtonPalette();
+                TabButtonUnselectedTabHoveredButtonHovered = new HoveredButtonPalette();
+                TabButtonUnselectedTabHoveredButtonPressed = new HoveredButtonPalette();
+                MainWindowActive = new MainWindowPalette();
+                MainWindowStatusBarDefault = new MainWindowStatusBarPalette();
+                ToolWindowCaptionActive = new ToolWindowCaptionPalette();
+                ToolWindowCaptionInactive = new ToolWindowCaptionPalette();
+                ToolWindowCaptionButtonActiveHovered = new HoveredButtonPalette();
+                ToolWindowCaptionButtonPressed = new HoveredButtonPalette();
+                ToolWindowCaptionButtonInactiveHovered = new HoveredButtonPalette();
+                ToolWindowTabSelectedActive = new ToolWindowTabPalette();
+                ToolWindowTabSelectedInactive = new ToolWindowTabPalette();
+                ToolWindowTabUnselected = new ToolWindowUnselectedTabPalette();
+                ToolWindowTabUnselectedHovered = new ToolWindowTabPalette();
+                DockTarget = new DockTargetPalette();
+                CommandBarMenuDefault = new CommandBarMenuPalette();
+                CommandBarMenuPopupDefault = new CommandBarMenuPopupPalette();
+                CommandBarMenuPopupDisabled = new CommandBarMenuPopupDisabledPalette();
+                CommandBarMenuPopupHovered = new CommandBarMenuPopupHoveredPalette();
+                CommandBarMenuTopLevelHeaderHovered = new CommandBarMenuTopLevelHeaderPalette();
+                CommandBarToolbarDefault = new CommandBarToolbarPalette();
+                CommandBarToolbarButtonChecked = new CommandBarToolbarButtonCheckedPalette();
+                CommandBarToolbarButtonCheckedHovered = new CommandBarToolbarButtonCheckedHoveredPalette();
+                CommandBarToolbarButtonDefault = new CommandBarToolbarButtonPalette();
+                CommandBarToolbarButtonHovered = new CommandBarToolbarButtonHoveredPalette();
+                CommandBarToolbarButtonPressed = new CommandBarToolbarButtonPressedPalette();
+                CommandBarToolbarOverflowHovered = new CommandBarToolbarOverflowButtonPalette();
+                CommandBarToolbarOverflowPressed = new CommandBarToolbarOverflowButtonPalette();
+            }
         }
 
         [TypeConverter(typeof(ExpandableObjectConverter))]
@@ -280,11 +283,6 @@ namespace WeifenLuo.Docking
     {
         public Color Background { get; set; }
         public Color Text { get; set; }
-    }
-
-    public interface IPaletteFactory
-    {
-        void Initialize(DockPanelColorPalette palette);
     }
 
     public class DockTargetPalette
