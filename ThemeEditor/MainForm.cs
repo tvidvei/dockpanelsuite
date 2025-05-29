@@ -11,6 +11,7 @@ namespace ThemeEditor
 
     public partial class MainForm : Form
     {
+        private VisualStudioToolStripExtender vsToolStripExtender1;
         public DockPanel dockPanel;
         private bool m_bSaveLayout = true;
         private DeserializeDockContent m_deserializeDockContent;
@@ -25,10 +26,12 @@ namespace ThemeEditor
 
         public MainForm()
         {
-            this.dockPanel = new DockPanel();
+
+
             // 
             // dockPanel
             // 
+            this.dockPanel = new DockPanel();
             this.dockPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dockPanel.DockBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(57)))), ((int)(((byte)(85)))));
             this.dockPanel.DockBottomPortion = 150D;
@@ -46,6 +49,13 @@ namespace ThemeEditor
             this.Controls.Add(this.dockPanel);
 
             InitializeComponent();
+
+            //
+            // vsToolStripExtender1
+            //
+            vsToolStripExtender1 = new WeifenLuo.Docking.VisualStudioToolStripExtender(components);
+            vsToolStripExtender1.DefaultRenderer = null;
+
             AutoScaleMode = AutoScaleMode.Dpi;
 
             //SetSplashScreen();  //Todo: Make a setting for this!
@@ -184,7 +194,7 @@ namespace ThemeEditor
         }
 
         private readonly ToolStripRenderer _toolStripProfessionalRenderer = new ToolStripProfessionalRenderer();
-        
+
         private void SetSchema(object sender, System.EventArgs e)
         {
             // Persist settings when rebuilding UI
@@ -258,7 +268,7 @@ namespace ThemeEditor
             toolBarButtonLayoutByXml.Enabled = (newStyle != DocumentStyle.SystemMdi);
         }
 
-#endregion
+        #endregion
 
         #region Event Handlers
 
@@ -364,7 +374,7 @@ namespace ThemeEditor
         {
             if (dockPanel.DocumentStyle == DocumentStyle.SystemMdi)
             {
-                menuItemClose.Enabled = 
+                menuItemClose.Enabled =
                     menuItemCloseAll.Enabled =
                     menuItemCloseAllButThisOne.Enabled = (ActiveMdiChild != null);
             }
@@ -506,15 +516,16 @@ namespace ThemeEditor
 
         private void ResizeSplash()
         {
-            if (_showSplash) {
-                
-            var centerXMain = (this.Location.X + this.Width) / 2.0;
-            var LocationXSplash = Math.Max(0, centerXMain - (_splashScreen.Width / 2.0));
+            if (_showSplash)
+            {
 
-            var centerYMain = (this.Location.Y + this.Height) / 2.0;
-            var LocationYSplash = Math.Max(0, centerYMain - (_splashScreen.Height / 2.0));
+                var centerXMain = (this.Location.X + this.Width) / 2.0;
+                var LocationXSplash = Math.Max(0, centerXMain - (_splashScreen.Width / 2.0));
 
-            _splashScreen.Location = new Point((int)Math.Round(LocationXSplash), (int)Math.Round(LocationYSplash));
+                var centerYMain = (this.Location.Y + this.Height) / 2.0;
+                var LocationYSplash = Math.Max(0, centerYMain - (_splashScreen.Height / 2.0));
+
+                _splashScreen.Location = new Point((int)Math.Round(LocationXSplash), (int)Math.Round(LocationYSplash));
             }
         }
 
@@ -600,6 +611,41 @@ namespace ThemeEditor
         private void MainForm_SizeChanged(object sender, EventArgs e)
         {
             ResizeSplash();
+        }
+
+        private void cmdThemeNew_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdThemeOpenCurrent_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdThemeOpen_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdThemeSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdThemeSaveAs_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdThemeUseTheme_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void themesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

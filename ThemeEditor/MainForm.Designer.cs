@@ -61,6 +61,13 @@ namespace ThemeEditor
             menuItemLockLayout = new ToolStripMenuItem();
             menuItemShowDocumentIcon = new ToolStripMenuItem();
             menuItem3 = new ToolStripSeparator();
+            themesToolStripMenuItem = new ToolStripMenuItem();
+            newToolStripMenuItem = new ToolStripMenuItem();
+            opToolStripMenuItem = new ToolStripMenuItem();
+            openToolStripMenuItem = new ToolStripMenuItem();
+            saveToolStripMenuItem = new ToolStripMenuItem();
+            saveAsToolStripMenuItem = new ToolStripMenuItem();
+            useThemeToolStripMenuItem = new ToolStripMenuItem();
             menuItemSchemaVS2015Light = new ToolStripMenuItem();
             menuItemSchemaVS2015Blue = new ToolStripMenuItem();
             menuItemSchemaVS2015Dark = new ToolStripMenuItem();
@@ -89,7 +96,6 @@ namespace ThemeEditor
             toolBarButtonSeparator2 = new ToolStripSeparator();
             toolBarButtonLayoutByCode = new ToolStripButton();
             toolBarButtonLayoutByXml = new ToolStripButton();
-            vsToolStripExtender1 = new WeifenLuo.Docking.VisualStudioToolStripExtender(components);
             mainMenu.SuspendLayout();
             toolBar.SuspendLayout();
             SuspendLayout();
@@ -114,6 +120,7 @@ namespace ThemeEditor
             // menuItemNew
             // 
             menuItemNew.Name = "menuItemNew";
+            menuItemNew.ShortcutKeys = Keys.Control | Keys.N;
             menuItemNew.Size = new Size(215, 22);
             menuItemNew.Text = "&New";
             menuItemNew.Click += menuItemNew_Click;
@@ -121,6 +128,7 @@ namespace ThemeEditor
             // menuItemOpen
             // 
             menuItemOpen.Name = "menuItemOpen";
+            menuItemOpen.ShortcutKeys = Keys.Control | Keys.O;
             menuItemOpen.Size = new Size(215, 22);
             menuItemOpen.Text = "&Open...";
             menuItemOpen.Click += menuItemOpen_Click;
@@ -128,6 +136,7 @@ namespace ThemeEditor
             // menuItemClose
             // 
             menuItemClose.Name = "menuItemClose";
+            menuItemClose.ShortcutKeys = Keys.Control | Keys.W;
             menuItemClose.Size = new Size(215, 22);
             menuItemClose.Text = "&Close";
             menuItemClose.Click += menuItemClose_Click;
@@ -293,7 +302,7 @@ namespace ThemeEditor
             // 
             // menuItemTools
             // 
-            menuItemTools.DropDownItems.AddRange(new ToolStripItem[] { menuItemLockLayout, menuItemShowDocumentIcon, menuItem3, menuItemSchemaVS2015Light, menuItemSchemaVS2015Blue, menuItemSchemaVS2015Dark, menuItem6, menuItemDockingMdi, menuItemDockingSdi, menuItemDockingWindow, menuItemSystemMdi, menuItem5, showRightToLeft });
+            menuItemTools.DropDownItems.AddRange(new ToolStripItem[] { menuItemLockLayout, menuItemShowDocumentIcon, menuItem3, themesToolStripMenuItem, menuItemSchemaVS2015Light, menuItemSchemaVS2015Blue, menuItemSchemaVS2015Dark, menuItem6, menuItemDockingMdi, menuItemDockingSdi, menuItemDockingWindow, menuItemSystemMdi, menuItem5, showRightToLeft });
             menuItemTools.MergeIndex = 2;
             menuItemTools.Name = "menuItemTools";
             menuItemTools.Size = new Size(47, 20);
@@ -318,6 +327,56 @@ namespace ThemeEditor
             // 
             menuItem3.Name = "menuItem3";
             menuItem3.Size = new Size(252, 6);
+            // 
+            // themesToolStripMenuItem
+            // 
+            themesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newToolStripMenuItem, opToolStripMenuItem, openToolStripMenuItem, saveToolStripMenuItem, saveAsToolStripMenuItem, useThemeToolStripMenuItem });
+            themesToolStripMenuItem.Name = "themesToolStripMenuItem";
+            themesToolStripMenuItem.Size = new Size(255, 22);
+            themesToolStripMenuItem.Text = "&Theme";
+            themesToolStripMenuItem.Click += themesToolStripMenuItem_Click;
+            // 
+            // newToolStripMenuItem
+            // 
+            newToolStripMenuItem.Name = "newToolStripMenuItem";
+            newToolStripMenuItem.Size = new Size(180, 22);
+            newToolStripMenuItem.Text = "&New";
+            newToolStripMenuItem.Click += cmdThemeNew_Click;
+            // 
+            // opToolStripMenuItem
+            // 
+            opToolStripMenuItem.Name = "opToolStripMenuItem";
+            opToolStripMenuItem.Size = new Size(180, 22);
+            opToolStripMenuItem.Text = "Open &Current";
+            opToolStripMenuItem.Click += cmdThemeOpenCurrent_Click;
+            // 
+            // openToolStripMenuItem
+            // 
+            openToolStripMenuItem.Name = "openToolStripMenuItem";
+            openToolStripMenuItem.Size = new Size(180, 22);
+            openToolStripMenuItem.Text = "&Open...";
+            openToolStripMenuItem.Click += cmdThemeOpen_Click;
+            // 
+            // saveToolStripMenuItem
+            // 
+            saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            saveToolStripMenuItem.Size = new Size(180, 22);
+            saveToolStripMenuItem.Text = "&Save";
+            saveToolStripMenuItem.Click += cmdThemeSave_Click;
+            // 
+            // saveAsToolStripMenuItem
+            // 
+            saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
+            saveAsToolStripMenuItem.Size = new Size(180, 22);
+            saveAsToolStripMenuItem.Text = "Save &As...";
+            saveAsToolStripMenuItem.Click += cmdThemeSaveAs_Click;
+            // 
+            // useThemeToolStripMenuItem
+            // 
+            useThemeToolStripMenuItem.Name = "useThemeToolStripMenuItem";
+            useThemeToolStripMenuItem.Size = new Size(180, 22);
+            useThemeToolStripMenuItem.Text = "Use &Theme...";
+            useThemeToolStripMenuItem.Click += cmdThemeUseTheme_Click;
             // 
             // menuItemSchemaVS2015Light
             // 
@@ -523,10 +582,6 @@ namespace ThemeEditor
             toolBarButtonLayoutByXml.Size = new Size(23, 22);
             toolBarButtonLayoutByXml.ToolTipText = "Show layout by predefined XML file";
             // 
-            // vsToolStripExtender1
-            // 
-            vsToolStripExtender1.DefaultRenderer = null;
-            // 
             // MainForm
             // 
             ClientSize = new Size(579, 409);
@@ -609,11 +664,17 @@ namespace ThemeEditor
         private System.Windows.Forms.ToolStripMenuItem menuItemSchemaVS2015Light;
         private System.Windows.Forms.ToolStripMenuItem menuItemSchemaVS2015Blue;
         private System.Windows.Forms.ToolStripMenuItem menuItemSchemaVS2015Dark;
-        private WeifenLuo.Docking.VisualStudioToolStripExtender vsToolStripExtender1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem subMenuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem itemAToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem itemBToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem disabledItemToolStripMenuItem;
+        private ToolStripMenuItem themesToolStripMenuItem;
+        private ToolStripMenuItem newToolStripMenuItem;
+        private ToolStripMenuItem opToolStripMenuItem;
+        private ToolStripMenuItem openToolStripMenuItem;
+        private ToolStripMenuItem saveToolStripMenuItem;
+        private ToolStripMenuItem saveAsToolStripMenuItem;
+        private ToolStripMenuItem useThemeToolStripMenuItem;
     }
 }
