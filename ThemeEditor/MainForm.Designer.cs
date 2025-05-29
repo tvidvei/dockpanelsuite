@@ -330,7 +330,7 @@ namespace ThemeEditor
             // 
             // themesToolStripMenuItem
             // 
-            themesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newToolStripMenuItem, opToolStripMenuItem, openToolStripMenuItem, saveToolStripMenuItem, saveAsToolStripMenuItem, useThemeToolStripMenuItem });
+            themesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { useThemeToolStripMenuItem, opToolStripMenuItem, newToolStripMenuItem, openToolStripMenuItem, saveToolStripMenuItem, saveAsToolStripMenuItem });
             themesToolStripMenuItem.Name = "themesToolStripMenuItem";
             themesToolStripMenuItem.Size = new Size(255, 22);
             themesToolStripMenuItem.Text = "&Theme";
@@ -346,8 +346,8 @@ namespace ThemeEditor
             // opToolStripMenuItem
             // 
             opToolStripMenuItem.Name = "opToolStripMenuItem";
-            opToolStripMenuItem.Size = new Size(180, 22);
-            opToolStripMenuItem.Text = "Open &Current";
+            opToolStripMenuItem.Size = new Size(186, 22);
+            opToolStripMenuItem.Text = "Open &Current Theme";
             opToolStripMenuItem.Click += cmdThemeOpenCurrent_Click;
             // 
             // openToolStripMenuItem
@@ -375,7 +375,7 @@ namespace ThemeEditor
             // 
             useThemeToolStripMenuItem.Name = "useThemeToolStripMenuItem";
             useThemeToolStripMenuItem.Size = new Size(180, 22);
-            useThemeToolStripMenuItem.Text = "Use &Theme...";
+            useThemeToolStripMenuItem.Text = "Change &Theme...";
             useThemeToolStripMenuItem.Click += cmdThemeUseTheme_Click;
             // 
             // menuItemSchemaVS2015Light
