@@ -89,15 +89,6 @@ namespace ThemeEditor
             this.itemAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itemBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.disabledItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dockPanel = new WeifenLuo.Docking.DockPanel();
-            //this.vS2005Theme1 = new WeifenLuo.Docking.VS2005Theme();
-            //this.vS2003Theme1 = new WeifenLuo.Docking.VS2003Theme();
-            //this.vS2013LightTheme1 = new WeifenLuo.Docking.VS2013LightTheme();
-            //this.vS2013BlueTheme1 = new WeifenLuo.Docking.VS2013BlueTheme();
-            //this.vS2013DarkTheme1 = new WeifenLuo.Docking.VS2013DarkTheme();
-            //this.vS2012LightTheme1 = new WeifenLuo.Docking.VS2012LightTheme();
-            //this.vS2012BlueTheme1 = new WeifenLuo.Docking.VS2012BlueTheme();
-            //this.vS2012DarkTheme1 = new WeifenLuo.Docking.VS2012DarkTheme();
             this.vsToolStripExtender1 = new WeifenLuo.Docking.VisualStudioToolStripExtender(this.components);
             this.mainMenu.SuspendLayout();
             this.toolBar.SuspendLayout();
@@ -586,24 +577,6 @@ namespace ThemeEditor
             this.disabledItemToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.disabledItemToolStripMenuItem.Text = "Disabled Item";
             // 
-            // dockPanel
-            // 
-            this.dockPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dockPanel.DockBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(57)))), ((int)(((byte)(85)))));
-            this.dockPanel.DockBottomPortion = 150D;
-            this.dockPanel.DockLeftPortion = 200D;
-            this.dockPanel.DockRightPortion = 200D;
-            this.dockPanel.DockTopPortion = 150D;
-            this.dockPanel.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(0)));
-            this.dockPanel.Location = new System.Drawing.Point(0, 49);
-            this.dockPanel.Name = "dockPanel";
-            this.dockPanel.Padding = new System.Windows.Forms.Padding(6);
-            this.dockPanel.RightToLeftLayout = true;
-            this.dockPanel.ShowAutoHideContentOnHover = false;
-            this.dockPanel.Size = new System.Drawing.Size(579, 338);
-            this.dockPanel.TabIndex = 0;
-            //this.dockPanel.Theme = this.vS2013BlueTheme1;
-            // 
             // vsToolStripExtender1
             // 
             this.vsToolStripExtender1.DefaultRenderer = null;
@@ -611,7 +584,6 @@ namespace ThemeEditor
             // MainForm
             // 
             this.ClientSize = new System.Drawing.Size(579, 409);
-            this.Controls.Add(this.dockPanel);
             this.Controls.Add(this.toolBar);
             this.Controls.Add(this.mainMenu);
             this.Controls.Add(this.statusBar);
@@ -634,7 +606,6 @@ namespace ThemeEditor
         }
 #endregion
 
-        private WeifenLuo.Docking.DockPanel dockPanel;
         private System.Windows.Forms.ImageList imageList;
         private System.Windows.Forms.ToolStrip toolBar;
         private System.Windows.Forms.ToolStripButton toolBarButtonNew;

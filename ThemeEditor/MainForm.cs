@@ -8,8 +8,10 @@ using WeifenLuo.Docking;
 
 namespace ThemeEditor
 {
+
     public partial class MainForm : Form
     {
+        public DockPanel dockPanel;
         private bool m_bSaveLayout = true;
         private DeserializeDockContent m_deserializeDockContent;
         private DummySolutionExplorer m_solutionExplorer;
@@ -23,8 +25,27 @@ namespace ThemeEditor
 
         public MainForm()
         {
-            InitializeComponent();
+            this.dockPanel = new DockPanel();
+            // 
+            // dockPanel
+            // 
+            this.dockPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dockPanel.DockBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(57)))), ((int)(((byte)(85)))));
+            this.dockPanel.DockBottomPortion = 150D;
+            this.dockPanel.DockLeftPortion = 200D;
+            this.dockPanel.DockRightPortion = 200D;
+            this.dockPanel.DockTopPortion = 150D;
+            this.dockPanel.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.World, ((byte)(0)));
+            this.dockPanel.Location = new System.Drawing.Point(0, 49);
+            this.dockPanel.Name = "dockPanel";
+            this.dockPanel.Padding = new System.Windows.Forms.Padding(6);
+            this.dockPanel.RightToLeftLayout = true;
+            this.dockPanel.ShowAutoHideContentOnHover = false;
+            this.dockPanel.Size = new System.Drawing.Size(579, 338);
+            this.dockPanel.TabIndex = 0;
+            this.Controls.Add(this.dockPanel);
 
+            InitializeComponent();
             AutoScaleMode = AutoScaleMode.Dpi;
 
             //SetSplashScreen();  //Todo: Make a setting for this!
