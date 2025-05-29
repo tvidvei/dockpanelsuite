@@ -1,4 +1,6 @@
-namespace ThemeEditor
+using System.Windows.Forms;
+
+namespace WeifenLuo.Docking
 {
     partial class ThemeEditorWindow
     {

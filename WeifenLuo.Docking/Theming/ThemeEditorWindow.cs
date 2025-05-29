@@ -1,9 +1,6 @@
-using System.Windows.Forms;
-using WeifenLuo.Docking;
-
-namespace ThemeEditor
+namespace WeifenLuo.Docking
 {
-    public partial class ThemeEditorWindow : ToolWindow
+    public partial class ThemeEditorWindow : DockContent
     {
 
         public ThemeEditorWindow()

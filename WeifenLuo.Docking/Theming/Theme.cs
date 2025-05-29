@@ -45,14 +45,14 @@ namespace WeifenLuo.Docking
         /// </summary>
         [JsonIgnore]
         [Browsable(false)]
-        public string FileName { get; protected set; }
+        public string FileName { get; set; }
 
         /// <summary>
         /// Dummy name for unsaved Theme
         /// </summary>
         [JsonIgnore]
         [Browsable(false)]
-        public string TempName { get; protected set; }
+        public string TempName { get; set; }
 
         /// <summary>
         /// DisplayPath - Either FileName only (without path and extension)  or TempName

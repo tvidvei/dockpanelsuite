@@ -32,6 +32,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>$(VersionPrefix)-dev001</Version>
+    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
@@ -86,6 +87,13 @@
     <Compile Include="Theming\DockPanelColorPalette.cs" />
     <Compile Include="Theming\JsonConverters.cs" />
     <Compile Include="Theming\Theme.cs" />
+    <Compile Include="Theming\ThemeController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Theming\ThemeEditorWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Theming\ThemeEditorWindow.Designer.cs" />
     <Compile Include="Theming\VisualStudioColorTable.cs" />
     <Compile Include="VisibleNestedPaneCollection.cs" />
     <Compile Include="DockAreasEditor.cs" />
@@ -203,6 +211,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Theming\ThemeEditorWindow.resx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dockpanelsuite.snk" />

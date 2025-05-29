@@ -13,6 +13,8 @@ namespace ThemeEditor
     {
         private VisualStudioToolStripExtender vsToolStripExtender1;
         public DockPanel dockPanel;
+
+        public ThemeController ThemeController;
         private bool m_bSaveLayout = true;
         private DeserializeDockContent m_deserializeDockContent;
         private DummySolutionExplorer m_solutionExplorer;
@@ -55,6 +57,9 @@ namespace ThemeEditor
             //
             vsToolStripExtender1 = new WeifenLuo.Docking.VisualStudioToolStripExtender(components);
             vsToolStripExtender1.DefaultRenderer = null;
+
+            // ThemeController
+            ThemeController = new ThemeController();
 
             AutoScaleMode = AutoScaleMode.Dpi;
 
@@ -197,6 +202,7 @@ namespace ThemeEditor
 
         private void SetSchema(object sender, System.EventArgs e)
         {
+
             // Persist settings when rebuilding UI
             string configFile = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "DockPanel.temp.config");
 
@@ -205,17 +211,17 @@ namespace ThemeEditor
 
             if (sender == this.menuItemSchemaVS2015Blue)
             {
-                this.dockPanel.Theme = Theme.LoadFromFile("VS2015Blue.json");
+                this.dockPanel.Theme = ThemeController.LoadFromFile("VS2015Blue.json");
                 this.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2015, dockPanel.Theme);
             }
             else if (sender == this.menuItemSchemaVS2015Light)
             {
-                this.dockPanel.Theme = Theme.LoadFromFile("VS2015Light.json");
+                this.dockPanel.Theme = ThemeController.LoadFromFile("VS2015Light.json");
                 this.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2015, dockPanel.Theme);
             }
             else if (sender == this.menuItemSchemaVS2015Dark)
             {
-                this.dockPanel.Theme = Theme.LoadFromFile("VS2015Dark.json");
+                this.dockPanel.Theme = ThemeController.LoadFromFile("VS2015Dark.json");
                 this.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2015, dockPanel.Theme);
             }
 
