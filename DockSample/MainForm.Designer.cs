@@ -58,16 +58,6 @@ namespace DockSample
             this.menuItemSchemaVS2015Light = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemSchemaVS2015Blue = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemSchemaVS2015Dark = new System.Windows.Forms.ToolStripMenuItem();
-#if old
-            this.menuItemSchemaVS2013Light = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemSchemaVS2013Blue = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemSchemaVS2013Dark = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemSchemaVS2012Light = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemSchemaVS2012Blue = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemSchemaVS2012Dark = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemSchemaVS2005 = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemSchemaVS2003 = new System.Windows.Forms.ToolStripMenuItem();
-#endif
             this.menuItem6 = new System.Windows.Forms.ToolStripSeparator();
             this.menuItemDockingMdi = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemDockingSdi = new System.Windows.Forms.ToolStripMenuItem();
@@ -297,16 +287,6 @@ namespace DockSample
             this.menuItemSchemaVS2015Light,
             this.menuItemSchemaVS2015Blue,
             this.menuItemSchemaVS2015Dark,
-#if old
-            this.menuItemSchemaVS2013Light,
-            this.menuItemSchemaVS2013Blue,
-            this.menuItemSchemaVS2013Dark,
-            this.menuItemSchemaVS2012Light,
-            this.menuItemSchemaVS2012Blue,
-            this.menuItemSchemaVS2012Dark,
-            this.menuItemSchemaVS2005,
-            this.menuItemSchemaVS2003,
-#endif
             this.menuItem6,
             this.menuItemDockingMdi,
             this.menuItemDockingSdi,
@@ -359,66 +339,6 @@ namespace DockSample
             this.menuItemSchemaVS2015Dark.Size = new System.Drawing.Size(255, 22);
             this.menuItemSchemaVS2015Dark.Text = "Schema: VS2015 Dark";
             this.menuItemSchemaVS2015Dark.Click += new System.EventHandler(this.SetSchema);
-#if old
-            // 
-            // menuItemSchemaVS2013Light
-            // 
-            this.menuItemSchemaVS2013Light.Name = "menuItemSchemaVS2013Light";
-            this.menuItemSchemaVS2013Light.Size = new System.Drawing.Size(255, 22);
-            this.menuItemSchemaVS2013Light.Text = "Schema: VS2013 Light";
-            this.menuItemSchemaVS2013Light.Click += new System.EventHandler(this.SetSchema);
-            // 
-            // menuItemSchemaVS2013Blue
-            // 
-            this.menuItemSchemaVS2013Blue.Name = "menuItemSchemaVS2013Blue";
-            this.menuItemSchemaVS2013Blue.Size = new System.Drawing.Size(255, 22);
-            this.menuItemSchemaVS2013Blue.Text = "Schema: VS2013 Blue";
-            this.menuItemSchemaVS2013Blue.Click += new System.EventHandler(this.SetSchema);
-            // 
-            // menuItemSchemaVS2013Dark
-            // 
-            this.menuItemSchemaVS2013Dark.Name = "menuItemSchemaVS2013Dark";
-            this.menuItemSchemaVS2013Dark.Size = new System.Drawing.Size(255, 22);
-            this.menuItemSchemaVS2013Dark.Text = "Schema: VS2013 Dark";
-            this.menuItemSchemaVS2013Dark.Click += new System.EventHandler(this.SetSchema);
-            // 
-            // menuItemSchemaVS2012Light
-            // 
-            this.menuItemSchemaVS2012Light.Name = "menuItemSchemaVS2012Light";
-            this.menuItemSchemaVS2012Light.Size = new System.Drawing.Size(255, 22);
-            this.menuItemSchemaVS2012Light.Text = "Schema: VS2012 Light";
-            this.menuItemSchemaVS2012Light.Click += new System.EventHandler(this.SetSchema);
-            // 
-            // menuItemSchemaVS2012Blue
-            // 
-            this.menuItemSchemaVS2012Blue.Name = "menuItemSchemaVS2012Blue";
-            this.menuItemSchemaVS2012Blue.Size = new System.Drawing.Size(255, 22);
-            this.menuItemSchemaVS2012Blue.Text = "Schema: VS2012 Blue";
-            this.menuItemSchemaVS2012Blue.Click += new System.EventHandler(this.SetSchema);
-            // 
-            // menuItemSchemaVS2012Dark
-            // 
-            this.menuItemSchemaVS2012Dark.Name = "menuItemSchemaVS2012Dark";
-            this.menuItemSchemaVS2012Dark.Size = new System.Drawing.Size(255, 22);
-            this.menuItemSchemaVS2012Dark.Text = "Schema: VS2012 Dark";
-            this.menuItemSchemaVS2012Dark.Click += new System.EventHandler(this.SetSchema);
-            // 
-            // menuItemSchemaVS2005
-            // 
-            this.menuItemSchemaVS2005.Checked = true;
-            this.menuItemSchemaVS2005.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.menuItemSchemaVS2005.Name = "menuItemSchemaVS2005";
-            this.menuItemSchemaVS2005.Size = new System.Drawing.Size(255, 22);
-            this.menuItemSchemaVS2005.Text = "Schema: VS200&5";
-            this.menuItemSchemaVS2005.Click += new System.EventHandler(this.SetSchema);
-            // 
-            // menuItemSchemaVS2003
-            // 
-            this.menuItemSchemaVS2003.Name = "menuItemSchemaVS2003";
-            this.menuItemSchemaVS2003.Size = new System.Drawing.Size(255, 22);
-            this.menuItemSchemaVS2003.Text = "Schema: VS200&3";
-            this.menuItemSchemaVS2003.Click += new System.EventHandler(this.SetSchema);
-#endif
             // 
             // menuItem6
             // 
@@ -750,25 +670,9 @@ namespace DockSample
         private System.Windows.Forms.StatusStrip statusBar;
         private System.Windows.Forms.ToolStripMenuItem showRightToLeft;
         private System.Windows.Forms.ToolStripMenuItem exitWithoutSavingLayout;
-#if old
-        private System.Windows.Forms.ToolStripMenuItem menuItemSchemaVS2012Light;
-        private System.Windows.Forms.ToolStripMenuItem menuItemSchemaVS2012Blue;
-        private System.Windows.Forms.ToolStripMenuItem menuItemSchemaVS2012Dark;
-        private System.Windows.Forms.ToolStripMenuItem menuItemSchemaVS2013Light;
-        private System.Windows.Forms.ToolStripMenuItem menuItemSchemaVS2013Blue;
-        private System.Windows.Forms.ToolStripMenuItem menuItemSchemaVS2013Dark;
-#endif
         private System.Windows.Forms.ToolStripMenuItem menuItemSchemaVS2015Light;
         private System.Windows.Forms.ToolStripMenuItem menuItemSchemaVS2015Blue;
         private System.Windows.Forms.ToolStripMenuItem menuItemSchemaVS2015Dark;
-        //private WeifenLuo.Docking.VS2013LightTheme vS2013LightTheme1;
-        //private WeifenLuo.Docking.VS2013BlueTheme vS2013BlueTheme1;
-        //private WeifenLuo.Docking.VS2013DarkTheme vS2013DarkTheme1;
-        //private WeifenLuo.Docking.VS2012LightTheme vS2012LightTheme1;
-        //private WeifenLuo.Docking.VS2012BlueTheme vS2012BlueTheme1;
-        //private WeifenLuo.Docking.VS2012DarkTheme vS2012DarkTheme1;
-        //private WeifenLuo.Docking.VS2003Theme vS2003Theme1;
-        //private WeifenLuo.Docking.VS2005Theme vS2005Theme1;
         private WeifenLuo.Docking.VisualStudioToolStripExtender vsToolStripExtender1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem subMenuToolStripMenuItem;

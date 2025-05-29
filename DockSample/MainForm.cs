@@ -165,49 +165,6 @@ namespace DockSample
             dockPanel.SaveAsXml(configFile);
             CloseAllContents();
 
-#if old
-            if (sender == this.menuItemSchemaVS2005)
-            {
-                this.dockPanel.Theme = this.vS2005Theme1;
-                this.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2005, vS2005Theme1);
-            }
-            else if (sender == this.menuItemSchemaVS2003)
-            {
-                this.dockPanel.Theme = this.vS2003Theme1;
-                this.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2003, vS2003Theme1);
-            }
-            else if (sender == this.menuItemSchemaVS2012Light)
-            {
-                this.dockPanel.Theme = this.vS2012LightTheme1;
-                this.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2012, vS2012LightTheme1);
-            }
-            else if (sender == this.menuItemSchemaVS2012Blue)
-            {
-                this.dockPanel.Theme = this.vS2012BlueTheme1;
-                this.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2012, vS2012BlueTheme1);
-            }
-            else if (sender == this.menuItemSchemaVS2012Dark)
-            {
-                this.dockPanel.Theme = this.vS2012DarkTheme1;
-                this.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2012, vS2012DarkTheme1);
-            }
-            else if (sender == this.menuItemSchemaVS2013Blue)
-            {
-                this.dockPanel.Theme = this.vS2013BlueTheme1;
-                this.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2013, vS2013BlueTheme1);
-            }
-            else if (sender == this.menuItemSchemaVS2013Light)
-            {
-                this.dockPanel.Theme = this.vS2013LightTheme1;
-                this.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2013, vS2013LightTheme1);
-            }
-            else if (sender == this.menuItemSchemaVS2013Dark)
-            {
-                this.dockPanel.Theme = this.vS2013DarkTheme1;
-                this.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2013, vS2013DarkTheme1);
-            }
-            else
-#endif
             if (sender == this.menuItemSchemaVS2015Blue)
             {
                 this.dockPanel.Theme = Theme.LoadFromFile("VS2015Blue.json");
@@ -224,16 +181,6 @@ namespace DockSample
                 this.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2015, dockPanel.Theme);
             }
 
-#if old
-            menuItemSchemaVS2005.Checked = (sender == menuItemSchemaVS2005);
-            menuItemSchemaVS2003.Checked = (sender == menuItemSchemaVS2003);
-            menuItemSchemaVS2012Light.Checked = (sender == menuItemSchemaVS2012Light);
-            menuItemSchemaVS2012Blue.Checked = (sender == menuItemSchemaVS2012Blue);
-            menuItemSchemaVS2012Dark.Checked = (sender == menuItemSchemaVS2012Dark);
-            menuItemSchemaVS2013Light.Checked = (sender == menuItemSchemaVS2013Light);
-            menuItemSchemaVS2013Blue.Checked = (sender == menuItemSchemaVS2013Blue);
-            menuItemSchemaVS2013Dark.Checked = (sender == menuItemSchemaVS2013Dark);
-#endif
             menuItemSchemaVS2015Light.Checked = (sender == menuItemSchemaVS2015Light);
             menuItemSchemaVS2015Blue.Checked = (sender == menuItemSchemaVS2015Blue);
             menuItemSchemaVS2015Dark.Checked = (sender == menuItemSchemaVS2015Dark);
