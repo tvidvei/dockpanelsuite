@@ -354,5 +354,19 @@ namespace WeifenLuo.Docking
                 base.OnSizeChanged(e);
             }
         }
+
+        private void InitializeComponent()
+        {
+            SuspendLayout();
+            // 
+            // DockContent
+            // 
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            ClientSize = new Size(284, 261);
+            Name = "DockContent";
+            ResumeLayout(false);
+
+        }
     }
 }

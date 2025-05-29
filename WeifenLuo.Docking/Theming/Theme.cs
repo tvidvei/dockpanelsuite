@@ -47,6 +47,28 @@ namespace WeifenLuo.Docking
         [Browsable(false)]
         public string FileName { get; protected set; }
 
+        /// <summary>
+        /// Dummy name for unsaved Theme
+        /// </summary>
+        [JsonIgnore]
+        [Browsable(false)]
+        public string TempName { get; protected set; }
+
+        /// <summary>
+        /// DisplayPath - Either FileName only (without path and extension)  or TempName
+        /// </summary>
+        [JsonIgnore]
+        [Browsable(false)]
+        public string DisplayName => Path.GetFileNameWithoutExtension(FileName) ?? TempName;
+
+        /// <summary>
+        /// DisplayPath - Either full filePath (if saved) or TempName
+        /// </summary>
+        [JsonIgnore]
+        [Browsable(false)]
+        public string DisplayPath => FileName ?? TempName;
+
+
 
         [Category("Colors")]
         [TypeConverter(typeof(ExpandableObjectConverter))]
@@ -197,6 +219,10 @@ namespace WeifenLuo.Docking
 
         public static Theme LoadFromFile(string fileName)
         {
+            if (string.IsNullOrWhiteSpace(fileName))
+            {
+                throw new Exception("No Theme file given");
+            }
             Theme result = null;
             if (Path.GetDirectoryName(fileName) == String.Empty)
             {
@@ -210,6 +236,10 @@ namespace WeifenLuo.Docking
             }
             if (fileExt.ToLower() == ".json")
             {
+                if (!File.Exists(fileName))
+                {
+                    throw new Exception($"Can't find Theme file '{fileName}'");
+                }
                 var jsonString = File.ReadAllText(fileName);
                 result = JsonSerializer.Deserialize<Theme>(jsonString, JsonSerializerOptions);
                 result.Setup();
@@ -219,6 +249,15 @@ namespace WeifenLuo.Docking
                 throw new Exception("Error in Theme.LoadFromFile: File must have extension '.json'");
             }
             result.FileName = fileName;
+            return result;
+        }
+
+        private static int newThemeCount = 1;
+
+        public static Theme CreateNew(string tempName = null)
+        {
+            var result = new Theme();
+            result.TempName = tempName ?? "NewTheme" + newThemeCount++;
             return result;
         }
 

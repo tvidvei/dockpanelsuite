@@ -8,7 +8,6 @@ namespace ThemeEditor
         public ToolWindow()
         {
             InitializeComponent();
-            AutoScaleMode = AutoScaleMode.Dpi;
         }
     }
 }

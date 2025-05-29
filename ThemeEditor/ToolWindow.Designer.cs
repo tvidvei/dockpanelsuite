@@ -28,54 +28,48 @@ namespace ThemeEditor
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.option1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.option2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.option3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip1.SuspendLayout();
-            this.SuspendLayout();
+            components = new System.ComponentModel.Container();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            option1ToolStripMenuItem = new ToolStripMenuItem();
+            option2ToolStripMenuItem = new ToolStripMenuItem();
+            option3ToolStripMenuItem = new ToolStripMenuItem();
+            contextMenuStrip1.SuspendLayout();
+            SuspendLayout();
             // 
             // contextMenuStrip1
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.option1ToolStripMenuItem,
-            this.option2ToolStripMenuItem,
-            this.option3ToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(113, 70);
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { option1ToolStripMenuItem, option2ToolStripMenuItem, option3ToolStripMenuItem });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(118, 70);
             // 
             // option1ToolStripMenuItem
             // 
-            this.option1ToolStripMenuItem.Name = "option1ToolStripMenuItem";
-            this.option1ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.option1ToolStripMenuItem.Text = "Option&1";
+            option1ToolStripMenuItem.Name = "option1ToolStripMenuItem";
+            option1ToolStripMenuItem.Size = new Size(117, 22);
+            option1ToolStripMenuItem.Text = "Option&1";
             // 
             // option2ToolStripMenuItem
             // 
-            this.option2ToolStripMenuItem.Name = "option2ToolStripMenuItem";
-            this.option2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.option2ToolStripMenuItem.Text = "Option&2";
+            option2ToolStripMenuItem.Name = "option2ToolStripMenuItem";
+            option2ToolStripMenuItem.Size = new Size(117, 22);
+            option2ToolStripMenuItem.Text = "Option&2";
             // 
             // option3ToolStripMenuItem
             // 
-            this.option3ToolStripMenuItem.Name = "option3ToolStripMenuItem";
-            this.option3ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.option3ToolStripMenuItem.Text = "Option&3";
+            option3ToolStripMenuItem.Name = "option3ToolStripMenuItem";
+            option3ToolStripMenuItem.Size = new Size(117, 22);
+            option3ToolStripMenuItem.Text = "Option&3";
             // 
             // ToolWindow
             // 
-            this.ClientSize = new System.Drawing.Size(292, 266);
-            this.DockAreas = ((WeifenLuo.Docking.DockAreas)(((((WeifenLuo.Docking.DockAreas.Float | WeifenLuo.Docking.DockAreas.DockLeft)
-                        | WeifenLuo.Docking.DockAreas.DockRight)
-                        | WeifenLuo.Docking.DockAreas.DockTop)
-                        | WeifenLuo.Docking.DockAreas.DockBottom)));
-            this.Name = "ToolWindow";
-            this.TabPageContextMenuStrip = this.contextMenuStrip1;
-            this.TabText = "ToolWindow";
-            this.Text = "ToolWindow";
-            this.contextMenuStrip1.ResumeLayout(false);
-            this.ResumeLayout(false);
+            ClientSize = new Size(292, 266);
+            DockAreas = WeifenLuo.Docking.DockAreas.Float | WeifenLuo.Docking.DockAreas.DockLeft | WeifenLuo.Docking.DockAreas.DockRight | WeifenLuo.Docking.DockAreas.DockTop | WeifenLuo.Docking.DockAreas.DockBottom;
+            Name = "ToolWindow";
+            TabPageContextMenuStrip = contextMenuStrip1;
+            TabText = "ToolWindow";
+            Text = "ToolWindow";
+            contextMenuStrip1.ResumeLayout(false);
+            ResumeLayout(false);
 
         }
 
