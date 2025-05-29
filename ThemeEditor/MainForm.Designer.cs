@@ -27,584 +27,530 @@ namespace ThemeEditor
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.mainMenu = new System.Windows.Forms.MenuStrip();
-            this.menuItemFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemNew = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemOpen = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemClose = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemCloseAll = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemCloseAllButThisOne = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItem4 = new System.Windows.Forms.ToolStripSeparator();
-            this.menuItemExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitWithoutSavingLayout = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemView = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemSolutionExplorer = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemPropertyWindow = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemThemeEditorWindow = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemToolbox = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemOutputWindow = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemTaskList = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.menuItemToolBar = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemStatusBar = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItem2 = new System.Windows.Forms.ToolStripSeparator();
-            this.menuItemLayoutByCode = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemLayoutByXml = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemTools = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemLockLayout = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemShowDocumentIcon = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItem3 = new System.Windows.Forms.ToolStripSeparator();
-            this.menuItemSchemaVS2015Light = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemSchemaVS2015Blue = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemSchemaVS2015Dark = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItem6 = new System.Windows.Forms.ToolStripSeparator();
-            this.menuItemDockingMdi = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemDockingSdi = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemDockingWindow = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemSystemMdi = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItem5 = new System.Windows.Forms.ToolStripSeparator();
-            this.showRightToLeft = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemWindow = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemNewWindow = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusBar = new System.Windows.Forms.StatusStrip();
-            this.imageList = new System.Windows.Forms.ImageList(this.components);
-            this.toolBar = new System.Windows.Forms.ToolStrip();
-            this.toolBarButtonNew = new System.Windows.Forms.ToolStripButton();
-            this.toolBarButtonOpen = new System.Windows.Forms.ToolStripButton();
-            this.toolBarButtonSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolBarButtonSolutionExplorer = new System.Windows.Forms.ToolStripButton();
-            this.toolBarButtonPropertyWindow = new System.Windows.Forms.ToolStripButton();
-            this.toolBarButtonToolbox = new System.Windows.Forms.ToolStripButton();
-            this.toolBarButtonOutputWindow = new System.Windows.Forms.ToolStripButton();
-            this.toolBarButtonTaskList = new System.Windows.Forms.ToolStripButton();
-            this.toolBarButtonSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolBarButtonLayoutByCode = new System.Windows.Forms.ToolStripButton();
-            this.toolBarButtonLayoutByXml = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.subMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.itemBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.disabledItemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vsToolStripExtender1 = new WeifenLuo.Docking.VisualStudioToolStripExtender(this.components);
-            this.mainMenu.SuspendLayout();
-            this.toolBar.SuspendLayout();
-            this.SuspendLayout();
+            mainMenu = new MenuStrip();
+            menuItemFile = new ToolStripMenuItem();
+            menuItemNew = new ToolStripMenuItem();
+            menuItemOpen = new ToolStripMenuItem();
+            menuItemClose = new ToolStripMenuItem();
+            menuItemCloseAll = new ToolStripMenuItem();
+            menuItemCloseAllButThisOne = new ToolStripMenuItem();
+            menuItem4 = new ToolStripSeparator();
+            menuItemExit = new ToolStripMenuItem();
+            exitWithoutSavingLayout = new ToolStripMenuItem();
+            menuItemView = new ToolStripMenuItem();
+            menuItemSolutionExplorer = new ToolStripMenuItem();
+            menuItemPropertyWindow = new ToolStripMenuItem();
+            menuItemThemeEditorWindow = new ToolStripMenuItem();
+            menuItemToolbox = new ToolStripMenuItem();
+            menuItemOutputWindow = new ToolStripMenuItem();
+            menuItemTaskList = new ToolStripMenuItem();
+            menuItem1 = new ToolStripSeparator();
+            menuItemToolBar = new ToolStripMenuItem();
+            menuItemStatusBar = new ToolStripMenuItem();
+            menuItem2 = new ToolStripSeparator();
+            menuItemLayoutByCode = new ToolStripMenuItem();
+            menuItemLayoutByXml = new ToolStripMenuItem();
+            toolStripSeparator1 = new ToolStripSeparator();
+            subMenuToolStripMenuItem = new ToolStripMenuItem();
+            itemAToolStripMenuItem = new ToolStripMenuItem();
+            itemBToolStripMenuItem = new ToolStripMenuItem();
+            disabledItemToolStripMenuItem = new ToolStripMenuItem();
+            menuItemTools = new ToolStripMenuItem();
+            menuItemLockLayout = new ToolStripMenuItem();
+            menuItemShowDocumentIcon = new ToolStripMenuItem();
+            menuItem3 = new ToolStripSeparator();
+            menuItemSchemaVS2015Light = new ToolStripMenuItem();
+            menuItemSchemaVS2015Blue = new ToolStripMenuItem();
+            menuItemSchemaVS2015Dark = new ToolStripMenuItem();
+            menuItem6 = new ToolStripSeparator();
+            menuItemDockingMdi = new ToolStripMenuItem();
+            menuItemDockingSdi = new ToolStripMenuItem();
+            menuItemDockingWindow = new ToolStripMenuItem();
+            menuItemSystemMdi = new ToolStripMenuItem();
+            menuItem5 = new ToolStripSeparator();
+            showRightToLeft = new ToolStripMenuItem();
+            menuItemWindow = new ToolStripMenuItem();
+            menuItemNewWindow = new ToolStripMenuItem();
+            menuItemHelp = new ToolStripMenuItem();
+            menuItemAbout = new ToolStripMenuItem();
+            statusBar = new StatusStrip();
+            imageList = new ImageList(components);
+            toolBar = new ToolStrip();
+            toolBarButtonNew = new ToolStripButton();
+            toolBarButtonOpen = new ToolStripButton();
+            toolBarButtonSeparator1 = new ToolStripSeparator();
+            toolBarButtonSolutionExplorer = new ToolStripButton();
+            toolBarButtonPropertyWindow = new ToolStripButton();
+            toolBarButtonToolbox = new ToolStripButton();
+            toolBarButtonOutputWindow = new ToolStripButton();
+            toolBarButtonTaskList = new ToolStripButton();
+            toolBarButtonSeparator2 = new ToolStripSeparator();
+            toolBarButtonLayoutByCode = new ToolStripButton();
+            toolBarButtonLayoutByXml = new ToolStripButton();
+            vsToolStripExtender1 = new WeifenLuo.Docking.VisualStudioToolStripExtender(components);
+            mainMenu.SuspendLayout();
+            toolBar.SuspendLayout();
+            SuspendLayout();
             // 
             // mainMenu
             // 
-            this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuItemFile,
-            this.menuItemView,
-            this.menuItemTools,
-            this.menuItemWindow,
-            this.menuItemHelp});
-            this.mainMenu.Location = new System.Drawing.Point(0, 0);
-            this.mainMenu.MdiWindowListItem = this.menuItemWindow;
-            this.mainMenu.Name = "mainMenu";
-            this.mainMenu.Size = new System.Drawing.Size(579, 24);
-            this.mainMenu.TabIndex = 7;
+            mainMenu.Items.AddRange(new ToolStripItem[] { menuItemFile, menuItemView, menuItemTools, menuItemWindow, menuItemHelp });
+            mainMenu.Location = new Point(0, 0);
+            mainMenu.MdiWindowListItem = menuItemWindow;
+            mainMenu.Name = "mainMenu";
+            mainMenu.Size = new Size(579, 24);
+            mainMenu.TabIndex = 7;
             // 
             // menuItemFile
             // 
-            this.menuItemFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuItemNew,
-            this.menuItemOpen,
-            this.menuItemClose,
-            this.menuItemCloseAll,
-            this.menuItemCloseAllButThisOne,
-            this.menuItem4,
-            this.menuItemExit,
-            this.exitWithoutSavingLayout});
-            this.menuItemFile.Name = "menuItemFile";
-            this.menuItemFile.Size = new System.Drawing.Size(37, 20);
-            this.menuItemFile.Text = "&File";
-            this.menuItemFile.DropDownOpening += new System.EventHandler(this.menuItemFile_Popup);
+            menuItemFile.DropDownItems.AddRange(new ToolStripItem[] { menuItemNew, menuItemOpen, menuItemClose, menuItemCloseAll, menuItemCloseAllButThisOne, menuItem4, menuItemExit, exitWithoutSavingLayout });
+            menuItemFile.Name = "menuItemFile";
+            menuItemFile.Size = new Size(37, 20);
+            menuItemFile.Text = "&File";
+            menuItemFile.DropDownOpening += menuItemFile_Popup;
             // 
             // menuItemNew
             // 
-            this.menuItemNew.Name = "menuItemNew";
-            this.menuItemNew.Size = new System.Drawing.Size(215, 22);
-            this.menuItemNew.Text = "&New";
-            this.menuItemNew.Click += new System.EventHandler(this.menuItemNew_Click);
+            menuItemNew.Name = "menuItemNew";
+            menuItemNew.Size = new Size(215, 22);
+            menuItemNew.Text = "&New";
+            menuItemNew.Click += menuItemNew_Click;
             // 
             // menuItemOpen
             // 
-            this.menuItemOpen.Name = "menuItemOpen";
-            this.menuItemOpen.Size = new System.Drawing.Size(215, 22);
-            this.menuItemOpen.Text = "&Open...";
-            this.menuItemOpen.Click += new System.EventHandler(this.menuItemOpen_Click);
+            menuItemOpen.Name = "menuItemOpen";
+            menuItemOpen.Size = new Size(215, 22);
+            menuItemOpen.Text = "&Open...";
+            menuItemOpen.Click += menuItemOpen_Click;
             // 
             // menuItemClose
             // 
-            this.menuItemClose.Name = "menuItemClose";
-            this.menuItemClose.Size = new System.Drawing.Size(215, 22);
-            this.menuItemClose.Text = "&Close";
-            this.menuItemClose.Click += new System.EventHandler(this.menuItemClose_Click);
+            menuItemClose.Name = "menuItemClose";
+            menuItemClose.Size = new Size(215, 22);
+            menuItemClose.Text = "&Close";
+            menuItemClose.Click += menuItemClose_Click;
             // 
             // menuItemCloseAll
             // 
-            this.menuItemCloseAll.Name = "menuItemCloseAll";
-            this.menuItemCloseAll.Size = new System.Drawing.Size(215, 22);
-            this.menuItemCloseAll.Text = "Close &All";
-            this.menuItemCloseAll.Click += new System.EventHandler(this.menuItemCloseAll_Click);
+            menuItemCloseAll.Name = "menuItemCloseAll";
+            menuItemCloseAll.Size = new Size(215, 22);
+            menuItemCloseAll.Text = "Close &All";
+            menuItemCloseAll.Click += menuItemCloseAll_Click;
             // 
             // menuItemCloseAllButThisOne
             // 
-            this.menuItemCloseAllButThisOne.Name = "menuItemCloseAllButThisOne";
-            this.menuItemCloseAllButThisOne.Size = new System.Drawing.Size(215, 22);
-            this.menuItemCloseAllButThisOne.Text = "Close All &But This One";
-            this.menuItemCloseAllButThisOne.Click += new System.EventHandler(this.menuItemCloseAllButThisOne_Click);
+            menuItemCloseAllButThisOne.Name = "menuItemCloseAllButThisOne";
+            menuItemCloseAllButThisOne.Size = new Size(215, 22);
+            menuItemCloseAllButThisOne.Text = "Close All &But This One";
+            menuItemCloseAllButThisOne.Click += menuItemCloseAllButThisOne_Click;
             // 
             // menuItem4
             // 
-            this.menuItem4.Name = "menuItem4";
-            this.menuItem4.Size = new System.Drawing.Size(212, 6);
+            menuItem4.Name = "menuItem4";
+            menuItem4.Size = new Size(212, 6);
             // 
             // menuItemExit
             // 
-            this.menuItemExit.Name = "menuItemExit";
-            this.menuItemExit.Size = new System.Drawing.Size(215, 22);
-            this.menuItemExit.Text = "&Exit";
-            this.menuItemExit.Click += new System.EventHandler(this.menuItemExit_Click);
+            menuItemExit.Name = "menuItemExit";
+            menuItemExit.ShortcutKeys = Keys.Alt | Keys.F4;
+            menuItemExit.Size = new Size(215, 22);
+            menuItemExit.Text = "&Exit";
+            menuItemExit.Click += menuItemExit_Click;
             // 
             // exitWithoutSavingLayout
             // 
-            this.exitWithoutSavingLayout.Name = "exitWithoutSavingLayout";
-            this.exitWithoutSavingLayout.Size = new System.Drawing.Size(215, 22);
-            this.exitWithoutSavingLayout.Text = "Exit &Without Saving Layout";
-            this.exitWithoutSavingLayout.Click += new System.EventHandler(this.exitWithoutSavingLayout_Click);
+            exitWithoutSavingLayout.Name = "exitWithoutSavingLayout";
+            exitWithoutSavingLayout.Size = new Size(215, 22);
+            exitWithoutSavingLayout.Text = "Exit &Without Saving Layout";
+            exitWithoutSavingLayout.Click += exitWithoutSavingLayout_Click;
             // 
             // menuItemView
             // 
-            this.menuItemView.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuItemSolutionExplorer,
-            this.menuItemPropertyWindow,
-            this.menuItemThemeEditorWindow,
-            this.menuItemToolbox,
-            this.menuItemOutputWindow,
-            this.menuItemTaskList,
-            this.menuItem1,
-            this.menuItemToolBar,
-            this.menuItemStatusBar,
-            this.menuItem2,
-            this.menuItemLayoutByCode,
-            this.menuItemLayoutByXml,
-            this.toolStripSeparator1,
-            this.subMenuToolStripMenuItem,
-            this.disabledItemToolStripMenuItem});
-            this.menuItemView.MergeIndex = 1;
-            this.menuItemView.Name = "menuItemView";
-            this.menuItemView.Size = new System.Drawing.Size(44, 20);
-            this.menuItemView.Text = "&View";
+            menuItemView.DropDownItems.AddRange(new ToolStripItem[] { menuItemSolutionExplorer, menuItemPropertyWindow, menuItemThemeEditorWindow, menuItemToolbox, menuItemOutputWindow, menuItemTaskList, menuItem1, menuItemToolBar, menuItemStatusBar, menuItem2, menuItemLayoutByCode, menuItemLayoutByXml, toolStripSeparator1, subMenuToolStripMenuItem, disabledItemToolStripMenuItem });
+            menuItemView.MergeIndex = 1;
+            menuItemView.Name = "menuItemView";
+            menuItemView.Size = new Size(44, 20);
+            menuItemView.Text = "&View";
             // 
             // menuItemSolutionExplorer
             // 
-            this.menuItemSolutionExplorer.Name = "menuItemSolutionExplorer";
-            this.menuItemSolutionExplorer.Size = new System.Drawing.Size(185, 22);
-            this.menuItemSolutionExplorer.Text = "&Solution Explorer";
-            this.menuItemSolutionExplorer.Click += new System.EventHandler(this.menuItemSolutionExplorer_Click);
+            menuItemSolutionExplorer.Name = "menuItemSolutionExplorer";
+            menuItemSolutionExplorer.Size = new Size(243, 22);
+            menuItemSolutionExplorer.Text = "&Solution Explorer";
+            menuItemSolutionExplorer.Click += menuItemSolutionExplorer_Click;
             // 
             // menuItemPropertyWindow
             // 
-            this.menuItemPropertyWindow.Name = "menuItemPropertyWindow";
-            this.menuItemPropertyWindow.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.menuItemPropertyWindow.Size = new System.Drawing.Size(185, 22);
-            this.menuItemPropertyWindow.Text = "&Property Window";
-            this.menuItemPropertyWindow.Click += new System.EventHandler(this.menuItemPropertyWindow_Click);
+            menuItemPropertyWindow.Name = "menuItemPropertyWindow";
+            menuItemPropertyWindow.ShortcutKeys = Keys.F4;
+            menuItemPropertyWindow.Size = new Size(243, 22);
+            menuItemPropertyWindow.Text = "&Property Window";
+            menuItemPropertyWindow.Click += menuItemPropertyWindow_Click;
             // 
             // menuItemThemeEditorWindow
             // 
-            this.menuItemThemeEditorWindow.Name = "menuItemThemeEditorWindow";
-            this.menuItemThemeEditorWindow.ShortcutKeys = System.Windows.Forms.Keys.F4 | System.Windows.Forms.Keys.Shift;
-            this.menuItemThemeEditorWindow.Size = new System.Drawing.Size(185, 22);
-            this.menuItemThemeEditorWindow.Text = "Theme &Editor Window";
-            this.menuItemThemeEditorWindow.Click += new System.EventHandler(this.menuItemThemeEditorWindow_Click);
+            menuItemThemeEditorWindow.Name = "menuItemThemeEditorWindow";
+            menuItemThemeEditorWindow.ShortcutKeys = Keys.Shift | Keys.F4;
+            menuItemThemeEditorWindow.Size = new Size(243, 22);
+            menuItemThemeEditorWindow.Text = "Theme &Editor Window";
+            menuItemThemeEditorWindow.Click += menuItemThemeEditorWindow_Click;
             // 
             // menuItemToolbox
             // 
-            this.menuItemToolbox.Name = "menuItemToolbox";
-            this.menuItemToolbox.Size = new System.Drawing.Size(185, 22);
-            this.menuItemToolbox.Text = "&Toolbox";
-            this.menuItemToolbox.Click += new System.EventHandler(this.menuItemToolbox_Click);
+            menuItemToolbox.Name = "menuItemToolbox";
+            menuItemToolbox.Size = new Size(243, 22);
+            menuItemToolbox.Text = "&Toolbox";
+            menuItemToolbox.Click += menuItemToolbox_Click;
             // 
             // menuItemOutputWindow
             // 
-            this.menuItemOutputWindow.Name = "menuItemOutputWindow";
-            this.menuItemOutputWindow.Size = new System.Drawing.Size(185, 22);
-            this.menuItemOutputWindow.Text = "&Output Window";
-            this.menuItemOutputWindow.Click += new System.EventHandler(this.menuItemOutputWindow_Click);
+            menuItemOutputWindow.Name = "menuItemOutputWindow";
+            menuItemOutputWindow.Size = new Size(243, 22);
+            menuItemOutputWindow.Text = "&Output Window";
+            menuItemOutputWindow.Click += menuItemOutputWindow_Click;
             // 
             // menuItemTaskList
             // 
-            this.menuItemTaskList.Name = "menuItemTaskList";
-            this.menuItemTaskList.Size = new System.Drawing.Size(185, 22);
-            this.menuItemTaskList.Text = "Task &List";
-            this.menuItemTaskList.Click += new System.EventHandler(this.menuItemTaskList_Click);
+            menuItemTaskList.Name = "menuItemTaskList";
+            menuItemTaskList.Size = new Size(243, 22);
+            menuItemTaskList.Text = "Task &List";
+            menuItemTaskList.Click += menuItemTaskList_Click;
             // 
             // menuItem1
             // 
-            this.menuItem1.Name = "menuItem1";
-            this.menuItem1.Size = new System.Drawing.Size(182, 6);
+            menuItem1.Name = "menuItem1";
+            menuItem1.Size = new Size(240, 6);
             // 
             // menuItemToolBar
             // 
-            this.menuItemToolBar.Checked = true;
-            this.menuItemToolBar.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.menuItemToolBar.Name = "menuItemToolBar";
-            this.menuItemToolBar.Size = new System.Drawing.Size(185, 22);
-            this.menuItemToolBar.Text = "Tool &Bar";
-            this.menuItemToolBar.Click += new System.EventHandler(this.menuItemToolBar_Click);
+            menuItemToolBar.Checked = true;
+            menuItemToolBar.CheckState = CheckState.Checked;
+            menuItemToolBar.Name = "menuItemToolBar";
+            menuItemToolBar.Size = new Size(243, 22);
+            menuItemToolBar.Text = "Tool &Bar";
+            menuItemToolBar.Click += menuItemToolBar_Click;
             // 
             // menuItemStatusBar
             // 
-            this.menuItemStatusBar.Checked = true;
-            this.menuItemStatusBar.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.menuItemStatusBar.Name = "menuItemStatusBar";
-            this.menuItemStatusBar.Size = new System.Drawing.Size(185, 22);
-            this.menuItemStatusBar.Text = "Status B&ar";
-            this.menuItemStatusBar.Click += new System.EventHandler(this.menuItemStatusBar_Click);
+            menuItemStatusBar.Checked = true;
+            menuItemStatusBar.CheckState = CheckState.Checked;
+            menuItemStatusBar.Name = "menuItemStatusBar";
+            menuItemStatusBar.Size = new Size(243, 22);
+            menuItemStatusBar.Text = "Status B&ar";
+            menuItemStatusBar.Click += menuItemStatusBar_Click;
             // 
             // menuItem2
             // 
-            this.menuItem2.Name = "menuItem2";
-            this.menuItem2.Size = new System.Drawing.Size(182, 6);
+            menuItem2.Name = "menuItem2";
+            menuItem2.Size = new Size(240, 6);
             // 
             // menuItemLayoutByCode
             // 
-            this.menuItemLayoutByCode.Name = "menuItemLayoutByCode";
-            this.menuItemLayoutByCode.Size = new System.Drawing.Size(185, 22);
-            this.menuItemLayoutByCode.Text = "Layout By &Code";
-            this.menuItemLayoutByCode.Click += new System.EventHandler(this.menuItemLayoutByCode_Click);
+            menuItemLayoutByCode.Name = "menuItemLayoutByCode";
+            menuItemLayoutByCode.Size = new Size(243, 22);
+            menuItemLayoutByCode.Text = "Layout By &Code";
+            menuItemLayoutByCode.Click += menuItemLayoutByCode_Click;
             // 
             // menuItemLayoutByXml
             // 
-            this.menuItemLayoutByXml.Name = "menuItemLayoutByXml";
-            this.menuItemLayoutByXml.Size = new System.Drawing.Size(185, 22);
-            this.menuItemLayoutByXml.Text = "Layout By &XML";
-            this.menuItemLayoutByXml.Click += new System.EventHandler(this.menuItemLayoutByXml_Click);
-            // 
-            // menuItemTools
-            // 
-            this.menuItemTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuItemLockLayout,
-            this.menuItemShowDocumentIcon,
-            this.menuItem3,
-            this.menuItemSchemaVS2015Light,
-            this.menuItemSchemaVS2015Blue,
-            this.menuItemSchemaVS2015Dark,
-            this.menuItem6,
-            this.menuItemDockingMdi,
-            this.menuItemDockingSdi,
-            this.menuItemDockingWindow,
-            this.menuItemSystemMdi,
-            this.menuItem5,
-            this.showRightToLeft});
-            this.menuItemTools.MergeIndex = 2;
-            this.menuItemTools.Name = "menuItemTools";
-            this.menuItemTools.Size = new System.Drawing.Size(47, 20);
-            this.menuItemTools.Text = "&Tools";
-            this.menuItemTools.DropDownOpening += new System.EventHandler(this.menuItemTools_Popup);
-            // 
-            // menuItemLockLayout
-            // 
-            this.menuItemLockLayout.Name = "menuItemLockLayout";
-            this.menuItemLockLayout.Size = new System.Drawing.Size(255, 22);
-            this.menuItemLockLayout.Text = "&Lock Layout";
-            this.menuItemLockLayout.Click += new System.EventHandler(this.menuItemLockLayout_Click);
-            // 
-            // menuItemShowDocumentIcon
-            // 
-            this.menuItemShowDocumentIcon.Name = "menuItemShowDocumentIcon";
-            this.menuItemShowDocumentIcon.Size = new System.Drawing.Size(255, 22);
-            this.menuItemShowDocumentIcon.Text = "&Show Document Icon";
-            this.menuItemShowDocumentIcon.Click += new System.EventHandler(this.menuItemShowDocumentIcon_Click);
-            // 
-            // menuItem3
-            // 
-            this.menuItem3.Name = "menuItem3";
-            this.menuItem3.Size = new System.Drawing.Size(252, 6);
-            // 
-            // menuItemSchemaVS2015Light
-            // 
-            this.menuItemSchemaVS2015Light.Name = "menuItemSchemaVS2015Light";
-            this.menuItemSchemaVS2015Light.Size = new System.Drawing.Size(255, 22);
-            this.menuItemSchemaVS2015Light.Text = "Schema: VS2015 Light";
-            this.menuItemSchemaVS2015Light.Click += new System.EventHandler(this.SetSchema);
-            // 
-            // menuItemSchemaVS2015Blue
-            // 
-            this.menuItemSchemaVS2015Blue.Name = "menuItemSchemaVS2015Blue";
-            this.menuItemSchemaVS2015Blue.Size = new System.Drawing.Size(255, 22);
-            this.menuItemSchemaVS2015Blue.Text = "Schema: VS2015 Blue";
-            this.menuItemSchemaVS2015Blue.Click += new System.EventHandler(this.SetSchema);
-            // 
-            // menuItemSchemaVS2015Dark
-            // 
-            this.menuItemSchemaVS2015Dark.Name = "menuItemSchemaVS2015Dark";
-            this.menuItemSchemaVS2015Dark.Size = new System.Drawing.Size(255, 22);
-            this.menuItemSchemaVS2015Dark.Text = "Schema: VS2015 Dark";
-            this.menuItemSchemaVS2015Dark.Click += new System.EventHandler(this.SetSchema);
-            // 
-            // menuItem6
-            // 
-            this.menuItem6.Name = "menuItem6";
-            this.menuItem6.Size = new System.Drawing.Size(252, 6);
-            // 
-            // menuItemDockingMdi
-            // 
-            this.menuItemDockingMdi.Checked = true;
-            this.menuItemDockingMdi.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.menuItemDockingMdi.Name = "menuItemDockingMdi";
-            this.menuItemDockingMdi.Size = new System.Drawing.Size(255, 22);
-            this.menuItemDockingMdi.Text = "Document Style: Docking &MDI";
-            this.menuItemDockingMdi.Click += new System.EventHandler(this.SetDocumentStyle);
-            // 
-            // menuItemDockingSdi
-            // 
-            this.menuItemDockingSdi.Name = "menuItemDockingSdi";
-            this.menuItemDockingSdi.Size = new System.Drawing.Size(255, 22);
-            this.menuItemDockingSdi.Text = "Document Style: Docking &SDI";
-            this.menuItemDockingSdi.Click += new System.EventHandler(this.SetDocumentStyle);
-            // 
-            // menuItemDockingWindow
-            // 
-            this.menuItemDockingWindow.Name = "menuItemDockingWindow";
-            this.menuItemDockingWindow.Size = new System.Drawing.Size(255, 22);
-            this.menuItemDockingWindow.Text = "Document Style: Docking &Window";
-            this.menuItemDockingWindow.Click += new System.EventHandler(this.SetDocumentStyle);
-            // 
-            // menuItemSystemMdi
-            // 
-            this.menuItemSystemMdi.Name = "menuItemSystemMdi";
-            this.menuItemSystemMdi.Size = new System.Drawing.Size(255, 22);
-            this.menuItemSystemMdi.Text = "Document Style: S&ystem MDI";
-            this.menuItemSystemMdi.Click += new System.EventHandler(this.SetDocumentStyle);
-            // 
-            // menuItem5
-            // 
-            this.menuItem5.Name = "menuItem5";
-            this.menuItem5.Size = new System.Drawing.Size(252, 6);
-            // 
-            // showRightToLeft
-            // 
-            this.showRightToLeft.Name = "showRightToLeft";
-            this.showRightToLeft.Size = new System.Drawing.Size(255, 22);
-            this.showRightToLeft.Text = "Show &Right-To-Left";
-            this.showRightToLeft.Click += new System.EventHandler(this.showRightToLeft_Click);
-            // 
-            // menuItemWindow
-            // 
-            this.menuItemWindow.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuItemNewWindow});
-            this.menuItemWindow.MergeIndex = 2;
-            this.menuItemWindow.Name = "menuItemWindow";
-            this.menuItemWindow.Size = new System.Drawing.Size(63, 20);
-            this.menuItemWindow.Text = "&Window";
-            // 
-            // menuItemNewWindow
-            // 
-            this.menuItemNewWindow.Name = "menuItemNewWindow";
-            this.menuItemNewWindow.Size = new System.Drawing.Size(145, 22);
-            this.menuItemNewWindow.Text = "&New Window";
-            this.menuItemNewWindow.Click += new System.EventHandler(this.menuItemNewWindow_Click);
-            // 
-            // menuItemHelp
-            // 
-            this.menuItemHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuItemAbout});
-            this.menuItemHelp.MergeIndex = 3;
-            this.menuItemHelp.Name = "menuItemHelp";
-            this.menuItemHelp.Size = new System.Drawing.Size(44, 20);
-            this.menuItemHelp.Text = "&Help";
-            // 
-            // menuItemAbout
-            // 
-            this.menuItemAbout.Name = "menuItemAbout";
-            this.menuItemAbout.Size = new System.Drawing.Size(185, 22);
-            this.menuItemAbout.Text = "&About ThemeEditor...";
-            this.menuItemAbout.Click += new System.EventHandler(this.menuItemAbout_Click);
-            // 
-            // statusBar
-            // 
-            this.statusBar.BackColor = System.Drawing.Color.Black;
-            this.statusBar.Location = new System.Drawing.Point(0, 387);
-            this.statusBar.Name = "statusBar";
-            this.statusBar.Size = new System.Drawing.Size(579, 22);
-            this.statusBar.TabIndex = 4;
-            // 
-            // imageList
-            // 
-            this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
-            this.imageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList.Images.SetKeyName(0, "");
-            this.imageList.Images.SetKeyName(1, "");
-            this.imageList.Images.SetKeyName(2, "");
-            this.imageList.Images.SetKeyName(3, "");
-            this.imageList.Images.SetKeyName(4, "");
-            this.imageList.Images.SetKeyName(5, "");
-            this.imageList.Images.SetKeyName(6, "");
-            this.imageList.Images.SetKeyName(7, "");
-            this.imageList.Images.SetKeyName(8, "");
-            // 
-            // toolBar
-            // 
-            this.toolBar.ImageList = this.imageList;
-            this.toolBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolBarButtonNew,
-            this.toolBarButtonOpen,
-            this.toolBarButtonSeparator1,
-            this.toolBarButtonSolutionExplorer,
-            this.toolBarButtonPropertyWindow,
-            this.toolBarButtonToolbox,
-            this.toolBarButtonOutputWindow,
-            this.toolBarButtonTaskList,
-            this.toolBarButtonSeparator2,
-            this.toolBarButtonLayoutByCode,
-            this.toolBarButtonLayoutByXml});
-            this.toolBar.Location = new System.Drawing.Point(0, 24);
-            this.toolBar.Name = "toolBar";
-            this.toolBar.Size = new System.Drawing.Size(579, 25);
-            this.toolBar.TabIndex = 6;
-            this.toolBar.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolBar_ButtonClick);
-            // 
-            // toolBarButtonNew
-            // 
-            this.toolBarButtonNew.ImageIndex = 0;
-            this.toolBarButtonNew.Name = "toolBarButtonNew";
-            this.toolBarButtonNew.Size = new System.Drawing.Size(23, 22);
-            this.toolBarButtonNew.ToolTipText = "Show Layout From XML";
-            // 
-            // toolBarButtonOpen
-            // 
-            this.toolBarButtonOpen.ImageIndex = 1;
-            this.toolBarButtonOpen.Name = "toolBarButtonOpen";
-            this.toolBarButtonOpen.Size = new System.Drawing.Size(23, 22);
-            this.toolBarButtonOpen.ToolTipText = "Open";
-            // 
-            // toolBarButtonSeparator1
-            // 
-            this.toolBarButtonSeparator1.Name = "toolBarButtonSeparator1";
-            this.toolBarButtonSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolBarButtonSolutionExplorer
-            // 
-            this.toolBarButtonSolutionExplorer.ImageIndex = 2;
-            this.toolBarButtonSolutionExplorer.Name = "toolBarButtonSolutionExplorer";
-            this.toolBarButtonSolutionExplorer.Size = new System.Drawing.Size(23, 22);
-            this.toolBarButtonSolutionExplorer.ToolTipText = "Solution Explorer";
-            // 
-            // toolBarButtonPropertyWindow
-            // 
-            this.toolBarButtonPropertyWindow.ImageIndex = 3;
-            this.toolBarButtonPropertyWindow.Name = "toolBarButtonPropertyWindow";
-            this.toolBarButtonPropertyWindow.Size = new System.Drawing.Size(23, 22);
-            this.toolBarButtonPropertyWindow.ToolTipText = "Property Window";
-            // 
-            // toolBarButtonToolbox
-            // 
-            this.toolBarButtonToolbox.ImageIndex = 4;
-            this.toolBarButtonToolbox.Name = "toolBarButtonToolbox";
-            this.toolBarButtonToolbox.Size = new System.Drawing.Size(23, 22);
-            this.toolBarButtonToolbox.ToolTipText = "Tool Box";
-            // 
-            // toolBarButtonOutputWindow
-            // 
-            this.toolBarButtonOutputWindow.ImageIndex = 5;
-            this.toolBarButtonOutputWindow.Name = "toolBarButtonOutputWindow";
-            this.toolBarButtonOutputWindow.Size = new System.Drawing.Size(23, 22);
-            this.toolBarButtonOutputWindow.ToolTipText = "Output Window";
-            // 
-            // toolBarButtonTaskList
-            // 
-            this.toolBarButtonTaskList.ImageIndex = 6;
-            this.toolBarButtonTaskList.Name = "toolBarButtonTaskList";
-            this.toolBarButtonTaskList.Size = new System.Drawing.Size(23, 22);
-            this.toolBarButtonTaskList.ToolTipText = "Task List";
-            // 
-            // toolBarButtonSeparator2
-            // 
-            this.toolBarButtonSeparator2.Name = "toolBarButtonSeparator2";
-            this.toolBarButtonSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolBarButtonLayoutByCode
-            // 
-            this.toolBarButtonLayoutByCode.ImageIndex = 7;
-            this.toolBarButtonLayoutByCode.Name = "toolBarButtonLayoutByCode";
-            this.toolBarButtonLayoutByCode.Size = new System.Drawing.Size(23, 22);
-            this.toolBarButtonLayoutByCode.ToolTipText = "Show Layout By Code";
-            // 
-            // toolBarButtonLayoutByXml
-            // 
-            this.toolBarButtonLayoutByXml.ImageIndex = 8;
-            this.toolBarButtonLayoutByXml.Name = "toolBarButtonLayoutByXml";
-            this.toolBarButtonLayoutByXml.Size = new System.Drawing.Size(23, 22);
-            this.toolBarButtonLayoutByXml.ToolTipText = "Show layout by predefined XML file";
+            menuItemLayoutByXml.Name = "menuItemLayoutByXml";
+            menuItemLayoutByXml.Size = new Size(243, 22);
+            menuItemLayoutByXml.Text = "Layout By &XML";
+            menuItemLayoutByXml.Click += menuItemLayoutByXml_Click;
             // 
             // toolStripSeparator1
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(182, 6);
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(240, 6);
             // 
             // subMenuToolStripMenuItem
             // 
-            this.subMenuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.itemAToolStripMenuItem,
-            this.itemBToolStripMenuItem});
-            this.subMenuToolStripMenuItem.Name = "subMenuToolStripMenuItem";
-            this.subMenuToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.subMenuToolStripMenuItem.Text = "Sub menu";
+            subMenuToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { itemAToolStripMenuItem, itemBToolStripMenuItem });
+            subMenuToolStripMenuItem.Name = "subMenuToolStripMenuItem";
+            subMenuToolStripMenuItem.Size = new Size(243, 22);
+            subMenuToolStripMenuItem.Text = "Sub menu";
             // 
             // itemAToolStripMenuItem
             // 
-            this.itemAToolStripMenuItem.Name = "itemAToolStripMenuItem";
-            this.itemAToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
-            this.itemAToolStripMenuItem.Text = "Item A";
+            itemAToolStripMenuItem.Name = "itemAToolStripMenuItem";
+            itemAToolStripMenuItem.Size = new Size(109, 22);
+            itemAToolStripMenuItem.Text = "Item A";
             // 
             // itemBToolStripMenuItem
             // 
-            this.itemBToolStripMenuItem.Name = "itemBToolStripMenuItem";
-            this.itemBToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
-            this.itemBToolStripMenuItem.Text = "Item B";
+            itemBToolStripMenuItem.Name = "itemBToolStripMenuItem";
+            itemBToolStripMenuItem.Size = new Size(109, 22);
+            itemBToolStripMenuItem.Text = "Item B";
             // 
             // disabledItemToolStripMenuItem
             // 
-            this.disabledItemToolStripMenuItem.Enabled = false;
-            this.disabledItemToolStripMenuItem.Name = "disabledItemToolStripMenuItem";
-            this.disabledItemToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.disabledItemToolStripMenuItem.Text = "Disabled Item";
+            disabledItemToolStripMenuItem.Enabled = false;
+            disabledItemToolStripMenuItem.Name = "disabledItemToolStripMenuItem";
+            disabledItemToolStripMenuItem.Size = new Size(243, 22);
+            disabledItemToolStripMenuItem.Text = "Disabled Item";
+            // 
+            // menuItemTools
+            // 
+            menuItemTools.DropDownItems.AddRange(new ToolStripItem[] { menuItemLockLayout, menuItemShowDocumentIcon, menuItem3, menuItemSchemaVS2015Light, menuItemSchemaVS2015Blue, menuItemSchemaVS2015Dark, menuItem6, menuItemDockingMdi, menuItemDockingSdi, menuItemDockingWindow, menuItemSystemMdi, menuItem5, showRightToLeft });
+            menuItemTools.MergeIndex = 2;
+            menuItemTools.Name = "menuItemTools";
+            menuItemTools.Size = new Size(47, 20);
+            menuItemTools.Text = "&Tools";
+            menuItemTools.DropDownOpening += menuItemTools_Popup;
+            // 
+            // menuItemLockLayout
+            // 
+            menuItemLockLayout.Name = "menuItemLockLayout";
+            menuItemLockLayout.Size = new Size(255, 22);
+            menuItemLockLayout.Text = "&Lock Layout";
+            menuItemLockLayout.Click += menuItemLockLayout_Click;
+            // 
+            // menuItemShowDocumentIcon
+            // 
+            menuItemShowDocumentIcon.Name = "menuItemShowDocumentIcon";
+            menuItemShowDocumentIcon.Size = new Size(255, 22);
+            menuItemShowDocumentIcon.Text = "&Show Document Icon";
+            menuItemShowDocumentIcon.Click += menuItemShowDocumentIcon_Click;
+            // 
+            // menuItem3
+            // 
+            menuItem3.Name = "menuItem3";
+            menuItem3.Size = new Size(252, 6);
+            // 
+            // menuItemSchemaVS2015Light
+            // 
+            menuItemSchemaVS2015Light.Name = "menuItemSchemaVS2015Light";
+            menuItemSchemaVS2015Light.Size = new Size(255, 22);
+            menuItemSchemaVS2015Light.Text = "Schema: VS2015 Light";
+            menuItemSchemaVS2015Light.Click += SetSchema;
+            // 
+            // menuItemSchemaVS2015Blue
+            // 
+            menuItemSchemaVS2015Blue.Name = "menuItemSchemaVS2015Blue";
+            menuItemSchemaVS2015Blue.Size = new Size(255, 22);
+            menuItemSchemaVS2015Blue.Text = "Schema: VS2015 Blue";
+            menuItemSchemaVS2015Blue.Click += SetSchema;
+            // 
+            // menuItemSchemaVS2015Dark
+            // 
+            menuItemSchemaVS2015Dark.Name = "menuItemSchemaVS2015Dark";
+            menuItemSchemaVS2015Dark.Size = new Size(255, 22);
+            menuItemSchemaVS2015Dark.Text = "Schema: VS2015 Dark";
+            menuItemSchemaVS2015Dark.Click += SetSchema;
+            // 
+            // menuItem6
+            // 
+            menuItem6.Name = "menuItem6";
+            menuItem6.Size = new Size(252, 6);
+            // 
+            // menuItemDockingMdi
+            // 
+            menuItemDockingMdi.Checked = true;
+            menuItemDockingMdi.CheckState = CheckState.Checked;
+            menuItemDockingMdi.Name = "menuItemDockingMdi";
+            menuItemDockingMdi.Size = new Size(255, 22);
+            menuItemDockingMdi.Text = "Document Style: Docking &MDI";
+            menuItemDockingMdi.Click += SetDocumentStyle;
+            // 
+            // menuItemDockingSdi
+            // 
+            menuItemDockingSdi.Name = "menuItemDockingSdi";
+            menuItemDockingSdi.Size = new Size(255, 22);
+            menuItemDockingSdi.Text = "Document Style: Docking &SDI";
+            menuItemDockingSdi.Click += SetDocumentStyle;
+            // 
+            // menuItemDockingWindow
+            // 
+            menuItemDockingWindow.Name = "menuItemDockingWindow";
+            menuItemDockingWindow.Size = new Size(255, 22);
+            menuItemDockingWindow.Text = "Document Style: Docking &Window";
+            menuItemDockingWindow.Click += SetDocumentStyle;
+            // 
+            // menuItemSystemMdi
+            // 
+            menuItemSystemMdi.Name = "menuItemSystemMdi";
+            menuItemSystemMdi.Size = new Size(255, 22);
+            menuItemSystemMdi.Text = "Document Style: S&ystem MDI";
+            menuItemSystemMdi.Click += SetDocumentStyle;
+            // 
+            // menuItem5
+            // 
+            menuItem5.Name = "menuItem5";
+            menuItem5.Size = new Size(252, 6);
+            // 
+            // showRightToLeft
+            // 
+            showRightToLeft.Name = "showRightToLeft";
+            showRightToLeft.Size = new Size(255, 22);
+            showRightToLeft.Text = "Show &Right-To-Left";
+            showRightToLeft.Click += showRightToLeft_Click;
+            // 
+            // menuItemWindow
+            // 
+            menuItemWindow.DropDownItems.AddRange(new ToolStripItem[] { menuItemNewWindow });
+            menuItemWindow.MergeIndex = 2;
+            menuItemWindow.Name = "menuItemWindow";
+            menuItemWindow.Size = new Size(63, 20);
+            menuItemWindow.Text = "&Window";
+            // 
+            // menuItemNewWindow
+            // 
+            menuItemNewWindow.Name = "menuItemNewWindow";
+            menuItemNewWindow.Size = new Size(145, 22);
+            menuItemNewWindow.Text = "&New Window";
+            menuItemNewWindow.Click += menuItemNewWindow_Click;
+            // 
+            // menuItemHelp
+            // 
+            menuItemHelp.DropDownItems.AddRange(new ToolStripItem[] { menuItemAbout });
+            menuItemHelp.MergeIndex = 3;
+            menuItemHelp.Name = "menuItemHelp";
+            menuItemHelp.Size = new Size(44, 20);
+            menuItemHelp.Text = "&Help";
+            // 
+            // menuItemAbout
+            // 
+            menuItemAbout.Name = "menuItemAbout";
+            menuItemAbout.Size = new Size(187, 22);
+            menuItemAbout.Text = "&About ThemeEditor...";
+            menuItemAbout.Click += menuItemAbout_Click;
+            // 
+            // statusBar
+            // 
+            statusBar.BackColor = Color.Black;
+            statusBar.Location = new Point(0, 387);
+            statusBar.Name = "statusBar";
+            statusBar.Size = new Size(579, 22);
+            statusBar.TabIndex = 4;
+            // 
+            // imageList
+            // 
+            imageList.ColorDepth = ColorDepth.Depth8Bit;
+            imageList.ImageStream = (ImageListStreamer)resources.GetObject("imageList.ImageStream");
+            imageList.TransparentColor = Color.Transparent;
+            imageList.Images.SetKeyName(0, "");
+            imageList.Images.SetKeyName(1, "");
+            imageList.Images.SetKeyName(2, "");
+            imageList.Images.SetKeyName(3, "");
+            imageList.Images.SetKeyName(4, "");
+            imageList.Images.SetKeyName(5, "");
+            imageList.Images.SetKeyName(6, "");
+            imageList.Images.SetKeyName(7, "");
+            imageList.Images.SetKeyName(8, "");
+            // 
+            // toolBar
+            // 
+            toolBar.ImageList = imageList;
+            toolBar.Items.AddRange(new ToolStripItem[] { toolBarButtonNew, toolBarButtonOpen, toolBarButtonSeparator1, toolBarButtonSolutionExplorer, toolBarButtonPropertyWindow, toolBarButtonToolbox, toolBarButtonOutputWindow, toolBarButtonTaskList, toolBarButtonSeparator2, toolBarButtonLayoutByCode, toolBarButtonLayoutByXml });
+            toolBar.Location = new Point(0, 24);
+            toolBar.Name = "toolBar";
+            toolBar.Size = new Size(579, 25);
+            toolBar.TabIndex = 6;
+            toolBar.ItemClicked += toolBar_ButtonClick;
+            // 
+            // toolBarButtonNew
+            // 
+            toolBarButtonNew.ImageIndex = 0;
+            toolBarButtonNew.Name = "toolBarButtonNew";
+            toolBarButtonNew.Size = new Size(23, 22);
+            toolBarButtonNew.ToolTipText = "Show Layout From XML";
+            // 
+            // toolBarButtonOpen
+            // 
+            toolBarButtonOpen.ImageIndex = 1;
+            toolBarButtonOpen.Name = "toolBarButtonOpen";
+            toolBarButtonOpen.Size = new Size(23, 22);
+            toolBarButtonOpen.ToolTipText = "Open";
+            // 
+            // toolBarButtonSeparator1
+            // 
+            toolBarButtonSeparator1.Name = "toolBarButtonSeparator1";
+            toolBarButtonSeparator1.Size = new Size(6, 25);
+            // 
+            // toolBarButtonSolutionExplorer
+            // 
+            toolBarButtonSolutionExplorer.ImageIndex = 2;
+            toolBarButtonSolutionExplorer.Name = "toolBarButtonSolutionExplorer";
+            toolBarButtonSolutionExplorer.Size = new Size(23, 22);
+            toolBarButtonSolutionExplorer.ToolTipText = "Solution Explorer";
+            // 
+            // toolBarButtonPropertyWindow
+            // 
+            toolBarButtonPropertyWindow.ImageIndex = 3;
+            toolBarButtonPropertyWindow.Name = "toolBarButtonPropertyWindow";
+            toolBarButtonPropertyWindow.Size = new Size(23, 22);
+            toolBarButtonPropertyWindow.ToolTipText = "Property Window";
+            // 
+            // toolBarButtonToolbox
+            // 
+            toolBarButtonToolbox.ImageIndex = 4;
+            toolBarButtonToolbox.Name = "toolBarButtonToolbox";
+            toolBarButtonToolbox.Size = new Size(23, 22);
+            toolBarButtonToolbox.ToolTipText = "Tool Box";
+            // 
+            // toolBarButtonOutputWindow
+            // 
+            toolBarButtonOutputWindow.ImageIndex = 5;
+            toolBarButtonOutputWindow.Name = "toolBarButtonOutputWindow";
+            toolBarButtonOutputWindow.Size = new Size(23, 22);
+            toolBarButtonOutputWindow.ToolTipText = "Output Window";
+            // 
+            // toolBarButtonTaskList
+            // 
+            toolBarButtonTaskList.ImageIndex = 6;
+            toolBarButtonTaskList.Name = "toolBarButtonTaskList";
+            toolBarButtonTaskList.Size = new Size(23, 22);
+            toolBarButtonTaskList.ToolTipText = "Task List";
+            // 
+            // toolBarButtonSeparator2
+            // 
+            toolBarButtonSeparator2.Name = "toolBarButtonSeparator2";
+            toolBarButtonSeparator2.Size = new Size(6, 25);
+            // 
+            // toolBarButtonLayoutByCode
+            // 
+            toolBarButtonLayoutByCode.ImageIndex = 7;
+            toolBarButtonLayoutByCode.Name = "toolBarButtonLayoutByCode";
+            toolBarButtonLayoutByCode.Size = new Size(23, 22);
+            toolBarButtonLayoutByCode.ToolTipText = "Show Layout By Code";
+            // 
+            // toolBarButtonLayoutByXml
+            // 
+            toolBarButtonLayoutByXml.ImageIndex = 8;
+            toolBarButtonLayoutByXml.Name = "toolBarButtonLayoutByXml";
+            toolBarButtonLayoutByXml.Size = new Size(23, 22);
+            toolBarButtonLayoutByXml.ToolTipText = "Show layout by predefined XML file";
             // 
             // vsToolStripExtender1
             // 
-            this.vsToolStripExtender1.DefaultRenderer = null;
+            vsToolStripExtender1.DefaultRenderer = null;
             // 
             // MainForm
             // 
-            this.ClientSize = new System.Drawing.Size(579, 409);
-            this.Controls.Add(this.toolBar);
-            this.Controls.Add(this.mainMenu);
-            this.Controls.Add(this.statusBar);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.IsMdiContainer = true;
-            this.MainMenuStrip = this.mainMenu;
-            this.Name = "MainForm";
-            this.Text = "ThemeEditor";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Closing += new System.ComponentModel.CancelEventHandler(this.MainForm_Closing);
-            this.Load += new System.EventHandler(this.MainForm_Load);
-            this.SizeChanged += new System.EventHandler(this.MainForm_SizeChanged);
-            this.mainMenu.ResumeLayout(false);
-            this.mainMenu.PerformLayout();
-            this.toolBar.ResumeLayout(false);
-            this.toolBar.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            ClientSize = new Size(579, 409);
+            Controls.Add(toolBar);
+            Controls.Add(mainMenu);
+            Controls.Add(statusBar);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            IsMdiContainer = true;
+            MainMenuStrip = mainMenu;
+            Name = "MainForm";
+            Text = "ThemeEditor";
+            WindowState = FormWindowState.Maximized;
+            Closing += MainForm_Closing;
+            Load += MainForm_Load;
+            SizeChanged += MainForm_SizeChanged;
+            mainMenu.ResumeLayout(false);
+            mainMenu.PerformLayout();
+            toolBar.ResumeLayout(false);
+            toolBar.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
-#endregion
+        #endregion
 
         private System.Windows.Forms.ImageList imageList;
         private System.Windows.Forms.ToolStrip toolBar;
