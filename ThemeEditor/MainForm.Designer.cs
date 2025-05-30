@@ -68,9 +68,6 @@ namespace ThemeEditor
             saveToolStripMenuItem = new ToolStripMenuItem();
             saveAsToolStripMenuItem = new ToolStripMenuItem();
             useThemeToolStripMenuItem = new ToolStripMenuItem();
-            menuItemSchemaVS2015Light = new ToolStripMenuItem();
-            menuItemSchemaVS2015Blue = new ToolStripMenuItem();
-            menuItemSchemaVS2015Dark = new ToolStripMenuItem();
             menuItem6 = new ToolStripSeparator();
             menuItemDockingMdi = new ToolStripMenuItem();
             menuItemDockingSdi = new ToolStripMenuItem();
@@ -302,7 +299,7 @@ namespace ThemeEditor
             // 
             // menuItemTools
             // 
-            menuItemTools.DropDownItems.AddRange(new ToolStripItem[] { menuItemLockLayout, menuItemShowDocumentIcon, menuItem3, themesToolStripMenuItem, menuItemSchemaVS2015Light, menuItemSchemaVS2015Blue, menuItemSchemaVS2015Dark, menuItem6, menuItemDockingMdi, menuItemDockingSdi, menuItemDockingWindow, menuItemSystemMdi, menuItem5, showRightToLeft });
+            menuItemTools.DropDownItems.AddRange(new ToolStripItem[] { menuItemLockLayout, menuItemShowDocumentIcon, menuItem3, themesToolStripMenuItem, menuItem6, menuItemDockingMdi, menuItemDockingSdi, menuItemDockingWindow, menuItemSystemMdi, menuItem5, showRightToLeft });
             menuItemTools.MergeIndex = 2;
             menuItemTools.Name = "menuItemTools";
             menuItemTools.Size = new Size(47, 20);
@@ -333,7 +330,7 @@ namespace ThemeEditor
             themesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { useThemeToolStripMenuItem, opToolStripMenuItem, newToolStripMenuItem, openToolStripMenuItem, saveToolStripMenuItem, saveAsToolStripMenuItem });
             themesToolStripMenuItem.Name = "themesToolStripMenuItem";
             themesToolStripMenuItem.Size = new Size(255, 22);
-            themesToolStripMenuItem.Text = "&Theme";
+            themesToolStripMenuItem.Text = "&Themes";
             themesToolStripMenuItem.Click += themesToolStripMenuItem_Click;
             // 
             // newToolStripMenuItem
@@ -376,28 +373,7 @@ namespace ThemeEditor
             useThemeToolStripMenuItem.Name = "useThemeToolStripMenuItem";
             useThemeToolStripMenuItem.Size = new Size(180, 22);
             useThemeToolStripMenuItem.Text = "Change &Theme...";
-            useThemeToolStripMenuItem.Click += cmdThemeUseTheme_Click;
-            // 
-            // menuItemSchemaVS2015Light
-            // 
-            menuItemSchemaVS2015Light.Name = "menuItemSchemaVS2015Light";
-            menuItemSchemaVS2015Light.Size = new Size(255, 22);
-            menuItemSchemaVS2015Light.Text = "Schema: VS2015 Light";
-            menuItemSchemaVS2015Light.Click += SetSchema;
-            // 
-            // menuItemSchemaVS2015Blue
-            // 
-            menuItemSchemaVS2015Blue.Name = "menuItemSchemaVS2015Blue";
-            menuItemSchemaVS2015Blue.Size = new Size(255, 22);
-            menuItemSchemaVS2015Blue.Text = "Schema: VS2015 Blue";
-            menuItemSchemaVS2015Blue.Click += SetSchema;
-            // 
-            // menuItemSchemaVS2015Dark
-            // 
-            menuItemSchemaVS2015Dark.Name = "menuItemSchemaVS2015Dark";
-            menuItemSchemaVS2015Dark.Size = new Size(255, 22);
-            menuItemSchemaVS2015Dark.Text = "Schema: VS2015 Dark";
-            menuItemSchemaVS2015Dark.Click += SetSchema;
+            useThemeToolStripMenuItem.Click += cmdThemeChange_Click;
             // 
             // menuItem6
             // 
@@ -661,9 +637,6 @@ namespace ThemeEditor
         private System.Windows.Forms.StatusStrip statusBar;
         private System.Windows.Forms.ToolStripMenuItem showRightToLeft;
         private System.Windows.Forms.ToolStripMenuItem exitWithoutSavingLayout;
-        private System.Windows.Forms.ToolStripMenuItem menuItemSchemaVS2015Light;
-        private System.Windows.Forms.ToolStripMenuItem menuItemSchemaVS2015Blue;
-        private System.Windows.Forms.ToolStripMenuItem menuItemSchemaVS2015Dark;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem subMenuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem itemAToolStripMenuItem;

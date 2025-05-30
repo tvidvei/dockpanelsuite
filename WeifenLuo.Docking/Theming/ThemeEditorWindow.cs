@@ -39,7 +39,7 @@ namespace WeifenLuo.Docking
             {
                 try
                 {
-                    Theme = Theme.LoadFromFile(value);
+                    Theme = ThemeController.LoadFromFile(value);
                     this.ToolTipText = value;
                 }
                 catch (Exception e)

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using WeifenLuo.Docking;
 
 namespace ThemeEditor
 {
@@ -12,9 +13,18 @@ namespace ThemeEditor
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            try
+            {
+                ThemeController.Setup("VS2015Blue");  //Todo: Default må hentes fra settings
+
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new MainForm());
+            }
+            catch (Exception e)
+            {
+                UserMessages.FatalError(e.Message);
+            }
         }
     }
 }

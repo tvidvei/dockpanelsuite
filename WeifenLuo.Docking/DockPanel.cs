@@ -50,7 +50,7 @@ namespace WeifenLuo.Docking
         
         public DockPanel()
         {
-            m_dockPanelTheme = CreateDefaultTheme();
+            m_dockPanelTheme = GetDefaultTheme();
 
             ShowAutoHideContentOnHover = true;
 
@@ -1588,8 +1588,8 @@ namespace WeifenLuo.Docking
 
         // ----- From DockPanelExtender -----
 
-        public virtual Theme CreateDefaultTheme() {
-            return Theme.LoadFromFile("default.json");
+        public virtual Theme GetDefaultTheme() {
+            return ThemeController.DefaultTheme;
         }  
 
         public virtual DockPane CreateDockPane(IDockContent content, DockState visibleState, bool show) {

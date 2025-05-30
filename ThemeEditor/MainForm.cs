@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -14,7 +15,6 @@ namespace ThemeEditor
         private VisualStudioToolStripExtender vsToolStripExtender1;
         public DockPanel dockPanel;
 
-        public ThemeController ThemeController;
         private bool m_bSaveLayout = true;
         private DeserializeDockContent m_deserializeDockContent;
         private DummySolutionExplorer m_solutionExplorer;
@@ -25,6 +25,7 @@ namespace ThemeEditor
         private DummyTaskList m_taskList;
         private bool _showSplash;
         private SplashScreen _splashScreen;
+
 
         public MainForm()
         {
@@ -57,9 +58,6 @@ namespace ThemeEditor
             //
             vsToolStripExtender1 = new WeifenLuo.Docking.VisualStudioToolStripExtender(components);
             vsToolStripExtender1.DefaultRenderer = null;
-
-            // ThemeController
-            ThemeController = new ThemeController();
 
             AutoScaleMode = AutoScaleMode.Dpi;
 
@@ -200,39 +198,25 @@ namespace ThemeEditor
 
         private readonly ToolStripRenderer _toolStripProfessionalRenderer = new ToolStripProfessionalRenderer();
 
-        private void SetSchema(object sender, System.EventArgs e)
+        private void SetTheme(string? fileName = null)
         {
+            var theme = fileName != null ? ThemeController.LoadFromFile(fileName) : null;
+            SetTheme(theme);
+        }
 
+        private void SetTheme(Theme? theme = null)
+        {
             // Persist settings when rebuilding UI
             string configFile = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "DockPanel.temp.config");
 
             dockPanel.SaveAsXml(configFile);
             CloseAllContents();
-
-            if (sender == this.menuItemSchemaVS2015Blue)
-            {
-                this.dockPanel.Theme = ThemeController.LoadFromFile("VS2015Blue.json");
-                this.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2015, dockPanel.Theme);
-            }
-            else if (sender == this.menuItemSchemaVS2015Light)
-            {
-                this.dockPanel.Theme = ThemeController.LoadFromFile("VS2015Light.json");
-                this.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2015, dockPanel.Theme);
-            }
-            else if (sender == this.menuItemSchemaVS2015Dark)
-            {
-                this.dockPanel.Theme = ThemeController.LoadFromFile("VS2015Dark.json");
-                this.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2015, dockPanel.Theme);
-            }
-
-            menuItemSchemaVS2015Light.Checked = (sender == menuItemSchemaVS2015Light);
-            menuItemSchemaVS2015Blue.Checked = (sender == menuItemSchemaVS2015Blue);
-            menuItemSchemaVS2015Dark.Checked = (sender == menuItemSchemaVS2015Dark);
+            if (theme != null && theme != dockPanel.Theme) dockPanel.Theme = theme;
+            this.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2015, dockPanel.Theme);
             if (dockPanel.Theme.ColorPalette != null)
             {
                 statusBar.BackColor = dockPanel.Theme.ColorPalette.MainWindowStatusBarDefault.Background;
             }
-
             if (File.Exists(configFile))
                 dockPanel.LoadFromXml(configFile, m_deserializeDockContent);
         }
@@ -407,7 +391,7 @@ namespace ThemeEditor
 
         private void MainForm_Load(object sender, System.EventArgs e)
         {
-            SetSchema(this.menuItemSchemaVS2015Blue, null);
+            SetTheme(ThemeController.DefaultTheme);
 
             string configFile = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "DockPanel.config");
 
@@ -644,9 +628,13 @@ namespace ThemeEditor
 
         }
 
-        private void cmdThemeUseTheme_Click(object sender, EventArgs e)
+        private void cmdThemeChange_Click(object sender, EventArgs e)
         {
-
+            var result = ThemeController.OpenFileDialog.ShowDialog(this);
+            if (result == DialogResult.OK)
+            {
+                SetTheme(ThemeController.OpenFileDialog.FileName);
+            }
         }
 
         private void themesToolStripMenuItem_Click(object sender, EventArgs e)

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics.Contracts;
 using System.IO;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -10,15 +11,13 @@ using WeifenLuo.Docking;
 namespace WeifenLuo.Docking
 {
 
-    public class ThemeController : Component
+    public static class ThemeController
     {
+        public static Theme EmptyTheme = new Theme();
 
-        public Theme EmptyTheme = new Theme();
+        public static Theme DefaultTheme { get; set; }
 
-        public List<ThemeEditorWindow> ThemeEditorWindows = new();
-
-
-
+        public static List<ThemeEditorWindow> ThemeEditorWindows = new();
 
         /// <summary>
         /// Searches for a ThemeEditorWindow with the given name
@@ -26,7 +25,7 @@ namespace WeifenLuo.Docking
         /// <param name="fileName">full filepath with extension or filename only (without extension)</param>
         /// <returns>A ThemeEditorWindow with matching name or null</returns>
         /// Search is done first assuming fileName is a full filePath with extension, then on the fileName only (without path and extension)
-        public ThemeEditorWindow? FindThemeEditorWindow(string fileName)
+        public static ThemeEditorWindow? FindThemeEditorWindow(string fileName)
         {
             var fileNameOnly = Path.GetFileNameWithoutExtension(fileName);
             var result = ThemeEditorWindows.FirstOrDefault(w => w.FileName == fileName) ?? ThemeEditorWindows.FirstOrDefault(w => w.FileName == fileNameOnly);
@@ -34,23 +33,23 @@ namespace WeifenLuo.Docking
         }
 
 
-        public ThemeEditorWindow CreateNewThemeEditor(string? fileName = null)
+        public static ThemeEditorWindow CreateNewThemeEditor(string? fileName = null)
         {
             ThemeEditorWindow newWnd = new ThemeEditorWindow();
             if (!string.IsNullOrWhiteSpace(fileName)) newWnd.FileName = fileName;
             return newWnd;
         }
 
-        public OpenFileDialog openThemeFileDialog { get; set; }
+        public static OpenFileDialog OpenFileDialog { get; set; }
 
-        public SaveFileDialog saveThemeFileDialog { get; set; }
+        public static SaveFileDialog SaveFileDialog { get; set; }
 
 
         private static JsonSerializerOptions JsonSerializerOptions = new JsonSerializerOptions();
 
-        public string ThemesPath { get; set; }
+        public static string ThemesPath { get; set; }
 
-        public Theme LoadFromFile(string fileName)
+        public static Theme? LoadFromFile(string fileName)
         {
             if (string.IsNullOrWhiteSpace(fileName))
             {
@@ -62,10 +61,10 @@ namespace WeifenLuo.Docking
                 fileName = Path.Combine(ThemesPath, fileName);
             }
             var fileExt = Path.GetExtension(fileName);
-            if (fileExt == null)
+            if (string.IsNullOrEmpty(fileExt))
             {
                 fileName += ".json";
-                fileExt = "json";
+                fileExt = ".json";
             }
             if (fileExt.ToLower() == ".json")
             {
@@ -79,48 +78,59 @@ namespace WeifenLuo.Docking
             }
             else
             {
-                throw new Exception("Error in Theme.LoadFromFile: File must have extension '.json'");
+                throw new Exception("Theme file must have extension '.json'");
             }
             result.FileName = fileName;
             return result;
         }
 
-        private int newThemeCount = 1;
+        private static int newThemeCount = 1;
 
-        public Theme CreateNew(string tempName = null)
+        public static Theme CreateNew(string tempName = null)
         {
             var result = new Theme();
             result.TempName = tempName ?? "NewTheme" + newThemeCount++;
             return result;
         }
 
-        public ThemeController() : base()
+        public static void Setup(string defaultThemeName = "default")
         {
+
             JsonSerializerOptions.WriteIndented = true;
             JsonSerializerOptions.Converters.Add(new ColorJsonConverter());
             ThemesPath = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "Themes");
 
 
-            openThemeFileDialog = new OpenFileDialog();
-            saveThemeFileDialog = new SaveFileDialog();
+            OpenFileDialog = new OpenFileDialog();
+            SaveFileDialog = new SaveFileDialog();
 
             // 
             // openFileDialog1
             // 
-            openThemeFileDialog.DefaultExt = "json";
-            openThemeFileDialog.FileName = "openFileDialog1";
-            openThemeFileDialog.Filter = "JSON files|*.json|All files|*.*";
-            openThemeFileDialog.Title = "Open Theme";
-            openThemeFileDialog.InitialDirectory = ThemesPath;
+            OpenFileDialog.DefaultExt = "json";
+            OpenFileDialog.FileName = "openFileDialog1";
+            OpenFileDialog.Filter = "JSON files|*.json|All files|*.*";
+            OpenFileDialog.Title = "Open Theme";
+            OpenFileDialog.InitialDirectory = ThemesPath;
             // 
             // saveFileDialog1
             // 
-            saveThemeFileDialog.DefaultExt = "json";
-            saveThemeFileDialog.Filter = "JSON files|*.json|All files|*.*";
-            saveThemeFileDialog.Title = "Save Theme";
-            saveThemeFileDialog.InitialDirectory = ThemesPath;
+            SaveFileDialog.DefaultExt = "json";
+            SaveFileDialog.Filter = "JSON files|*.json|All files|*.*";
+            SaveFileDialog.Title = "Save Theme";
+            SaveFileDialog.InitialDirectory = ThemesPath;
 
-
+            try
+            {
+                DefaultTheme = LoadFromFile(defaultThemeName);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(
+                    $"Error: Attempt to load default theme '{defaultThemeName}' failed:\r\n"
+                        + ex.Message + "\r\n\r\nThe program will terminate."
+                    );
+            }
         }
 
 

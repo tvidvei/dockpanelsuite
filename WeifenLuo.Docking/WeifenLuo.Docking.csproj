@@ -87,14 +87,13 @@
     <Compile Include="Theming\DockPanelColorPalette.cs" />
     <Compile Include="Theming\JsonConverters.cs" />
     <Compile Include="Theming\Theme.cs" />
-    <Compile Include="Theming\ThemeController.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Theming\ThemeController.cs" />
     <Compile Include="Theming\ThemeEditorWindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Theming\ThemeEditorWindow.Designer.cs" />
     <Compile Include="Theming\VisualStudioColorTable.cs" />
+    <Compile Include="UserMessages.cs" />
     <Compile Include="VisibleNestedPaneCollection.cs" />
     <Compile Include="DockAreasEditor.cs" />
     <Compile Include="DockContent.cs">
