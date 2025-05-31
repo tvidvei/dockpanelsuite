@@ -79,9 +79,5 @@ namespace ThemeEditor
                 this.richTextBox1.Text = Text;
         }
 
-        private void DummyDoc_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            int i = 5;
-        }
     }
 }

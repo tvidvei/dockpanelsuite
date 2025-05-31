@@ -55,7 +55,6 @@ namespace WeifenLuo.Docking
             TabText = "Theme1";
             Text = "Theme Editor";
             FormClosing += ThemeEditorWindow_FormClosing;
-            VisibleChanged += ThemeEditorWindow_VisibleChanged;
             ResumeLayout(false);
 
         }

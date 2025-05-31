@@ -118,7 +118,6 @@ namespace ThemeEditor
             Name = "DummyDoc";
             Padding = new Padding(0, 4, 0, 0);
             TabPageContextMenuStrip = contextMenuTabPage;
-            FormClosing += DummyDoc_FormClosing;
             mainMenu.ResumeLayout(false);
             mainMenu.PerformLayout();
             contextMenuTabPage.ResumeLayout(false);

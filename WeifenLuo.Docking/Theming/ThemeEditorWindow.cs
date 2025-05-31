@@ -79,10 +79,6 @@ namespace WeifenLuo.Docking
             ThemeManager.ThemeEditorWindows.Remove(this);
         }
 
-        private void ThemeEditorWindow_VisibleChanged(object sender, EventArgs e)
-        {
-            int i = 10;  // Dummy
-        }
     }
 
 }
