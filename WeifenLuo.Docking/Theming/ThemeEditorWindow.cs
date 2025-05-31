@@ -6,13 +6,13 @@ namespace WeifenLuo.Docking
         public ThemeEditorWindow()
         {
             InitializeComponent();
-            Theme = Theme.CreateNew();
+            Theme = ThemeController.CreateNew();
         }
 
         public ThemeEditorWindow(string? fileName)
         {
             InitializeComponent();
-            if (string.IsNullOrEmpty(fileName)) Theme = Theme.CreateNew();
+            if (string.IsNullOrEmpty(fileName)) Theme = ThemeController.CreateNew();
             else FileName = fileName;
         }
 
@@ -20,7 +20,7 @@ namespace WeifenLuo.Docking
         {
             get { return (propertyGrid.SelectedObject as Theme)!; }
             set {
-                var theme = value ?? Theme.CreateNew();
+                var theme = value ?? ThemeController.CreateNew();
                 propertyGrid.SelectedObject = theme;
                 this.TabText = "Theme: " 
                     + theme.DisplayName
