@@ -414,8 +414,6 @@ namespace ThemeEditor
             string configFile = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "DockPanel.config");
             if (m_bSaveLayout)
                 dockPanel.SaveAsXml(configFile);
-            else if (File.Exists(configFile))
-                File.Delete(configFile);
         }
 
         private void menuItemToolBar_Click(object sender, System.EventArgs e)
