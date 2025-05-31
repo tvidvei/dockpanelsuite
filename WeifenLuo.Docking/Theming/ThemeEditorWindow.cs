@@ -51,6 +51,27 @@ namespace WeifenLuo.Docking
 
         public string FileName
         {
+            get { return Theme.FileName; }
+            set
+            {
+                try
+                {
+                    if (!string.IsNullOrWhiteSpace(value))
+                    {
+                        if (DockPanel.Theme.FileName.ToLower() == value.ToLower()) Theme = DockPanel.Theme;
+                        else Theme = ThemeManager.LoadFromFile(value);
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(Text, e.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+        }
+
+        public string FilePath
+        {
             get { return Theme.FilePath; }
             set
             {
@@ -69,6 +90,7 @@ namespace WeifenLuo.Docking
 
             }
         }
+
 
         protected override string GetPersistString()
         {

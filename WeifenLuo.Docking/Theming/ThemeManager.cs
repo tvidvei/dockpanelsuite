@@ -61,10 +61,10 @@ namespace WeifenLuo.Docking
         }
 
 
-        public static ThemeEditorWindow CreateOrReuseThemeEditorWindow(string? fileName = null)
+        public static ThemeEditorWindow CreateOrReuseThemeEditorWindow(string? filePath = null)
         {
             // Check if a window for this file already exists
-            ThemeEditorWindow wnd = ThemeEditorWindows.FirstOrDefault(w => w.FileName?.ToLower() == fileName?.ToLower());
+            ThemeEditorWindow wnd = ThemeEditorWindows.FirstOrDefault(w => w.FileName?.ToLower() == filePath?.ToLower());
             if (wnd != null)
             {
                 wnd.Activate();
@@ -74,9 +74,9 @@ namespace WeifenLuo.Docking
             // Check if the fileName is the Current Theme, then open a window to that theme
             wnd = new ThemeEditorWindow();
             wnd.DockPanel = DockPanel;
-            if (!string.IsNullOrWhiteSpace(fileName)) {
-                if (DockPanel.Theme.FilePath.ToLower() == fileName?.ToLower()) wnd.Theme = DockPanel.Theme;
-                else wnd.FileName = fileName;
+            if (!string.IsNullOrWhiteSpace(filePath)) {
+                if (DockPanel.Theme.FilePath.ToLower() == filePath?.ToLower()) wnd.Theme = DockPanel.Theme;
+                else wnd.FilePath = filePath;
             }
             wnd.Show(DockPanel);
             wnd.Activate();
