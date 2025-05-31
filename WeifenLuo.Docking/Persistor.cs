@@ -322,10 +322,10 @@ namespace WeifenLuo.Docking
                 xmlOut.Flush();
         }
 
-        public static void LoadFromXml(DockPanel dockPanel, string fileName, DeserializeDockContent deserializeContent) {
+        public static void LoadFromXml(DockPanel dockPanel, string fileName, DeserializeDockContent deserializeContent, bool loadTheme = false) {
             using (var fs = new FileStream(fileName, FileMode.Open, FileAccess.Read)) {
                 try {
-                    LoadFromXml(dockPanel, fs, deserializeContent, true);
+                    LoadFromXml(dockPanel, fs, deserializeContent, true, loadTheme);
                 } finally {
                     fs.Close();
                 }
@@ -452,7 +452,7 @@ namespace WeifenLuo.Docking
             return floatWindows;
         }
 
-        public static void LoadFromXml(DockPanel dockPanel, Stream stream, DeserializeDockContent deserializeContent, bool closeStream) {
+        public static void LoadFromXml(DockPanel dockPanel, Stream stream, DeserializeDockContent deserializeContent, bool closeStream, bool loadTheme = false) {
             if (dockPanel.Contents.Count != 0)
                 throw new InvalidOperationException(Strings.DockPanel_LoadFromXml_AlreadyInitialized);
 
@@ -513,7 +513,7 @@ namespace WeifenLuo.Docking
             dockPanel.DockRightPortion = dockPanelStruct.DockRightPortion;
             dockPanel.DockTopPortion = dockPanelStruct.DockTopPortion;
             dockPanel.DockBottomPortion = dockPanelStruct.DockBottomPortion;
-            //dockPanel.Theme = ThemeManager.LoadFromFile(dockPanelStruct.Theme);
+            if (loadTheme) dockPanel.Theme = ThemeManager.LoadFromFile(dockPanelStruct.Theme);
 
             // Set DockWindow ZOrders
             int prevMaxDockWindowZOrder = int.MaxValue;

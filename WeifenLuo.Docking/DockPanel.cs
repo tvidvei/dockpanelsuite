@@ -1553,8 +1553,8 @@ namespace WeifenLuo.Docking
         /// <param name="fileName">The file name.</param>
         /// <param name="deserializeContent">Deserialization handler.</param>
         /// <exception cref="Exception">Deserialization might throw exceptions.</exception>
-        public void LoadFromXml(string fileName, DeserializeDockContent deserializeContent) {
-            Persistor.LoadFromXml(this, fileName, deserializeContent);
+        public void LoadFromXml(string fileName, DeserializeDockContent deserializeContent, bool loadTheme = false) {
+            Persistor.LoadFromXml(this, fileName, deserializeContent, loadTheme);
         }
 
         /// <summary>
@@ -1566,8 +1566,8 @@ namespace WeifenLuo.Docking
         /// <remarks>
         /// The stream is closed after deserialization.
         /// </remarks>
-        public void LoadFromXml(Stream stream, DeserializeDockContent deserializeContent) {
-            Persistor.LoadFromXml(this, stream, deserializeContent, true);
+        public void LoadFromXml(Stream stream, DeserializeDockContent deserializeContent, bool loadTheme = false) {
+            Persistor.LoadFromXml(this, stream, deserializeContent, true, loadTheme);
         }
 
         /// <summary>
@@ -1577,8 +1577,8 @@ namespace WeifenLuo.Docking
         /// <param name="deserializeContent">Deserialization handler.</param>
         /// <param name="closeStream">The flag to close the stream after deserialization.</param>
         /// <exception cref="Exception">Deserialization might throw exceptions.</exception>
-        public void LoadFromXml(Stream stream, DeserializeDockContent deserializeContent, bool closeStream) {
-            Persistor.LoadFromXml(this, stream, deserializeContent, closeStream);
+        public void LoadFromXml(Stream stream, DeserializeDockContent deserializeContent, bool closeStream, bool loadTheme = false) {
+            Persistor.LoadFromXml(this, stream, deserializeContent, closeStream, loadTheme);
         }
 
 

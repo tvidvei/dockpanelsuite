@@ -404,7 +404,7 @@ namespace ThemeEditor
             string configFile = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "DockPanel.config");
 
             if (File.Exists(configFile))
-                dockPanel.LoadFromXml(configFile, m_deserializeDockContent);
+                dockPanel.LoadFromXml(configFile, m_deserializeDockContent, loadTheme: true);
 
             ThemeManager.UpdateTabTexts();
         }
