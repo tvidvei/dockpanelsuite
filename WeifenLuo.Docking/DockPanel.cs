@@ -1255,10 +1255,6 @@ namespace WeifenLuo.Docking
                 }
 
                 if (m_dockPanelTheme == value) return;
-                //if (m_dockPanelTheme.GetType() == value.GetType())
-                //    {
-                //        return;
-                //}
 
                 m_dockPanelTheme?.CleanUp(this);
                 m_dockPanelTheme = value;

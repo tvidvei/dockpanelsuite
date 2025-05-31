@@ -42,7 +42,6 @@ namespace ThemeEditor
             menuItemView = new ToolStripMenuItem();
             menuItemSolutionExplorer = new ToolStripMenuItem();
             menuItemPropertyWindow = new ToolStripMenuItem();
-            menuItemThemeEditorWindow = new ToolStripMenuItem();
             menuItemToolbox = new ToolStripMenuItem();
             menuItemOutputWindow = new ToolStripMenuItem();
             menuItemTaskList = new ToolStripMenuItem();
@@ -174,7 +173,7 @@ namespace ThemeEditor
             // 
             // menuItemView
             // 
-            menuItemView.DropDownItems.AddRange(new ToolStripItem[] { menuItemSolutionExplorer, menuItemPropertyWindow, menuItemThemeEditorWindow, menuItemToolbox, menuItemOutputWindow, menuItemTaskList, menuItem1, menuItemToolBar, menuItemStatusBar, menuItem2, menuItemLayoutByCode, menuItemLayoutByXml, toolStripSeparator1, subMenuToolStripMenuItem, disabledItemToolStripMenuItem });
+            menuItemView.DropDownItems.AddRange(new ToolStripItem[] { menuItemSolutionExplorer, menuItemPropertyWindow, menuItemToolbox, menuItemOutputWindow, menuItemTaskList, menuItem1, menuItemToolBar, menuItemStatusBar, menuItem2, menuItemLayoutByCode, menuItemLayoutByXml, toolStripSeparator1, subMenuToolStripMenuItem, disabledItemToolStripMenuItem });
             menuItemView.MergeIndex = 1;
             menuItemView.Name = "menuItemView";
             menuItemView.Size = new Size(44, 20);
@@ -194,14 +193,6 @@ namespace ThemeEditor
             menuItemPropertyWindow.Size = new Size(243, 22);
             menuItemPropertyWindow.Text = "&Property Window";
             menuItemPropertyWindow.Click += menuItemPropertyWindow_Click;
-            // 
-            // menuItemThemeEditorWindow
-            // 
-            menuItemThemeEditorWindow.Name = "menuItemThemeEditorWindow";
-            menuItemThemeEditorWindow.ShortcutKeys = Keys.Shift | Keys.F4;
-            menuItemThemeEditorWindow.Size = new Size(243, 22);
-            menuItemThemeEditorWindow.Text = "Theme &Editor Window";
-            menuItemThemeEditorWindow.Click += menuItemThemeEditorWindow_Click;
             // 
             // menuItemToolbox
             // 
@@ -608,7 +599,6 @@ namespace ThemeEditor
         private System.Windows.Forms.ToolStripMenuItem menuItemView;
         private System.Windows.Forms.ToolStripMenuItem menuItemSolutionExplorer;
         private System.Windows.Forms.ToolStripMenuItem menuItemPropertyWindow;
-        private System.Windows.Forms.ToolStripMenuItem menuItemThemeEditorWindow;
         private System.Windows.Forms.ToolStripMenuItem menuItemToolbox;
         private System.Windows.Forms.ToolStripMenuItem menuItemOutputWindow;
         private System.Windows.Forms.ToolStripMenuItem menuItemTaskList;

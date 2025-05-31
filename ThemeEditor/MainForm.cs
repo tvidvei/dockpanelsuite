@@ -19,7 +19,6 @@ namespace ThemeEditor
         private DeserializeDockContent m_deserializeDockContent;
         private DummySolutionExplorer m_solutionExplorer;
         private DummyPropertyWindow m_propertyWindow;
-        //private ThemeEditorWindow m_themeEditorWindow;
         private DummyToolbox m_toolbox;
         private DummyOutputWindow m_outputWindow;
         private DummyTaskList m_taskList;
@@ -142,6 +141,8 @@ namespace ThemeEditor
 
         private IDockContent GetContentFromPersistString(string persistString)
         {
+            var persiststringA = persistString.Split(',', StringSplitOptions.TrimEntries);
+            var typeId = persiststringA[0];
             if (persistString == typeof(DummySolutionExplorer).ToString())
                 return m_solutionExplorer;
             else if (persistString == typeof(DummyPropertyWindow).ToString())
@@ -152,6 +153,27 @@ namespace ThemeEditor
                 return m_outputWindow;
             else if (persistString == typeof(DummyTaskList).ToString())
                 return m_taskList;
+            else if (typeId == typeof(ThemeEditorWindow).ToString())
+            {
+                // ThemeEditorWindow overrides GetPersistString to add extra information into persistString.
+                // Any DockContent may override this value to add any needed information for deserialization.
+
+                string[] parsedStrings = persistString.Split(new char[] { ',' });
+                if (parsedStrings.Length != 3)
+                    return null;
+
+                if (parsedStrings[0] != typeof(ThemeEditorWindow).ToString())
+                    return null;
+
+                ThemeEditorWindow themeEditor = new ThemeEditorWindow();
+                themeEditor.DockPanel = this.dockPanel;
+                if (!String.IsNullOrWhiteSpace(parsedStrings[1]))
+                    themeEditor.FileName = parsedStrings[1];
+                if (parsedStrings[2] != string.Empty)
+                    themeEditor.Text = parsedStrings[2];
+
+                return themeEditor;
+            }
             else
             {
                 // DummyDoc overrides GetPersistString to add extra information into persistString.
@@ -271,14 +293,6 @@ namespace ThemeEditor
             m_propertyWindow.Show(dockPanel);
         }
 
-        private void menuItemThemeEditorWindow_Click(object sender, System.EventArgs e)
-        {
-            //m_themeEditorWindow.SuspendLayout();
-            //m_themeEditorWindow.Show(dockPanel);
-            //m_themeEditorWindow.Theme = dockPanel.Theme;
-            //m_themeEditorWindow.ResumeLayout();
-        }
-
         private void menuItemToolbox_Click(object sender, System.EventArgs e)
         {
             m_toolbox.Show(dockPanel);
@@ -385,12 +399,14 @@ namespace ThemeEditor
 
         private void MainForm_Load(object sender, System.EventArgs e)
         {
-            SetTheme(ThemeManager.DefaultTheme);
+            //SetTheme(ThemeManager.DefaultTheme);
 
             string configFile = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "DockPanel.config");
 
             if (File.Exists(configFile))
                 dockPanel.LoadFromXml(configFile, m_deserializeDockContent);
+
+            ThemeManager.UpdateTabTexts();
         }
 
         private void MainForm_Closing(object sender, System.ComponentModel.CancelEventArgs e)

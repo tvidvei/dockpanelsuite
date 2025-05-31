@@ -55,6 +55,8 @@ namespace WeifenLuo.Docking
                 get { return m_indexActivePane; }
                 set { m_indexActivePane = value; }
             }
+
+            public string Theme { get; set; }
         }
 
         private struct ContentStruct
@@ -217,6 +219,7 @@ namespace WeifenLuo.Docking
             xmlOut.WriteAttributeString("DockRightPortion", dockPanel.DockRightPortion.ToString(CultureInfo.InvariantCulture));
             xmlOut.WriteAttributeString("DockTopPortion", dockPanel.DockTopPortion.ToString(CultureInfo.InvariantCulture));
             xmlOut.WriteAttributeString("DockBottomPortion", dockPanel.DockBottomPortion.ToString(CultureInfo.InvariantCulture));
+            xmlOut.WriteAttributeString("Theme", dockPanel.Theme.FileName);
 
             if (!Win32Helper.IsRunningOnMono) {
                 xmlOut.WriteAttributeString("ActiveDocumentPane", dockPanel.Panes.IndexOf(dockPanel.ActiveDocumentPane).ToString(CultureInfo.InvariantCulture));
@@ -477,6 +480,7 @@ namespace WeifenLuo.Docking
                 dockPanelStruct.DockBottomPortion = Convert.ToDouble(xmlIn.GetAttribute("DockBottomPortion"), CultureInfo.InvariantCulture);
                 dockPanelStruct.IndexActiveDocumentPane = Convert.ToInt32(xmlIn.GetAttribute("ActiveDocumentPane"), CultureInfo.InvariantCulture);
                 dockPanelStruct.IndexActivePane = Convert.ToInt32(xmlIn.GetAttribute("ActivePane"), CultureInfo.InvariantCulture);
+                dockPanelStruct.Theme = xmlIn.GetAttribute("Theme");
 
                 // Load Contents
                 MoveToNextElement(xmlIn);
@@ -509,6 +513,7 @@ namespace WeifenLuo.Docking
             dockPanel.DockRightPortion = dockPanelStruct.DockRightPortion;
             dockPanel.DockTopPortion = dockPanelStruct.DockTopPortion;
             dockPanel.DockBottomPortion = dockPanelStruct.DockBottomPortion;
+            //dockPanel.Theme = ThemeManager.LoadFromFile(dockPanelStruct.Theme);
 
             // Set DockWindow ZOrders
             int prevMaxDockWindowZOrder = int.MaxValue;

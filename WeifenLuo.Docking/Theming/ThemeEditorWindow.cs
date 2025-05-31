@@ -56,8 +56,14 @@ namespace WeifenLuo.Docking
             {
                 try
                 {
-                    Theme = ThemeManager.LoadFromFile(value);
-                    this.ToolTipText = value;
+                    if (!string.IsNullOrWhiteSpace(value))
+                    {
+                        if (DockPanel.Theme.FileName.ToLower() == value.ToLower()) Theme = DockPanel.Theme;
+                        else Theme = ThemeManager.LoadFromFile(value);
+                    }
+                    //if (DockPanel.Theme.FileName.ToLower() == value?.ToLower()) Theme = DockPanel.Theme
+                    //Theme = ThemeManager.LoadFromFile(value);
+                    //this.ToolTipText = value;
                 }
                 catch (Exception e)
                 {
