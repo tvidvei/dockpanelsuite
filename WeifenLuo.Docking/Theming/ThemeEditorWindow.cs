@@ -3,32 +3,49 @@ namespace WeifenLuo.Docking
     public partial class ThemeEditorWindow : DockContent
     {
 
-        public ThemeEditorWindow()
+        public ThemeEditorWindow() : base()
         {
             InitializeComponent();
-            Theme = ThemeController.CreateNew();
+            ThemeManager.ThemeEditorWindows.Add(this);
+            //Theme = ThemeManager.CreateNew();
         }
 
         public ThemeEditorWindow(string? fileName)
         {
             InitializeComponent();
-            if (string.IsNullOrEmpty(fileName)) Theme = ThemeController.CreateNew();
+            if (string.IsNullOrEmpty(fileName)) Theme = ThemeManager.CreateNew();
             else FileName = fileName;
+        }
+
+        public void SetTabText()
+        {
+            if (Theme == null)
+            {
+                this.TabText = "Theme: null"
+                    ;
+                this.ToolTipText = ""
+                    ;
+            }
+            else
+            {
+                this.TabText = "Theme: "
+                    + Theme.DisplayName
+                    + (Theme == (DockPanel?.Theme ?? null) ? " (Current)" : null)
+                    ;
+                this.ToolTipText = ""
+                    + Theme.DisplayPath
+                    ;
+            }
         }
 
         public Theme Theme
         {
             get { return (propertyGrid.SelectedObject as Theme)!; }
-            set {
-                var theme = value ?? ThemeController.CreateNew();
+            set
+            {
+                var theme = value ?? ThemeManager.CreateNew();
                 propertyGrid.SelectedObject = theme;
-                this.TabText = "Theme: " 
-                    + theme.DisplayName
-                    + (theme == (DockPanel?.Theme ?? null) ? " (Current)" : null)
-                    ;
-                this.ToolTipText = ""
-                    + theme.DisplayPath
-                    ;
+                SetTabText();
             }
         }
 
@@ -39,7 +56,7 @@ namespace WeifenLuo.Docking
             {
                 try
                 {
-                    Theme = ThemeController.LoadFromFile(value);
+                    Theme = ThemeManager.LoadFromFile(value);
                     this.ToolTipText = value;
                 }
                 catch (Exception e)
@@ -57,34 +74,15 @@ namespace WeifenLuo.Docking
             return GetType().ToString() + "," + FileName + "," + Text;
         }
 
-
-        // Static methods
-
-        public static Theme EmptyTheme = new Theme();
-
-        public static List<ThemeEditorWindow> ThemeEditorWindows = new();
-
-
-        /// <summary>
-        /// Searches for a ThemeEditorWindow with the given name
-        /// </summary>
-        /// <param name="fileName">full filepath with extension or filename only (without extension)</param>
-        /// <returns>A ThemeEditorWindow with matching name or null</returns>
-        /// Search is done first assuming fileName is a full filePath with extension, then on the fileName only (without path and extension)
-        public static ThemeEditorWindow? FindThemeEditorWindow(string fileName)
+        private void ThemeEditorWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
-            var fileNameOnly = Path.GetFileNameWithoutExtension(fileName);
-            var result = ThemeEditorWindows.FirstOrDefault(w => w.FileName == fileName) ?? ThemeEditorWindows.FirstOrDefault(w => w.FileName == fileNameOnly);
-            return result;
+            ThemeManager.ThemeEditorWindows.Remove(this);
         }
 
-
-        public static ThemeEditorWindow CreateNew(string? fileName = null)
+        private void ThemeEditorWindow_VisibleChanged(object sender, EventArgs e)
         {
-            ThemeEditorWindow newWnd = new ThemeEditorWindow();
-            if (!string.IsNullOrWhiteSpace(fileName)) newWnd.FileName = fileName;
-            return newWnd;
+            int i = 10;  // Dummy
         }
-
     }
+
 }

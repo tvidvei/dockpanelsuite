@@ -15,7 +15,7 @@ namespace ThemeEditor
         {
             try
             {
-                ThemeController.Setup("VS2015Blue");  //Todo: Default må hentes fra settings
+                ThemeManager.Setup("VS2015Blue");  //Todo: Default må hentes fra settings
 
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);

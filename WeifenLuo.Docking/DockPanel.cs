@@ -1589,7 +1589,7 @@ namespace WeifenLuo.Docking
         // ----- From DockPanelExtender -----
 
         public virtual Theme GetDefaultTheme() {
-            return ThemeController.DefaultTheme;
+            return ThemeManager.DefaultTheme;
         }  
 
         public virtual DockPane CreateDockPane(IDockContent content, DockState visibleState, bool show) {

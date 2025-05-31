@@ -19,7 +19,7 @@ namespace ThemeEditor
         private DeserializeDockContent m_deserializeDockContent;
         private DummySolutionExplorer m_solutionExplorer;
         private DummyPropertyWindow m_propertyWindow;
-        private ThemeEditorWindow m_themeEditorWindow;
+        //private ThemeEditorWindow m_themeEditorWindow;
         private DummyToolbox m_toolbox;
         private DummyOutputWindow m_outputWindow;
         private DummyTaskList m_taskList;
@@ -29,7 +29,6 @@ namespace ThemeEditor
 
         public MainForm()
         {
-
 
             // 
             // dockPanel
@@ -51,6 +50,8 @@ namespace ThemeEditor
             this.dockPanel.TabIndex = 0;
             this.Controls.Add(this.dockPanel);
 
+            ThemeManager.SetMainForm(this, dockPanel, SetTheme);
+
             InitializeComponent();
 
             //
@@ -70,6 +71,7 @@ namespace ThemeEditor
             m_deserializeDockContent = new DeserializeDockContent(GetContentFromPersistString);
 
             vsToolStripExtender1.DefaultRenderer = _toolStripProfessionalRenderer;
+
         }
 
         #region Methods
@@ -144,8 +146,6 @@ namespace ThemeEditor
                 return m_solutionExplorer;
             else if (persistString == typeof(DummyPropertyWindow).ToString())
                 return m_propertyWindow;
-            else if (persistString == typeof(ThemeEditorWindow).ToString())
-                return m_themeEditorWindow;
             else if (persistString == typeof(DummyToolbox).ToString())
                 return m_toolbox;
             else if (persistString == typeof(DummyOutputWindow).ToString())
@@ -179,13 +179,13 @@ namespace ThemeEditor
             // we don't want to create another instance of tool window, set DockPanel to null
             m_solutionExplorer.DockPanel = null;
             m_propertyWindow.DockPanel = null;
-            m_themeEditorWindow.DockPanel = null;
             m_toolbox.DockPanel = null;
             m_outputWindow.DockPanel = null;
             m_taskList.DockPanel = null;
 
             // Close all other document windows
             CloseAllDocuments();
+            ThemeManager.CloseAllThemeEditorWindows();
 
             // IMPORTANT: dispose all float windows.
             foreach (var window in dockPanel.FloatWindows.ToList())
@@ -197,12 +197,6 @@ namespace ThemeEditor
         }
 
         private readonly ToolStripRenderer _toolStripProfessionalRenderer = new ToolStripProfessionalRenderer();
-
-        private void SetTheme(string? fileName = null)
-        {
-            var theme = fileName != null ? ThemeController.LoadFromFile(fileName) : null;
-            SetTheme(theme);
-        }
 
         private void SetTheme(Theme? theme = null)
         {
@@ -279,10 +273,10 @@ namespace ThemeEditor
 
         private void menuItemThemeEditorWindow_Click(object sender, System.EventArgs e)
         {
-            m_themeEditorWindow.SuspendLayout();
-            m_themeEditorWindow.Show(dockPanel);
-            m_themeEditorWindow.Theme = dockPanel.Theme;
-            m_themeEditorWindow.ResumeLayout();
+            //m_themeEditorWindow.SuspendLayout();
+            //m_themeEditorWindow.Show(dockPanel);
+            //m_themeEditorWindow.Theme = dockPanel.Theme;
+            //m_themeEditorWindow.ResumeLayout();
         }
 
         private void menuItemToolbox_Click(object sender, System.EventArgs e)
@@ -391,7 +385,7 @@ namespace ThemeEditor
 
         private void MainForm_Load(object sender, System.EventArgs e)
         {
-            SetTheme(ThemeController.DefaultTheme);
+            SetTheme(ThemeManager.DefaultTheme);
 
             string configFile = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "DockPanel.config");
 
@@ -467,7 +461,7 @@ namespace ThemeEditor
 
             m_solutionExplorer.Show(dockPanel, DockState.DockRight);
             m_propertyWindow.Show(m_solutionExplorer.Pane, m_solutionExplorer);
-            m_themeEditorWindow.Show(m_solutionExplorer.Pane, m_solutionExplorer);
+            //m_themeEditorWindow.Show(m_solutionExplorer.Pane, m_solutionExplorer);
             m_toolbox.Show(dockPanel, new Rectangle(98, 133, 200, 383));
             m_outputWindow.Show(m_solutionExplorer.Pane, DockAlignment.Bottom, 0.35);
             m_taskList.Show(m_toolbox.Pane, DockAlignment.Left, 0.4);
@@ -523,7 +517,7 @@ namespace ThemeEditor
         {
             m_solutionExplorer = new DummySolutionExplorer();
             m_propertyWindow = new DummyPropertyWindow();
-            m_themeEditorWindow = new ThemeEditorWindow();
+            //m_themeEditorWindow = new ThemeEditorWindow();
             m_toolbox = new DummyToolbox();
             m_outputWindow = new DummyOutputWindow();
             m_taskList = new DummyTaskList();
@@ -615,7 +609,12 @@ namespace ThemeEditor
 
         private void cmdThemeOpen_Click(object sender, EventArgs e)
         {
-
+            ThemeManager.CmdThemeOpen();
+            //var result = ThemeManager.OpenFileDialog.ShowDialog(this);
+            //if (result == DialogResult.OK)
+            //{
+            //    ThemeManager.CreateNewThemeEditorWindow();
+            //}
         }
 
         private void cmdThemeSave_Click(object sender, EventArgs e)
@@ -630,11 +629,7 @@ namespace ThemeEditor
 
         private void cmdThemeChange_Click(object sender, EventArgs e)
         {
-            var result = ThemeController.OpenFileDialog.ShowDialog(this);
-            if (result == DialogResult.OK)
-            {
-                SetTheme(ThemeController.OpenFileDialog.FileName);
-            }
+            ThemeManager.CmdThemeChange();
         }
 
         private void themesToolStripMenuItem_Click(object sender, EventArgs e)

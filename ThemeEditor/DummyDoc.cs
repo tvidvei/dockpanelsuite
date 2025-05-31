@@ -17,7 +17,7 @@ namespace ThemeEditor
         private string m_fileName = string.Empty;
         public string FileName
         {
-            get	{	return m_fileName;	}
+            get { return m_fileName; }
             set
             {
                 if (value != string.Empty)
@@ -74,9 +74,14 @@ namespace ThemeEditor
 
         protected override void OnTextChanged(EventArgs e)
         {
-            base.OnTextChanged (e);
+            base.OnTextChanged(e);
             if (FileName == string.Empty)
                 this.richTextBox1.Text = Text;
+        }
+
+        private void DummyDoc_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            int i = 5;
         }
     }
 }

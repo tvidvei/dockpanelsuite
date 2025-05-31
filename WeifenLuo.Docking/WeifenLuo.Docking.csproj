@@ -87,7 +87,7 @@
     <Compile Include="Theming\DockPanelColorPalette.cs" />
     <Compile Include="Theming\JsonConverters.cs" />
     <Compile Include="Theming\Theme.cs" />
-    <Compile Include="Theming\ThemeController.cs" />
+    <Compile Include="Theming\ThemeManager.cs" />
     <Compile Include="Theming\ThemeEditorWindow.cs">
       <SubType>Form</SubType>
     </Compile>

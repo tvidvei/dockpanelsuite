@@ -167,17 +167,17 @@ namespace DockSample
 
             if (sender == this.menuItemSchemaVS2015Blue)
             {
-                this.dockPanel.Theme = ThemeController.LoadFromFile("VS2015Blue.json");
+                this.dockPanel.Theme = ThemeManager.LoadFromFile("VS2015Blue.json");
                 this.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2015, dockPanel.Theme);
             }
             else if (sender == this.menuItemSchemaVS2015Light)
             {
-                this.dockPanel.Theme = ThemeController.LoadFromFile("VS2015Light.json");
+                this.dockPanel.Theme = ThemeManager.LoadFromFile("VS2015Light.json");
                 this.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2015, dockPanel.Theme);
             }
             else if (sender == this.menuItemSchemaVS2015Dark)
             {
-                this.dockPanel.Theme = ThemeController.LoadFromFile("VS2015Dark.json");
+                this.dockPanel.Theme = ThemeManager.LoadFromFile("VS2015Dark.json");
                 this.EnableVSRenderer(VisualStudioToolStripExtender.VsVersion.Vs2015, dockPanel.Theme);
             }
 

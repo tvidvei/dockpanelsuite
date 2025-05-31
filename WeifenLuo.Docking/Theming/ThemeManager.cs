@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Diagnostics.Contracts;
 using System.IO;
+using System.Reflection.Metadata;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Windows.Forms;
@@ -11,13 +12,40 @@ using WeifenLuo.Docking;
 namespace WeifenLuo.Docking
 {
 
-    public static class ThemeController
+    public delegate void SetThemeAction(Theme theme = null);
+
+    public static class ThemeManager
     {
         public static Theme EmptyTheme = new Theme();
 
         public static Theme DefaultTheme { get; set; }
 
         public static List<ThemeEditorWindow> ThemeEditorWindows = new();
+
+        public static void CloseAllThemeEditorWindows()
+        {
+            //foreach (var wnd in ThemeEditorWindows) {
+            while (ThemeEditorWindows.Count > 0)
+            {
+                var wnd = ThemeEditorWindows[0];
+                wnd.DockHandler.DockPanel = null;
+                wnd.DockHandler.Close();
+                //wnd.Close(); 
+            }
+#if old
+            while (ThemeEditorWindows.Count > 0) {
+                var wnd = ThemeEditorWindows[0];
+                wnd.DockHandler.DockPanel = null;
+                wnd.DockHandler.Close();
+                ThemeEditorWindows.RemoveAt(0); 
+            }
+#endif
+        }
+
+        public static void UpdateTabTexts()
+        {
+            foreach (var window in ThemeEditorWindows) { window.SetTabText(); }
+        }
 
         /// <summary>
         /// Searches for a ThemeEditorWindow with the given name
@@ -33,11 +61,26 @@ namespace WeifenLuo.Docking
         }
 
 
-        public static ThemeEditorWindow CreateNewThemeEditor(string? fileName = null)
+        public static ThemeEditorWindow CreateOrReuseThemeEditorWindow(string? fileName = null)
         {
-            ThemeEditorWindow newWnd = new ThemeEditorWindow();
-            if (!string.IsNullOrWhiteSpace(fileName)) newWnd.FileName = fileName;
-            return newWnd;
+            // Check if a window for this file already exists
+            ThemeEditorWindow wnd = ThemeEditorWindows.FirstOrDefault(w => w.FileName?.ToLower() == fileName?.ToLower());
+            if (wnd != null)
+            {
+                wnd.Activate();
+                return wnd;
+            }
+
+            // Check if the fileName is the Current Theme, then open a window to that theme
+            wnd = new ThemeEditorWindow();
+            wnd.DockPanel = DockPanel;
+            if (!string.IsNullOrWhiteSpace(fileName)) {
+                if (DockPanel.Theme.FileName.ToLower() == fileName?.ToLower()) wnd.Theme = DockPanel.Theme;
+                else wnd.FileName = fileName;
+            }
+            wnd.Show(DockPanel);
+            wnd.Activate();
+            return wnd;
         }
 
         public static OpenFileDialog OpenFileDialog { get; set; }
@@ -93,6 +136,56 @@ namespace WeifenLuo.Docking
             return result;
         }
 
+        public static SetThemeAction SetThemeAction { get; set; } = (x) => throw new Exception("ThemeManager.SetThemeAction not set");
+
+
+        public static void SetTheme(string fileName = null)
+        {
+            //var theme = fileName != null ? LoadFromFile(fileName) : new Theme();
+            Theme theme = null;
+            if (fileName != null)
+            {
+                if (DockPanel.Theme.FileName.ToLower() == fileName.ToLower()) return;
+                var wnd = ThemeEditorWindows.FirstOrDefault(w => w.FileName.ToLower() == fileName.ToLower());
+                if (wnd != null) theme = wnd.Theme;
+                else theme = LoadFromFile(fileName);
+            } else
+            {
+                theme = DefaultTheme;  
+            }
+            SetThemeAction(theme);
+        }
+
+
+        // Commands
+
+
+        public static void CmdThemeChange()
+        {
+            var result = OpenFileDialog.ShowDialog(MainForm);  // Todo: Shold we call ShowDialog(MainForm instead?)
+            if (result == DialogResult.OK)
+            {
+                SetTheme(OpenFileDialog.FileName);
+                UpdateTabTexts();
+            }
+            MainForm.Activate();
+        }
+
+        public static void CmdThemeOpen()
+        {
+            ThemeEditorWindow wnd = null;
+            var result = OpenFileDialog.ShowDialog(MainForm);
+            if (result == DialogResult.OK)
+            {
+                CreateOrReuseThemeEditorWindow(OpenFileDialog.FileName);
+                return;
+            }
+            MainForm.Activate();
+        }
+
+
+        // Setup
+
         public static void Setup(string defaultThemeName = "default")
         {
 
@@ -131,6 +224,17 @@ namespace WeifenLuo.Docking
                         + ex.Message + "\r\n\r\nThe program will terminate."
                     );
             }
+        }
+
+        public static Form MainForm { get; private set; }
+
+        public static DockPanel DockPanel { get; private set; }
+
+        public static void SetMainForm(Form mainForm, DockPanel dockPanel, SetThemeAction setThemeAction)
+        {
+            MainForm = mainForm;
+            DockPanel = dockPanel;
+            SetThemeAction = setThemeAction;
         }
 
 

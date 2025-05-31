@@ -47,13 +47,15 @@ namespace WeifenLuo.Docking
             // 
             ClientSize = new Size(208, 289);
             Controls.Add(propertyGrid);
-            HideOnClose = true;
+            HideOnClose = false;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ThemeEditorWindow";
             Padding = new Padding(0, 3, 0, 3);
-            ShowHint = WeifenLuo.Docking.DockState.DockRight;
+            ShowHint = DockState.DockRight;
             TabText = "Theme1";
             Text = "Theme Editor";
+            FormClosing += ThemeEditorWindow_FormClosing;
+            VisibleChanged += ThemeEditorWindow_VisibleChanged;
             ResumeLayout(false);
 
         }
