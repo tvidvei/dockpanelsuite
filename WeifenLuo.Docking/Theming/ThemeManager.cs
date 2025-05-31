@@ -75,7 +75,7 @@ namespace WeifenLuo.Docking
             wnd = new ThemeEditorWindow();
             wnd.DockPanel = DockPanel;
             if (!string.IsNullOrWhiteSpace(fileName)) {
-                if (DockPanel.Theme.FileName.ToLower() == fileName?.ToLower()) wnd.Theme = DockPanel.Theme;
+                if (DockPanel.Theme.FilePath.ToLower() == fileName?.ToLower()) wnd.Theme = DockPanel.Theme;
                 else wnd.FileName = fileName;
             }
             wnd.Show(DockPanel);
@@ -92,30 +92,48 @@ namespace WeifenLuo.Docking
 
         public static string ThemesPath { get; set; }
 
-        public static Theme? LoadFromFile(string fileName)
+        public static string GetFileName(string filePath)
         {
-            if (string.IsNullOrWhiteSpace(fileName))
+            if (Path.GetExtension(filePath).ToLower() != ".json")
+            {
+                throw new Exception($"Illegal theme file '{filePath}: Extension '.json' required.");
+            }
+            var res = Path.GetRelativePath(ThemesPath, filePath);
+            return res.Substring(0, res.Length - 5);
+        }
+
+        public static string GetFilePath(string fileName)
+        {
+            if (string.IsNullOrWhiteSpace(fileName)) return null;
+            if (File.Exists(fileName)) return fileName;
+            return Path.Combine(ThemeManager.ThemesPath, fileName + ".json");
+        }
+
+
+        public static Theme? LoadFromFile(string filePath)
+        {
+            if (string.IsNullOrWhiteSpace(filePath))
             {
                 throw new Exception("No Theme file given");
             }
             Theme result = null;
-            if (Path.GetDirectoryName(fileName) == String.Empty)
+            if (Path.GetDirectoryName(filePath) == String.Empty)
             {
-                fileName = Path.Combine(ThemesPath, fileName);
+                filePath = Path.Combine(ThemesPath, filePath);
             }
-            var fileExt = Path.GetExtension(fileName);
+            var fileExt = Path.GetExtension(filePath);
             if (string.IsNullOrEmpty(fileExt))
             {
-                fileName += ".json";
+                filePath += ".json";
                 fileExt = ".json";
             }
             if (fileExt.ToLower() == ".json")
             {
-                if (!File.Exists(fileName))
+                if (!File.Exists(filePath))
                 {
-                    throw new Exception($"Can't find Theme file '{fileName}'");
+                    throw new Exception($"Can't find Theme file '{filePath}'");
                 }
-                var jsonString = File.ReadAllText(fileName);
+                var jsonString = File.ReadAllText(filePath);
                 result = JsonSerializer.Deserialize<Theme>(jsonString, JsonSerializerOptions);
                 result.Setup();
             }
@@ -123,7 +141,7 @@ namespace WeifenLuo.Docking
             {
                 throw new Exception("Theme file must have extension '.json'");
             }
-            result.FileName = fileName;
+            result.FilePath = filePath;
             return result;
         }
 
@@ -139,16 +157,16 @@ namespace WeifenLuo.Docking
         public static SetThemeAction SetThemeAction { get; set; } = (x) => throw new Exception("ThemeManager.SetThemeAction not set");
 
 
-        public static void SetTheme(string fileName = null)
+        public static void SetTheme(string filePath = null)
         {
             //var theme = fileName != null ? LoadFromFile(fileName) : new Theme();
             Theme theme = null;
-            if (fileName != null)
+            if (filePath != null)
             {
-                if (DockPanel.Theme.FileName.ToLower() == fileName.ToLower()) return;
-                var wnd = ThemeEditorWindows.FirstOrDefault(w => w.FileName.ToLower() == fileName.ToLower());
+                if (DockPanel.Theme.FilePath.ToLower() == filePath.ToLower()) return;
+                var wnd = ThemeEditorWindows.FirstOrDefault(w => w.FileName.ToLower() == filePath.ToLower());
                 if (wnd != null) theme = wnd.Theme;
-                else theme = LoadFromFile(fileName);
+                else theme = LoadFromFile(filePath);
             } else
             {
                 theme = DefaultTheme;  

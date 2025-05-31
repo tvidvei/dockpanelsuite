@@ -45,6 +45,16 @@ namespace WeifenLuo.Docking
         /// </summary>
         [JsonIgnore]
         [Browsable(false)]
+        public string FilePath {
+            get { return ThemeManager.GetFilePath(FileName); }
+            set { FileName = ThemeManager.GetFileName(value); }
+        }
+
+        /// <summary>
+        /// Filepath for this Theme
+        /// </summary>
+        [JsonIgnore]
+        [Browsable(false)]
         public string FileName { get; set; }
 
         /// <summary>
@@ -59,14 +69,14 @@ namespace WeifenLuo.Docking
         /// </summary>
         [JsonIgnore]
         [Browsable(false)]
-        public string DisplayName => Path.GetFileNameWithoutExtension(FileName) ?? TempName;
+        public string DisplayName => FileName ?? TempName;
 
         /// <summary>
         /// DisplayPath - Either full filePath (if saved) or TempName
         /// </summary>
         [JsonIgnore]
         [Browsable(false)]
-        public string DisplayPath => FileName ?? TempName;
+        public string DisplayPath => FilePath ?? TempName;
 
 
 
