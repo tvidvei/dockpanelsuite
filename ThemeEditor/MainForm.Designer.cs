@@ -61,13 +61,11 @@ namespace ThemeEditor
             menuItemShowDocumentIcon = new ToolStripMenuItem();
             menuItem3 = new ToolStripSeparator();
             themesToolStripMenuItem = new ToolStripMenuItem();
+            useThemeToolStripMenuItem = new ToolStripMenuItem();
             newToolStripMenuItem = new ToolStripMenuItem();
-            opToolStripMenuItem = new ToolStripMenuItem();
             openToolStripMenuItem = new ToolStripMenuItem();
             saveToolStripMenuItem = new ToolStripMenuItem();
             saveAsToolStripMenuItem = new ToolStripMenuItem();
-            useThemeToolStripMenuItem = new ToolStripMenuItem();
-            menuItem6 = new ToolStripSeparator();
             menuItemDockingMdi = new ToolStripMenuItem();
             menuItemDockingSdi = new ToolStripMenuItem();
             menuItemDockingWindow = new ToolStripMenuItem();
@@ -92,6 +90,7 @@ namespace ThemeEditor
             toolBarButtonSeparator2 = new ToolStripSeparator();
             toolBarButtonLayoutByCode = new ToolStripButton();
             toolBarButtonLayoutByXml = new ToolStripButton();
+            refreshCurrentToolStripMenuItem = new ToolStripMenuItem();
             mainMenu.SuspendLayout();
             toolBar.SuspendLayout();
             SuspendLayout();
@@ -182,7 +181,7 @@ namespace ThemeEditor
             // menuItemSolutionExplorer
             // 
             menuItemSolutionExplorer.Name = "menuItemSolutionExplorer";
-            menuItemSolutionExplorer.Size = new Size(243, 22);
+            menuItemSolutionExplorer.Size = new Size(185, 22);
             menuItemSolutionExplorer.Text = "&Solution Explorer";
             menuItemSolutionExplorer.Click += menuItemSolutionExplorer_Click;
             // 
@@ -190,42 +189,42 @@ namespace ThemeEditor
             // 
             menuItemPropertyWindow.Name = "menuItemPropertyWindow";
             menuItemPropertyWindow.ShortcutKeys = Keys.F4;
-            menuItemPropertyWindow.Size = new Size(243, 22);
+            menuItemPropertyWindow.Size = new Size(185, 22);
             menuItemPropertyWindow.Text = "&Property Window";
             menuItemPropertyWindow.Click += menuItemPropertyWindow_Click;
             // 
             // menuItemToolbox
             // 
             menuItemToolbox.Name = "menuItemToolbox";
-            menuItemToolbox.Size = new Size(243, 22);
+            menuItemToolbox.Size = new Size(185, 22);
             menuItemToolbox.Text = "&Toolbox";
             menuItemToolbox.Click += menuItemToolbox_Click;
             // 
             // menuItemOutputWindow
             // 
             menuItemOutputWindow.Name = "menuItemOutputWindow";
-            menuItemOutputWindow.Size = new Size(243, 22);
+            menuItemOutputWindow.Size = new Size(185, 22);
             menuItemOutputWindow.Text = "&Output Window";
             menuItemOutputWindow.Click += menuItemOutputWindow_Click;
             // 
             // menuItemTaskList
             // 
             menuItemTaskList.Name = "menuItemTaskList";
-            menuItemTaskList.Size = new Size(243, 22);
+            menuItemTaskList.Size = new Size(185, 22);
             menuItemTaskList.Text = "Task &List";
             menuItemTaskList.Click += menuItemTaskList_Click;
             // 
             // menuItem1
             // 
             menuItem1.Name = "menuItem1";
-            menuItem1.Size = new Size(240, 6);
+            menuItem1.Size = new Size(182, 6);
             // 
             // menuItemToolBar
             // 
             menuItemToolBar.Checked = true;
             menuItemToolBar.CheckState = CheckState.Checked;
             menuItemToolBar.Name = "menuItemToolBar";
-            menuItemToolBar.Size = new Size(243, 22);
+            menuItemToolBar.Size = new Size(185, 22);
             menuItemToolBar.Text = "Tool &Bar";
             menuItemToolBar.Click += menuItemToolBar_Click;
             // 
@@ -234,39 +233,39 @@ namespace ThemeEditor
             menuItemStatusBar.Checked = true;
             menuItemStatusBar.CheckState = CheckState.Checked;
             menuItemStatusBar.Name = "menuItemStatusBar";
-            menuItemStatusBar.Size = new Size(243, 22);
+            menuItemStatusBar.Size = new Size(185, 22);
             menuItemStatusBar.Text = "Status B&ar";
             menuItemStatusBar.Click += menuItemStatusBar_Click;
             // 
             // menuItem2
             // 
             menuItem2.Name = "menuItem2";
-            menuItem2.Size = new Size(240, 6);
+            menuItem2.Size = new Size(182, 6);
             // 
             // menuItemLayoutByCode
             // 
             menuItemLayoutByCode.Name = "menuItemLayoutByCode";
-            menuItemLayoutByCode.Size = new Size(243, 22);
+            menuItemLayoutByCode.Size = new Size(185, 22);
             menuItemLayoutByCode.Text = "Layout By &Code";
             menuItemLayoutByCode.Click += menuItemLayoutByCode_Click;
             // 
             // menuItemLayoutByXml
             // 
             menuItemLayoutByXml.Name = "menuItemLayoutByXml";
-            menuItemLayoutByXml.Size = new Size(243, 22);
+            menuItemLayoutByXml.Size = new Size(185, 22);
             menuItemLayoutByXml.Text = "Layout By &XML";
             menuItemLayoutByXml.Click += menuItemLayoutByXml_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(240, 6);
+            toolStripSeparator1.Size = new Size(182, 6);
             // 
             // subMenuToolStripMenuItem
             // 
             subMenuToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { itemAToolStripMenuItem, itemBToolStripMenuItem });
             subMenuToolStripMenuItem.Name = "subMenuToolStripMenuItem";
-            subMenuToolStripMenuItem.Size = new Size(243, 22);
+            subMenuToolStripMenuItem.Size = new Size(185, 22);
             subMenuToolStripMenuItem.Text = "Sub menu";
             // 
             // itemAToolStripMenuItem
@@ -285,12 +284,12 @@ namespace ThemeEditor
             // 
             disabledItemToolStripMenuItem.Enabled = false;
             disabledItemToolStripMenuItem.Name = "disabledItemToolStripMenuItem";
-            disabledItemToolStripMenuItem.Size = new Size(243, 22);
+            disabledItemToolStripMenuItem.Size = new Size(185, 22);
             disabledItemToolStripMenuItem.Text = "Disabled Item";
             // 
             // menuItemTools
             // 
-            menuItemTools.DropDownItems.AddRange(new ToolStripItem[] { menuItemLockLayout, menuItemShowDocumentIcon, menuItem3, themesToolStripMenuItem, menuItem6, menuItemDockingMdi, menuItemDockingSdi, menuItemDockingWindow, menuItemSystemMdi, menuItem5, showRightToLeft });
+            menuItemTools.DropDownItems.AddRange(new ToolStripItem[] { menuItemLockLayout, menuItemShowDocumentIcon, menuItem3, themesToolStripMenuItem, menuItemDockingMdi, menuItemDockingSdi, menuItemDockingWindow, menuItemSystemMdi, menuItem5, showRightToLeft });
             menuItemTools.MergeIndex = 2;
             menuItemTools.Name = "menuItemTools";
             menuItemTools.Size = new Size(47, 20);
@@ -318,11 +317,17 @@ namespace ThemeEditor
             // 
             // themesToolStripMenuItem
             // 
-            themesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { useThemeToolStripMenuItem, opToolStripMenuItem, newToolStripMenuItem, openToolStripMenuItem, saveToolStripMenuItem, saveAsToolStripMenuItem });
+            themesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { useThemeToolStripMenuItem, newToolStripMenuItem, openToolStripMenuItem, saveToolStripMenuItem, saveAsToolStripMenuItem, refreshCurrentToolStripMenuItem });
             themesToolStripMenuItem.Name = "themesToolStripMenuItem";
             themesToolStripMenuItem.Size = new Size(255, 22);
             themesToolStripMenuItem.Text = "&Themes";
-            themesToolStripMenuItem.Click += themesToolStripMenuItem_Click;
+            // 
+            // useThemeToolStripMenuItem
+            // 
+            useThemeToolStripMenuItem.Name = "useThemeToolStripMenuItem";
+            useThemeToolStripMenuItem.Size = new Size(180, 22);
+            useThemeToolStripMenuItem.Text = "Change &Theme...";
+            useThemeToolStripMenuItem.Click += cmdThemeChange_Click;
             // 
             // newToolStripMenuItem
             // 
@@ -330,13 +335,6 @@ namespace ThemeEditor
             newToolStripMenuItem.Size = new Size(180, 22);
             newToolStripMenuItem.Text = "&New";
             newToolStripMenuItem.Click += cmdThemeNew_Click;
-            // 
-            // opToolStripMenuItem
-            // 
-            opToolStripMenuItem.Name = "opToolStripMenuItem";
-            opToolStripMenuItem.Size = new Size(186, 22);
-            opToolStripMenuItem.Text = "Open &Current Theme";
-            opToolStripMenuItem.Click += cmdThemeOpenCurrent_Click;
             // 
             // openToolStripMenuItem
             // 
@@ -359,17 +357,12 @@ namespace ThemeEditor
             saveAsToolStripMenuItem.Text = "Save &As...";
             saveAsToolStripMenuItem.Click += cmdThemeSaveAs_Click;
             // 
-            // useThemeToolStripMenuItem
+            // refreshCurrentToolStripMenuItem
             // 
-            useThemeToolStripMenuItem.Name = "useThemeToolStripMenuItem";
-            useThemeToolStripMenuItem.Size = new Size(180, 22);
-            useThemeToolStripMenuItem.Text = "Change &Theme...";
-            useThemeToolStripMenuItem.Click += cmdThemeChange_Click;
-            // 
-            // menuItem6
-            // 
-            menuItem6.Name = "menuItem6";
-            menuItem6.Size = new Size(252, 6);
+            refreshCurrentToolStripMenuItem.Name = "refreshCurrentToolStripMenuItem";
+            refreshCurrentToolStripMenuItem.Size = new Size(180, 22);
+            refreshCurrentToolStripMenuItem.Text = "&Refresh Current";
+            refreshCurrentToolStripMenuItem.Click += cmdThemeRefresh_Click;
             // 
             // menuItemDockingMdi
             // 
@@ -613,7 +606,6 @@ namespace ThemeEditor
         private System.Windows.Forms.ToolStripSeparator menuItem3;
         private System.Windows.Forms.ToolStripMenuItem menuItemSchemaVS2005;
         private System.Windows.Forms.ToolStripMenuItem menuItemSchemaVS2003;
-        private System.Windows.Forms.ToolStripSeparator menuItem6;
         private System.Windows.Forms.ToolStripMenuItem menuItemDockingMdi;
         private System.Windows.Forms.ToolStripMenuItem menuItemDockingSdi;
         private System.Windows.Forms.ToolStripMenuItem menuItemDockingWindow;
@@ -634,10 +626,10 @@ namespace ThemeEditor
         private System.Windows.Forms.ToolStripMenuItem disabledItemToolStripMenuItem;
         private ToolStripMenuItem themesToolStripMenuItem;
         private ToolStripMenuItem newToolStripMenuItem;
-        private ToolStripMenuItem opToolStripMenuItem;
         private ToolStripMenuItem openToolStripMenuItem;
         private ToolStripMenuItem saveToolStripMenuItem;
         private ToolStripMenuItem saveAsToolStripMenuItem;
         private ToolStripMenuItem useThemeToolStripMenuItem;
+        private ToolStripMenuItem refreshCurrentToolStripMenuItem;
     }
 }

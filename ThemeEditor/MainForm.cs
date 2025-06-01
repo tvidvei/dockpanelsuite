@@ -624,11 +624,6 @@ namespace ThemeEditor
         private void cmdThemeOpen_Click(object sender, EventArgs e)
         {
             ThemeManager.CmdThemeOpen();
-            //var result = ThemeManager.OpenFileDialog.ShowDialog(this);
-            //if (result == DialogResult.OK)
-            //{
-            //    ThemeManager.CreateNewThemeEditorWindow();
-            //}
         }
 
         private void cmdThemeSave_Click(object sender, EventArgs e)
@@ -646,9 +641,10 @@ namespace ThemeEditor
             ThemeManager.CmdThemeChange();
         }
 
-        private void themesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void cmdThemeRefresh_Click(object sender, EventArgs e)
         {
-
+            var curWnd = ThemeManager.FindThemeEditorWindow(dockPanel.Theme);
+            if (curWnd != null) SetTheme();  // Refreshes
         }
     }
 }

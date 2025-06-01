@@ -24,22 +24,12 @@ namespace WeifenLuo.Docking
 
         public static void CloseAllThemeEditorWindows()
         {
-            //foreach (var wnd in ThemeEditorWindows) {
             while (ThemeEditorWindows.Count > 0)
             {
                 var wnd = ThemeEditorWindows[0];
                 wnd.DockHandler.DockPanel = null;
                 wnd.DockHandler.Close();
-                //wnd.Close(); 
             }
-#if old
-            while (ThemeEditorWindows.Count > 0) {
-                var wnd = ThemeEditorWindows[0];
-                wnd.DockHandler.DockPanel = null;
-                wnd.DockHandler.Close();
-                ThemeEditorWindows.RemoveAt(0); 
-            }
-#endif
         }
 
         public static void UpdateTabTexts()
@@ -50,13 +40,20 @@ namespace WeifenLuo.Docking
         /// <summary>
         /// Searches for a ThemeEditorWindow with the given name
         /// </summary>
-        /// <param name="fileName">full filepath with extension or filename only (without extension)</param>
+        /// <param name="filePath">full filepath with extension or filename only (without extension)</param>
         /// <returns>A ThemeEditorWindow with matching name or null</returns>
         /// Search is done first assuming fileName is a full filePath with extension, then on the fileName only (without path and extension)
-        public static ThemeEditorWindow? FindThemeEditorWindow(string fileName)
+        public static ThemeEditorWindow? FindThemeEditorWindow(string filePath)
         {
-            var fileNameOnly = Path.GetFileNameWithoutExtension(fileName);
-            var result = ThemeEditorWindows.FirstOrDefault(w => w.FileName == fileName) ?? ThemeEditorWindows.FirstOrDefault(w => w.FileName == fileNameOnly);
+            var fileName = GetFileName(filePath);
+            var result = ThemeEditorWindows.FirstOrDefault(w => w.FilePath == filePath) ?? ThemeEditorWindows.FirstOrDefault(w => w.FileName == fileName);
+            return result;
+        }
+
+
+        public static ThemeEditorWindow? FindThemeEditorWindow(Theme theme)
+        {
+            var result = ThemeEditorWindows.FirstOrDefault(w => w.Theme == theme);
             return result;
         }
 
