@@ -399,13 +399,10 @@ namespace ThemeEditor
 
         private void MainForm_Load(object sender, System.EventArgs e)
         {
-            //SetTheme(ThemeManager.DefaultTheme);
-
             string configFile = Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "DockPanel.config");
 
             if (File.Exists(configFile))
                 dockPanel.LoadFromXml(configFile, m_deserializeDockContent, loadTheme: true);
-
             ThemeManager.UpdateTabTexts();
         }
 
@@ -628,12 +625,12 @@ namespace ThemeEditor
 
         private void cmdThemeSave_Click(object sender, EventArgs e)
         {
-
+            ThemeManager.CmdThemeSave();
         }
 
         private void cmdThemeSaveAs_Click(object sender, EventArgs e)
         {
-
+            ThemeManager.CmdThemeSaveAs();
         }
 
         private void cmdThemeChange_Click(object sender, EventArgs e)
@@ -641,10 +638,5 @@ namespace ThemeEditor
             ThemeManager.CmdThemeChange();
         }
 
-        private void cmdThemeRefresh_Click(object sender, EventArgs e)
-        {
-            var curWnd = ThemeManager.FindThemeEditorWindow(dockPanel.Theme);
-            if (curWnd != null) SetTheme();  // Refreshes
-        }
     }
 }

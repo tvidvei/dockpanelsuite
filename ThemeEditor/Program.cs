@@ -23,7 +23,7 @@ namespace ThemeEditor
             }
             catch (Exception e)
             {
-                UserMessages.FatalError(e.Message);
+                UserMessages.FatalErrorMessage(e.Message);
             }
         }
     }

@@ -30,7 +30,7 @@ namespace WeifenLuo.Docking
             {
                 this.TabText = "Theme: "
                     + Theme.DisplayName
-                    + (Theme == (DockPanel?.Theme ?? null) ? " (Current)" : null)
+                    + (ThemeManager.AreEqualPaths(FileName, DockPanel?.Theme.FileName) ? " (Current)" : null)
                     ;
                 this.ToolTipText = ""
                     + Theme.DisplayPath
@@ -56,15 +56,11 @@ namespace WeifenLuo.Docking
             {
                 try
                 {
-                    if (!string.IsNullOrWhiteSpace(value))
-                    {
-                        if (DockPanel.Theme.FileName.ToLower() == value.ToLower()) Theme = DockPanel.Theme;
-                        else Theme = ThemeManager.LoadFromFile(value);
-                    }
+                    Theme = ThemeManager.LoadFromFile(value);
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(Text, e.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    UserMessages.ErrorMessage(e.Message, Text);
                 }
 
             }
@@ -79,18 +75,20 @@ namespace WeifenLuo.Docking
                 {
                     if (!string.IsNullOrWhiteSpace(value))
                     {
-                        if (DockPanel.Theme.FilePath.ToLower() == value.ToLower()) Theme = DockPanel.Theme;
-                        else Theme = ThemeManager.LoadFromFile(value);
+                        //if (DockPanel.Theme.FilePath.ToLower() == value.ToLower()) Theme = DockPanel.Theme;
+                        //else Theme = ThemeManager.LoadFromFile(value);
+                        Theme = ThemeManager.LoadFromFile(value);
                     }
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(Text, e.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    UserMessages.ErrorMessage(e.Message, Text);
                 }
 
             }
         }
 
+        public bool IsCurrent => ThemeManager.AreEqualPaths(FilePath, DockPanel?.Theme.FilePath);
 
         protected override string GetPersistString()
         {

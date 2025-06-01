@@ -1,11 +1,5 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics.Contracts;
-using System.IO;
-using System.Reflection.Metadata;
+﻿using System.Globalization;
 using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Windows.Forms;
 using ThemeEditor;
 using WeifenLuo.Docking;
 
@@ -37,6 +31,10 @@ namespace WeifenLuo.Docking
             foreach (var window in ThemeEditorWindows) { window.SetTabText(); }
         }
 
+        public static int ComparePaths(string strA, string strB) => String.Compare(strA, strB, true, CultureInfo.CurrentCulture);
+
+        public static bool AreEqualPaths(string strA, string strB) => ComparePaths(strA, strB) == 0;
+
         /// <summary>
         /// Searches for a ThemeEditorWindow with the given name
         /// </summary>
@@ -45,23 +43,23 @@ namespace WeifenLuo.Docking
         /// Search is done first assuming fileName is a full filePath with extension, then on the fileName only (without path and extension)
         public static ThemeEditorWindow? FindThemeEditorWindow(string filePath)
         {
-            var fileName = GetFileName(filePath);
-            var result = ThemeEditorWindows.FirstOrDefault(w => w.FilePath == filePath) ?? ThemeEditorWindows.FirstOrDefault(w => w.FileName == fileName);
+            var result = ThemeEditorWindows.FirstOrDefault(w => AreEqualPaths(w.FilePath, filePath));
             return result;
         }
 
+        //public static ThemeEditorWindow? FindCurrentThemeEditorWindow() => FindThemeEditorWindow(DockPanel.Theme.FilePath);
 
-        public static ThemeEditorWindow? FindThemeEditorWindow(Theme theme)
-        {
-            var result = ThemeEditorWindows.FirstOrDefault(w => w.Theme == theme);
-            return result;
-        }
+        public static ThemeEditorWindow? FindCurrentThemeEditorWindow() =>
+            ThemeEditorWindows.FirstOrDefault(w => w.IsCurrent);
 
+        public static ThemeEditorWindow? FindActiveThemeEditorWindow() =>
+            ThemeEditorWindows.FirstOrDefault(w => w.IsActivated);
+       
 
         public static ThemeEditorWindow CreateOrReuseThemeEditorWindow(string? filePath = null)
         {
             // Check if a window for this file already exists
-            ThemeEditorWindow wnd = ThemeEditorWindows.FirstOrDefault(w => w.FileName?.ToLower() == filePath?.ToLower());
+            ThemeEditorWindow wnd = ThemeEditorWindows.FirstOrDefault(w => AreEqualPaths(w.FilePath, filePath));
             if (wnd != null)
             {
                 wnd.Activate();
@@ -72,8 +70,7 @@ namespace WeifenLuo.Docking
             wnd = new ThemeEditorWindow();
             wnd.DockPanel = DockPanel;
             if (!string.IsNullOrWhiteSpace(filePath)) {
-                if (DockPanel.Theme.FilePath.ToLower() == filePath?.ToLower()) wnd.Theme = DockPanel.Theme;
-                else wnd.FilePath = filePath;
+                wnd.FilePath = filePath;
             }
             wnd.Show(DockPanel);
             wnd.Activate();
@@ -107,10 +104,11 @@ namespace WeifenLuo.Docking
         }
 
 
-        public static Theme? LoadFromFile(string filePath)
+        public static Theme? LoadFromFile(string filePath, bool useDefault = false)
         {
             if (string.IsNullOrWhiteSpace(filePath))
             {
+                if (useDefault) return DefaultTheme;
                 throw new Exception("No Theme file given");
             }
             Theme result = null;
@@ -128,6 +126,7 @@ namespace WeifenLuo.Docking
             {
                 if (!File.Exists(filePath))
                 {
+                    if (useDefault) return DefaultTheme;
                     throw new Exception($"Can't find Theme file '{filePath}'");
                 }
                 var jsonString = File.ReadAllText(filePath);
@@ -136,10 +135,38 @@ namespace WeifenLuo.Docking
             }
             else
             {
+                if (useDefault) return DefaultTheme;
                 throw new Exception("Theme file must have extension '.json'");
             }
             result.FilePath = filePath;
             return result;
+        }
+
+        public static void SaveToFile(ThemeEditorWindow wnd, string filePath)
+        {
+            try
+            {
+                var fileExt = Path.GetExtension(filePath);
+                if (fileExt == null)
+                {
+                    filePath += ".json";
+                    fileExt = "json";
+                }
+                if (fileExt.ToLower() != ".json")
+                {
+                    MessageBox.Show("Error: File must have extension '.json'");
+                    return;
+                }
+                string jsonString = JsonSerializer.Serialize(wnd.Theme, typeof(Theme), JsonSerializerOptions);
+                File.WriteAllText(filePath, jsonString);
+                wnd.FilePath = filePath;
+                UpdateTabTexts();
+                if (wnd.IsCurrent) SetTheme(wnd.Theme);
+            }
+            catch (Exception ex)
+            {
+                UserMessages.ErrorMessage(ex.Message, "ThemeManager.SaveToFile");
+            }
         }
 
         private static int newThemeCount = 1;
@@ -156,20 +183,31 @@ namespace WeifenLuo.Docking
 
         public static void SetTheme(string filePath = null)
         {
-            //var theme = fileName != null ? LoadFromFile(fileName) : new Theme();
-            Theme theme = null;
-            if (filePath != null)
+            try
             {
-                if (DockPanel.Theme.FilePath.ToLower() == filePath.ToLower()) return;
-                var wnd = ThemeEditorWindows.FirstOrDefault(w => w.FileName.ToLower() == filePath.ToLower());
-                if (wnd != null) theme = wnd.Theme;
-                else theme = LoadFromFile(filePath);
-            } else
-            {
-                theme = DefaultTheme;  
+                var theme = LoadFromFile(filePath);
+                SetThemeAction(theme);
             }
-            SetThemeAction(theme);
+            catch (Exception e)
+            {
+                UserMessages.ErrorMessage(e.Message, "ThemeManager.SetTheme");
+            }
         }
+
+
+        public static void SetTheme(Theme theme = null) => SetThemeAction(theme);
+
+
+        public static Theme CopyTheme(Theme theme = null)
+        {
+            if (theme == null) return null;
+            Theme result = null;
+            var jsonString = JsonSerializer.Serialize<Theme>(theme, JsonSerializerOptions);
+            result = JsonSerializer.Deserialize<Theme>(jsonString, JsonSerializerOptions);
+            result.Setup();
+            return result;
+        }
+
 
 
         // Commands
@@ -198,12 +236,56 @@ namespace WeifenLuo.Docking
             MainForm.Activate();
         }
 
+        public static void CmdThemeSaveAs()
+        {
+            ThemeEditorWindow wnd = FindActiveThemeEditorWindow();
+            if (wnd != null)
+            {
+                var result = SaveFileDialog.ShowDialog(MainForm);
+                if (result == DialogResult.OK)
+                {
+                    try
+                    {
+                        SaveToFile(wnd, SaveFileDialog.FileName);
+                    }
+                    catch (Exception e)
+                    {
+                        UserMessages.ErrorMessage(e.Message, "ThemeManager.CmdThemeSaveAs");
+                    }
+                }
+                MainForm.Activate();
+            }
+            else
+            {
+                UserMessages.InfoMessage("No active Theme editor window found", "ThemeManager.CmdThemeSaveAs");
+            }
+        }
+
+        public static void CmdThemeSave()
+        {
+            ThemeEditorWindow wnd = FindActiveThemeEditorWindow();
+            if (wnd != null)
+            {
+                try
+                {
+                    SaveToFile(wnd, wnd.FilePath);
+                }
+                catch (Exception e)
+                {
+                    UserMessages.ErrorMessage(e.Message, "ThemeManager.CmdThemeSave");
+                }
+            }
+            else
+            {
+                UserMessages.InfoMessage("No active Theme editor window found", "Information from ThemeManager.CmdThemeSave");
+            }
+        }
+
 
         // Setup
 
         public static void Setup(string defaultThemeName = "default")
         {
-
             JsonSerializerOptions.WriteIndented = true;
             JsonSerializerOptions.Converters.Add(new ColorJsonConverter());
             ThemesPath = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "Themes");

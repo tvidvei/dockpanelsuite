@@ -90,7 +90,6 @@ namespace ThemeEditor
             toolBarButtonSeparator2 = new ToolStripSeparator();
             toolBarButtonLayoutByCode = new ToolStripButton();
             toolBarButtonLayoutByXml = new ToolStripButton();
-            refreshCurrentToolStripMenuItem = new ToolStripMenuItem();
             mainMenu.SuspendLayout();
             toolBar.SuspendLayout();
             SuspendLayout();
@@ -317,7 +316,7 @@ namespace ThemeEditor
             // 
             // themesToolStripMenuItem
             // 
-            themesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { useThemeToolStripMenuItem, newToolStripMenuItem, openToolStripMenuItem, saveToolStripMenuItem, saveAsToolStripMenuItem, refreshCurrentToolStripMenuItem });
+            themesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { useThemeToolStripMenuItem, newToolStripMenuItem, openToolStripMenuItem, saveToolStripMenuItem, saveAsToolStripMenuItem });
             themesToolStripMenuItem.Name = "themesToolStripMenuItem";
             themesToolStripMenuItem.Size = new Size(255, 22);
             themesToolStripMenuItem.Text = "&Themes";
@@ -356,13 +355,6 @@ namespace ThemeEditor
             saveAsToolStripMenuItem.Size = new Size(180, 22);
             saveAsToolStripMenuItem.Text = "Save &As...";
             saveAsToolStripMenuItem.Click += cmdThemeSaveAs_Click;
-            // 
-            // refreshCurrentToolStripMenuItem
-            // 
-            refreshCurrentToolStripMenuItem.Name = "refreshCurrentToolStripMenuItem";
-            refreshCurrentToolStripMenuItem.Size = new Size(180, 22);
-            refreshCurrentToolStripMenuItem.Text = "&Refresh Current";
-            refreshCurrentToolStripMenuItem.Click += cmdThemeRefresh_Click;
             // 
             // menuItemDockingMdi
             // 
@@ -630,6 +622,5 @@ namespace ThemeEditor
         private ToolStripMenuItem saveToolStripMenuItem;
         private ToolStripMenuItem saveAsToolStripMenuItem;
         private ToolStripMenuItem useThemeToolStripMenuItem;
-        private ToolStripMenuItem refreshCurrentToolStripMenuItem;
     }
 }

@@ -324,8 +324,11 @@ namespace WeifenLuo.Docking
 
         public static void LoadFromXml(DockPanel dockPanel, string fileName, DeserializeDockContent deserializeContent, bool loadTheme = false) {
             using (var fs = new FileStream(fileName, FileMode.Open, FileAccess.Read)) {
-                try {
+                try
+                {
                     LoadFromXml(dockPanel, fs, deserializeContent, true, loadTheme);
+                } catch (Exception e) {
+                    UserMessages.ErrorMessage($"Error while trying to load '{fileName}':\r\n{e.Message}", "Persistor.LoadFromXml");
                 } finally {
                     fs.Close();
                 }
@@ -513,7 +516,7 @@ namespace WeifenLuo.Docking
             dockPanel.DockRightPortion = dockPanelStruct.DockRightPortion;
             dockPanel.DockTopPortion = dockPanelStruct.DockTopPortion;
             dockPanel.DockBottomPortion = dockPanelStruct.DockBottomPortion;
-            if (loadTheme) dockPanel.Theme = ThemeManager.LoadFromFile(dockPanelStruct.Theme);
+            if (loadTheme) dockPanel.Theme = ThemeManager.LoadFromFile(dockPanelStruct.Theme, true);
 
             // Set DockWindow ZOrders
             int prevMaxDockWindowZOrder = int.MaxValue;
