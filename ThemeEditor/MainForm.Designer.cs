@@ -328,35 +328,35 @@ namespace ThemeEditor
             useThemeToolStripMenuItem.Name = "useThemeToolStripMenuItem";
             useThemeToolStripMenuItem.Size = new Size(180, 22);
             useThemeToolStripMenuItem.Text = "Change &Theme...";
-            useThemeToolStripMenuItem.Click += cmdThemeChange_Click;
+            useThemeToolStripMenuItem.Click += miThemeChange_Click;
             // 
             // newToolStripMenuItem
             // 
             newToolStripMenuItem.Name = "newToolStripMenuItem";
             newToolStripMenuItem.Size = new Size(180, 22);
             newToolStripMenuItem.Text = "&New";
-            newToolStripMenuItem.Click += cmdThemeNew_Click;
+            newToolStripMenuItem.Click += miThemeNew_Click;
             // 
             // openToolStripMenuItem
             // 
             openToolStripMenuItem.Name = "openToolStripMenuItem";
             openToolStripMenuItem.Size = new Size(180, 22);
             openToolStripMenuItem.Text = "&Open...";
-            openToolStripMenuItem.Click += cmdThemeOpen_Click;
+            openToolStripMenuItem.Click += miThemeOpen_Click;
             // 
             // saveToolStripMenuItem
             // 
             saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             saveToolStripMenuItem.Size = new Size(180, 22);
             saveToolStripMenuItem.Text = "&Save";
-            saveToolStripMenuItem.Click += cmdThemeSave_Click;
+            saveToolStripMenuItem.Click += miThemeSave_Click;
             // 
             // saveAsToolStripMenuItem
             // 
             saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
             saveAsToolStripMenuItem.Size = new Size(180, 22);
             saveAsToolStripMenuItem.Text = "Save &As...";
-            saveAsToolStripMenuItem.Click += cmdThemeSaveAs_Click;
+            saveAsToolStripMenuItem.Click += miThemeSaveAs_Click;
             // 
             // menuItemDockingMdi
             // 
@@ -541,14 +541,14 @@ namespace ThemeEditor
             openCurrentToolStripMenuItem.Name = "openCurrentToolStripMenuItem";
             openCurrentToolStripMenuItem.Size = new Size(180, 22);
             openCurrentToolStripMenuItem.Text = "Open &Current";
-            openCurrentToolStripMenuItem.Click += cmdThemeOpenCurrent_Click;
+            openCurrentToolStripMenuItem.Click += miThemeOpenCurrent_Click;
             // 
             // reloadToolStripMenuItem
             // 
             resetToolStripMenuItem.Name = "resetToolStripMenuItem";
             resetToolStripMenuItem.Size = new Size(180, 22);
             resetToolStripMenuItem.Text = "&Reset";
-            resetToolStripMenuItem.Click += cmdThemeReset_Click;
+            resetToolStripMenuItem.Click += miThemeReset_Click;
             // 
             // MainForm
             // 

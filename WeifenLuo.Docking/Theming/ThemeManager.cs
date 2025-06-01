@@ -171,7 +171,7 @@ namespace WeifenLuo.Docking
                 File.WriteAllText(filePath, jsonString);
                 wnd.FilePath = filePath;
                 UpdateTabTexts();
-                if (wnd.IsCurrent) SetTheme(wnd.Theme);
+                if (wnd.IsCurrent) SetTheme(wnd.FilePath);
             }
             catch (Exception ex)
             {
@@ -205,7 +205,7 @@ namespace WeifenLuo.Docking
         }
 
 
-        public static void SetTheme(Theme theme = null) => SetThemeAction(theme);
+        //public static void SetTheme(Theme theme = null) => SetThemeAction(theme);
 
 
         public static Theme CopyTheme(Theme theme = null)
@@ -221,6 +221,13 @@ namespace WeifenLuo.Docking
 
 
         // Commands
+
+        public static void CmdThemeChangeTo(ThemeEditorWindow wnd = null)
+        {
+            if (wnd == null) wnd = FindActiveThemeEditorWindow();
+            SetTheme(wnd.FilePath);
+            UpdateTabTexts();
+        }
 
 
         public static void CmdThemeChange()
@@ -260,9 +267,9 @@ namespace WeifenLuo.Docking
             MainForm.Activate();
         }
 
-        public static void CmdThemeReset()
+        public static void CmdThemeReset(ThemeEditorWindow wnd = null)
         {
-            ThemeEditorWindow wnd = FindActiveThemeEditorWindow();
+            if (wnd == null) wnd = FindActiveThemeEditorWindow();
             if (wnd != null)
             {
                 try
@@ -280,9 +287,9 @@ namespace WeifenLuo.Docking
             }
         }
 
-        public static void CmdThemeSaveAs()
+        public static void CmdThemeSaveAs(ThemeEditorWindow wnd = null)
         {
-            ThemeEditorWindow wnd = FindActiveThemeEditorWindow();
+            if (wnd == null) wnd = FindActiveThemeEditorWindow();
             if (wnd != null)
             {
                 var result = SaveFileDialog.ShowDialog(MainForm);
@@ -305,9 +312,9 @@ namespace WeifenLuo.Docking
             }
         }
 
-        public static void CmdThemeSave()
+        public static void CmdThemeSave(ThemeEditorWindow wnd = null)
         {
-            ThemeEditorWindow wnd = FindActiveThemeEditorWindow();
+            if (wnd == null) wnd = FindActiveThemeEditorWindow();
             if (wnd != null)
             {
                 try

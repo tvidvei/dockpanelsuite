@@ -29,7 +29,7 @@ namespace WeifenLuo.Docking
             {
                 this.TabText = "Theme: "
                     + Theme.DisplayName
-                    + (DockPanel!= null && ThemeManager.AreEqualPaths(FileName, DockPanel.Theme.FileName) ? " (Current)" : null)
+                    + (DockPanel != null && ThemeManager.AreEqualPaths(FileName, DockPanel.Theme.FileName) ? " (Current)" : null)
                     ;
                 this.ToolTipText = ""
                     + Theme.DisplayPath
@@ -105,6 +105,25 @@ namespace WeifenLuo.Docking
             ThemeManager.ThemeEditorWindows.Remove(this);
         }
 
+        private void miThemeUseThis_Click(object sender, EventArgs e)
+        {
+            ThemeManager.CmdThemeChangeTo(this);
+        }
+
+        private void miThemeReset_Click(object sender, EventArgs e)
+        {
+            ThemeManager.CmdThemeReset(this);
+        }
+
+        private void miThemeSave_Click(object sender, EventArgs e)
+        {
+            ThemeManager.CmdThemeSave(this);
+        }
+
+        private void miThemeSaveAs_Click(object sender, EventArgs e)
+        {
+            ThemeManager.CmdThemeSaveAs(this);
+        }
     }
 
 }

@@ -608,37 +608,37 @@ namespace ThemeEditor
             ResizeSplash();
         }
 
-        private void cmdThemeNew_Click(object sender, EventArgs e)
+        private void miThemeNew_Click(object sender, EventArgs e)
         {
             ThemeManager.CmdThemeNew();
         }
 
-        private void cmdThemeOpenCurrent_Click(object sender, EventArgs e)
+        private void miThemeOpenCurrent_Click(object sender, EventArgs e)
         {
             ThemeManager.CmdThemeOpenCurrent();
         }
 
-        private void cmdThemeOpen_Click(object sender, EventArgs e)
+        private void miThemeOpen_Click(object sender, EventArgs e)
         {
             ThemeManager.CmdThemeOpen();
         }
 
-        private void cmdThemeSave_Click(object sender, EventArgs e)
+        private void miThemeSave_Click(object sender, EventArgs e)
         {
             ThemeManager.CmdThemeSave();
         }
 
-        private void cmdThemeSaveAs_Click(object sender, EventArgs e)
+        private void miThemeSaveAs_Click(object sender, EventArgs e)
         {
             ThemeManager.CmdThemeSaveAs();
         }
 
-        private void cmdThemeChange_Click(object sender, EventArgs e)
+        private void miThemeChange_Click(object sender, EventArgs e)
         {
             ThemeManager.CmdThemeChange();
         }
 
-        private void cmdThemeReset_Click(object sender, EventArgs e)
+        private void miThemeReset_Click(object sender, EventArgs e)
         {
             ThemeManager.CmdThemeReset();
         }
