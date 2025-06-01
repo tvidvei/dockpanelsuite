@@ -90,6 +90,8 @@ namespace ThemeEditor
             toolBarButtonSeparator2 = new ToolStripSeparator();
             toolBarButtonLayoutByCode = new ToolStripButton();
             toolBarButtonLayoutByXml = new ToolStripButton();
+            openCurrentToolStripMenuItem = new ToolStripMenuItem();
+            resetToolStripMenuItem = new ToolStripMenuItem();
             mainMenu.SuspendLayout();
             toolBar.SuspendLayout();
             SuspendLayout();
@@ -316,7 +318,7 @@ namespace ThemeEditor
             // 
             // themesToolStripMenuItem
             // 
-            themesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { useThemeToolStripMenuItem, newToolStripMenuItem, openToolStripMenuItem, saveToolStripMenuItem, saveAsToolStripMenuItem });
+            themesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { useThemeToolStripMenuItem, newToolStripMenuItem, openCurrentToolStripMenuItem, openToolStripMenuItem, resetToolStripMenuItem, saveToolStripMenuItem, saveAsToolStripMenuItem });
             themesToolStripMenuItem.Name = "themesToolStripMenuItem";
             themesToolStripMenuItem.Size = new Size(255, 22);
             themesToolStripMenuItem.Text = "&Themes";
@@ -534,6 +536,20 @@ namespace ThemeEditor
             toolBarButtonLayoutByXml.Size = new Size(23, 22);
             toolBarButtonLayoutByXml.ToolTipText = "Show layout by predefined XML file";
             // 
+            // openCurrentToolStripMenuItem
+            // 
+            openCurrentToolStripMenuItem.Name = "openCurrentToolStripMenuItem";
+            openCurrentToolStripMenuItem.Size = new Size(180, 22);
+            openCurrentToolStripMenuItem.Text = "Open &Current";
+            openCurrentToolStripMenuItem.Click += cmdThemeOpenCurrent_Click;
+            // 
+            // reloadToolStripMenuItem
+            // 
+            resetToolStripMenuItem.Name = "resetToolStripMenuItem";
+            resetToolStripMenuItem.Size = new Size(180, 22);
+            resetToolStripMenuItem.Text = "&Reset";
+            resetToolStripMenuItem.Click += cmdThemeReset_Click;
+            // 
             // MainForm
             // 
             ClientSize = new Size(579, 409);
@@ -622,5 +638,7 @@ namespace ThemeEditor
         private ToolStripMenuItem saveToolStripMenuItem;
         private ToolStripMenuItem saveAsToolStripMenuItem;
         private ToolStripMenuItem useThemeToolStripMenuItem;
+        private ToolStripMenuItem openCurrentToolStripMenuItem;
+        private ToolStripMenuItem resetToolStripMenuItem;
     }
 }

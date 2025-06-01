@@ -7,7 +7,6 @@ namespace WeifenLuo.Docking
         {
             InitializeComponent();
             ThemeManager.ThemeEditorWindows.Add(this);
-            //Theme = ThemeManager.CreateNew();
         }
 
         public ThemeEditorWindow(string? fileName)
@@ -30,7 +29,7 @@ namespace WeifenLuo.Docking
             {
                 this.TabText = "Theme: "
                     + Theme.DisplayName
-                    + (ThemeManager.AreEqualPaths(FileName, DockPanel?.Theme.FileName) ? " (Current)" : null)
+                    + (DockPanel!= null && ThemeManager.AreEqualPaths(FileName, DockPanel.Theme.FileName) ? " (Current)" : null)
                     ;
                 this.ToolTipText = ""
                     + Theme.DisplayPath
@@ -75,8 +74,6 @@ namespace WeifenLuo.Docking
                 {
                     if (!string.IsNullOrWhiteSpace(value))
                     {
-                        //if (DockPanel.Theme.FilePath.ToLower() == value.ToLower()) Theme = DockPanel.Theme;
-                        //else Theme = ThemeManager.LoadFromFile(value);
                         Theme = ThemeManager.LoadFromFile(value);
                     }
                 }
@@ -92,6 +89,12 @@ namespace WeifenLuo.Docking
 
         protected override string GetPersistString()
         {
+            if (string.IsNullOrWhiteSpace(FileName))
+            {
+                // New unsaved Theme. Save under temporary name
+                ThemeManager.SaveToFile(this, ThemeManager.GetFilePath("~" + Theme.TempName));
+
+            }
             // Add extra information into the persist string for this document
             // so that it is available when deserialized.
             return GetType().ToString() + "," + FileName + "," + Text;

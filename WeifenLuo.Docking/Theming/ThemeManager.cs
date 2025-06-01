@@ -54,7 +54,17 @@ namespace WeifenLuo.Docking
 
         public static ThemeEditorWindow? FindActiveThemeEditorWindow() =>
             ThemeEditorWindows.FirstOrDefault(w => w.IsActivated);
-       
+
+
+        public static ThemeEditorWindow CreateNewThemeEditorWindow()
+        {
+            ThemeEditorWindow wnd = new ThemeEditorWindow();
+            wnd.DockPanel = DockPanel;
+            wnd.Theme = CreateNew();
+            wnd.Show(DockPanel);
+            wnd.Activate();
+            return wnd;
+        }
 
         public static ThemeEditorWindow CreateOrReuseThemeEditorWindow(string? filePath = null)
         {
@@ -173,8 +183,8 @@ namespace WeifenLuo.Docking
 
         public static Theme CreateNew(string tempName = null)
         {
-            var result = new Theme();
-            result.TempName = tempName ?? "NewTheme" + newThemeCount++;
+            var result = CopyTheme(DockPanel.GetDefaultTheme());  // Should DockPane.GetDefaultTheme() be used instead?
+            result.TempName = tempName ?? "New" + newThemeCount++;
             return result;
         }
 
@@ -224,6 +234,20 @@ namespace WeifenLuo.Docking
             MainForm.Activate();
         }
 
+        public static void CmdThemeNew()
+        {
+            CreateNewThemeEditorWindow();  
+        }
+
+
+        public static void CmdThemeOpenCurrent()
+        {
+            ThemeEditorWindow wnd = FindCurrentThemeEditorWindow();
+            if (wnd != null) wnd.Activate();
+            else CreateOrReuseThemeEditorWindow(DockPanel.Theme.FilePath);
+        }
+
+
         public static void CmdThemeOpen()
         {
             ThemeEditorWindow wnd = null;
@@ -234,6 +258,26 @@ namespace WeifenLuo.Docking
                 return;
             }
             MainForm.Activate();
+        }
+
+        public static void CmdThemeReset()
+        {
+            ThemeEditorWindow wnd = FindActiveThemeEditorWindow();
+            if (wnd != null)
+            {
+                try
+                {
+                    wnd.Theme = ThemeManager.LoadFromFile(wnd.FilePath); ;
+                }
+                catch (Exception e)
+                {
+                    UserMessages.ErrorMessage(e.Message, "ThemeManager.CmdThemeSaveAs");
+                }
+            }
+            else
+            {
+                UserMessages.InfoMessage("No active Theme editor window found", "ThemeManager.CmdThemeSaveAs");
+            }
         }
 
         public static void CmdThemeSaveAs()

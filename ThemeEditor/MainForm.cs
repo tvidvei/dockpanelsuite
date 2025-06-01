@@ -610,12 +610,12 @@ namespace ThemeEditor
 
         private void cmdThemeNew_Click(object sender, EventArgs e)
         {
-
+            ThemeManager.CmdThemeNew();
         }
 
         private void cmdThemeOpenCurrent_Click(object sender, EventArgs e)
         {
-
+            ThemeManager.CmdThemeOpenCurrent();
         }
 
         private void cmdThemeOpen_Click(object sender, EventArgs e)
@@ -638,5 +638,10 @@ namespace ThemeEditor
             ThemeManager.CmdThemeChange();
         }
 
-    }
+        private void cmdThemeReset_Click(object sender, EventArgs e)
+        {
+            ThemeManager.CmdThemeReset();
+        }
+
+}
 }
