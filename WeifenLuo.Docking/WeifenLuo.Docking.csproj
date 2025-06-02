@@ -85,7 +85,7 @@
     <Compile Include="PaneSplitterBase.cs" />
     <Compile Include="SplitterDragHandler.cs" />
     <Compile Include="Theming\DockPanelColorPalette.cs" />
-    <Compile Include="Theming\JsonConverters.cs" />
+    <Compile Include="Theming\ThemeSerializer.cs" />
     <Compile Include="Theming\Theme.cs" />
     <Compile Include="Theming\ThemeManager.cs" />
     <Compile Include="Theming\ThemeEditorWindow.cs">

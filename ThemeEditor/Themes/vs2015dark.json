@@ -1,211 +1,301 @@
 {
+  "ThemeVersion": 1,
   "ColorPalette": {
     "AutoHideStripDefault": {
-      "Background": "ff2d2d30",
-      "Border": "ff3f3f46",
-      "Text": "ffd0d0d0"
+      "Background": "45, 45, 48",
+      "Border": "63, 63, 70",
+      "Text": "208, 208, 208"
     },
     "AutoHideStripHovered": {
-      "Background": "ff2d2d30",
-      "Border": "ff007acc",
-      "Text": "ff0097fb"
+      "Background": "45, 45, 48",
+      "Border": "0, 122, 204",
+      "Text": "0, 151, 251"
     },
     "OverflowButtonDefault": {
-      "Glyph": "fff1f1f1"
+      "Glyph": "241, 241, 241"
     },
     "OverflowButtonHovered": {
-      "Background": "ff3e3e40",
-      "Border": "ff3e3e40",
-      "Glyph": "ff007acc"
+      "Background": "62, 62, 64",
+      "Border": "62, 62, 64",
+      "Glyph": "0, 122, 204"
     },
     "OverflowButtonPressed": {
-      "Background": "ff007acc",
-      "Border": "ff007acc",
+      "Background": "0, 122, 204",
+      "Border": "0, 122, 204",
       "Glyph": "White"
     },
     "TabSelectedActive": {
-      "Background": "ff007acc",
-      "Button": "ffd0e6f5",
+      "Background": "0, 122, 204",
+      "Button": "208, 230, 245",
       "Text": "White"
     },
     "TabSelectedInactive": {
-      "Background": "ff3f3f46",
-      "Button": "ff6d6d70",
-      "Text": "fff1f1f1"
+      "Background": "63, 63, 70",
+      "Button": "109, 109, 112",
+      "Text": "241, 241, 241"
     },
     "TabUnselected": {
-      "Background": "ff2d2d30",
-      "Text": "fff1f1f1"
+      "Background": "45, 45, 48",
+      "Text": "241, 241, 241"
     },
     "TabUnselectedHovered": {
-      "Background": "ff1c97ea",
-      "Button": "ffd0e6f5",
+      "Background": "28, 151, 234",
+      "Button": "208, 230, 245",
       "Text": "White"
     },
     "TabButtonSelectedActiveHovered": {
-      "Background": "ff1c97ea",
-      "Border": "ff1c97ea",
+      "Background": "28, 151, 234",
+      "Border": "28, 151, 234",
       "Glyph": "White"
     },
     "TabButtonSelectedActivePressed": {
-      "Background": "ff0e6198",
-      "Border": "ff0e6198",
+      "Background": "14, 97, 152",
+      "Border": "14, 97, 152",
       "Glyph": "White"
     },
     "TabButtonSelectedInactiveHovered": {
-      "Background": "ff555555",
-      "Border": "ff555555",
-      "Glyph": "fff1f1f1"
+      "Background": "85, 85, 85",
+      "Border": "85, 85, 85",
+      "Glyph": "241, 241, 241"
     },
     "TabButtonSelectedInactivePressed": {
-      "Background": "ff1b1b1c",
-      "Border": "ff1b1b1c",
-      "Glyph": "fff1f1f1"
+      "Background": "27, 27, 28",
+      "Border": "27, 27, 28",
+      "Glyph": "241, 241, 241"
     },
     "TabButtonUnselectedTabHoveredButtonHovered": {
-      "Background": "ff52b0ef",
-      "Border": "ff52b0ef",
+      "Background": "82, 176, 239",
+      "Border": "82, 176, 239",
       "Glyph": "White"
     },
     "TabButtonUnselectedTabHoveredButtonPressed": {
-      "Background": "ff0e6198",
-      "Border": "ff0e6198",
+      "Background": "14, 97, 152",
+      "Border": "14, 97, 152",
       "Glyph": "White"
     },
     "MainWindowActive": {
-      "Background": "ff2d2d30"
+      "Background": "45, 45, 48"
     },
     "MainWindowStatusBarDefault": {
-      "Background": "ff007acc",
-      "Highlight": "4c000000",
+      "Background": "0, 122, 204",
+      "Highlight": "76, 0, 0, 0",
       "HighlightText": "White",
       "ResizeGrip": "White",
-      "ResizeGripAccent": "7f000000",
+      "ResizeGripAccent": "127, 0, 0, 0",
       "Text": "White"
     },
     "ToolWindowCaptionActive": {
-      "Background": "ff007acc",
+      "Background": "0, 122, 204",
       "Button": "White",
-      "Grip": "ff59a8de",
+      "Grip": "89, 168, 222",
       "Text": "White"
     },
     "ToolWindowCaptionInactive": {
-      "Background": "ff2d2d30",
-      "Button": "fff1f1f1",
-      "Grip": "ff46464a",
-      "Text": "ffd0d0d0"
+      "Background": "45, 45, 48",
+      "Button": "241, 241, 241",
+      "Grip": "70, 70, 74",
+      "Text": "208, 208, 208"
     },
     "ToolWindowCaptionButtonActiveHovered": {
-      "Background": "ff52b0ef",
-      "Border": "ff52b0ef",
+      "Background": "82, 176, 239",
+      "Border": "82, 176, 239",
       "Glyph": "White"
     },
     "ToolWindowCaptionButtonPressed": {
-      "Background": "ff0e6198",
-      "Border": "ff0e6198",
+      "Background": "14, 97, 152",
+      "Border": "14, 97, 152",
       "Glyph": "White"
     },
     "ToolWindowCaptionButtonInactiveHovered": {
-      "Background": "ff393939",
-      "Border": "ff393939",
-      "Glyph": "fff1f1f1"
+      "Background": "57, 57, 57",
+      "Border": "57, 57, 57",
+      "Glyph": "241, 241, 241"
     },
     "ToolWindowTabSelectedActive": {
-      "Background": "ff252526",
-      "Text": "ff0097fb"
+      "Background": "37, 37, 38",
+      "Text": "0, 151, 251"
     },
     "ToolWindowTabSelectedInactive": {
-      "Background": "ff252526",
-      "Text": "ff0097fb"
+      "Background": "37, 37, 38",
+      "Text": "0, 151, 251"
     },
     "ToolWindowTabUnselected": {
-      "Background": "ff2d2d30",
-      "Text": "ffd0d0d0"
+      "Background": "45, 45, 48",
+      "Text": "208, 208, 208"
     },
     "ToolWindowTabUnselectedHovered": {
-      "Background": "ff3e3e40",
-      "Text": "ff55aaff"
+      "Background": "62, 62, 64",
+      "Text": "85, 170, 255"
     },
-    "ToolWindowBorder": "ff3f3f46",
-    "ToolWindowSeparator": "ff3f3f46",
+    "ToolWindowBorder": "63, 63, 70",
+    "ToolWindowSeparator": "63, 63, 70",
     "DockTarget": {
-      "Background": "ff1b1b1c",
-      "Border": "ff333337",
-      "ButtonBackground": "ff252526",
-      "ButtonBorder": "ff252526",
-      "GlyphBackground": "ff252526",
-      "GlyphArrow": "fff1f1f1",
-      "GlyphBorder": "ff007acc"
+      "Background": "27, 27, 28",
+      "Border": "51, 51, 55",
+      "ButtonBackground": "37, 37, 38",
+      "ButtonBorder": "37, 37, 38",
+      "GlyphBackground": "37, 37, 38",
+      "GlyphArrow": "241, 241, 241",
+      "GlyphBorder": "0, 122, 204"
     },
     "CommandBarMenuDefault": {
-      "Background": "ff2d2d30",
-      "Text": "fff1f1f1"
+      "Background": "45, 45, 48",
+      "Text": "241, 241, 241"
     },
     "CommandBarMenuPopupDefault": {
-      "Arrow": "ff999999",
-      "BackgroundBottom": "ff1b1b1c",
-      "BackgroundTop": "ff1b1b1c",
-      "Border": "ff333337",
-      "Checkmark": "ff999999",
-      "CheckmarkBackground": "ff2d2d30",
-      "IconBackground": "ff1b1b1c",
-      "Separator": "ff333337"
+      "Arrow": "153, 153, 153",
+      "BackgroundBottom": "27, 27, 28",
+      "BackgroundTop": "27, 27, 28",
+      "Border": "51, 51, 55",
+      "Checkmark": "153, 153, 153",
+      "CheckmarkBackground": "45, 45, 48",
+      "IconBackground": "27, 27, 28",
+      "Separator": "51, 51, 55"
     },
     "CommandBarMenuPopupDisabled": {
-      "Checkmark": "ff656565",
-      "CheckmarkBackground": "ff2d2d30",
-      "Text": "ff656565"
+      "Checkmark": "101, 101, 101",
+      "CheckmarkBackground": "45, 45, 48",
+      "Text": "101, 101, 101"
     },
     "CommandBarMenuPopupHovered": {
-      "Arrow": "ff007acc",
-      "Checkmark": "fff1f1f1",
-      "CheckmarkBackground": "ff3e3e40",
-      "ItemBackground": "ff333334",
-      "Text": "fff1f1f1"
+      "Arrow": "0, 122, 204",
+      "Checkmark": "241, 241, 241",
+      "CheckmarkBackground": "62, 62, 64",
+      "ItemBackground": "51, 51, 52",
+      "Text": "241, 241, 241"
     },
     "CommandBarMenuTopLevelHeaderHovered": {
-      "Background": "ff3e3e40",
-      "Border": "ff2d2d30",
-      "Text": "fff1f1f1"
+      "Background": "62, 62, 64",
+      "Border": "45, 45, 48",
+      "Text": "241, 241, 241"
     },
     "CommandBarToolbarDefault": {
-      "Background": "ff2d2d30",
-      "Border": "ff2d2d30",
-      "Grip": "ff46464a",
-      "OverflowButtonBackground": "ff2d2d30",
-      "OverflowButtonGlyph": "ff999999",
-      "Separator": "ff222222",
-      "SeparatorAccent": "ff46464a",
-      "Tray": "ff2d2d30"
+      "Background": "45, 45, 48",
+      "Border": "45, 45, 48",
+      "Grip": "70, 70, 74",
+      "OverflowButtonBackground": "45, 45, 48",
+      "OverflowButtonGlyph": "153, 153, 153",
+      "Separator": "34, 34, 34",
+      "SeparatorAccent": "70, 70, 74",
+      "Tray": "45, 45, 48"
     },
     "CommandBarToolbarButtonChecked": {
-      "Background": "ff2d2d30",
+      "Background": "45, 45, 48",
       "Border": "MenuHighlight",
-      "Text": "fff1f1f1"
+      "Text": "241, 241, 241"
     },
     "CommandBarToolbarButtonCheckedHovered": {
       "Border": "MenuHighlight",
-      "Text": "fff1f1f1"
+      "Text": "241, 241, 241"
     },
     "CommandBarToolbarButtonDefault": {
-      "Arrow": "ff999999"
+      "Arrow": "153, 153, 153"
     },
     "CommandBarToolbarButtonHovered": {
-      "Arrow": "ff007acc",
-      "Separator": "ff333337"
+      "Arrow": "0, 122, 204",
+      "Separator": "51, 51, 55"
     },
     "CommandBarToolbarButtonPressed": {
       "Arrow": "White",
-      "Background": "ff007acc",
+      "Background": "0, 122, 204",
       "Text": "White"
     },
     "CommandBarToolbarOverflowHovered": {
-      "Background": "72555555",
-      "Glyph": "ff007acc"
+      "Background": "\u002772555555\u0027",
+      "Glyph": "0, 122, 204"
     },
     "CommandBarToolbarOverflowPressed": {
-      "Background": "ff007acc",
+      "Background": "0, 122, 204",
       "Glyph": "White"
     }
-  }
+  },
+  "Skin": {
+    "AutoHideStripSkin": {
+      "DockStripGradient": {
+        "StartColor": "Control",
+        "EndColor": "Control",
+        "LinearGradientMode": 0
+      },
+      "TabGradient": {
+        "TextColor": "ControlText",
+        "StartColor": "Control",
+        "EndColor": "Control",
+        "LinearGradientMode": 0
+      },
+      "DockStripBackground": {
+        "StartColor": "Control",
+        "EndColor": "Control"
+      },
+      "TextFont": "Segoe UI, 9pt"
+    },
+    "DockPaneStripSkin": {
+      "DocumentGradient": {
+        "DockStripGradient": {
+          "StartColor": "Control",
+          "EndColor": "Control",
+          "LinearGradientMode": 0
+        },
+        "ActiveTabGradient": {
+          "TextColor": "ControlText",
+          "StartColor": "Control",
+          "EndColor": "Control",
+          "LinearGradientMode": 0
+        },
+        "HoverTabGradient": {
+          "TextColor": "ControlText",
+          "StartColor": "Control",
+          "EndColor": "Control",
+          "LinearGradientMode": 0
+        },
+        "InactiveTabGradient": {
+          "TextColor": "ControlText",
+          "StartColor": "Control",
+          "EndColor": "Control",
+          "LinearGradientMode": 0
+        }
+      },
+      "ToolWindowGradient": {
+        "ActiveCaptionGradient": {
+          "TextColor": "ControlText",
+          "StartColor": "Control",
+          "EndColor": "Control",
+          "LinearGradientMode": 0
+        },
+        "InactiveCaptionGradient": {
+          "TextColor": "ControlText",
+          "StartColor": "Control",
+          "EndColor": "Control",
+          "LinearGradientMode": 0
+        },
+        "DockStripGradient": {
+          "StartColor": "Control",
+          "EndColor": "Control",
+          "LinearGradientMode": 0
+        },
+        "ActiveTabGradient": {
+          "TextColor": "ControlText",
+          "StartColor": "Control",
+          "EndColor": "Control",
+          "LinearGradientMode": 0
+        },
+        "HoverTabGradient": {
+          "TextColor": "ControlText",
+          "StartColor": "Control",
+          "EndColor": "Control",
+          "LinearGradientMode": 0
+        },
+        "InactiveTabGradient": {
+          "TextColor": "ControlText",
+          "StartColor": "Control",
+          "EndColor": "Control",
+          "LinearGradientMode": 0
+        }
+      },
+      "TextFont": "Segoe UI, 9pt"
+    }
+  },
+  "Measures": {
+    "DockPadding": 6
+  },
+  "ShowAutoHideContentOnHover": false
 }

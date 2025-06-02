@@ -1,6 +1,5 @@
 ﻿using System.Drawing;
 using System.Globalization;
-using System.Text.Json;
 using WeifenLuo.Docking;
 using static System.Windows.Forms.Design.AxImporter;
 
@@ -92,8 +91,7 @@ namespace WeifenLuo.Docking
 
         public static SaveFileDialog SaveFileDialog { get; set; }
 
-
-        private static JsonSerializerOptions JsonSerializerOptions = new JsonSerializerOptions();
+        private static ThemeSerializer Serializer = new();
 
         public static string ThemesPath { get; set; }
 
@@ -141,7 +139,7 @@ namespace WeifenLuo.Docking
                     throw new Exception($"Can't find Theme file '{filePath}'");
                 }
                 var jsonString = File.ReadAllText(filePath);
-                result = JsonSerializer.Deserialize<Theme>(jsonString, JsonSerializerOptions);
+                result = Serializer.Deserialize(jsonString);
                 result.Setup();
             }
             else
@@ -168,7 +166,7 @@ namespace WeifenLuo.Docking
                     MessageBox.Show("Error: File must have extension '.json'");
                     return;
                 }
-                string jsonString = JsonSerializer.Serialize(wnd.Theme, typeof(Theme), JsonSerializerOptions);
+                string jsonString = Serializer.Serialize(wnd.Theme);
                 File.WriteAllText(filePath, jsonString);
                 wnd.FilePath = filePath;
                 UpdateTabTexts();
@@ -205,20 +203,15 @@ namespace WeifenLuo.Docking
             }
         }
 
-
-        //public static void SetTheme(Theme theme = null) => SetThemeAction(theme);
-
-
         public static Theme CopyTheme(Theme theme = null)
         {
             if (theme == null) return null;
             Theme result = null;
-            var jsonString = JsonSerializer.Serialize<Theme>(theme, JsonSerializerOptions);
-            result = JsonSerializer.Deserialize<Theme>(jsonString, JsonSerializerOptions);
+            var jsonString = Serializer.Serialize(theme);
+            result = Serializer.Deserialize(jsonString);
             result.Setup();
             return result;
         }
-
 
 
         // Commands
@@ -338,12 +331,6 @@ namespace WeifenLuo.Docking
 
         public static void Setup(string defaultThemeName = "default")
         {
-            JsonSerializerOptions.WriteIndented = true;
-            JsonSerializerOptions.Converters.Add(new ColorJsonConverter());
-            //options.Converters.Add(new TypeDescriptorJsonConverter<System.Drawing.Color>());
-            JsonSerializerOptions.Converters.Add(new TypeDescriptorJsonConverter<System.Drawing.Font>());
-
-
             ThemesPath = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "Themes");
 
             OpenFileDialog = new OpenFileDialog();

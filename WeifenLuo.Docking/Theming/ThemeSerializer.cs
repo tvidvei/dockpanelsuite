@@ -12,13 +12,31 @@ using System.Text.RegularExpressions;
 namespace WeifenLuo.Docking
 {
 
-    public interface IVersionedObject<V>
+
+    public class ThemeSerializer : VersionedJsonSerializer<Theme, int>
     {
-        V Version { get; set; }
+
+        public override JsonSerializerOptions CreateOptions(int version)
+        {
+            var options = new JsonSerializerOptions();
+
+            options.WriteIndented = true;
+            //options.Converters.Add(new ColorJsonConverter());
+            if (version >= 1)
+                options.Converters.Add(new TypeDescriptorJsonConverter<System.Drawing.Color>());
+            else
+                options.Converters.Add(new ColorJsonConverter());
+            options.Converters.Add(new TypeDescriptorJsonConverter<System.Drawing.Font>());
+
+            return options;
+        }
+
+        public ThemeSerializer() : base(nameof(Theme.ThemeVersion), 1) { }
     }
 
 
-    public class JsonVersionedSerializer<T,V> where T : class
+
+    public class VersionedJsonSerializer<T,V> where T : class where V : IComparable
     {
         /// <summary>
         /// Version Property
@@ -52,10 +70,10 @@ namespace WeifenLuo.Docking
 
         public virtual V GetVersionFromJson(string json)
         {
-            var match = Regex.Match(json, $"\"{VersionPropertyJsonName}\"\\s*\\\"?(^[\\s,}}])\\\"?\\s*[,}}]");
+            var match = Regex.Match(json, $"\"{VersionPropertyJsonName}\"\\s*:\\s*\\\"?([^\\,}}\\\"]*)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
             if (match.Success)
             {
-                string s = match.Groups[1].Value;
+                string s = match.Groups[1].Value.Trim();
                 V result = (V)VersionTypeConverter.ConvertFromString(s);
                 return result;
             }
@@ -81,33 +99,17 @@ namespace WeifenLuo.Docking
             return JsonSerializer.Serialize(obj, GetOptions(CurrentVersion));
         }
 
-        public JsonVersionedSerializer(string versionPropertyName, V currentVersion, V defaultVersion = default(V))
+        public VersionedJsonSerializer(string versionPropertyName, V currentVersion, V defaultVersion = default(V))
         {
             VersionProperty = typeof(T).GetProperty(versionPropertyName);
             if (VersionProperty.PropertyType != typeof(V)) 
                 throw new Exception($"Version Property must be of type '{typeof(V).Name}'");
+            var custName = VersionProperty.GetCustomAttribute<JsonPropertyNameAttribute>();
+            VersionPropertyJsonName = custName?.Name ?? versionPropertyName;
             CurrentVersion = currentVersion;
             DefaultVersion = defaultVersion;
         }
 
-    }
-
-
-    public class ThemeJsonSerializer : JsonVersionedSerializer<Theme, int> {
-
-        public override JsonSerializerOptions CreateOptions(int version)
-        {
-            var options = new JsonSerializerOptions();
-
-            options.WriteIndented = true;
-            options.Converters.Add(new ColorJsonConverter());
-            //options.Converters.Add(new TypeDescriptorJsonConverter<System.Drawing.Color>());
-            options.Converters.Add(new TypeDescriptorJsonConverter<System.Drawing.Font>());
-
-            return options;
-        }
-
-        public ThemeJsonSerializer(int currentVersion) : base(nameof(Theme.ThemeVersion), currentVersion) { }
     }
 
 
