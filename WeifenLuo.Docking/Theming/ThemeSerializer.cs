@@ -46,14 +46,12 @@ namespace WeifenLuo.Docking
         /// <summary>
         /// Name of VersionProperty in Json files
         /// </summary>
-        public string VersionPropertyJsonName { get; private set; }
+        public string VersionPropertyJsonNames { get; private set; }
 
         /// <summary>
         /// Version
         /// </summary>
         public V CurrentVersion { get; private set; }
-
-        public V DefaultVersion { get; private set; }
 
         static TypeConverter VersionTypeConverter { get; } = TypeDescriptor.GetConverter(typeof(V));
 
@@ -80,10 +78,10 @@ namespace WeifenLuo.Docking
 
         public virtual V GetVersionFromJson(string json)
         {
-            var match = Regex.Match(json, $"\"{VersionPropertyJsonName}\"\\s*:\\s*\\\"?([^\\,}}\\\"]*)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+            var match = Regex.Match(json, $"\"({VersionPropertyJsonNames})\"\\s*:\\s*\\\"?([^\\,}}\\\"]*)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
             if (match.Success)
             {
-                string s = match.Groups[1].Value.Trim();
+                string s = match.Groups[2].Value.Trim();
                 V result = (V)VersionTypeConverter.ConvertFromString(s);
                 return result;
             }
@@ -109,15 +107,18 @@ namespace WeifenLuo.Docking
             return JsonSerializer.Serialize(obj, GetOptions(CurrentVersion));
         }
 
-        public VersionedJsonSerializer(string versionPropertyName, V currentVersion, V defaultVersion = default(V))
+        public VersionedJsonSerializer(string versionPropertyName, V currentVersion, string alternativeVersionPropertyNames = null)
         {
             VersionProperty = typeof(T).GetProperty(versionPropertyName);
             if (VersionProperty.PropertyType != typeof(V)) 
                 throw new Exception($"Version Property must be of type '{typeof(V).Name}'");
             var custName = VersionProperty.GetCustomAttribute<JsonPropertyNameAttribute>();
-            VersionPropertyJsonName = custName?.Name ?? versionPropertyName;
+            VersionPropertyJsonNames = custName?.Name ?? versionPropertyName;
+            if (!String.IsNullOrEmpty(alternativeVersionPropertyNames))
+            {
+                VersionPropertyJsonNames += "|" + alternativeVersionPropertyNames;
+            }
             CurrentVersion = currentVersion;
-            DefaultVersion = defaultVersion;
         }
 
     }
