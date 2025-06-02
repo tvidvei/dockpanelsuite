@@ -339,11 +339,11 @@ namespace WeifenLuo.Docking
                 Rectangle rectLimit = DockPanel.DockArea;
 
                 if ((this as ISplitterDragSource).IsVertical) {
-                    rectLimit.X += MeasurePane.MinSize;
-                    rectLimit.Width -= 2 * MeasurePane.MinSize;
+                    rectLimit.X += DockConstants.PaneMinSize;
+                    rectLimit.Width -= 2 * DockConstants.PaneMinSize;
                 } else {
-                    rectLimit.Y += MeasurePane.MinSize;
-                    rectLimit.Height -= 2 * MeasurePane.MinSize;
+                    rectLimit.Y += DockConstants.PaneMinSize;
+                    rectLimit.Height -= 2 * DockConstants.PaneMinSize;
                 }
 
                 return DockPanel.RectangleToScreen(rectLimit);

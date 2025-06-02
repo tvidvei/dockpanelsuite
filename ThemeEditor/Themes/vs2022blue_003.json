@@ -1,0 +1,304 @@
+{
+  "ThemeVersion": 1,
+  "ColorPalette": {
+    "AutoHideStripDefault": {
+      "Background": "41, 57, 85",
+      "Border": "70, 90, 125",
+      "Text": "White"
+    },
+    "AutoHideStripHovered": {
+      "Background": "41, 57, 85",
+      "Border": "155, 167, 183",
+      "Text": "White"
+    },
+    "OverflowButtonDefault": {
+      "Glyph": "206, 212, 221"
+    },
+    "OverflowButtonHovered": {
+      "Background": "255, 252, 244",
+      "Border": "229, 195, 101",
+      "Glyph": "Black"
+    },
+    "OverflowButtonPressed": {
+      "Background": "255, 232, 166",
+      "Border": "229, 195, 101",
+      "Glyph": "Black"
+    },
+    "TabSelectedActive": {
+      "Background": "255, 242, 157",
+      "Button": "117, 99, 61",
+      "Text": "Black"
+    },
+    "TabSelectedInactive": {
+      "Background": "77, 96, 130",
+      "Button": "206, 212, 221",
+      "Text": "White"
+    },
+    "TabUnselected": {
+      "Background": "54, 78, 111",
+      "Text": "White"
+    },
+    "TabUnselectedHovered": {
+      "Background": "91, 113, 153",
+      "Button": "206, 212, 221",
+      "Text": "White"
+    },
+    "TabButtonSelectedActiveHovered": {
+      "Background": "255, 252, 244",
+      "Border": "229, 195, 101",
+      "Glyph": "Black"
+    },
+    "TabButtonSelectedActivePressed": {
+      "Background": "253, 244, 191",
+      "Border": "229, 195, 101",
+      "Glyph": "Black"
+    },
+    "TabButtonSelectedInactiveHovered": {
+      "Background": "255, 252, 244",
+      "Border": "229, 195, 101",
+      "Glyph": "Black"
+    },
+    "TabButtonSelectedInactivePressed": {
+      "Background": "253, 244, 191",
+      "Border": "229, 195, 101",
+      "Glyph": "Black"
+    },
+    "TabButtonUnselectedTabHoveredButtonHovered": {
+      "Background": "255, 252, 244",
+      "Border": "229, 195, 101",
+      "Glyph": "Black"
+    },
+    "TabButtonUnselectedTabHoveredButtonPressed": {
+      "Background": "253, 244, 191",
+      "Border": "229, 195, 101",
+      "Glyph": "Black"
+    },
+    "MainWindowActive": {
+      "Background": "93, 107, 153"
+    },
+    "MainWindowStatusBarDefault": {
+      "Background": "0, 122, 204",
+      "Highlight": "76, 0, 0, 0",
+      "HighlightText": "White",
+      "ResizeGrip": "White",
+      "ResizeGripAccent": "127, 0, 0, 0",
+      "Text": "White"
+    },
+    "ToolWindowCaptionActive": {
+      "Background": "255, 242, 157",
+      "Button": "117, 99, 61",
+      "Grip": "255, 242, 157",
+      "Text": "Black"
+    },
+    "ToolWindowCaptionInactive": {
+      "Background": "77, 96, 130",
+      "Button": "206, 212, 221",
+      "Grip": "77, 96, 130",
+      "Text": "White"
+    },
+    "ToolWindowCaptionButtonActiveHovered": {
+      "Background": "255, 252, 244",
+      "Border": "229, 195, 101",
+      "Glyph": "Black"
+    },
+    "ToolWindowCaptionButtonPressed": {
+      "Background": "255, 232, 166",
+      "Border": "229, 195, 101",
+      "Glyph": "Black"
+    },
+    "ToolWindowCaptionButtonInactiveHovered": {
+      "Background": "255, 252, 244",
+      "Border": "229, 195, 101",
+      "Glyph": "Black"
+    },
+    "ToolWindowTabSelectedActive": {
+      "Background": "White",
+      "Text": "Black"
+    },
+    "ToolWindowTabSelectedInactive": {
+      "Background": "White",
+      "Text": "Black"
+    },
+    "ToolWindowTabUnselected": {
+      "Background": "77, 96, 130",
+      "Text": "White"
+    },
+    "ToolWindowTabUnselectedHovered": {
+      "Background": "91, 113, 153",
+      "Text": "White"
+    },
+    "ToolWindowBorder": "93, 107, 153",
+    "ToolWindowSeparator": "75, 92, 116",
+    "DockTarget": {
+      "Background": "White",
+      "Border": "99, 104, 113",
+      "ButtonBackground": "245, 248, 251",
+      "ButtonBorder": "138, 145, 156",
+      "GlyphBackground": "253, 232, 167",
+      "GlyphArrow": "68, 88, 121",
+      "GlyphBorder": "68, 88, 121"
+    },
+    "CommandBarMenuDefault": {
+      "Background": "214, 219, 233",
+      "Text": "27, 41, 62"
+    },
+    "CommandBarMenuPopupDefault": {
+      "Arrow": "Black",
+      "BackgroundBottom": "234, 240, 255",
+      "BackgroundTop": "234, 240, 255",
+      "Border": "155, 167, 183",
+      "Checkmark": "Black",
+      "CheckmarkBackground": "233, 236, 238",
+      "IconBackground": "242, 244, 254",
+      "Separator": "190, 195, 203"
+    },
+    "CommandBarMenuPopupDisabled": {
+      "Checkmark": "162, 164, 165",
+      "CheckmarkBackground": "233, 236, 238",
+      "Text": "Gray"
+    },
+    "CommandBarMenuPopupHovered": {
+      "Arrow": "Black",
+      "Checkmark": "Black",
+      "CheckmarkBackground": "255, 252, 244",
+      "ItemBackground": "253, 244, 191",
+      "Text": "30, 30, 30"
+    },
+    "CommandBarMenuTopLevelHeaderHovered": {
+      "Background": "253, 244, 191",
+      "Border": "229, 195, 101",
+      "Text": "Black"
+    },
+    "CommandBarToolbarDefault": {
+      "Background": "207, 214, 229",
+      "Border": "220, 224, 236",
+      "Grip": "96, 114, 140",
+      "OverflowButtonBackground": "220, 224, 236",
+      "OverflowButtonGlyph": "27, 41, 62",
+      "Separator": "133, 145, 162",
+      "SeparatorAccent": "214, 219, 233",
+      "Tray": "214, 219, 233"
+    },
+    "CommandBarToolbarButtonChecked": {
+      "Background": "253, 244, 191",
+      "Border": "229, 195, 101",
+      "Text": "Black"
+    },
+    "CommandBarToolbarButtonCheckedHovered": {
+      "Border": "229, 195, 101",
+      "Text": "Black"
+    },
+    "CommandBarToolbarButtonDefault": {
+      "Arrow": "27, 41, 62"
+    },
+    "CommandBarToolbarButtonHovered": {
+      "Arrow": "Black",
+      "Separator": "229, 195, 101"
+    },
+    "CommandBarToolbarButtonPressed": {
+      "Arrow": "Black",
+      "Background": "255, 242, 157",
+      "Text": "Black"
+    },
+    "CommandBarToolbarOverflowHovered": {
+      "Background": "253, 244, 191",
+      "Glyph": "27, 41, 62"
+    },
+    "CommandBarToolbarOverflowPressed": {
+      "Background": "255, 242, 157",
+      "Glyph": "27, 41, 62"
+    }
+  },
+  "Skin": {
+    "AutoHideStripSkin": {
+      "DockStripGradient": {
+        "StartColor": "Control",
+        "EndColor": "Control",
+        "LinearGradientMode": 0
+      },
+      "TabGradient": {
+        "TextColor": "ControlText",
+        "StartColor": "Control",
+        "EndColor": "Control",
+        "LinearGradientMode": 0
+      },
+      "DockStripBackground": {
+        "StartColor": "Control",
+        "EndColor": "Control"
+      },
+      "TextFont": "Segoe UI, 9pt"
+    },
+    "DockPaneStripSkin": {
+      "DocumentGradient": {
+        "DockStripGradient": {
+          "StartColor": "Control",
+          "EndColor": "Control",
+          "LinearGradientMode": 0
+        },
+        "ActiveTabGradient": {
+          "TextColor": "ControlText",
+          "StartColor": "Control",
+          "EndColor": "Control",
+          "LinearGradientMode": 0
+        },
+        "HoverTabGradient": {
+          "TextColor": "ControlText",
+          "StartColor": "Control",
+          "EndColor": "Control",
+          "LinearGradientMode": 0
+        },
+        "InactiveTabGradient": {
+          "TextColor": "ControlText",
+          "StartColor": "Control",
+          "EndColor": "Control",
+          "LinearGradientMode": 0
+        }
+      },
+      "ToolWindowGradient": {
+        "ActiveCaptionGradient": {
+          "TextColor": "ControlText",
+          "StartColor": "Control",
+          "EndColor": "Control",
+          "LinearGradientMode": 0
+        },
+        "InactiveCaptionGradient": {
+          "TextColor": "ControlText",
+          "StartColor": "Control",
+          "EndColor": "Control",
+          "LinearGradientMode": 0
+        },
+        "DockStripGradient": {
+          "StartColor": "Control",
+          "EndColor": "Control",
+          "LinearGradientMode": 0
+        },
+        "ActiveTabGradient": {
+          "TextColor": "ControlText",
+          "StartColor": "Control",
+          "EndColor": "Control",
+          "LinearGradientMode": 0
+        },
+        "HoverTabGradient": {
+          "TextColor": "ControlText",
+          "StartColor": "Control",
+          "EndColor": "Control",
+          "LinearGradientMode": 0
+        },
+        "InactiveTabGradient": {
+          "TextColor": "ControlText",
+          "StartColor": "Control",
+          "EndColor": "Control",
+          "LinearGradientMode": 0
+        }
+      },
+      "TextFont": "Segoe UI, 9pt"
+    }
+  },
+  "Measures": {
+    "SplitterSize": 6,
+    "AutoHideSplitterSize": 3,
+    "AutoHideTabLineWidth": 6,
+    "DockPadding": 6
+  },
+  "ShowAutoHideContentOnHover": false
+}

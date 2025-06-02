@@ -624,14 +624,14 @@ namespace WeifenLuo.Docking
                 int dockLeftSize = m_dockLeftPortion >= 1 ? (int)m_dockLeftPortion : (int)(width * m_dockLeftPortion);
                 int dockRightSize = m_dockRightPortion >= 1 ? (int)m_dockRightPortion : (int)(width * m_dockRightPortion);
 
-                if (dockLeftSize < MeasurePane.MinSize)
-                    dockLeftSize = MeasurePane.MinSize;
-                if (dockRightSize < MeasurePane.MinSize)
-                    dockRightSize = MeasurePane.MinSize;
+                if (dockLeftSize < DockConstants.PaneMinSize)
+                    dockLeftSize = DockConstants.PaneMinSize;
+                if (dockRightSize < DockConstants.PaneMinSize)
+                    dockRightSize = DockConstants.PaneMinSize;
 
-                if (dockLeftSize + dockRightSize > width - MeasurePane.MinSize)
+                if (dockLeftSize + dockRightSize > width - DockConstants.PaneMinSize)
                 {
-                    int adjust = (dockLeftSize + dockRightSize) - (width - MeasurePane.MinSize);
+                    int adjust = (dockLeftSize + dockRightSize) - (width - DockConstants.PaneMinSize);
                     dockLeftSize -= adjust / 2;
                     dockRightSize -= adjust / 2;
                 }
@@ -645,14 +645,14 @@ namespace WeifenLuo.Docking
                 int dockTopSize = m_dockTopPortion >= 1 ? (int)m_dockTopPortion : (int)(height * m_dockTopPortion);
                 int dockBottomSize = m_dockBottomPortion >= 1 ? (int)m_dockBottomPortion : (int)(height * m_dockBottomPortion);
 
-                if (dockTopSize < MeasurePane.MinSize)
-                    dockTopSize = MeasurePane.MinSize;
-                if (dockBottomSize < MeasurePane.MinSize)
-                    dockBottomSize = MeasurePane.MinSize;
+                if (dockTopSize < DockConstants.PaneMinSize)
+                    dockTopSize = DockConstants.PaneMinSize;
+                if (dockBottomSize < DockConstants.PaneMinSize)
+                    dockBottomSize = DockConstants.PaneMinSize;
 
-                if (dockTopSize + dockBottomSize > height - MeasurePane.MinSize)
+                if (dockTopSize + dockBottomSize > height - DockConstants.PaneMinSize)
                 {
-                    int adjust = (dockTopSize + dockBottomSize) - (height - MeasurePane.MinSize);
+                    int adjust = (dockTopSize + dockBottomSize) - (height - DockConstants.PaneMinSize);
                     dockTopSize -= adjust / 2;
                     dockBottomSize -= adjust / 2;
                 }
@@ -1180,8 +1180,8 @@ namespace WeifenLuo.Docking
                 if (state == DockState.DockLeftAutoHide) {
                     if (autoHideSize < 1)
                         autoHideSize = rectDockArea.Width * autoHideSize;
-                    if (autoHideSize > rectDockArea.Width - MeasurePane.MinSize)
-                        autoHideSize = rectDockArea.Width - MeasurePane.MinSize;
+                    if (autoHideSize > rectDockArea.Width - DockConstants.PaneMinSize)
+                        autoHideSize = rectDockArea.Width - DockConstants.PaneMinSize;
                     rect.X = rectDockArea.X - Theme.Measures.DockPadding;
                     rect.Y = rectDockArea.Y;
                     rect.Width = (int)autoHideSize;
@@ -1189,8 +1189,8 @@ namespace WeifenLuo.Docking
                 } else if (state == DockState.DockRightAutoHide) {
                     if (autoHideSize < 1)
                         autoHideSize = rectDockArea.Width * autoHideSize;
-                    if (autoHideSize > rectDockArea.Width - MeasurePane.MinSize)
-                        autoHideSize = rectDockArea.Width - MeasurePane.MinSize;
+                    if (autoHideSize > rectDockArea.Width - DockConstants.PaneMinSize)
+                        autoHideSize = rectDockArea.Width - DockConstants.PaneMinSize;
                     rect.X = rectDockArea.X + rectDockArea.Width - (int)autoHideSize + Theme.Measures.DockPadding;
                     rect.Y = rectDockArea.Y;
                     rect.Width = (int)autoHideSize;
@@ -1198,8 +1198,8 @@ namespace WeifenLuo.Docking
                 } else if (state == DockState.DockTopAutoHide) {
                     if (autoHideSize < 1)
                         autoHideSize = rectDockArea.Height * autoHideSize;
-                    if (autoHideSize > rectDockArea.Height - MeasurePane.MinSize)
-                        autoHideSize = rectDockArea.Height - MeasurePane.MinSize;
+                    if (autoHideSize > rectDockArea.Height - DockConstants.PaneMinSize)
+                        autoHideSize = rectDockArea.Height - DockConstants.PaneMinSize;
                     rect.X = rectDockArea.X;
                     rect.Y = rectDockArea.Y - Theme.Measures.DockPadding;
                     rect.Width = rectDockArea.Width;
@@ -1207,8 +1207,8 @@ namespace WeifenLuo.Docking
                 } else if (state == DockState.DockBottomAutoHide) {
                     if (autoHideSize < 1)
                         autoHideSize = rectDockArea.Height * autoHideSize;
-                    if (autoHideSize > rectDockArea.Height - MeasurePane.MinSize)
-                        autoHideSize = rectDockArea.Height - MeasurePane.MinSize;
+                    if (autoHideSize > rectDockArea.Height - DockConstants.PaneMinSize)
+                        autoHideSize = rectDockArea.Height - DockConstants.PaneMinSize;
                     rect.X = rectDockArea.X;
                     rect.Y = rectDockArea.Y + rectDockArea.Height - (int)autoHideSize + Theme.Measures.DockPadding;
                     rect.Width = rectDockArea.Width;

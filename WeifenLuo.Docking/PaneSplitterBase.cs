@@ -65,11 +65,11 @@ public class PaneSplitterBase : Control, ISplitterDragSource
             NestedDockingStatus status = DockPane.NestedDockingStatus;
             Rectangle rectLimit = Parent.RectangleToScreen(status.LogicalBounds);
             if (((ISplitterDragSource)this).IsVertical) {
-                rectLimit.X += MeasurePane.MinSize;
-                rectLimit.Width -= 2 * MeasurePane.MinSize;
+                rectLimit.X += DockConstants.PaneMinSize;
+                rectLimit.Width -= 2 * DockConstants.PaneMinSize;
             } else {
-                rectLimit.Y += MeasurePane.MinSize;
-                rectLimit.Height -= 2 * MeasurePane.MinSize;
+                rectLimit.Y += DockConstants.PaneMinSize;
+                rectLimit.Height -= 2 * DockConstants.PaneMinSize;
             }
 
             return rectLimit;

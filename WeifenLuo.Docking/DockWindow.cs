@@ -189,16 +189,16 @@ namespace WeifenLuo.Docking
 
                 if (((ISplitterDragSource)this).IsVertical)
                 {
-                    rectLimit.X += MeasurePane.MinSize;
-                    rectLimit.Width -= 2 * MeasurePane.MinSize;
+                    rectLimit.X += DockConstants.PaneMinSize;
+                    rectLimit.Width -= 2 * DockConstants.PaneMinSize;
                     rectLimit.Y = location.Y;
                     if ((Control.ModifierKeys & Keys.Shift) == 0)
                         rectLimit.Height = Height;
                 }
                 else
                 {
-                    rectLimit.Y += MeasurePane.MinSize;
-                    rectLimit.Height -= 2 * MeasurePane.MinSize;
+                    rectLimit.Y += DockConstants.PaneMinSize;
+                    rectLimit.Height -= 2 * DockConstants.PaneMinSize;
                     rectLimit.X = location.X;
                     if ((Control.ModifierKeys & Keys.Shift) == 0)
                         rectLimit.Width = Width;

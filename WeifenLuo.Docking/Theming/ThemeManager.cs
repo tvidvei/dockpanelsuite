@@ -120,6 +120,11 @@ namespace WeifenLuo.Docking
                 if (useDefault) return DefaultTheme;
                 throw new Exception("No Theme file given");
             }
+            if (filePath.StartsWith(".."))
+            {
+                filePath = Path.Combine(ThemeManager.ThemesPath, filePath);
+                filePath = Path.GetFullPath(filePath);
+            }
             Theme result = null;
             if (Path.GetDirectoryName(filePath) == String.Empty)
             {

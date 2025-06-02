@@ -22,10 +22,6 @@ namespace WeifenLuo.Docking
             Skin = new DockPanelSkin();
             PaintingService = new PaintingService();
             Measures = new Measures();
-            Measures.SplitterSize = 6;
-            Measures.AutoHideSplitterSize = 3;
-            Measures.DockPadding = 6;
-            ShowAutoHideContentOnHover = false;
         }
 
         /// <summary>
@@ -117,7 +113,7 @@ namespace WeifenLuo.Docking
 
         //[JsonIgnore]
         //[Browsable(false)]
-        public bool ShowAutoHideContentOnHover { get; set; } //= true;
+        public bool ShowAutoHideContentOnHover { get; set; } = false;
 
         private Dictionary<ToolStrip, KeyValuePair<ToolStripRenderMode, ToolStripRenderer>> _stripBefore
             = new Dictionary<ToolStrip, KeyValuePair<ToolStripRenderMode, ToolStripRenderer>>();

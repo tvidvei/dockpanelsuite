@@ -70,7 +70,8 @@
     <Compile Include="InertButtonBase.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DockPanelSkin.cs">
+    <Compile Include="DockConstants.cs" />
+    <Compile Include="Theming\DockPanelSkin.cs">
     </Compile>
     <Compile Include="IPaintingService.cs" />
     <Compile Include="LayoutUtils.cs" />
@@ -127,7 +128,7 @@
     </Compile>
     <Compile Include="FloatWindowCollection.cs" />
     <Compile Include="Interfaces.cs" />
-    <Compile Include="Measures.cs" />
+    <Compile Include="Theming\Measures.cs" />
     <Compile Include="NestedDockingStatus.cs" />
     <Compile Include="SplitterBase.cs">
       <SubType>Component</SubType>
