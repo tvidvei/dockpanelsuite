@@ -50,7 +50,7 @@ namespace WeifenLuo.Docking
 
         public string FileName
         {
-            get { return Theme.FileName; }
+            get { return Theme?.FileName ?? "null"; }
             set
             {
                 try
@@ -67,7 +67,7 @@ namespace WeifenLuo.Docking
 
         public string FilePath
         {
-            get { return Theme.FilePath; }
+            get { return Theme?.FilePath ?? "null"; }
             set
             {
                 try

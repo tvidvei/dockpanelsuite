@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Windows.Forms;
-using ThemeEditor;
+//using ThemeEditor;
 
 namespace WeifenLuo.Docking
 {
@@ -78,14 +78,25 @@ namespace WeifenLuo.Docking
         [Browsable(false)]
         public string DisplayPath => FilePath ?? TempName;
 
+        /// <summary>
+        /// Current Theme Version
+        /// </summary>
+        public static readonly int CurrentVersion = 0;
 
+        [Category(".Version")]
+        /// <summary>
+        /// Theme version in Theme File
+        /// </summary>
+        /// When Reading from file (Deserializing): Version of Theme that created the file
+        /// When Writing to file (Serializing): Current Version
+        public int ThemeVersion { get; set; }
 
         [Category("Colors")]
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public DockPanelColorPalette ColorPalette { get; set; }
 
-        [JsonIgnore]
-        [Browsable(false)]
+        [Category("Skins")]
+        [TypeConverter(typeof(ExpandableObjectConverter))]
         public DockPanelSkin Skin { get; set; }
 
         [JsonIgnore]
@@ -100,12 +111,12 @@ namespace WeifenLuo.Docking
         [Browsable(false)]
         protected ToolStripRenderer ToolStripRenderer { get; set; }
 
-        [JsonIgnore]
-        [Browsable(false)]
+        [Category("Measures")]
+        [TypeConverter(typeof(ExpandableObjectConverter))]
         public Measures Measures { get; set; }
 
-        [JsonIgnore]
-        [Browsable(false)]
+        //[JsonIgnore]
+        //[Browsable(false)]
         public bool ShowAutoHideContentOnHover { get; set; } //= true;
 
         private Dictionary<ToolStrip, KeyValuePair<ToolStripRenderMode, ToolStripRenderer>> _stripBefore

@@ -1,7 +1,8 @@
-﻿using System.Globalization;
+﻿using System.Drawing;
+using System.Globalization;
 using System.Text.Json;
-using ThemeEditor;
 using WeifenLuo.Docking;
+using static System.Windows.Forms.Design.AxImporter;
 
 namespace WeifenLuo.Docking
 {
@@ -339,8 +340,11 @@ namespace WeifenLuo.Docking
         {
             JsonSerializerOptions.WriteIndented = true;
             JsonSerializerOptions.Converters.Add(new ColorJsonConverter());
-            ThemesPath = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "Themes");
+            //options.Converters.Add(new TypeDescriptorJsonConverter<System.Drawing.Color>());
+            JsonSerializerOptions.Converters.Add(new TypeDescriptorJsonConverter<System.Drawing.Font>());
 
+
+            ThemesPath = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "Themes");
 
             OpenFileDialog = new OpenFileDialog();
             SaveFileDialog = new SaveFileDialog();
