@@ -35,7 +35,12 @@ namespace WeifenLuo.Docking
     }
 
 
-
+    /// <summary>
+    /// Wrapper around <see cref="JsonSerializer"/> to handle compatibility issues between various versions
+    /// of the type <see cref="T"/> to be serialized.
+    /// </summary>
+    /// <typeparam name="T">Type of object to be serialized or deserialized</typeparam>
+    /// <typeparam name="V">Type of version property. Must be IComparable. Usually int, string or <see cref="System.Version"/></typeparam>
     public class VersionedJsonSerializer<T,V> where T : class where V : IComparable
     {
         /// <summary>
@@ -44,12 +49,13 @@ namespace WeifenLuo.Docking
         public PropertyInfo VersionProperty { get; private set; }
 
         /// <summary>
-        /// Name of VersionProperty in Json files
+        /// Name(s) of Version property in Json files.
         /// </summary>
+        /// Multiple alternative names may be given as a string separated by '|', and must follow Regex syntax
         public string VersionPropertyJsonNames { get; private set; }
 
         /// <summary>
-        /// Version
+        /// Current version.  Used while serializing
         /// </summary>
         public V CurrentVersion { get; private set; }
 
@@ -107,6 +113,13 @@ namespace WeifenLuo.Docking
             return JsonSerializer.Serialize(obj, GetOptions(CurrentVersion));
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="versionPropertyName">Name of the version property in T</param>
+        /// <param name="currentVersion">Current version</param>
+        /// <param name="alternativeVersionPropertyNames">Alternative version property names</param>
+        /// <exception cref="Exception"></exception>
         public VersionedJsonSerializer(string versionPropertyName, V currentVersion, string alternativeVersionPropertyNames = null)
         {
             VersionProperty = typeof(T).GetProperty(versionPropertyName);
@@ -114,9 +127,10 @@ namespace WeifenLuo.Docking
                 throw new Exception($"Version Property must be of type '{typeof(V).Name}'");
             var custName = VersionProperty.GetCustomAttribute<JsonPropertyNameAttribute>();
             VersionPropertyJsonNames = custName?.Name ?? versionPropertyName;
-            if (!String.IsNullOrEmpty(alternativeVersionPropertyNames))
+            if (!String.IsNullOrWhiteSpace(alternativeVersionPropertyNames))
             {
-                VersionPropertyJsonNames += "|" + alternativeVersionPropertyNames;
+                var altNames = alternativeVersionPropertyNames.Trim();
+                VersionPropertyJsonNames += (altNames[0] != '|' ? "|" : null) + alternativeVersionPropertyNames;
             }
             CurrentVersion = currentVersion;
         }
