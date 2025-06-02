@@ -68,6 +68,16 @@ namespace WeifenLuo.Docking
             return result;
         }
 
+        public virtual Type GetType(V version)
+        {
+            return typeof(T);
+        }
+
+        public virtual T Upgrade(object value, V version)
+        {
+            return (T)value;
+        }
+
         public virtual V GetVersionFromJson(string json)
         {
             var match = Regex.Match(json, $"\"{VersionPropertyJsonName}\"\\s*:\\s*\\\"?([^\\,}}\\\"]*)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
@@ -88,7 +98,7 @@ namespace WeifenLuo.Docking
         public virtual T Deserialize(string json)
         {
             var version = GetVersionFromJson(json);
-            var result = JsonSerializer.Deserialize<T>(json, GetOptions(version));
+            var result = Upgrade(JsonSerializer.Deserialize(json, GetType(version), GetOptions(version)), version);
             VersionProperty.SetValue(result, CurrentVersion);
             return result;
         }
