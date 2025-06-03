@@ -10,13 +10,11 @@ using System.Threading.Tasks;
 
 namespace WeifenLuo.Docking
 {
+
     public class DockPanelColorPalette
     {
 
-        public DockPanelColorPalette()
-        {
-            ColorTable = new VisualStudioColorTable(this);
-        }
+        public DockPanelColorPalette() { }
 
         public DockPanelColorPalette(bool setup) : this() 
         {
@@ -190,10 +188,83 @@ namespace WeifenLuo.Docking
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public CommandBarToolbarOverflowButtonPalette CommandBarToolbarOverflowPressed { get; set; }
 
-        [JsonIgnore]
-        [TypeConverter(typeof(ExpandableObjectConverter))]
-        public VisualStudioColorTable ColorTable { get; private set; }
     }
+
+
+    /// <summary>
+    ///  Color palette that is source for all other colors
+    /// </summary>
+    public class Colors
+    {
+
+        [Description("Background color for main window (DockPanel)")]
+        public Color MainBackground { get; set; } = Color.FromArgb(93, 107, 153);
+
+        [Description("Borders around docked windows.\r\nHide borders by setting this equal to MainBackground")]
+        public Color MainBorders { get; set; } = Color.FromArgb(93, 107, 153);
+
+        [Description("Background color for menues and toolbars")]
+        public Color ToolStripBackground { get; set; } = Color.FromArgb(204, 213, 240);
+
+        [Description("Default background color for Captions and and Tabs.  Used when inactive and not selected")]
+        public Color TabBackgroundNormal { get; set; } = Color.FromArgb(64, 86, 141);
+
+        [Description("Default text color for Captions and and Tabs.  Used when inactive and not selected")]
+        public Color TabTextNormal { get; set; } = Color.White;
+
+        [Description("Default button color for Captions and and Tabs.  Used when inactive and not selected")]
+        public Color TabButtonNormal { get; set; } = Color.FromArgb(160,172,210);
+
+        [Description("Background color of currently active element, either document tab or caption of active tool window")]
+        public Color TabBackgroundActive { get; set; } = Color.FromArgb(245, 204, 132);
+
+        [Description("Text color of currently active element, either document tab or caption of active tool window")]
+        public Color TabTextActive { get; set; } = Color.Black;
+
+        [Description("Default button color for Captions and and Tabs.  Used when inactive and not selected")]
+        public Color TabButtonActive { get; set; } = Color.FromArgb(116, 75, 35);
+
+        [Description("Hoovered button color for Captions and and Tabs.  Used when inactive and not selected")]
+        public Color TabButtonHoovered { get; set; } = Color.FromArgb(52, 42, 33);
+
+        [Description("Color of currently selected but not active document tab")]
+        public Color DocTabBackgroundSelected { get; set; } = Color.FromArgb(204, 213, 240);
+
+        [Description("Color of currently selected but not active document tab")]
+        public Color DocTabBackgroundHoovered { get; set; } = Color.FromArgb(187, 198, 241);
+
+        [Description("Background of tool window")]
+        public Color ToolWinBackground { get; set; } = Color.FromArgb(255, 255, 255);
+
+        [Description("Color of currently selected toolwindow tab")]
+        public Color ToolTabSelected => ToolWinBackground;
+
+        [Description("Color of currently selected but not active document tab")]
+        public Color ToolTabHovered { get; set; } = Color.FromArgb(187, 198, 241);
+
+        [Description("Background of pressed two-state button")]
+        public Color ButtonPressedBackground { get; set; } = Color.FromArgb(255, 237, 200);
+
+        [Description("Border of pressed two-state button")]
+        public Color ButtonPressedBorder { get; set; } = Color.FromArgb(130, 93, 7);
+
+        [Description("Background of hoovered button (either normal or two-state)")]
+        public Color ButtonHooveredBackground { get; set; } = Color.FromArgb(236, 244, 255);
+
+        [Description("Border of hoovered button (either normal or two-state)")]
+        public Color ButtonHoveredBorder { get; set; } = Color.FromArgb(93, 107, 153);
+
+        [Description("Border of hoovered button (either normal or two-state)")]
+        public Color GridHeaderBackground { get; set; } = Color.FromArgb(246, 246, 246);
+
+        [Description("Border of hoovered button (either normal or two-state)")]
+        public Color GridHeaderBars { get; set; } = Color.FromArgb(204, 206, 219);
+
+        public Colors() { }
+
+    }
+
+
 
     public class CommandBarToolbarOverflowButtonPalette
     {

@@ -1234,15 +1234,6 @@ namespace WeifenLuo.Docking
 
         // ----- From DockPanel.Appearance -----
 
-        [LocalizedCategory("Category_Docking")]
-        [LocalizedDescription("DockPanel_DockPanelSkin")]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        [Browsable(false)]
-        [Obsolete("Use Theme.Skin instead.")]
-        public DockPanelSkin Skin {
-            get { return null; }
-        }
-
         private Theme m_dockPanelTheme;
 
         [LocalizedCategory("Category_Docking")]

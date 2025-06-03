@@ -19,7 +19,7 @@ namespace WeifenLuo.Docking
         private bool _showAutoHideContentOnHover;
 
         public Theme() {
-            Skin = new DockPanelSkin();
+            Colors = new Colors();
             PaintingService = new PaintingService();
             Measures = new Measures();
         }
@@ -79,6 +79,9 @@ namespace WeifenLuo.Docking
         /// </summary>
         public static readonly int CurrentVersion = 0;
 
+
+        // ---------------  Properties exposed in the PropertyGrid ----------------------------
+
         [Category(".Version")]
         /// <summary>
         /// Theme version in Theme File
@@ -87,13 +90,18 @@ namespace WeifenLuo.Docking
         /// When Writing to file (Serializing): Current Version
         public int ThemeVersion { get; set; }
 
+        [Category("Fonts")]
+        [DefaultValue(typeof(SystemFonts), "MenuFont")]
+        public Font TextFont { get; set; } = SystemFonts.MenuFont; // new Font("Segoe UI", 9);
+
+        [Category("Colors")]
+        [TypeConverter(typeof(ExpandableObjectConverter))]
+        public Colors Colors { get; set; }
+
+
         [Category("Colors")]
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public DockPanelColorPalette ColorPalette { get; set; }
-
-        [Category("Skins")]
-        [TypeConverter(typeof(ExpandableObjectConverter))]
-        public DockPanelSkin Skin { get; set; }
 
         [JsonIgnore]
         [Browsable(false)]

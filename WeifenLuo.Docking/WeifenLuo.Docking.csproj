@@ -71,8 +71,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DockConstants.cs" />
-    <Compile Include="Theming\DockPanelSkin.cs">
-    </Compile>
     <Compile Include="IPaintingService.cs" />
     <Compile Include="LayoutUtils.cs" />
     <Compile Include="MdiClientController.cs" />

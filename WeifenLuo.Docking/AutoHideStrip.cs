@@ -41,7 +41,7 @@ namespace WeifenLuo.Docking
         #region Customizable Properties
         public Font TextFont
         {
-            get { return DockPanel.Theme.Skin.AutoHideStripSkin.TextFont; }
+            get { return DockPanel.Theme.TextFont; }
         }
 
         private static StringFormat _stringFormatTabHorizontal;

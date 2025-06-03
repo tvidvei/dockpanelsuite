@@ -183,7 +183,7 @@ namespace WeifenLuo.Docking
 
         public Font TextFont
         {
-            get { return DockPane.DockPanel.Theme.Skin.DockPaneStripSkin.TextFont; }
+            get { return DockPane.DockPanel.Theme.TextFont; }
         }
 
         private Font BoldFont
