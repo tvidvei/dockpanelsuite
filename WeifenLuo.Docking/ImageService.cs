@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Diagnostics.Eventing.Reader;
+using System.Drawing;
 
 namespace WeifenLuo.Docking
 {
@@ -48,11 +49,13 @@ namespace WeifenLuo.Docking
         public Image TabPressLostFocus_Close { get; }
 
         readonly DockPanelColorPalette _palette;
+        readonly Colors _palette2;
 
         public ImageService(Theme theme)
         {
             var res = typeof(Person);
             _palette = theme.ColorPalette;
+            _palette2 = theme.Colors;
             Dockindicator_PaneDiamond_Hotspot = Resources.GetBitmap("Dockindicator_PaneDiamond_Hotspot.png");
             DockIndicator_PaneDiamond_HotspotIndex = Resources.GetBitmap("DockIndicator_PaneDiamond_HotspotIndex.png");
 
@@ -137,10 +140,15 @@ namespace WeifenLuo.Docking
                     Dockindicator_PaneDiamond_Fill = ImageServiceHelper.CombineFive(five, bottom, center, left, right, top);
                 }
             }
-
+#if new
+            TabActive_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabClose.png"), _palette2.TabButtonActive, _palette2.TabBackgroundActive);
+            TabInactive_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabClose.png"), _palette2.TabButtonHoovered, _palette2.TabBackgroundHoovered);
+            TabLostFocus_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabClose.png"), _palette2.TabButtonNormal, _palette2.TabBackgroundNormal);
+#else
             TabActive_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabClose.png"), _palette.TabSelectedActive.Button, _palette.TabSelectedActive.Background);
             TabInactive_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabClose.png"), _palette.TabUnselectedHovered.Button, _palette.TabUnselectedHovered.Background);
             TabLostFocus_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabClose.png"), _palette.TabSelectedInactive.Button, _palette.TabSelectedInactive.Background);
+#endif
             TabHoverActive_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabClose.png"), _palette.TabButtonSelectedActiveHovered.Glyph, _palette.TabButtonSelectedActiveHovered.Background, _palette.TabButtonSelectedActiveHovered.Border);
             TabHoverInactive_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabClose.png"), _palette.TabButtonUnselectedTabHoveredButtonHovered.Glyph, _palette.TabButtonUnselectedTabHoveredButtonHovered.Background, _palette.TabButtonUnselectedTabHoveredButtonHovered.Border);
             TabHoverLostFocus_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabClose.png"), _palette.TabButtonSelectedInactiveHovered.Glyph, _palette.TabButtonSelectedInactiveHovered.Background, _palette.TabButtonSelectedInactiveHovered.Border);

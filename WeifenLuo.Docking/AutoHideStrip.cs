@@ -248,26 +248,23 @@ namespace WeifenLuo.Docking
             Matrix matrixRotate = g.Transform;
             g.Transform = MatrixIdentity;
 
-            Color borderColor;
             Color backgroundColor;
+            //Color mainBackgroundColor;
             Color textColor;
+
             if (tab.IsMouseOver)
             {
-                borderColor = DockPanel.Theme.ColorPalette.AutoHideStripHovered.Border;
-                backgroundColor = DockPanel.Theme.ColorPalette.AutoHideStripHovered.Background;
-                textColor = DockPanel.Theme.ColorPalette.AutoHideStripHovered.Text;
+                backgroundColor = DockPanel.Theme.Colors.TabBackgroundHoovered;
+                textColor = DockPanel.Theme.Colors.TabTextNormal;
             }
             else
             {
-                borderColor = DockPanel.Theme.ColorPalette.AutoHideStripDefault.Border;
-                backgroundColor = DockPanel.Theme.ColorPalette.AutoHideStripDefault.Background;
-                textColor = DockPanel.Theme.ColorPalette.AutoHideStripDefault.Text;
+                backgroundColor = DockPanel.Theme.Colors.TabBackgroundNormal;
+                textColor = DockPanel.Theme.Colors.TabTextNormal;
             }
 
-            g.FillRectangle(DockPanel.Theme.PaintingService.GetBrush(backgroundColor), rectTabOrigin);
-
             Rectangle rectBorder = GetBorderRectangle(rectTabOrigin, dockState, TextRenderer.MeasureText(tab.Content.DockHandler.TabText, TextFont).Width);
-            g.FillRectangle(DockPanel.Theme.PaintingService.GetBrush(borderColor), rectBorder);
+            g.FillRectangle(DockPanel.Theme.PaintingService.GetBrush(backgroundColor), rectBorder);
 
             // Draw the text
             Rectangle rectText = GetTextRectangle(rectTabOrigin, dockState);

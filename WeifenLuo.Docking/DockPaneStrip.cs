@@ -856,9 +856,9 @@ namespace WeifenLuo.Docking
             {
                 Color tabUnderLineColor;
                 if (tabActive != null && DockPane.IsActiveDocumentPane)
-                    tabUnderLineColor = DockPane.DockPanel.Theme.ColorPalette.TabSelectedActive.Background;
+                    tabUnderLineColor = DockPane.DockPanel.Theme.Colors.TabBackgroundActive;
                 else
-                    tabUnderLineColor = DockPane.DockPanel.Theme.ColorPalette.TabSelectedInactive.Background;
+                    tabUnderLineColor = DockPane.DockPanel.Theme.Colors.TabBackgroundNormal;
 
                 g.DrawLine(DockPane.DockPanel.Theme.PaintingService.GetPen(tabUnderLineColor, 4), rectTabStrip.Left, rectTabStrip.Bottom, rectTabStrip.Right, rectTabStrip.Bottom);
             }
@@ -1079,15 +1079,15 @@ namespace WeifenLuo.Docking
             rectText = DrawHelper.RtlTransform(this, rectText);
             rectIcon = DrawHelper.RtlTransform(this, rectIcon);
 
-            Color activeColor = DockPane.DockPanel.Theme.ColorPalette.TabSelectedActive.Background;
-            Color lostFocusColor = DockPane.DockPanel.Theme.ColorPalette.TabSelectedInactive.Background;
-            Color inactiveColor = DockPane.DockPanel.Theme.ColorPalette.MainWindowActive.Background;
-            Color mouseHoverColor = DockPane.DockPanel.Theme.ColorPalette.TabUnselectedHovered.Background;
+            Color activeColor = DockPane.DockPanel.Theme.Colors.TabBackgroundActive;
+            Color lostFocusColor = DockPane.DockPanel.Theme.Colors.TabBackgroundNormal;
+            Color inactiveColor = DockPane.DockPanel.Theme.Colors.MainBackground;
+            Color mouseHoverColor = DockPane.DockPanel.Theme.Colors.TabBackgroundHoovered;
 
-            Color activeText = DockPane.DockPanel.Theme.ColorPalette.TabSelectedActive.Text;
-            Color lostFocusText = DockPane.DockPanel.Theme.ColorPalette.TabSelectedInactive.Text;
-            Color inactiveText = DockPane.DockPanel.Theme.ColorPalette.TabUnselected.Text;
-            Color mouseHoverText = DockPane.DockPanel.Theme.ColorPalette.TabUnselectedHovered.Text;
+            Color activeText = DockPane.DockPanel.Theme.Colors.TabTextActive;
+            Color lostFocusText = DockPane.DockPanel.Theme.Colors.TabTextNormal;
+            Color inactiveText = DockPane.DockPanel.Theme.Colors.TabTextNormal;
+            Color mouseHoverText = DockPane.DockPanel.Theme.Colors.TabTextHoovered;
 
             Color text;
             Image image = null;

@@ -21,8 +21,6 @@ namespace WeifenLuo.Docking
             var res = new DockPanelColorPalette();
 
             if (setup) {
-                AutoHideStripDefault = new AutoHideStripPalette();
-                AutoHideStripHovered = new AutoHideStripPalette();
                 OverflowButtonDefault = new ButtonPalette();
                 OverflowButtonHovered = new HoveredButtonPalette();
                 OverflowButtonPressed = new HoveredButtonPalette();
@@ -63,12 +61,6 @@ namespace WeifenLuo.Docking
                 CommandBarToolbarOverflowPressed = new CommandBarToolbarOverflowButtonPalette();
             }
         }
-
-        [TypeConverter(typeof(ExpandableObjectConverter))]
-        public AutoHideStripPalette AutoHideStripDefault { get; set; }
-
-        [TypeConverter(typeof(ExpandableObjectConverter))]
-        public AutoHideStripPalette AutoHideStripHovered { get; set; }
 
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public ButtonPalette OverflowButtonDefault { get; set; }
@@ -190,21 +182,166 @@ namespace WeifenLuo.Docking
 
     }
 
+    class ColorsTypeDescriptionProvider : TypeDescriptionProvider
+    {
+        private static TypeDescriptionProvider defaultTypeProvider =
+                       TypeDescriptor.GetProvider(typeof(Colors));
 
+        public ColorsTypeDescriptionProvider() : base(defaultTypeProvider)
+        {
+        }
+
+        public override ICustomTypeDescriptor GetTypeDescriptor(Type objectType,
+                                                                object instance)
+        {
+            ICustomTypeDescriptor defaultDescriptor =
+                                  base.GetTypeDescriptor(objectType, instance);
+
+            return instance == null ? defaultDescriptor :
+                new ColorsCustomTypeDescriptor(defaultDescriptor, instance);
+        }
+
+        class ColorsCustomTypeDescriptor : CustomTypeDescriptor
+        {
+            public ColorsCustomTypeDescriptor(ICustomTypeDescriptor parent, object instance)
+                : base(parent)
+            {
+                //Title title = (Title)instance;
+
+                //customFields.AddRange(CustomFieldsGenerator.GenerateCustomFields(title.Category)
+                //    .Select(f => new CustomFieldPropertyDescriptor(f)).Cast<PropertyDescriptor>());
+
+            }
+
+            //private List<PropertyDescriptor> customFields = new List<PropertyDescriptor>();
+
+            public override PropertyDescriptorCollection GetProperties()
+            {
+                var pdc = base.GetProperties();
+                //return new PropertyDescriptorCollection(base.GetProperties()
+                //    .Cast<PropertyDescriptor>().Union(customFields).ToArray());
+                return pdc;
+            }
+
+            public override PropertyDescriptorCollection GetProperties(Attribute[] attributes)
+            {
+                var pdc = base.GetProperties(attributes);
+                //return new PropertyDescriptorCollection(base.GetProperties(attributes)
+                //    .Cast<PropertyDescriptor>().Union(customFields).ToArray());
+                //pdc["MenuBackground"] = new ColorPropertyDescriptor(pdc["MenuBackground"]);
+
+
+                var pdA = new PropertyDescriptor[pdc.Count];
+                for(int i = 0; i < pdc.Count; i++)
+                {
+                    var pd = pdc[i];
+                    if (pd.Name == "MenuBackground")
+                    {
+                        pd = new ColorPropertyDescriptor(pd);
+                    }
+                    pdA[i] = pd;
+                }
+
+                var pdc2 = new PropertyDescriptorCollection(pdA, readOnly: true);
+
+
+                return pdc2;
+            }
+
+        }
+
+
+    }
+
+    public class ColorPropertyDescriptor : PropertyDescriptor
+    {
+
+        private PropertyDescriptor pd;
+        
+        public ColorPropertyDescriptor(PropertyDescriptor descr) : base(descr)
+        {
+            pd = descr;
+        }
+
+        public ColorPropertyDescriptor(PropertyDescriptor descr, Attribute[] attrs) : base(descr, attrs)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ColorPropertyDescriptor(string name, Attribute[] attrs) : base(name, attrs)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override Type ComponentType => pd.ComponentType;
+
+        public override bool IsReadOnly => pd.IsReadOnly;
+
+        public override Type PropertyType => pd.PropertyType;
+
+        public override bool CanResetValue(object component)
+        {
+            return pd.CanResetValue(component);
+        }
+
+        public override object GetValue(object component)
+        {
+            return pd.GetValue(component);
+        }
+
+        public override void ResetValue(object component)
+        {
+            pd.ResetValue(component);
+        }
+
+        public override void SetValue(object component, object value)
+        {
+            pd.SetValue(component,value);
+        }
+
+        public override bool ShouldSerializeValue(object component)
+        {
+            return pd.ShouldSerializeValue(component);
+        }
+    }
+
+
+
+    [TypeDescriptionProvider(typeof(ColorsTypeDescriptionProvider))]
     /// <summary>
     ///  Color palette that is source for all other colors
     /// </summary>
     public class Colors
     {
 
+        // Main
+
         [Description("Background color for main window (DockPanel)")]
         public Color MainBackground { get; set; } = Color.FromArgb(93, 107, 153);
+
+        [Description("Background color for menues and toolbars")]
+        public Color ToolsBackground { get; set; } = Color.FromArgb(204, 213, 240);
+
+
+        [Description("Background color for menues and toolbars")]
+        public Color MenuBackground {
+            get { return menuBackground != default(Color) ? menuBackground : ToolsBackground; }
+            set { menuBackground = value; }
+        }
+        private Color menuBackground;
+
+        [Description("Background color for menues and toolbars")]
+        public Color ToolBarBackground { get; set; } = Color.FromArgb(204, 213, 240);
+
+        [Description("Background color for menues and toolbars")]
+        public Color StatusBarBackground { get; set; } = Color.FromArgb(204, 213, 240);
+
+        // Borders
 
         [Description("Borders around docked windows.\r\nHide borders by setting this equal to MainBackground")]
         public Color MainBorders { get; set; } = Color.FromArgb(93, 107, 153);
 
-        [Description("Background color for menues and toolbars")]
-        public Color ToolStripBackground { get; set; } = Color.FromArgb(204, 213, 240);
+
 
         [Description("Default background color for Captions and and Tabs.  Used when inactive and not selected")]
         public Color TabBackgroundNormal { get; set; } = Color.FromArgb(64, 86, 141);
@@ -213,7 +350,22 @@ namespace WeifenLuo.Docking
         public Color TabTextNormal { get; set; } = Color.White;
 
         [Description("Default button color for Captions and and Tabs.  Used when inactive and not selected")]
-        public Color TabButtonNormal { get; set; } = Color.FromArgb(160,172,210);
+        public Color TabButtonNormal { get; set; } = Color.FromArgb(160, 172, 210);
+
+        [Description("Default background color for Tabs.  Used when inactive and not selected")]
+        public Color ToolTabBackgroundSelected { get; set; } = Color.White;
+
+        [Description("Color of currently selected but not active document tab")]
+        public Color DocTabBackgroundSelected { get; set; } = Color.FromArgb(204, 213, 240);
+
+        [Description("Default background color for Captions and and Tabs.  Used when inactive and not selected")]
+        public Color TabBackgroundHoovered { get; set; } = Color.FromArgb(187, 198, 241);
+
+        [Description("Default background color for Tabs.  Used when inactive and not selected")]
+        public Color TabTextHoovered { get; set; } = Color.Black;
+
+        [Description("Default background color for Tabs.  Used when inactive and not selected")]
+        public Color TabTextSelected { get; set; } = Color.Black;
 
         [Description("Background color of currently active element, either document tab or caption of active tool window")]
         public Color TabBackgroundActive { get; set; } = Color.FromArgb(245, 204, 132);
@@ -224,14 +376,20 @@ namespace WeifenLuo.Docking
         [Description("Default button color for Captions and and Tabs.  Used when inactive and not selected")]
         public Color TabButtonActive { get; set; } = Color.FromArgb(116, 75, 35);
 
+        [Description("Default button color for Captions and and Tabs.  Used when inactive and not selected")]
+        public Color TabBorderActive { get; set; } = Color.FromArgb(93, 107, 153);
+
+        [Description("Default button color for Captions and and Tabs.  Used when inactive and not selected")]
+        public Color TabBorderSelected { get; set; } = Color.FromArgb(93, 107, 153);
+
+        [Description("Default button color for Captions and and Tabs.  Used when inactive and not selected")]
+        public Color TabBorderNormal { get; set; } = Color.FromArgb(93, 107, 153);
+
+        [Description("Default button color for Captions and and Tabs.  Used when inactive and not selected")]
+        public Color TabBorderHoovered { get; set; } = Color.FromArgb(93, 107, 153);
+
         [Description("Hoovered button color for Captions and and Tabs.  Used when inactive and not selected")]
         public Color TabButtonHoovered { get; set; } = Color.FromArgb(52, 42, 33);
-
-        [Description("Color of currently selected but not active document tab")]
-        public Color DocTabBackgroundSelected { get; set; } = Color.FromArgb(204, 213, 240);
-
-        [Description("Color of currently selected but not active document tab")]
-        public Color DocTabBackgroundHoovered { get; set; } = Color.FromArgb(187, 198, 241);
 
         [Description("Background of tool window")]
         public Color ToolWinBackground { get; set; } = Color.FromArgb(255, 255, 255);
@@ -259,6 +417,7 @@ namespace WeifenLuo.Docking
 
         [Description("Border of hoovered button (either normal or two-state)")]
         public Color GridHeaderBars { get; set; } = Color.FromArgb(204, 206, 219);
+
 
         public Colors() { }
 

@@ -35,6 +35,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-windows|AnyCPU'">
+    <DefineConstants>$(DefineConstants);new</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-windows|AnyCPU'">
+    <DefineConstants>$(DefineConstants);new</DefineConstants>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Include="AutoHideStripTabAccessibleObject.cs" />
     <Compile Include="AutoHideStripPane.cs" />
