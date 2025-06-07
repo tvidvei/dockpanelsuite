@@ -16,6 +16,17 @@ namespace WeifenLuo.Docking
             else FileName = fileName;
         }
 
+        private bool isChanged = false;
+
+        public bool IsChanged { 
+            get { return isChanged; }
+            set {
+                if (value == isChanged) return;
+                isChanged = value;
+                SetTabText();
+            }
+        }
+
         public void SetTabText()
         {
             if (Theme == null)
@@ -29,6 +40,7 @@ namespace WeifenLuo.Docking
             {
                 this.TabText = "Theme: "
                     + Theme.DisplayName
+                    + (isChanged? "*" : null)
                     + (DockPanel != null && ThemeManager.AreEqualPaths(FileName, DockPanel.Theme.FileName) ? " (Current)" : null)
                     ;
                 this.ToolTipText = ""
@@ -100,6 +112,12 @@ namespace WeifenLuo.Docking
             return GetType().ToString() + "," + FileName + "," + Text;
         }
 
+        private void PropertyGrid_PropertyValueChanged(object sender, PropertyValueChangedEventArgs e) 
+        {
+            IsChanged = true;
+        }
+
+
         private void ThemeEditorWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
             ThemeManager.ThemeEditorWindows.Remove(this);
@@ -113,16 +131,19 @@ namespace WeifenLuo.Docking
         private void miThemeReset_Click(object sender, EventArgs e)
         {
             ThemeManager.CmdThemeReset(this);
+            IsChanged = false;
         }
 
         private void miThemeSave_Click(object sender, EventArgs e)
         {
             ThemeManager.CmdThemeSave(this);
+            IsChanged = false;
         }
 
         private void miThemeSaveAs_Click(object sender, EventArgs e)
         {
             ThemeManager.CmdThemeSaveAs(this);
+            IsChanged = false;
         }
     }
 

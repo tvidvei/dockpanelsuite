@@ -32,29 +32,30 @@ namespace WeifenLuo.Docking
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThemeEditorWindow));
             propertyGrid = new PropertyGrid();
-            cmenuThemeEditor = new ContextMenuStrip(components);
+            ContextMenuThemeEditor = new ContextMenuStrip(components);
             miThemeUse = new ToolStripMenuItem();
             miThemeReset = new ToolStripMenuItem();
             miThemeSave = new ToolStripMenuItem();
             miThemeSaveAs = new ToolStripMenuItem();
-            cmenuThemeEditor.SuspendLayout();
+            ContextMenuThemeEditor.SuspendLayout();
             SuspendLayout();
             // 
             // propertyGrid
             // 
             propertyGrid.BackColor = SystemColors.Control;
             propertyGrid.Dock = DockStyle.Fill;
-            propertyGrid.LineColor = SystemColors.ScrollBar;
+            propertyGrid.LineColor = Color.FromArgb(240, 240, 240);  // SystemColors.ScrollBar;
             propertyGrid.Location = new Point(0, 3);
             propertyGrid.Name = "propertyGrid";
             propertyGrid.Size = new Size(208, 283);
             propertyGrid.TabIndex = 0;
+            propertyGrid.PropertyValueChanged += PropertyGrid_PropertyValueChanged;
             // 
             // contextMenuStrip1
             // 
-            cmenuThemeEditor.Items.AddRange(new ToolStripItem[] { miThemeUse, miThemeReset, miThemeSave, miThemeSaveAs });
-            cmenuThemeEditor.Name = "cmenuThemeEditor";
-            cmenuThemeEditor.Size = new Size(181, 114);
+            ContextMenuThemeEditor.Items.AddRange(new ToolStripItem[] { miThemeUse, miThemeReset, miThemeSave, miThemeSaveAs });
+            ContextMenuThemeEditor.Name = "cmenuThemeEditor";
+            ContextMenuThemeEditor.Size = new Size(181, 114);
             // 
             // changetThemeToolStripMenuItem
             // 
@@ -92,18 +93,18 @@ namespace WeifenLuo.Docking
             Name = "ThemeEditorWindow";
             Padding = new Padding(0, 3, 0, 3);
             ShowHint = DockState.DockRight;
-            TabPageContextMenuStrip = cmenuThemeEditor;
+            TabPageContextMenuStrip = ContextMenuThemeEditor;
             TabText = "Theme1";
             Text = "Theme Editor";
             FormClosing += ThemeEditorWindow_FormClosing;
-            cmenuThemeEditor.ResumeLayout(false);
+            ContextMenuThemeEditor.ResumeLayout(false);
             ResumeLayout(false);
 
         }
         #endregion
 
         private System.Windows.Forms.PropertyGrid propertyGrid;
-        private ContextMenuStrip cmenuThemeEditor;
+        public ContextMenuStrip ContextMenuThemeEditor;
         private ToolStripMenuItem miThemeUse;
         private ToolStripMenuItem miThemeReset;
         private ToolStripMenuItem miThemeSave;

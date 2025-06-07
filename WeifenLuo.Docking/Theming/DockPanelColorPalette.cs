@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using System.Reflection;
 
 namespace WeifenLuo.Docking
 {
@@ -218,19 +219,12 @@ namespace WeifenLuo.Docking
             public override PropertyDescriptorCollection GetProperties()
             {
                 var pdc = base.GetProperties();
-                //return new PropertyDescriptorCollection(base.GetProperties()
-                //    .Cast<PropertyDescriptor>().Union(customFields).ToArray());
                 return pdc;
             }
 
             public override PropertyDescriptorCollection GetProperties(Attribute[] attributes)
             {
                 var pdc = base.GetProperties(attributes);
-                //return new PropertyDescriptorCollection(base.GetProperties(attributes)
-                //    .Cast<PropertyDescriptor>().Union(customFields).ToArray());
-                //pdc["MenuBackground"] = new ColorPropertyDescriptor(pdc["MenuBackground"]);
-
-
                 var pdA = new PropertyDescriptor[pdc.Count];
                 for(int i = 0; i < pdc.Count; i++)
                 {
@@ -241,10 +235,7 @@ namespace WeifenLuo.Docking
                     }
                     pdA[i] = pd;
                 }
-
                 var pdc2 = new PropertyDescriptorCollection(pdA, readOnly: true);
-
-
                 return pdc2;
             }
 
@@ -257,20 +248,32 @@ namespace WeifenLuo.Docking
     {
 
         private PropertyDescriptor pd;
+
+        public bool HasDynamicDefault { get; private set; }
+
+        public PropertyInfo DefaultValueProperty = null;
+        public FieldInfo AssignedValueField = null;
+        public object? TypeDefaultValue;
+
+        ColorPropertyDescriptor dynDefaultPropertyDescriptor = null;
         
         public ColorPropertyDescriptor(PropertyDescriptor descr) : base(descr)
         {
             pd = descr;
-        }
+            var ddAttr = pd.Attributes.OfType<DynamicDefaultValueAttribute>();
+            if (ddAttr.Count() > 0)
+            {
+                var defaultValName = ddAttr.ToArray()[0].DefaultValuePropertyName;
+                DefaultValueProperty = ComponentType.GetProperty(defaultValName);
+                TypeDefaultValue = Activator.CreateInstance(PropertyType);
 
-        public ColorPropertyDescriptor(PropertyDescriptor descr, Attribute[] attrs) : base(descr, attrs)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ColorPropertyDescriptor(string name, Attribute[] attrs) : base(name, attrs)
-        {
-            throw new NotImplementedException();
+                var assignedValName = ddAttr.ToArray()[0].AssignedValueFieldName;
+                if (String.IsNullOrWhiteSpace(assignedValName)) {
+                    assignedValName = Name[0].ToString().ToLower()+Name.Substring(1);
+                }
+                AssignedValueField = ComponentType.GetField(assignedValName, BindingFlags.Public|BindingFlags.NonPublic|BindingFlags.Instance);
+                HasDynamicDefault = true;
+            }
         }
 
         public override Type ComponentType => pd.ComponentType;
@@ -291,7 +294,8 @@ namespace WeifenLuo.Docking
 
         public override void ResetValue(object component)
         {
-            pd.ResetValue(component);
+            if (HasDynamicDefault) pd.SetValue(component, TypeDefaultValue);
+            else pd.ResetValue(component);
         }
 
         public override void SetValue(object component, object value)
@@ -299,9 +303,45 @@ namespace WeifenLuo.Docking
             pd.SetValue(component,value);
         }
 
+        public object GetDefaultValue(object component)
+        {
+            return HasDynamicDefault ? DefaultValueProperty.GetValue(component) 
+                : null;  // Må håndtere defaultverdi fra DefaultValueAttribute, og uten som er TypeDefaultValue
+        }
+
+
         public override bool ShouldSerializeValue(object component)
         {
-            return pd.ShouldSerializeValue(component);
+            //return pd.ShouldSerializeValue(component);
+            return 
+                HasDynamicDefault   ? !String.IsNullOrEmpty(Converter.ConvertToString(AssignedValueField.GetValue(component))) 
+                                    : pd.ShouldSerializeValue(component);
+            //return 
+            //    HasDynamicDefault   ? Converter.ConvertToString(GetValue(component)) != Converter.ConvertToString(GetDefaultValue(component))
+            //                        : pd.ShouldSerializeValue(component);
+        }
+    }
+
+    [System.AttributeUsage(System.AttributeTargets.Property)]
+    public class DynamicDefaultValueAttribute : Attribute
+    {
+
+        /// <summary>
+        /// Name of property to be used as the value
+        /// </summary>
+        public string DefaultValuePropertyName { get; set; }
+
+        /// <summary>
+        /// Name of field holding the assigned value
+        /// </summary>
+        /// If AssignedValue is not given, it is assumed to be same as the property name with a lower case first letter 
+        public string AssignedValueFieldName {  get; set; }
+
+        public DynamicDefaultValueAttribute() { }
+
+        public DynamicDefaultValueAttribute(string defaultValueName, string assignedValueName = null) { 
+            DefaultValuePropertyName = defaultValueName;
+            AssignedValueFieldName = assignedValueName;
         }
     }
 
@@ -324,12 +364,14 @@ namespace WeifenLuo.Docking
 
 
         [Description("Background color for menues and toolbars")]
+        [DynamicDefaultValue("ToolsBackground")]
         public Color MenuBackground {
             get { return menuBackground != default(Color) ? menuBackground : ToolsBackground; }
             set { menuBackground = value; }
         }
         private Color menuBackground;
 
+        [DefaultValue(typeof(Color),"Red")]
         [Description("Background color for menues and toolbars")]
         public Color ToolBarBackground { get; set; } = Color.FromArgb(204, 213, 240);
 

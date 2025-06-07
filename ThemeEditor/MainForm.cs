@@ -234,7 +234,16 @@ namespace ThemeEditor
                 statusBar.BackColor = dockPanel.Theme.ColorPalette.MainWindowStatusBarDefault.Background;
             }
             if (File.Exists(configFile))
+            {
                 dockPanel.LoadFromXml(configFile, m_deserializeDockContent);
+                //this.Font = dockPanel.Theme.TextFont;
+                mainMenu.Font = dockPanel.Theme.TextFont;
+                foreach(var wnd in ThemeManager.ThemeEditorWindows)
+                {
+                    //wnd.ContextMenuStrip.Font = dockPanel.Theme.TextFont;  
+                    wnd.ContextMenuThemeEditor.Font = dockPanel.Theme.TextFont;
+                }
+            }
         }
 
         private void EnableVSRenderer(VisualStudioToolStripExtender.VsVersion version, Theme theme)
