@@ -236,12 +236,10 @@ namespace ThemeEditor
             if (File.Exists(configFile))
             {
                 dockPanel.LoadFromXml(configFile, m_deserializeDockContent);
-                //this.Font = dockPanel.Theme.TextFont;
                 mainMenu.Font = dockPanel.Theme.TextFont;
                 foreach(var wnd in ThemeManager.ThemeEditorWindows)
                 {
-                    //wnd.ContextMenuStrip.Font = dockPanel.Theme.TextFont;  
-                    wnd.ContextMenuThemeEditor.Font = dockPanel.Theme.TextFont;
+                    if (wnd.ContextMenuStrip != null) wnd.ContextMenuStrip.Font = dockPanel.Theme.TextFont;
                 }
             }
         }

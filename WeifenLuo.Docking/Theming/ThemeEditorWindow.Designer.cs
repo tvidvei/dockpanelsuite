@@ -32,12 +32,12 @@ namespace WeifenLuo.Docking
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ThemeEditorWindow));
             propertyGrid = new PropertyGrid();
-            ContextMenuThemeEditor = new ContextMenuStrip(components);
+            ContextMenuStrip = new ContextMenuStrip(components);
             miThemeUse = new ToolStripMenuItem();
             miThemeReset = new ToolStripMenuItem();
             miThemeSave = new ToolStripMenuItem();
             miThemeSaveAs = new ToolStripMenuItem();
-            ContextMenuThemeEditor.SuspendLayout();
+            ContextMenuStrip.SuspendLayout();
             SuspendLayout();
             // 
             // propertyGrid
@@ -53,9 +53,9 @@ namespace WeifenLuo.Docking
             // 
             // contextMenuStrip1
             // 
-            ContextMenuThemeEditor.Items.AddRange(new ToolStripItem[] { miThemeUse, miThemeReset, miThemeSave, miThemeSaveAs });
-            ContextMenuThemeEditor.Name = "cmenuThemeEditor";
-            ContextMenuThemeEditor.Size = new Size(181, 114);
+            ContextMenuStrip.Items.AddRange(new ToolStripItem[] { miThemeUse, miThemeReset, miThemeSave, miThemeSaveAs });
+            ContextMenuStrip.Name = "cmenuThemeEditor";
+            ContextMenuStrip.Size = new Size(181, 114);
             // 
             // changetThemeToolStripMenuItem
             // 
@@ -93,18 +93,18 @@ namespace WeifenLuo.Docking
             Name = "ThemeEditorWindow";
             Padding = new Padding(0, 3, 0, 3);
             ShowHint = DockState.DockRight;
-            TabPageContextMenuStrip = ContextMenuThemeEditor;
+            TabPageContextMenuStrip = ContextMenuStrip;
             TabText = "Theme1";
             Text = "Theme Editor";
             FormClosing += ThemeEditorWindow_FormClosing;
-            ContextMenuThemeEditor.ResumeLayout(false);
+            ContextMenuStrip.ResumeLayout(false);
             ResumeLayout(false);
 
         }
         #endregion
 
         private System.Windows.Forms.PropertyGrid propertyGrid;
-        public ContextMenuStrip ContextMenuThemeEditor;
+        // public ContextMenuStrip ContextMenuStrip;
         private ToolStripMenuItem miThemeUse;
         private ToolStripMenuItem miThemeReset;
         private ToolStripMenuItem miThemeSave;
