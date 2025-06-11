@@ -13,6 +13,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThemeEditor", "ThemeEditor\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DockSample", "DockSample\DockSample.csproj", "{75E790C1-19EA-ECDF-2E09-B64ABC3A2941}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utiliites", "Utiliites", "{8CB65A48-B1FA-44DC-BD59-4AD21A4574E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Utilities.csproj", "{5DAAF9F7-9E8F-42FB-A43A-E5109A20B944}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsUtilities", "WinFormsUtilities\WinFormsUtilities.csproj", "{C20F590A-0D35-426A-9790-D13DCF451179}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +37,14 @@ Global
 		{75E790C1-19EA-ECDF-2E09-B64ABC3A2941}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75E790C1-19EA-ECDF-2E09-B64ABC3A2941}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75E790C1-19EA-ECDF-2E09-B64ABC3A2941}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DAAF9F7-9E8F-42FB-A43A-E5109A20B944}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DAAF9F7-9E8F-42FB-A43A-E5109A20B944}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DAAF9F7-9E8F-42FB-A43A-E5109A20B944}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DAAF9F7-9E8F-42FB-A43A-E5109A20B944}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C20F590A-0D35-426A-9790-D13DCF451179}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C20F590A-0D35-426A-9790-D13DCF451179}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C20F590A-0D35-426A-9790-D13DCF451179}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C20F590A-0D35-426A-9790-D13DCF451179}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -38,6 +52,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{F8753661-B6DF-84A4-BC70-80D0EBB2F777} = {F563984E-4A63-41EB-8D56-033DDC56A00C}
 		{75E790C1-19EA-ECDF-2E09-B64ABC3A2941} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{5DAAF9F7-9E8F-42FB-A43A-E5109A20B944} = {8CB65A48-B1FA-44DC-BD59-4AD21A4574E7}
+		{C20F590A-0D35-426A-9790-D13DCF451179} = {8CB65A48-B1FA-44DC-BD59-4AD21A4574E7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DC9B8990-422B-40EC-B51C-5F63F52A37BD}

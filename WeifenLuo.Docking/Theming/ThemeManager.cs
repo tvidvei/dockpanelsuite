@@ -1,7 +1,6 @@
 ﻿using System.Drawing;
 using System.Globalization;
 using WeifenLuo.Docking;
-using static System.Windows.Forms.Design.AxImporter;
 
 namespace WeifenLuo.Docking
 {

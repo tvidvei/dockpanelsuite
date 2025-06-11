@@ -230,5 +230,8 @@
   <ItemGroup Condition="'$(TargetFramework)' == 'net40' OR '$(TargetFramework)' == 'net35'">
     <Reference Include="System.Configuration" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Utilities\Utilities.csproj" />
+  </ItemGroup>
 
 </Project>
