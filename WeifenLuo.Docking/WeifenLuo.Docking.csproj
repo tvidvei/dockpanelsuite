@@ -33,6 +33,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>$(VersionPrefix)-dev001</Version>
     <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0-windows|AnyCPU'">
@@ -232,6 +233,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Utilities\Utilities.csproj" />
+    <ProjectReference Include="..\WinFormsUtilities\WinFormsUtilities.csproj" />
   </ItemGroup>
 
 </Project>

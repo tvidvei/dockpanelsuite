@@ -1,26 +1,34 @@
+using WinFormsUtilities;
+
 namespace WeifenLuo.Docking
 {
     public partial class ThemeEditorWindow : DockContent
     {
 
+        private PropertyGridEditHistoryManager EditHistoryManager;
+
         public ThemeEditorWindow() : base()
         {
             InitializeComponent();
+            EditHistoryManager = new(propertyGrid);
             ThemeManager.ThemeEditorWindows.Add(this);
         }
 
         public ThemeEditorWindow(string? fileName)
         {
             InitializeComponent();
+            EditHistoryManager = new(propertyGrid);
             if (string.IsNullOrEmpty(fileName)) Theme = ThemeManager.CreateNew();
             else FileName = fileName;
         }
 
         private bool isChanged = false;
 
-        public bool IsChanged { 
+        public bool IsChanged
+        {
             get { return isChanged; }
-            set {
+            set
+            {
                 if (value == isChanged) return;
                 isChanged = value;
                 SetTabText();
@@ -40,7 +48,7 @@ namespace WeifenLuo.Docking
             {
                 this.TabText = "Theme: "
                     + Theme.DisplayName
-                    + (isChanged? "*" : null)
+                    + (isChanged ? "*" : null)
                     + (DockPanel != null && ThemeManager.AreEqualPaths(FileName, DockPanel.Theme.FileName) ? " (Current)" : null)
                     ;
                 this.ToolTipText = ""
@@ -112,11 +120,11 @@ namespace WeifenLuo.Docking
             return GetType().ToString() + "," + FileName + "," + Text;
         }
 
-        private void PropertyGrid_PropertyValueChanged(object sender, PropertyValueChangedEventArgs e) 
+        private void PropertyGrid_PropertyValueChanged(object sender, PropertyValueChangedEventArgs e)
         {
             IsChanged = true;
+            EditHistoryManager.AddEdit(e.ChangedItem!, e.OldValue, e.ChangedItem!.Value);
         }
-
 
         private void ThemeEditorWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -145,6 +153,20 @@ namespace WeifenLuo.Docking
             ThemeManager.CmdThemeSaveAs(this);
             IsChanged = false;
         }
+
+
+        private void miThemeUndo_Click(object sender, EventArgs e)
+        {
+            EditHistoryManager.UndoEdit();
+            IsChanged = EditHistoryManager.CurrentPos > 0;
+        }
+
+        private void miThemeRedo_Click(object sender, EventArgs e)
+        {
+            EditHistoryManager.RedoEdit();
+            IsChanged = EditHistoryManager.CurrentPos > 0;
+        }
+
     }
 
 }

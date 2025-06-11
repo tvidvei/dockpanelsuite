@@ -46,7 +46,7 @@ namespace Utilities
         /// <summary>
         /// Position of next  or newly inserted Edit
         /// </summary>
-        protected int CurrentPos = 0;
+        public int CurrentPos { get; protected set; } = 0;
 
         /// <summary>
         /// Edit at CurrentPos if newly inserted, else null
@@ -64,14 +64,14 @@ namespace Utilities
         protected Edit? LastEdit => LastPos < 0 ? null : Edits[LastPos];
 
         /// <summary>
-        /// Register a new Edit
+        /// Register a new Edit to the history
         /// </summary>
         /// <param name="item">Item to be changed</param>
         /// <param name="oldValue">Old value</param>
         /// <param name="newValue">New value</param>
         /// <param name="setValue">if true: Perform the edit</param>
         /// <returns>True if success. False if newValue equals oldValue</returns>
-        public bool NewEdit(I item, V? oldValue, V? newValue, bool setValue = false)
+        public bool AddEdit(I item, V? oldValue, V? newValue, bool setValue = false)
         {
             if (AreEqualValues(item, newValue, oldValue)) return false;
             if (CurrentPos < Edits.Count)
@@ -102,10 +102,20 @@ namespace Utilities
         public bool RedoEdit()
         {
             if (CurrentPos >= Edits.Count) return false;
-            CurrentPos++;
             SetValue(CurrentEdit!.Item, CurrentEdit!.NewValue);
+            CurrentPos++;
             return true;
         }
+
+
+        /// <summary>
+        /// Clears the EditHistory
+        /// </summary>
+        /// Removes all edits from the history and sets CurrentPos to 0
+        public void Clear() { 
+            Edits.Clear();
+            CurrentPos = 0;
+        }  
 
 
         /// <summary>

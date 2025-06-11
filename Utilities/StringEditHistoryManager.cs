@@ -8,30 +8,40 @@ using System.Threading.Tasks;
 namespace Utilities
 {
 
+    public struct StringPosition {
+        public int Pos;
+        public int Length;
 
-    public class StringEditHistoryManager : EditHistoryManager<int, string>
+        public StringPosition(int pos, int length) { Pos = pos; Length = length; }
+    }
+
+    public class StringEditHistoryManager : EditHistoryManager<StringPosition, string?>
     {
 
-        public StringBuilder Text { get; private set; }
+        public StringBuilder StringBuilder { get; private set; }
 
 
-        public StringEditHistoryManager(StringBuilder text)
+        public StringEditHistoryManager(StringBuilder stringBuilder)
         {
-            Text = text;
+            StringBuilder = stringBuilder;
         }
 
-        public StringEditHistoryManager(string text) : this(new StringBuilder(text)) { }
+        public StringEditHistoryManager(string? text) : this(new StringBuilder(text)) { }
 
 
-        public override bool AreEqualValues(int item, string value1, string value2)
+        public override bool AreEqualValues(StringPosition item, string? value1, string? value2)
         {
             return String.Equals(value1, value2);
         }
 
-        public override void SetValue(int item, string value)
+        public override void SetValue(StringPosition item, string? value)
         {
-            if (item < Text.Length) Text.Insert(item, value);
-            else Text.Append(value);
+            if (item.Pos < StringBuilder.Length)
+            {
+                if (item.Length > 0) StringBuilder.Remove(item.Pos, item.Length);
+                if (!string.IsNullOrEmpty(value)) StringBuilder.Insert(item.Pos, value);
+            }
+            else StringBuilder.Append(value);
         }
     }
 
