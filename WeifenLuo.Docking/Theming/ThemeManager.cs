@@ -358,7 +358,8 @@ namespace WeifenLuo.Docking
 
             try
             {
-                DefaultTheme = LoadFromFile(defaultThemeName);
+                //DefaultTheme = LoadFromFile(defaultThemeName);
+                DefaultTheme = new Theme();
             }
             catch (Exception ex)
             {

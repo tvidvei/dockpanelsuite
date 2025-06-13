@@ -20,6 +20,8 @@ namespace WeifenLuo.Docking
 
         public Theme() {
             Colors = new Colors();
+            ColorPalette = new DockPanelColorPalette();
+            ColorPalette.Setup();
             PaintingService = new PaintingService();
             Measures = new Measures();
         }
@@ -95,7 +97,6 @@ namespace WeifenLuo.Docking
         public Font TextFont { get; set; } = SystemFonts.MenuFont; // new Font("Segoe UI", 9);
 
         [Category("Colors")]
-        //[TypeConverter(typeof(ExpandableObjectWithDynamicDefaultsConverter))]
         public Colors Colors { get; set; }
 
 

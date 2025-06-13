@@ -9,50 +9,46 @@ namespace WeifenLuo.Docking
 
         public DockPanelColorPalette() { }
 
-        public DockPanelColorPalette(bool setup) : this() 
+        public void Setup()
         {
-            var res = new DockPanelColorPalette();
-
-            if (setup) {
-                OverflowButtonDefault = new ButtonPalette();
-                OverflowButtonHovered = new HoveredButtonPalette();
-                OverflowButtonPressed = new HoveredButtonPalette();
-                TabSelectedActive = new TabPalette();
-                TabSelectedInactive = new TabPalette();
-                TabUnselected = new UnselectedTabPalette();
-                TabUnselectedHovered = new TabPalette();
-                TabButtonSelectedActiveHovered = new HoveredButtonPalette();
-                TabButtonSelectedActivePressed = new HoveredButtonPalette();
-                TabButtonSelectedInactiveHovered = new HoveredButtonPalette();
-                TabButtonSelectedInactivePressed = new HoveredButtonPalette();
-                TabButtonUnselectedTabHoveredButtonHovered = new HoveredButtonPalette();
-                TabButtonUnselectedTabHoveredButtonPressed = new HoveredButtonPalette();
-                MainWindowActive = new MainWindowPalette();
-                MainWindowStatusBarDefault = new MainWindowStatusBarPalette();
-                ToolWindowCaptionActive = new ToolWindowCaptionPalette();
-                ToolWindowCaptionInactive = new ToolWindowCaptionPalette();
-                ToolWindowCaptionButtonActiveHovered = new HoveredButtonPalette();
-                ToolWindowCaptionButtonPressed = new HoveredButtonPalette();
-                ToolWindowCaptionButtonInactiveHovered = new HoveredButtonPalette();
-                ToolWindowTabSelectedActive = new ToolWindowTabPalette();
-                ToolWindowTabSelectedInactive = new ToolWindowTabPalette();
-                ToolWindowTabUnselected = new ToolWindowUnselectedTabPalette();
-                ToolWindowTabUnselectedHovered = new ToolWindowTabPalette();
-                DockTarget = new DockTargetPalette();
-                CommandBarMenuDefault = new CommandBarMenuPalette();
-                CommandBarMenuPopupDefault = new CommandBarMenuPopupPalette();
-                CommandBarMenuPopupDisabled = new CommandBarMenuPopupDisabledPalette();
-                CommandBarMenuPopupHovered = new CommandBarMenuPopupHoveredPalette();
-                CommandBarMenuTopLevelHeaderHovered = new CommandBarMenuTopLevelHeaderPalette();
-                CommandBarToolbarDefault = new CommandBarToolbarPalette();
-                CommandBarToolbarButtonChecked = new CommandBarToolbarButtonCheckedPalette();
-                CommandBarToolbarButtonCheckedHovered = new CommandBarToolbarButtonCheckedHoveredPalette();
-                CommandBarToolbarButtonDefault = new CommandBarToolbarButtonPalette();
-                CommandBarToolbarButtonHovered = new CommandBarToolbarButtonHoveredPalette();
-                CommandBarToolbarButtonPressed = new CommandBarToolbarButtonPressedPalette();
-                CommandBarToolbarOverflowHovered = new CommandBarToolbarOverflowButtonPalette();
-                CommandBarToolbarOverflowPressed = new CommandBarToolbarOverflowButtonPalette();
-            }
+            OverflowButtonDefault = new ButtonPalette();
+            OverflowButtonHovered = new HoveredButtonPalette();
+            OverflowButtonPressed = new HoveredButtonPalette();
+            TabSelectedActive = new TabPalette();
+            TabSelectedInactive = new TabPalette();
+            TabUnselected = new UnselectedTabPalette();
+            TabUnselectedHovered = new TabPalette();
+            TabButtonSelectedActiveHovered = new HoveredButtonPalette();
+            TabButtonSelectedActivePressed = new HoveredButtonPalette();
+            TabButtonSelectedInactiveHovered = new HoveredButtonPalette();
+            TabButtonSelectedInactivePressed = new HoveredButtonPalette();
+            TabButtonUnselectedTabHoveredButtonHovered = new HoveredButtonPalette();
+            TabButtonUnselectedTabHoveredButtonPressed = new HoveredButtonPalette();
+            MainWindowActive = new MainWindowPalette();
+            MainWindowStatusBarDefault = new MainWindowStatusBarPalette();
+            ToolWindowCaptionActive = new ToolWindowCaptionPalette();
+            ToolWindowCaptionInactive = new ToolWindowCaptionPalette();
+            ToolWindowCaptionButtonActiveHovered = new HoveredButtonPalette();
+            ToolWindowCaptionButtonPressed = new HoveredButtonPalette();
+            ToolWindowCaptionButtonInactiveHovered = new HoveredButtonPalette();
+            ToolWindowTabSelectedActive = new ToolWindowTabPalette();
+            ToolWindowTabSelectedInactive = new ToolWindowTabPalette();
+            ToolWindowTabUnselected = new ToolWindowUnselectedTabPalette();
+            ToolWindowTabUnselectedHovered = new ToolWindowTabPalette();
+            DockTarget = new DockTargetPalette();
+            CommandBarMenuDefault = new CommandBarMenuPalette();
+            CommandBarMenuPopupDefault = new CommandBarMenuPopupPalette();
+            CommandBarMenuPopupDisabled = new CommandBarMenuPopupDisabledPalette();
+            CommandBarMenuPopupHovered = new CommandBarMenuPopupHoveredPalette();
+            CommandBarMenuTopLevelHeaderHovered = new CommandBarMenuTopLevelHeaderPalette();
+            CommandBarToolbarDefault = new CommandBarToolbarPalette();
+            CommandBarToolbarButtonChecked = new CommandBarToolbarButtonCheckedPalette();
+            CommandBarToolbarButtonCheckedHovered = new CommandBarToolbarButtonCheckedHoveredPalette();
+            CommandBarToolbarButtonDefault = new CommandBarToolbarButtonPalette();
+            CommandBarToolbarButtonHovered = new CommandBarToolbarButtonHoveredPalette();
+            CommandBarToolbarButtonPressed = new CommandBarToolbarButtonPressedPalette();
+            CommandBarToolbarOverflowHovered = new CommandBarToolbarOverflowButtonPalette();
+            CommandBarToolbarOverflowPressed = new CommandBarToolbarOverflowButtonPalette();
         }
 
         [TypeConverter(typeof(ExpandableObjectConverter))]
