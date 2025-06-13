@@ -19,6 +19,7 @@ namespace WinFormsUtilities
         {
             item.PropertyDescriptor!.SetValue(item.Parent?.Value ?? PropertyGrid.SelectedObject, value);
             item.Select();
+            PropertyGrid.Refresh();
         }
 
         public PropertyGridEditHistoryManager(PropertyGrid propertyGrid) : base()

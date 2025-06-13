@@ -95,7 +95,7 @@ namespace WeifenLuo.Docking
         public Font TextFont { get; set; } = SystemFonts.MenuFont; // new Font("Segoe UI", 9);
 
         [Category("Colors")]
-        [TypeConverter(typeof(ExpandableObjectConverter))]
+        [TypeConverter(typeof(ExpandableObjectWithDynamicDefaultsConverter))]
         public Colors Colors { get; set; }
 
 
