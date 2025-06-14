@@ -118,15 +118,15 @@ namespace WeifenLuo.Docking
 
         private void miThemeSave_Click(object sender, EventArgs e)
         {
-            ThemeManager.CmdThemeSave(this);
             EditHistoryManager.SaveCurrentPos();
+            ThemeManager.CmdThemeSave(this);
             SetTabText();
         }
 
         private void miThemeSaveAs_Click(object sender, EventArgs e)
         {
-            ThemeManager.CmdThemeSaveAs(this);
             EditHistoryManager.SaveCurrentPos();
+            ThemeManager.CmdThemeSaveAs(this);
             SetTabText();
         }
 

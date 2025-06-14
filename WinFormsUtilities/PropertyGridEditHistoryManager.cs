@@ -6,7 +6,7 @@ namespace WinFormsUtilities
     public class PropertyGridEditHistoryManager : EditHistoryManager<GridItem, object?>
     {
 
-        private PropertyGrid PropertyGrid { get; set; }
+        public PropertyGrid PropertyGrid { get; set; }
 
         public override bool AreEqualValues(GridItem item, object? value1, object? value2)
         {
