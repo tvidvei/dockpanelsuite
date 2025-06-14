@@ -35,7 +35,7 @@ namespace WeifenLuo.Docking
             if (rect.Width <= 0 || rect.Height <= 0)
                 return;
 
-            _horizontalBrush = _host.DockPanel.Theme.PaintingService.GetBrush(_host.DockPanel.Theme.ColorPalette.MainWindowActive.Background);
+            _horizontalBrush = _host.DockPanel.Theme.PaintingService.GetBrush(_host.DockPanel.Theme.Colors.MainBackground);
             if (_host.IsDockWindow)
             {
                 switch (Dock)

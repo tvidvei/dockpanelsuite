@@ -14,7 +14,7 @@ namespace WeifenLuo.Docking
         public PaneSplitter(DockPane pane)
             : base(pane)
         {
-            _horizontalBrush = pane.DockPanel.Theme.PaintingService.GetBrush(pane.DockPanel.Theme.ColorPalette.MainWindowActive.Background);
+            _horizontalBrush = pane.DockPanel.Theme.PaintingService.GetBrush(pane.DockPanel.Theme.Colors.MainBackground);
             SplitterSize = pane.DockPanel.Theme.Measures.SplitterSize;
         }
 

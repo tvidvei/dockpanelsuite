@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.IO;
-using System.IO.Compression;
-using System.Linq;
-using System.Text.Json;
+﻿using System.ComponentModel;
 using System.Text.Json.Serialization;
-using System.Windows.Forms;
-//using ThemeEditor;
 
 namespace WeifenLuo.Docking
 {
@@ -182,7 +173,7 @@ namespace WeifenLuo.Docking
             else
             {
                 _dockBackColor = dockPanel.DockBackColor;
-                dockPanel.DockBackColor = ColorPalette.MainWindowActive.Background;
+                dockPanel.DockBackColor = Colors.MainBackground;
                 dockPanel.SetDummy();
             }
 

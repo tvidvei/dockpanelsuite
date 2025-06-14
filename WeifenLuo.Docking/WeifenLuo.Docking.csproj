@@ -92,6 +92,7 @@
     <Compile Include="Resources.cs" />
     <Compile Include="PaneSplitterBase.cs" />
     <Compile Include="SplitterDragHandler.cs" />
+    <Compile Include="Theming\Colors.cs" />
     <Compile Include="Theming\DockPanelColorPalette.cs" />
     <Compile Include="Theming\ThemeSerializer.cs" />
     <Compile Include="Theming\Theme.cs" />

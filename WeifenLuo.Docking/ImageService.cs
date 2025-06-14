@@ -141,9 +141,9 @@ namespace WeifenLuo.Docking
                 }
             }
 #if new
-            TabActive_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabClose.png"), _palette2.TabButtonActive, _palette2.TabBackgroundActive);
-            TabInactive_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabClose.png"), _palette2.TabButtonHoovered, _palette2.TabBackgroundHoovered);
-            TabLostFocus_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabClose.png"), _palette2.TabButtonNormal, _palette2.TabBackgroundNormal);
+            TabActive_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabClose.png"), _palette2.TabActiveGlyph, _palette2.TabActiveBackground);
+            TabInactive_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabClose.png"), _palette2.TabHooveredGlyph, _palette2.TabHooveredBackground);
+            TabLostFocus_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabClose.png"), _palette2.TabNormalGlyph, _palette2.TabNormalBackground);
 #else
             TabActive_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabClose.png"), _palette.TabSelectedActive.Button, _palette.TabSelectedActive.Background);
             TabInactive_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabClose.png"), _palette.TabUnselectedHovered.Button, _palette.TabUnselectedHovered.Background);
@@ -157,8 +157,8 @@ namespace WeifenLuo.Docking
             TabPressInactive_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabClose.png"), _palette.TabButtonUnselectedTabHoveredButtonPressed.Glyph, _palette.TabButtonUnselectedTabHoveredButtonPressed.Background, _palette.TabButtonUnselectedTabHoveredButtonPressed.Border);
             TabPressLostFocus_Close = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabClose.png"), _palette.TabButtonSelectedInactivePressed.Glyph, _palette.TabButtonSelectedInactivePressed.Background, _palette.TabButtonSelectedInactivePressed.Border);
 
-            DockPane_List = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabList.png"), _palette.OverflowButtonDefault.Glyph, _palette.MainWindowActive.Background);
-            DockPane_OptionOverflow = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabOverflow.png"), _palette.OverflowButtonDefault.Glyph, _palette.MainWindowActive.Background);
+            DockPane_List = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabList.png"), _palette.OverflowButtonDefault.Glyph, _palette2.MainBackground);
+            DockPane_OptionOverflow = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabOverflow.png"), _palette.OverflowButtonDefault.Glyph, _palette2.MainBackground);
 
             DockPaneHover_List = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabList.png"), _palette.OverflowButtonHovered.Glyph, _palette.OverflowButtonHovered.Background, _palette.OverflowButtonHovered.Border);
             DockPaneHover_OptionOverflow = ImageServiceHelper.GetImage(Resources.GetBitmap("MaskTabOverflow.png"), _palette.OverflowButtonHovered.Glyph, _palette.OverflowButtonHovered.Background, _palette.OverflowButtonHovered.Border);

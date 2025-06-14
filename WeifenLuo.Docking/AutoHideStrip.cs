@@ -133,7 +133,7 @@ namespace WeifenLuo.Docking
                 ControlStyles.UserPaint |
                 ControlStyles.AllPaintingInWmPaint |
                 ControlStyles.OptimizedDoubleBuffer, true);
-            BackColor = DockPanel.Theme.ColorPalette.MainWindowActive.Background;
+            BackColor = DockPanel.Theme.Colors.MainBackground;
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -254,13 +254,13 @@ namespace WeifenLuo.Docking
 
             if (tab.IsMouseOver)
             {
-                backgroundColor = DockPanel.Theme.Colors.TabBackgroundHoovered;
-                textColor = DockPanel.Theme.Colors.TabTextNormal;
+                backgroundColor = DockPanel.Theme.Colors.TabHooveredBackground;
+                textColor = DockPanel.Theme.Colors.TabNormalText;
             }
             else
             {
-                backgroundColor = DockPanel.Theme.Colors.TabBackgroundNormal;
-                textColor = DockPanel.Theme.Colors.TabTextNormal;
+                backgroundColor = DockPanel.Theme.Colors.TabNormalBackground;
+                textColor = DockPanel.Theme.Colors.TabNormalText;
             }
 
             Rectangle rectBorder = GetBorderRectangle(rectTabOrigin, dockState, TextRenderer.MeasureText(tab.Content.DockHandler.TabText, TextFont).Width);

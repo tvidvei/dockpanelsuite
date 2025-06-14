@@ -807,7 +807,7 @@ namespace WeifenLuo.Docking
         {
             // IMPORTANT: fill background.
             Rectangle rectTabStrip = TabStripRectangle;
-            g.FillRectangle(DockPane.DockPanel.Theme.PaintingService.GetBrush(DockPane.DockPanel.Theme.ColorPalette.MainWindowActive.Background), rectTabStrip);
+            g.FillRectangle(DockPane.DockPanel.Theme.PaintingService.GetBrush(DockPane.DockPanel.Theme.Colors.MainBackground), rectTabStrip);
 
             if (Appearance == DockPane.AppearanceStyle.Document)
                 DrawTabStrip_Document(g);
@@ -856,9 +856,9 @@ namespace WeifenLuo.Docking
             {
                 Color tabUnderLineColor;
                 if (tabActive != null && DockPane.IsActiveDocumentPane)
-                    tabUnderLineColor = DockPane.DockPanel.Theme.Colors.TabBackgroundActive;
+                    tabUnderLineColor = DockPane.DockPanel.Theme.Colors.TabActiveBackground;
                 else
-                    tabUnderLineColor = DockPane.DockPanel.Theme.Colors.TabBackgroundNormal;
+                    tabUnderLineColor = DockPane.DockPanel.Theme.Colors.TabNormalBackground;
 
                 g.DrawLine(DockPane.DockPanel.Theme.PaintingService.GetPen(tabUnderLineColor, 4), rectTabStrip.Left, rectTabStrip.Bottom, rectTabStrip.Right, rectTabStrip.Bottom);
             }
@@ -1031,7 +1031,7 @@ namespace WeifenLuo.Docking
                 else
                 {
                     textColor = DockPane.DockPanel.Theme.ColorPalette.ToolWindowTabUnselected.Text;
-                    backgroundColor = DockPane.DockPanel.Theme.ColorPalette.MainWindowActive.Background;
+                    backgroundColor = DockPane.DockPanel.Theme.Colors.MainBackground;
                 }
 
                 g.FillRectangle(DockPane.DockPanel.Theme.PaintingService.GetBrush(backgroundColor), rect);
@@ -1079,15 +1079,15 @@ namespace WeifenLuo.Docking
             rectText = DrawHelper.RtlTransform(this, rectText);
             rectIcon = DrawHelper.RtlTransform(this, rectIcon);
 
-            Color activeColor = DockPane.DockPanel.Theme.Colors.TabBackgroundActive;
-            Color lostFocusColor = DockPane.DockPanel.Theme.Colors.TabBackgroundNormal;
+            Color activeColor = DockPane.DockPanel.Theme.Colors.TabActiveBackground;
+            Color lostFocusColor = DockPane.DockPanel.Theme.Colors.TabNormalBackground;
             Color inactiveColor = DockPane.DockPanel.Theme.Colors.MainBackground;
-            Color mouseHoverColor = DockPane.DockPanel.Theme.Colors.TabBackgroundHoovered;
+            Color mouseHoverColor = DockPane.DockPanel.Theme.Colors.TabHooveredBackground;
 
-            Color activeText = DockPane.DockPanel.Theme.Colors.TabTextActive;
-            Color lostFocusText = DockPane.DockPanel.Theme.Colors.TabTextNormal;
-            Color inactiveText = DockPane.DockPanel.Theme.Colors.TabTextNormal;
-            Color mouseHoverText = DockPane.DockPanel.Theme.Colors.TabTextHoovered;
+            Color activeText = DockPane.DockPanel.Theme.Colors.TabActiveText;
+            Color lostFocusText = DockPane.DockPanel.Theme.Colors.TabNormalText;
+            Color inactiveText = DockPane.DockPanel.Theme.Colors.TabNormalText;
+            Color mouseHoverText = DockPane.DockPanel.Theme.Colors.TabHooveredText;
 
             Color text;
             Image image = null;
