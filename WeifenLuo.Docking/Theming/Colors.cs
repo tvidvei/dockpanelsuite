@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using Utilities;
+using System.Text.Json.Serialization;
 
 namespace WeifenLuo.Docking
 {
@@ -20,11 +21,13 @@ namespace WeifenLuo.Docking
 
         [Description("Background color for menues and toolbars")]
         [DefaultValueProperty(nameof(ToolsBackground))]
+        [JsonIgnore]
         public Color MenuBackground
         {
             get { return menuBackground != default(Color) ? menuBackground : ToolsBackground; }
             set { menuBackground = value; }
         }
+        [JsonInclude]
         private Color menuBackground;
 
         [Description("Background color for menues and toolbars")]

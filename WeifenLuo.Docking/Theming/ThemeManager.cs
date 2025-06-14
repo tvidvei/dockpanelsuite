@@ -1,6 +1,8 @@
 ﻿using System.Drawing;
 using System.Globalization;
+using Utilities;
 using WeifenLuo.Docking;
+using WinFormsUtilities;
 
 namespace WeifenLuo.Docking
 {
@@ -79,7 +81,7 @@ namespace WeifenLuo.Docking
             wnd = new ThemeEditorWindow();
             wnd.DockPanel = DockPanel;
             if (!string.IsNullOrWhiteSpace(filePath)) {
-                wnd.FilePath = filePath;
+                wnd.LoadFromFile(filePath);
             }
             wnd.Show(DockPanel);
             wnd.Activate();
@@ -172,7 +174,8 @@ namespace WeifenLuo.Docking
                 }
                 string jsonString = Serializer.Serialize(wnd.Theme);
                 File.WriteAllText(filePath, jsonString);
-                wnd.FilePath = filePath;
+                //wnd.FilePath = filePath;
+                wnd.Theme.FilePath = filePath;
                 UpdateTabTexts();
                 if (wnd.IsCurrent) SetTheme(wnd.FilePath);
             }
@@ -272,7 +275,7 @@ namespace WeifenLuo.Docking
             {
                 try
                 {
-                    wnd.Theme = ThemeManager.LoadFromFile(wnd.FilePath); ;
+                    wnd.Theme = ThemeManager.LoadFromFile(wnd.FilePath);
                 }
                 catch (Exception e)
                 {

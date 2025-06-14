@@ -59,9 +59,16 @@ namespace Utilities
         protected int LastPos => CurrentPos - 1;
 
         /// <summary>
+        /// CurrentPosition when saved. Zero by default as no save has taken place
+        /// </summary>
+        protected int SavedPos { get; set; } = 0;
+
+        /// <summary>
         /// Last edit
         /// </summary>
         protected Edit? LastEdit => LastPos < 0 ? null : Edits[LastPos];
+
+        public bool IsChanged => CurrentPos != SavedPos;
 
         /// <summary>
         /// Register a new Edit to the history
@@ -79,6 +86,7 @@ namespace Utilities
                 Edits.RemoveRange(CurrentPos, Edits.Count - CurrentPos);
             }
             Edits.Add(new Edit(item, oldValue, newValue));
+            if (CurrentPos < SavedPos) SavedPos = 0;
             CurrentPos++;
             if (setValue) SetValue(CurrentEdit!.Item, CurrentEdit!.NewValue);
             return true;
@@ -115,8 +123,17 @@ namespace Utilities
         public void Clear() { 
             Edits.Clear();
             CurrentPos = 0;
+            SavedPos = 0;
         }  
 
+
+        /// <summary>
+        /// Called when the object under edit is saved. Sets SavedPos to CurrentPos
+        /// </summary>
+        public void SaveCurrentPos()
+        {
+            SavedPos = CurrentPos;
+        }
 
         /// <summary>
         /// Returns true if value1 is equal to value2

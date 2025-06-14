@@ -168,7 +168,7 @@ namespace ThemeEditor
                 ThemeEditorWindow themeEditor = new ThemeEditorWindow();
                 themeEditor.DockPanel = this.dockPanel;
                 if (!String.IsNullOrWhiteSpace(parsedStrings[1]))
-                    themeEditor.FileName = parsedStrings[1];
+                    themeEditor.LoadFromFile(parsedStrings[1]);
                 if (parsedStrings[2] != string.Empty)
                     themeEditor.Text = parsedStrings[2];
 

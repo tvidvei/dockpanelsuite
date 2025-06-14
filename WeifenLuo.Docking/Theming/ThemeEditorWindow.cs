@@ -19,21 +19,10 @@ namespace WeifenLuo.Docking
             InitializeComponent();
             EditHistoryManager = new(propertyGrid);
             if (string.IsNullOrEmpty(fileName)) Theme = ThemeManager.CreateNew();
-            else FileName = fileName;
+            else LoadFromFile(fileName);
         }
 
-        private bool isChanged = false;
-
-        public bool IsChanged
-        {
-            get { return isChanged; }
-            set
-            {
-                if (value == isChanged) return;
-                isChanged = value;
-                SetTabText();
-            }
-        }
+        public bool IsChanged => EditHistoryManager.IsChanged;
 
         public void SetTabText()
         {
@@ -48,7 +37,7 @@ namespace WeifenLuo.Docking
             {
                 this.TabText = "Theme: "
                     + Theme.DisplayName
-                    + (isChanged ? "*" : null)
+                    + (IsChanged ? "*" : null)
                     + (DockPanel != null && ThemeManager.AreEqualPaths(FileName, DockPanel.Theme.FileName) ? " (Current)" : null)
                     ;
                 this.ToolTipText = ""
@@ -64,46 +53,31 @@ namespace WeifenLuo.Docking
             {
                 var theme = value ?? ThemeManager.CreateNew();
                 propertyGrid.SelectedObject = theme;
+                EditHistoryManager.Clear();
                 SetTabText();
             }
         }
 
-        public string FileName
-        {
-            get { return Theme?.FileName ?? "null"; }
-            set
-            {
-                try
-                {
-                    Theme = ThemeManager.LoadFromFile(value);
-                }
-                catch (Exception e)
-                {
-                    UserMessages.ErrorMessage(e.Message, Text);
-                }
 
+        public string FileName => Theme?.FileName ?? "null";
+
+        public void LoadFromFile(string filePath)
+        {
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(filePath))
+                {
+                    Theme = ThemeManager.LoadFromFile(filePath);
+                }
+            }
+            catch (Exception e)
+            {
+                UserMessages.ErrorMessage(e.Message, Text);
             }
         }
 
-        public string FilePath
-        {
-            get { return Theme?.FilePath ?? "null"; }
-            set
-            {
-                try
-                {
-                    if (!string.IsNullOrWhiteSpace(value))
-                    {
-                        Theme = ThemeManager.LoadFromFile(value);
-                    }
-                }
-                catch (Exception e)
-                {
-                    UserMessages.ErrorMessage(e.Message, Text);
-                }
 
-            }
-        }
+        public string FilePath => Theme?.FilePath ?? "null";
 
         public bool IsCurrent => ThemeManager.AreEqualPaths(FilePath, DockPanel?.Theme.FilePath);
 
@@ -122,8 +96,8 @@ namespace WeifenLuo.Docking
 
         private void PropertyGrid_PropertyValueChanged(object sender, PropertyValueChangedEventArgs e)
         {
-            IsChanged = true;
             EditHistoryManager.AddEdit(e.ChangedItem!, e.OldValue, e.ChangedItem!.Value);
+            SetTabText();
         }
 
         private void ThemeEditorWindow_FormClosing(object sender, FormClosingEventArgs e)
@@ -139,32 +113,34 @@ namespace WeifenLuo.Docking
         private void miThemeReset_Click(object sender, EventArgs e)
         {
             ThemeManager.CmdThemeReset(this);
-            IsChanged = false;
+            SetTabText();
         }
 
         private void miThemeSave_Click(object sender, EventArgs e)
         {
             ThemeManager.CmdThemeSave(this);
-            IsChanged = false;
+            EditHistoryManager.SaveCurrentPos();
+            SetTabText();
         }
 
         private void miThemeSaveAs_Click(object sender, EventArgs e)
         {
             ThemeManager.CmdThemeSaveAs(this);
-            IsChanged = false;
+            EditHistoryManager.SaveCurrentPos();
+            SetTabText();
         }
 
 
         private void miThemeUndo_Click(object sender, EventArgs e)
         {
             EditHistoryManager.UndoEdit();
-            IsChanged = EditHistoryManager.CurrentPos > 0;
+            SetTabText();
         }
 
         private void miThemeRedo_Click(object sender, EventArgs e)
         {
             EditHistoryManager.RedoEdit();
-            IsChanged = EditHistoryManager.CurrentPos > 0;
+            SetTabText();
         }
 
     }
