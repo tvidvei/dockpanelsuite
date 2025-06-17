@@ -12,6 +12,7 @@ namespace WeifenLuo.Docking
 
         public Theme() {
             Colors = new Colors();
+            Colors.Setup();
             ColorPalette = new DockPanelColorPalette();
             ColorPalette.Setup();
             PaintingService = new PaintingService();

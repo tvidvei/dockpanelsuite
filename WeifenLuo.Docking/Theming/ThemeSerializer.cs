@@ -21,6 +21,7 @@ namespace WeifenLuo.Docking
             var options = new JsonSerializerOptions();
 
             options.WriteIndented = true;
+            options.ReferenceHandler = ReferenceHandler.Preserve;
             //options.Converters.Add(new ColorJsonConverter());
             if (version >= 1)
                 options.Converters.Add(new TypeDescriptorJsonConverter<System.Drawing.Color>());

@@ -1,0 +1,314 @@
+{
+  "$id": "1",
+  "ThemeVersion": 1,
+  "TextFont": "Segoe UI, 9pt",
+  "Colors": {
+    "$id": "2",
+    "MainBackground": "93, 107, 153",
+    "ToolsBackground": "Fuchsia",
+    "StatusBarBackground": "204, 213, 240",
+    "MainBorder": "",
+    "TabNormalBackground": "Lime",
+    "TabNormalText": "White",
+    "TabNormalGrip": "White",
+    "TabNormalButtonNormalGlyph": "160, 172, 210",
+    "TabNormalButtonNormalBackground": "",
+    "TabNormalButtonNormalBorder": "",
+    "TabNormalButtonHooveredGlyph": "30, 30, 30",
+    "TabNormalButtonHooveredBackground": "236, 244, 255",
+    "TabNormalButtonHooveredBorder": "",
+    "TabHooveredBackground": "187, 198, 241",
+    "TabHooveredText": "Black",
+    "TabHooveredGrip": "Black",
+    "TabHooveredButtonNormalGlyph": "64, 86, 141",
+    "TabHooveredButtonNormalBackground": "",
+    "TabHooveredButtonNormalBorder": "",
+    "TabHooveredButtonHooveredGlyph": "30, 30, 30",
+    "TabHooveredButtonHooveredBackground": "",
+    "TabHooveredButtonHooveredBorder": "",
+    "TabSelectedBackground": "204, 213, 240",
+    "TabSelectedText": "Black",
+    "TabSelectedGrip": "Black",
+    "TabSelectedButtonNormalGlyph": "105, 130, 171",
+    "TabSelectedButtonNormalBackground": "",
+    "TabSelectedButtonNormalBorder": "",
+    "TabSelectedButtonHooveredGlyph": "30, 30, 30",
+    "TabSelectedButtonHooveredBackground": "",
+    "TabSelectedButtonHooveredBorder": "",
+    "TabActiveBackground": "245, 204, 132",
+    "TabActiveText": "Black",
+    "TabActiveGrip": "Black",
+    "TabActiveButtonNormalGlyph": "116, 75, 35",
+    "TabActiveButtonNormalBackground": "",
+    "TabActiveButtonNormalBorder": "",
+    "TabActiveButtonHooveredGlyph": "52, 42, 33",
+    "TabActiveButtonHooveredBackground": "",
+    "TabActiveButtonHooveredBorder": "",
+    "ButtonPressedBackground": "255, 237, 200",
+    "ButtonPressedBorder": "130, 93, 7",
+    "ButtonHooveredBackground": "236, 244, 255",
+    "ButtonHoveredBorder": "93, 107, 153",
+    "ToolWinBackground": "255, 255, 255",
+    "GridHeaderBackground": "246, 246, 246",
+    "GridHeaderBars": "204, 206, 219",
+    "ToolCaptionColors": {
+      "$id": "3",
+      "Parent": {
+        "$ref": "2"
+      },
+      "NormalText": "White",
+      "NormalBorder": "93, 107, 153",
+      "NormalGlyphForeground": "93, 107, 153",
+      "NormalGlyphBackground": "93, 107, 153",
+      "NormalGlyphBorder": "93, 107, 153",
+      "NormalGlyphHooveredForeground": "93, 107, 153",
+      "NormalGlyphHooveredBackground": "93, 107, 153",
+      "NormalGlyphHooveredBorder": "93, 107, 153",
+      "normalBackground1": "Blue"
+    },
+    "menuBackground": "",
+    "toolBarBackground": "",
+    "normalBackground": ""
+  },
+  "ColorPalette": {
+    "$id": "4",
+    "OverflowButtonDefault": {
+      "$id": "5",
+      "Glyph": "206, 212, 221"
+    },
+    "OverflowButtonHovered": {
+      "$id": "6",
+      "Background": "255, 252, 244",
+      "Border": "229, 195, 101",
+      "Glyph": "Black"
+    },
+    "OverflowButtonPressed": {
+      "$id": "7",
+      "Background": "255, 232, 166",
+      "Border": "229, 195, 101",
+      "Glyph": "Black"
+    },
+    "TabSelectedActive": {
+      "$id": "8",
+      "Background": "255, 242, 157",
+      "Button": "117, 99, 61",
+      "Text": "Black"
+    },
+    "TabSelectedInactive": {
+      "$id": "9",
+      "Background": "77, 96, 130",
+      "Button": "206, 212, 221",
+      "Text": "White"
+    },
+    "TabUnselected": {
+      "$id": "10",
+      "Background": "54, 78, 111",
+      "Text": "White"
+    },
+    "TabUnselectedHovered": {
+      "$id": "11",
+      "Background": "91, 113, 153",
+      "Button": "206, 212, 221",
+      "Text": "White"
+    },
+    "TabButtonSelectedActiveHovered": {
+      "$id": "12",
+      "Background": "255, 252, 244",
+      "Border": "229, 195, 101",
+      "Glyph": "Black"
+    },
+    "TabButtonSelectedActivePressed": {
+      "$id": "13",
+      "Background": "253, 244, 191",
+      "Border": "229, 195, 101",
+      "Glyph": "Black"
+    },
+    "TabButtonSelectedInactiveHovered": {
+      "$id": "14",
+      "Background": "255, 252, 244",
+      "Border": "229, 195, 101",
+      "Glyph": "Black"
+    },
+    "TabButtonSelectedInactivePressed": {
+      "$id": "15",
+      "Background": "253, 244, 191",
+      "Border": "229, 195, 101",
+      "Glyph": "Black"
+    },
+    "TabButtonUnselectedTabHoveredButtonHovered": {
+      "$id": "16",
+      "Background": "255, 252, 244",
+      "Border": "229, 195, 101",
+      "Glyph": "Black"
+    },
+    "TabButtonUnselectedTabHoveredButtonPressed": {
+      "$id": "17",
+      "Background": "253, 244, 191",
+      "Border": "229, 195, 101",
+      "Glyph": "Black"
+    },
+    "MainWindowStatusBarDefault": {
+      "$id": "18",
+      "Background": "0, 122, 204",
+      "Highlight": "76, 0, 0, 0",
+      "HighlightText": "White",
+      "ResizeGrip": "White",
+      "ResizeGripAccent": "127, 0, 0, 0",
+      "Text": "White"
+    },
+    "ToolWindowCaptionActive": {
+      "$id": "19",
+      "Background": "255, 242, 157",
+      "Button": "117, 99, 61",
+      "Grip": "255, 242, 157",
+      "Text": "Black"
+    },
+    "ToolWindowCaptionInactive": {
+      "$id": "20",
+      "Background": "77, 96, 130",
+      "Button": "206, 212, 221",
+      "Grip": "77, 96, 130",
+      "Text": "White"
+    },
+    "ToolWindowCaptionButtonActiveHovered": {
+      "$id": "21",
+      "Background": "255, 252, 244",
+      "Border": "229, 195, 101",
+      "Glyph": "Black"
+    },
+    "ToolWindowCaptionButtonPressed": {
+      "$id": "22",
+      "Background": "255, 232, 166",
+      "Border": "229, 195, 101",
+      "Glyph": "Black"
+    },
+    "ToolWindowCaptionButtonInactiveHovered": {
+      "$id": "23",
+      "Background": "255, 252, 244",
+      "Border": "229, 195, 101",
+      "Glyph": "Black"
+    },
+    "ToolWindowTabSelectedActive": {
+      "$id": "24",
+      "Background": "White",
+      "Text": "Black"
+    },
+    "ToolWindowTabSelectedInactive": {
+      "$id": "25",
+      "Background": "White",
+      "Text": "Black"
+    },
+    "ToolWindowTabUnselected": {
+      "$id": "26",
+      "Background": "77, 96, 130",
+      "Text": "White"
+    },
+    "ToolWindowTabUnselectedHovered": {
+      "$id": "27",
+      "Background": "91, 113, 153",
+      "Text": "White"
+    },
+    "ToolWindowBorder": "142, 155, 188",
+    "DockTarget": {
+      "$id": "28",
+      "Background": "White",
+      "Border": "99, 104, 113",
+      "ButtonBackground": "245, 248, 251",
+      "ButtonBorder": "138, 145, 156",
+      "GlyphBackground": "253, 232, 167",
+      "GlyphArrow": "68, 88, 121",
+      "GlyphBorder": "68, 88, 121"
+    },
+    "CommandBarMenuDefault": {
+      "$id": "29",
+      "Background": "214, 219, 233",
+      "Text": "27, 41, 62"
+    },
+    "CommandBarMenuPopupDefault": {
+      "$id": "30",
+      "Arrow": "Black",
+      "BackgroundBottom": "234, 240, 255",
+      "BackgroundTop": "234, 240, 255",
+      "Border": "155, 167, 183",
+      "Checkmark": "Black",
+      "CheckmarkBackground": "233, 236, 238",
+      "IconBackground": "242, 244, 254",
+      "Separator": "190, 195, 203"
+    },
+    "CommandBarMenuPopupDisabled": {
+      "$id": "31",
+      "Checkmark": "162, 164, 165",
+      "CheckmarkBackground": "233, 236, 238",
+      "Text": "Gray"
+    },
+    "CommandBarMenuPopupHovered": {
+      "$id": "32",
+      "Arrow": "Black",
+      "Checkmark": "Black",
+      "CheckmarkBackground": "255, 252, 244",
+      "ItemBackground": "253, 244, 191",
+      "Text": "30, 30, 30"
+    },
+    "CommandBarMenuTopLevelHeaderHovered": {
+      "$id": "33",
+      "Background": "253, 244, 191",
+      "Border": "229, 195, 101",
+      "Text": "Black"
+    },
+    "CommandBarToolbarDefault": {
+      "$id": "34",
+      "Background": "207, 214, 229",
+      "Border": "220, 224, 236",
+      "Grip": "96, 114, 140",
+      "OverflowButtonBackground": "220, 224, 236",
+      "OverflowButtonGlyph": "27, 41, 62",
+      "Separator": "133, 145, 162",
+      "SeparatorAccent": "214, 219, 233",
+      "Tray": "214, 219, 233"
+    },
+    "CommandBarToolbarButtonChecked": {
+      "$id": "35",
+      "Background": "253, 244, 191",
+      "Border": "229, 195, 101",
+      "Text": "Black"
+    },
+    "CommandBarToolbarButtonCheckedHovered": {
+      "$id": "36",
+      "Border": "229, 195, 101",
+      "Text": "Black"
+    },
+    "CommandBarToolbarButtonDefault": {
+      "$id": "37",
+      "Arrow": "27, 41, 62"
+    },
+    "CommandBarToolbarButtonHovered": {
+      "$id": "38",
+      "Arrow": "Black",
+      "Separator": "229, 195, 101"
+    },
+    "CommandBarToolbarButtonPressed": {
+      "$id": "39",
+      "Arrow": "Black",
+      "Background": "255, 242, 157",
+      "Text": "Black"
+    },
+    "CommandBarToolbarOverflowHovered": {
+      "$id": "40",
+      "Background": "253, 244, 191",
+      "Glyph": "27, 41, 62"
+    },
+    "CommandBarToolbarOverflowPressed": {
+      "$id": "41",
+      "Background": "255, 242, 157",
+      "Glyph": "27, 41, 62"
+    }
+  },
+  "Measures": {
+    "$id": "42",
+    "SplitterSize": 8,
+    "AutoHideSplitterSize": 30,
+    "AutoHideTabLineWidth": 6,
+    "DockPadding": 8
+  },
+  "ShowAutoHideContentOnHover": false
+}
