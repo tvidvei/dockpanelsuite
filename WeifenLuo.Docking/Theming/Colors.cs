@@ -197,13 +197,20 @@ namespace WeifenLuo.Docking
         public Color GridHeaderBars { get; set; } = Color.FromArgb(204, 206, 219);
 
 
-        public CaptionColors ToolCaptionColors { get; set; }
+        public ToolCaptionColors ToolCaptionColors { get; set; }
+
+        public ToolTabColors ToolTabColors { get; set; }
+
+        public DocTabColors DocTabColors { get; set; }
+
 
         public Colors() { }
 
         public void Setup()
         {
-            ToolCaptionColors = new CaptionColors(this);
+            ToolCaptionColors = new ToolCaptionColors(this);
+            ToolTabColors = new ToolTabColors(this);
+            DocTabColors = new DocTabColors(this);
         }
 
     }
@@ -214,7 +221,7 @@ namespace WeifenLuo.Docking
     ///  Colors for Captions and Tabs in a given state, one of Normal, Hoovered, Selected or Active
     /// </summary>
     [TypeConverter(typeof(ExpandableObjectWithDynamicDefaultsConverter))]
-    public class CaptionColors
+    public class ToolCaptionColors
     {
 
         [Browsable(false)]
@@ -406,14 +413,635 @@ namespace WeifenLuo.Docking
         [JsonInclude]
         private Color activeButtonHooveredBorder;
 
-        public CaptionColors() { }
+        public ToolCaptionColors() { }
 
-        public CaptionColors(Colors parent)
+        public ToolCaptionColors(Colors parent)
         {
             Parent = parent;
         }
 
     }
 
+
+
+    /// <summary>
+    ///  Colors for Captions and Tabs in a given state, one of Normal, Hoovered, Selected or Active
+    /// </summary>
+    [TypeConverter(typeof(ExpandableObjectWithDynamicDefaultsConverter))]
+    public class ToolTabColors
+    {
+
+        [Browsable(false)]
+        public Colors Parent { get; set; }
+
+
+        // Normal
+
+        [Description("Default Text color for Captions and and Tabs.  Used when inactive and not selected")]
+        [JsonIgnore]
+        public Color NormalText
+        {
+            get => normalText != default ? normalText : Parent.TabNormalText;
+            set { normalText = value; }
+        }
+        [JsonInclude]
+        private Color normalText;
+
+        [Description("Default background color for Captions and and Tabs.  Used when inactive and not selected")]
+        [JsonIgnore]
+        public Color NormalBackground
+        {
+            get => normalBackground != default ? normalBackground : Parent.TabNormalBackground;
+            set { normalBackground = value; }
+        }
+        [JsonInclude]
+        private Color normalBackground;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inactive and not selected")]
+        [JsonIgnore]
+        public Color NormalButtonNormalGlyph
+        {
+            get => normalButtonNormalGlyph != default ? normalButtonNormalGlyph : Parent.TabNormalButtonNormalGlyph;
+            set { normalButtonNormalGlyph = value; }
+        }
+        [JsonInclude]
+        private Color normalButtonNormalGlyph;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inactive and not selected")]
+        [JsonIgnore]
+        public Color NormalButtonNormalBackground
+        {
+            get => normalButtonNormalBackground != default ? normalButtonNormalBackground : Parent.TabNormalButtonNormalBackground;
+            set { normalButtonNormalBackground = value; }
+        }
+        [JsonInclude]
+        private Color normalButtonNormalBackground;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inactive and not selected")]
+        [JsonIgnore]
+        public Color NormalButtonNormalBorder
+        {
+            get => normalButtonNormalBorder != default ? normalButtonNormalBorder : Parent.TabNormalButtonNormalBorder;
+            set { normalButtonNormalBorder = value; }
+        }
+        [JsonInclude]
+        private Color normalButtonNormalBorder;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inactive and not selected")]
+        [JsonIgnore]
+        public Color NormalButtonHooveredGlyph
+        {
+            get => normalButtonHooveredGlyph != default ? normalButtonHooveredGlyph : Parent.TabNormalButtonHooveredGlyph;
+            set { normalButtonHooveredGlyph = value; }
+        }
+        [JsonInclude]
+        private Color normalButtonHooveredGlyph;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inactive and not selected")]
+        [JsonIgnore]
+        public Color NormalButtonHooveredBackground
+        {
+            get => normalButtonHooveredBackground != default ? normalButtonHooveredBackground : Parent.TabNormalButtonHooveredBackground;
+            set { normalButtonHooveredBackground = value; }
+        }
+        [JsonInclude]
+        private Color normalButtonHooveredBackground;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inactive and not selected")]
+        [JsonIgnore]
+        public Color NormalButtonHooveredBorder
+        {
+            get => normalButtonHooveredBorder != default ? normalButtonHooveredBorder : Parent.TabNormalButtonHooveredBorder;
+            set { normalButtonHooveredBorder = value; }
+        }
+        [JsonInclude]
+        private Color normalButtonHooveredBorder;
+
+
+        // Hoovered
+
+        [Description("Default Text color for Captions and and Tabs.  Used when inhoovered and not selected")]
+        [JsonIgnore]
+        public Color HooveredText
+        {
+            get => hooveredText != default ? hooveredText : Parent.TabHooveredText;
+            set { hooveredText = value; }
+        }
+        [JsonInclude]
+        private Color hooveredText;
+
+        [Description("Default background color for Captions and and Tabs.  Used when inhoovered and not selected")]
+        [JsonIgnore]
+        public Color HooveredBackground
+        {
+            get => hooveredBackground != default ? hooveredBackground : Parent.TabHooveredBackground;
+            set { hooveredBackground = value; }
+        }
+        [JsonInclude]
+        private Color hooveredBackground;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inhoovered and not selected")]
+        [JsonIgnore]
+        public Color HooveredButtonNormalGlyph
+        {
+            get => hooveredButtonNormalGlyph != default ? hooveredButtonNormalGlyph : Parent.TabHooveredButtonNormalGlyph;
+            set { hooveredButtonNormalGlyph = value; }
+        }
+        [JsonInclude]
+        private Color hooveredButtonNormalGlyph;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inhoovered and not selected")]
+        [JsonIgnore]
+        public Color HooveredButtonNormalBackground
+        {
+            get => hooveredButtonNormalBackground != default ? hooveredButtonNormalBackground : Parent.TabHooveredButtonNormalBackground;
+            set { hooveredButtonNormalBackground = value; }
+        }
+        [JsonInclude]
+        private Color hooveredButtonNormalBackground;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inhoovered and not selected")]
+        [JsonIgnore]
+        public Color HooveredButtonNormalBorder
+        {
+            get => hooveredButtonNormalBorder != default ? hooveredButtonNormalBorder : Parent.TabHooveredButtonNormalBorder;
+            set { hooveredButtonNormalBorder = value; }
+        }
+        [JsonInclude]
+        private Color hooveredButtonNormalBorder;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inhoovered and not selected")]
+        [JsonIgnore]
+        public Color HooveredButtonHooveredGlyph
+        {
+            get => hooveredButtonHooveredGlyph != default ? hooveredButtonHooveredGlyph : Parent.TabHooveredButtonHooveredGlyph;
+            set { hooveredButtonHooveredGlyph = value; }
+        }
+        [JsonInclude]
+        private Color hooveredButtonHooveredGlyph;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inhoovered and not selected")]
+        [JsonIgnore]
+        public Color HooveredButtonHooveredBackground
+        {
+            get => hooveredButtonHooveredBackground != default ? hooveredButtonHooveredBackground : Parent.TabHooveredButtonHooveredBackground;
+            set { hooveredButtonHooveredBackground = value; }
+        }
+        [JsonInclude]
+        private Color hooveredButtonHooveredBackground;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inhoovered and not selected")]
+        [JsonIgnore]
+        public Color HooveredButtonHooveredBorder
+        {
+            get => hooveredButtonHooveredBorder != default ? hooveredButtonHooveredBorder : Parent.TabHooveredButtonHooveredBorder;
+            set { hooveredButtonHooveredBorder = value; }
+        }
+        [JsonInclude]
+        private Color hooveredButtonHooveredBorder;
+
+
+        // Selected
+
+        [Description("Default Text color for Captions and and Tabs.  Used when inselected and not selected")]
+        [JsonIgnore]
+        public Color SelectedText
+        {
+            get => selectedText != default ? selectedText : Parent.TabSelectedText;
+            set { selectedText = value; }
+        }
+        [JsonInclude]
+        private Color selectedText;
+
+        [Description("Default background color for Captions and and Tabs.  Used when inselected and not selected")]
+        [JsonIgnore]
+        public Color SelectedBackground
+        {
+            get => selectedBackground != default ? selectedBackground : Parent.TabSelectedBackground;
+            set { selectedBackground = value; }
+        }
+        [JsonInclude]
+        private Color selectedBackground;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inselected and not selected")]
+        [JsonIgnore]
+        public Color SelectedButtonNormalGlyph
+        {
+            get => selectedButtonNormalGlyph != default ? selectedButtonNormalGlyph : Parent.TabSelectedButtonNormalGlyph;
+            set { selectedButtonNormalGlyph = value; }
+        }
+        [JsonInclude]
+        private Color selectedButtonNormalGlyph;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inselected and not selected")]
+        [JsonIgnore]
+        public Color SelectedButtonNormalBackground
+        {
+            get => selectedButtonNormalBackground != default ? selectedButtonNormalBackground : Parent.TabSelectedButtonNormalBackground;
+            set { selectedButtonNormalBackground = value; }
+        }
+        [JsonInclude]
+        private Color selectedButtonNormalBackground;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inselected and not selected")]
+        [JsonIgnore]
+        public Color SelectedButtonNormalBorder
+        {
+            get => selectedButtonNormalBorder != default ? selectedButtonNormalBorder : Parent.TabSelectedButtonNormalBorder;
+            set { selectedButtonNormalBorder = value; }
+        }
+        [JsonInclude]
+        private Color selectedButtonNormalBorder;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inselected and not selected")]
+        [JsonIgnore]
+        public Color SelectedButtonHooveredGlyph
+        {
+            get => selectedButtonHooveredGlyph != default ? selectedButtonHooveredGlyph : Parent.TabSelectedButtonHooveredGlyph;
+            set { selectedButtonHooveredGlyph = value; }
+        }
+        [JsonInclude]
+        private Color selectedButtonHooveredGlyph;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inselected and not selected")]
+        [JsonIgnore]
+        public Color SelectedButtonHooveredBackground
+        {
+            get => selectedButtonHooveredBackground != default ? selectedButtonHooveredBackground : Parent.TabSelectedButtonHooveredBackground;
+            set { selectedButtonHooveredBackground = value; }
+        }
+        [JsonInclude]
+        private Color selectedButtonHooveredBackground;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inselected and not selected")]
+        [JsonIgnore]
+        public Color SelectedButtonHooveredBorder
+        {
+            get => selectedButtonHooveredBorder != default ? selectedButtonHooveredBorder : Parent.TabSelectedButtonHooveredBorder;
+            set { selectedButtonHooveredBorder = value; }
+        }
+        [JsonInclude]
+        private Color selectedButtonHooveredBorder;
+
+
+        public ToolTabColors() { }
+
+        public ToolTabColors(Colors parent)
+        {
+            Parent = parent;
+        }
+
+    }
+
+    /// <summary>
+    ///  Colors for Captions and Tabs in a given state, one of Normal, Hoovered, Selected or Active
+    /// </summary>
+    [TypeConverter(typeof(ExpandableObjectWithDynamicDefaultsConverter))]
+    public class DocTabColors
+    {
+
+        [Browsable(false)]
+        public Colors Parent { get; set; }
+
+
+        // Normal
+
+        [Description("Default Text color for Captions and and Tabs.  Used when inactive and not selected")]
+        [JsonIgnore]
+        public Color NormalText
+        {
+            get => normalText != default ? normalText : Parent.TabNormalText;
+            set { normalText = value; }
+        }
+        [JsonInclude]
+        private Color normalText;
+
+        [Description("Default background color for Captions and and Tabs.  Used when inactive and not selected")]
+        [JsonIgnore]
+        public Color NormalBackground
+        {
+            get => normalBackground != default ? normalBackground : Parent.TabNormalBackground;
+            set { normalBackground = value; }
+        }
+        [JsonInclude]
+        private Color normalBackground;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inactive and not selected")]
+        [JsonIgnore]
+        public Color NormalButtonNormalGlyph
+        {
+            get => normalButtonNormalGlyph != default ? normalButtonNormalGlyph : Parent.TabNormalButtonNormalGlyph;
+            set { normalButtonNormalGlyph = value; }
+        }
+        [JsonInclude]
+        private Color normalButtonNormalGlyph;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inactive and not selected")]
+        [JsonIgnore]
+        public Color NormalButtonNormalBackground
+        {
+            get => normalButtonNormalBackground != default ? normalButtonNormalBackground : Parent.TabNormalButtonNormalBackground;
+            set { normalButtonNormalBackground = value; }
+        }
+        [JsonInclude]
+        private Color normalButtonNormalBackground;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inactive and not selected")]
+        [JsonIgnore]
+        public Color NormalButtonNormalBorder
+        {
+            get => normalButtonNormalBorder != default ? normalButtonNormalBorder : Parent.TabNormalButtonNormalBorder;
+            set { normalButtonNormalBorder = value; }
+        }
+        [JsonInclude]
+        private Color normalButtonNormalBorder;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inactive and not selected")]
+        [JsonIgnore]
+        public Color NormalButtonHooveredGlyph
+        {
+            get => normalButtonHooveredGlyph != default ? normalButtonHooveredGlyph : Parent.TabNormalButtonHooveredGlyph;
+            set { normalButtonHooveredGlyph = value; }
+        }
+        [JsonInclude]
+        private Color normalButtonHooveredGlyph;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inactive and not selected")]
+        [JsonIgnore]
+        public Color NormalButtonHooveredBackground
+        {
+            get => normalButtonHooveredBackground != default ? normalButtonHooveredBackground : Parent.TabNormalButtonHooveredBackground;
+            set { normalButtonHooveredBackground = value; }
+        }
+        [JsonInclude]
+        private Color normalButtonHooveredBackground;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inactive and not selected")]
+        [JsonIgnore]
+        public Color NormalButtonHooveredBorder
+        {
+            get => normalButtonHooveredBorder != default ? normalButtonHooveredBorder : Parent.TabNormalButtonHooveredBorder;
+            set { normalButtonHooveredBorder = value; }
+        }
+        [JsonInclude]
+        private Color normalButtonHooveredBorder;
+
+
+        // Hoovered
+
+        [Description("Default Text color for Captions and and Tabs.  Used when inhoovered and not selected")]
+        [JsonIgnore]
+        public Color HooveredText
+        {
+            get => hooveredText != default ? hooveredText : Parent.TabHooveredText;
+            set { hooveredText = value; }
+        }
+        [JsonInclude]
+        private Color hooveredText;
+
+        [Description("Default background color for Captions and and Tabs.  Used when inhoovered and not selected")]
+        [JsonIgnore]
+        public Color HooveredBackground
+        {
+            get => hooveredBackground != default ? hooveredBackground : Parent.TabHooveredBackground;
+            set { hooveredBackground = value; }
+        }
+        [JsonInclude]
+        private Color hooveredBackground;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inhoovered and not selected")]
+        [JsonIgnore]
+        public Color HooveredButtonNormalGlyph
+        {
+            get => hooveredButtonNormalGlyph != default ? hooveredButtonNormalGlyph : Parent.TabHooveredButtonNormalGlyph;
+            set { hooveredButtonNormalGlyph = value; }
+        }
+        [JsonInclude]
+        private Color hooveredButtonNormalGlyph;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inhoovered and not selected")]
+        [JsonIgnore]
+        public Color HooveredButtonNormalBackground
+        {
+            get => hooveredButtonNormalBackground != default ? hooveredButtonNormalBackground : Parent.TabHooveredButtonNormalBackground;
+            set { hooveredButtonNormalBackground = value; }
+        }
+        [JsonInclude]
+        private Color hooveredButtonNormalBackground;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inhoovered and not selected")]
+        [JsonIgnore]
+        public Color HooveredButtonNormalBorder
+        {
+            get => hooveredButtonNormalBorder != default ? hooveredButtonNormalBorder : Parent.TabHooveredButtonNormalBorder;
+            set { hooveredButtonNormalBorder = value; }
+        }
+        [JsonInclude]
+        private Color hooveredButtonNormalBorder;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inhoovered and not selected")]
+        [JsonIgnore]
+        public Color HooveredButtonHooveredGlyph
+        {
+            get => hooveredButtonHooveredGlyph != default ? hooveredButtonHooveredGlyph : Parent.TabHooveredButtonHooveredGlyph;
+            set { hooveredButtonHooveredGlyph = value; }
+        }
+        [JsonInclude]
+        private Color hooveredButtonHooveredGlyph;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inhoovered and not selected")]
+        [JsonIgnore]
+        public Color HooveredButtonHooveredBackground
+        {
+            get => hooveredButtonHooveredBackground != default ? hooveredButtonHooveredBackground : Parent.TabHooveredButtonHooveredBackground;
+            set { hooveredButtonHooveredBackground = value; }
+        }
+        [JsonInclude]
+        private Color hooveredButtonHooveredBackground;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inhoovered and not selected")]
+        [JsonIgnore]
+        public Color HooveredButtonHooveredBorder
+        {
+            get => hooveredButtonHooveredBorder != default ? hooveredButtonHooveredBorder : Parent.TabHooveredButtonHooveredBorder;
+            set { hooveredButtonHooveredBorder = value; }
+        }
+        [JsonInclude]
+        private Color hooveredButtonHooveredBorder;
+
+
+        // Selected
+
+        [Description("Default Text color for Captions and and Tabs.  Used when inselected and not selected")]
+        [JsonIgnore]
+        public Color SelectedText
+        {
+            get => selectedText != default ? selectedText : Parent.TabSelectedText;
+            set { selectedText = value; }
+        }
+        [JsonInclude]
+        private Color selectedText;
+
+        [Description("Default background color for Captions and and Tabs.  Used when inselected and not selected")]
+        [JsonIgnore]
+        public Color SelectedBackground
+        {
+            get => selectedBackground != default ? selectedBackground : Parent.TabSelectedBackground;
+            set { selectedBackground = value; }
+        }
+        [JsonInclude]
+        private Color selectedBackground;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inselected and not selected")]
+        [JsonIgnore]
+        public Color SelectedButtonNormalGlyph
+        {
+            get => selectedButtonNormalGlyph != default ? selectedButtonNormalGlyph : Parent.TabSelectedButtonNormalGlyph;
+            set { selectedButtonNormalGlyph = value; }
+        }
+        [JsonInclude]
+        private Color selectedButtonNormalGlyph;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inselected and not selected")]
+        [JsonIgnore]
+        public Color SelectedButtonNormalBackground
+        {
+            get => selectedButtonNormalBackground != default ? selectedButtonNormalBackground : Parent.TabSelectedButtonNormalBackground;
+            set { selectedButtonNormalBackground = value; }
+        }
+        [JsonInclude]
+        private Color selectedButtonNormalBackground;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inselected and not selected")]
+        [JsonIgnore]
+        public Color SelectedButtonNormalBorder
+        {
+            get => selectedButtonNormalBorder != default ? selectedButtonNormalBorder : Parent.TabSelectedButtonNormalBorder;
+            set { selectedButtonNormalBorder = value; }
+        }
+        [JsonInclude]
+        private Color selectedButtonNormalBorder;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inselected and not selected")]
+        [JsonIgnore]
+        public Color SelectedButtonHooveredGlyph
+        {
+            get => selectedButtonHooveredGlyph != default ? selectedButtonHooveredGlyph : Parent.TabSelectedButtonHooveredGlyph;
+            set { selectedButtonHooveredGlyph = value; }
+        }
+        [JsonInclude]
+        private Color selectedButtonHooveredGlyph;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inselected and not selected")]
+        [JsonIgnore]
+        public Color SelectedButtonHooveredBackground
+        {
+            get => selectedButtonHooveredBackground != default ? selectedButtonHooveredBackground : Parent.TabSelectedButtonHooveredBackground;
+            set { selectedButtonHooveredBackground = value; }
+        }
+        [JsonInclude]
+        private Color selectedButtonHooveredBackground;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inselected and not selected")]
+        [JsonIgnore]
+        public Color SelectedButtonHooveredBorder
+        {
+            get => selectedButtonHooveredBorder != default ? selectedButtonHooveredBorder : Parent.TabSelectedButtonHooveredBorder;
+            set { selectedButtonHooveredBorder = value; }
+        }
+        [JsonInclude]
+        private Color selectedButtonHooveredBorder;
+
+        // Active
+
+        [Description("Default Text color for Captions and and Tabs.  Used when inactive and not selected")]
+        [JsonIgnore]
+        public Color ActiveText
+        {
+            get => activeText != default ? activeText : Parent.TabActiveText;
+            set { activeText = value; }
+        }
+        [JsonInclude]
+        private Color activeText;
+
+        [Description("Default background color for Captions and and Tabs.  Used when inactive and not selected")]
+        [JsonIgnore]
+        public Color ActiveBackground
+        {
+            get => activeBackground != default ? activeBackground : Parent.TabActiveBackground;
+            set { activeBackground = value; }
+        }
+        [JsonInclude]
+        private Color activeBackground;
+
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inactive and not selected")]
+        [JsonIgnore]
+        public Color ActiveButtonNormalGlyph
+        {
+            get => activeButtonNormalGlyph != default ? activeButtonNormalGlyph : Parent.TabActiveButtonNormalGlyph;
+            set { activeButtonNormalGlyph = value; }
+        }
+        [JsonInclude]
+        private Color activeButtonNormalGlyph;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inactive and not selected")]
+        [JsonIgnore]
+        public Color ActiveButtonNormalBackground
+        {
+            get => activeButtonNormalBackground != default ? activeButtonNormalBackground : Parent.TabActiveButtonNormalBackground;
+            set { activeButtonNormalBackground = value; }
+        }
+        [JsonInclude]
+        private Color activeButtonNormalBackground;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inactive and not selected")]
+        [JsonIgnore]
+        public Color ActiveButtonNormalBorder
+        {
+            get => activeButtonNormalBorder != default ? activeButtonNormalBorder : Parent.TabActiveButtonNormalBorder;
+            set { activeButtonNormalBorder = value; }
+        }
+        [JsonInclude]
+        private Color activeButtonNormalBorder;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inactive and not selected")]
+        [JsonIgnore]
+        public Color ActiveButtonHooveredGlyph
+        {
+            get => activeButtonHooveredGlyph != default ? activeButtonHooveredGlyph : Parent.TabActiveButtonHooveredGlyph;
+            set { activeButtonHooveredGlyph = value; }
+        }
+        [JsonInclude]
+        private Color activeButtonHooveredGlyph;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inactive and not selected")]
+        [JsonIgnore]
+        public Color ActiveButtonHooveredBackground
+        {
+            get => activeButtonHooveredBackground != default ? activeButtonHooveredBackground : Parent.TabActiveButtonHooveredBackground;
+            set { activeButtonHooveredBackground = value; }
+        }
+        [JsonInclude]
+        private Color activeButtonHooveredBackground;
+
+        [Description("Default Border color for Captions and and Tabs.  Used when inactive and not selected")]
+        [JsonIgnore]
+        public Color ActiveButtonHooveredBorder
+        {
+            get => activeButtonHooveredBorder != default ? activeButtonHooveredBorder : Parent.TabActiveButtonHooveredBorder;
+            set { activeButtonHooveredBorder = value; }
+        }
+        [JsonInclude]
+        private Color activeButtonHooveredBorder;
+
+        public DocTabColors() { }
+
+        public DocTabColors(Colors parent)
+        {
+            Parent = parent;
+        }
+
+    }
 
 }
