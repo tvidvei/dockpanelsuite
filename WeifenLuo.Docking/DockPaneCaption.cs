@@ -202,18 +202,25 @@ namespace WeifenLuo.Docking
                 return;
 
             Rectangle rect = ClientRectangle;
-            var border = DockPane.DockPanel.Theme.ColorPalette.ToolWindowBorder;
-            ToolWindowCaptionPalette palette;
+            var border = DockPane.DockPanel.Theme.Colors.MainBorder;
+            //ToolWindowCaptionPalette palette;
+            Color textColor;
+            Color backgroundColor;
+            Color gripColor;
             if (DockPane.IsActivePane)
             {
-                palette = DockPane.DockPanel.Theme.ColorPalette.ToolWindowCaptionActive;
+                textColor = DockPane.DockPanel.Theme.Colors.TabActiveText;
+                backgroundColor = DockPane.DockPanel.Theme.Colors.TabActiveBackground;
+                gripColor = DockPane.DockPanel.Theme.Colors.TabActiveGrip;
             }
             else
             {
-                palette = DockPane.DockPanel.Theme.ColorPalette.ToolWindowCaptionInactive;
+                textColor = DockPane.DockPanel.Theme.Colors.TabNormalText;
+                backgroundColor = DockPane.DockPanel.Theme.Colors.TabNormalBackground;
+                gripColor = DockPane.DockPanel.Theme.Colors.TabNormalGrip;
             }
 
-            SolidBrush captionBrush = DockPane.DockPanel.Theme.PaintingService.GetBrush(palette.Background);
+            SolidBrush captionBrush = DockPane.DockPanel.Theme.PaintingService.GetBrush(backgroundColor);
             g.FillRectangle(captionBrush, rect);
 
             g.DrawLine(DockPane.DockPanel.Theme.PaintingService.GetPen(border), rect.Left, rect.Top,
@@ -236,7 +243,7 @@ namespace WeifenLuo.Docking
             rectCaptionText.Y += TextGapTop;
             rectCaptionText.Height -= TextGapTop + TextGapBottom;
 
-            TextRenderer.DrawText(g, DockPane.CaptionText, TextFont, DrawHelper.RtlTransform(this, rectCaptionText), palette.Text, TextFormat);
+            TextRenderer.DrawText(g, DockPane.CaptionText, TextFont, DrawHelper.RtlTransform(this, rectCaptionText), textColor, TextFormat);
 
             Rectangle rectDotsStrip = rectCaptionText;
             int textLength = (int)g.MeasureString(DockPane.CaptionText, TextFont).Width + TextGapLeft;
@@ -244,7 +251,7 @@ namespace WeifenLuo.Docking
             rectDotsStrip.Width -= textLength;
             rectDotsStrip.Height = ClientRectangle.Height;
 
-            DrawDotsStrip(g, rectDotsStrip, palette.Grip);
+            DrawDotsStrip(g, rectDotsStrip, gripColor);
         }
 
         protected void DrawDotsStrip(Graphics g, Rectangle rectStrip, Color colorDots)

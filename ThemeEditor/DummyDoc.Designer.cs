@@ -101,6 +101,7 @@ namespace ThemeEditor
             // 
             // richTextBox1
             // 
+            richTextBox1.BorderStyle = BorderStyle.None;
             richTextBox1.Dock = DockStyle.Fill;
             richTextBox1.Location = new Point(0, 4);
             richTextBox1.Name = "richTextBox1";

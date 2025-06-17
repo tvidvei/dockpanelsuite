@@ -97,6 +97,7 @@ namespace WeifenLuo.Docking
         private void PropertyGrid_PropertyValueChanged(object sender, PropertyValueChangedEventArgs e)
         {
             EditHistoryManager.AddEdit(e.ChangedItem!, e.OldValue, e.ChangedItem!.Value);
+            EditHistoryManager.PropertyGrid.Refresh();
             SetTabText();
         }
 

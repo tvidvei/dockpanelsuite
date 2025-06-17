@@ -49,6 +49,7 @@ namespace WeifenLuo.Docking
             propertyGrid.LineColor = Color.FromArgb(240, 240, 240);
             propertyGrid.Location = new Point(0, 3);
             propertyGrid.Name = "propertyGrid";
+            propertyGrid.PropertySort = PropertySort.NoSort;
             propertyGrid.Size = new Size(208, 283);
             propertyGrid.TabIndex = 0;
             propertyGrid.PropertyValueChanged += PropertyGrid_PropertyValueChanged;
@@ -56,42 +57,42 @@ namespace WeifenLuo.Docking
             // miThemeUse
             // 
             miThemeUse.Name = "miThemeUse";
-            miThemeUse.Size = new Size(180, 22);
+            miThemeUse.Size = new Size(155, 22);
             miThemeUse.Text = "Use this &Theme";
             miThemeUse.Click += miThemeUseThis_Click;
             // 
             // miThemeReset
             // 
             miThemeReset.Name = "miThemeReset";
-            miThemeReset.Size = new Size(180, 22);
+            miThemeReset.Size = new Size(155, 22);
             miThemeReset.Text = "&Reset";
             miThemeReset.Click += miThemeReset_Click;
             // 
             // miThemeSave
             // 
             miThemeSave.Name = "miThemeSave";
-            miThemeSave.Size = new Size(180, 22);
+            miThemeSave.Size = new Size(155, 22);
             miThemeSave.Text = "&Save";
             miThemeSave.Click += miThemeSave_Click;
             // 
             // miThemeSaveAs
             // 
             miThemeSaveAs.Name = "miThemeSaveAs";
-            miThemeSaveAs.Size = new Size(180, 22);
+            miThemeSaveAs.Size = new Size(155, 22);
             miThemeSaveAs.Text = "Save &As...";
             miThemeSaveAs.Click += miThemeSaveAs_Click;
             // 
             // miThemeUndo
             // 
             miThemeUndo.Name = "miThemeUndo";
-            miThemeUndo.Size = new Size(180, 22);
+            miThemeUndo.Size = new Size(155, 22);
             miThemeUndo.Text = "&Undo";
             miThemeUndo.Click += miThemeUndo_Click;
             // 
             // miThemeRedo
             // 
             miThemeRedo.Name = "miThemeRedo";
-            miThemeRedo.Size = new Size(180, 22);
+            miThemeRedo.Size = new Size(155, 22);
             miThemeRedo.Text = "Re&do";
             miThemeRedo.Click += miThemeRedo_Click;
             // 
@@ -99,7 +100,7 @@ namespace WeifenLuo.Docking
             // 
             contextMenuStrip1.Items.AddRange(new ToolStripItem[] { miThemeUse, miThemeReset, miThemeSave, miThemeSaveAs, miThemeUndo, miThemeRedo });
             contextMenuStrip1.Name = "cmenuThemeEditor";
-            contextMenuStrip1.Size = new Size(181, 114);
+            contextMenuStrip1.Size = new Size(156, 136);
             // 
             // ThemeEditorWindow
             // 

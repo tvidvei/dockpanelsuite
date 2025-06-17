@@ -294,8 +294,5 @@
       "TextFont": "Segoe UI, 9pt"
     }
   },
-  "Measures": {
-    "DockPadding": 6
-  },
   "ShowAutoHideContentOnHover": false
 }

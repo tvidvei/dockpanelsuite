@@ -11,24 +11,24 @@ namespace WeifenLuo.Docking
         public void Setup()
         {
             OverflowButtonDefault = new ButtonPalette();
-            OverflowButtonHovered = new HoveredButtonPalette();
-            OverflowButtonPressed = new HoveredButtonPalette();
+            OverflowButtonHovered = new HooveredButtonPalette();
+            OverflowButtonPressed = new HooveredButtonPalette();
             TabSelectedActive = new TabPalette();
             TabSelectedInactive = new TabPalette();
             TabUnselected = new UnselectedTabPalette();
             TabUnselectedHovered = new TabPalette();
-            TabButtonSelectedActiveHovered = new HoveredButtonPalette();
-            TabButtonSelectedActivePressed = new HoveredButtonPalette();
-            TabButtonSelectedInactiveHovered = new HoveredButtonPalette();
-            TabButtonSelectedInactivePressed = new HoveredButtonPalette();
-            TabButtonUnselectedTabHoveredButtonHovered = new HoveredButtonPalette();
-            TabButtonUnselectedTabHoveredButtonPressed = new HoveredButtonPalette();
+            TabButtonSelectedActiveHovered = new HooveredButtonPalette();
+            TabButtonSelectedActivePressed = new HooveredButtonPalette();
+            TabButtonSelectedInactiveHovered = new HooveredButtonPalette();
+            TabButtonSelectedInactivePressed = new HooveredButtonPalette();
+            TabButtonUnselectedTabHoveredButtonHovered = new HooveredButtonPalette();
+            TabButtonUnselectedTabHoveredButtonPressed = new HooveredButtonPalette();
             MainWindowStatusBarDefault = new MainWindowStatusBarPalette();
             ToolWindowCaptionActive = new ToolWindowCaptionPalette();
             ToolWindowCaptionInactive = new ToolWindowCaptionPalette();
-            ToolWindowCaptionButtonActiveHovered = new HoveredButtonPalette();
-            ToolWindowCaptionButtonPressed = new HoveredButtonPalette();
-            ToolWindowCaptionButtonInactiveHovered = new HoveredButtonPalette();
+            ToolWindowCaptionButtonActiveHovered = new HooveredButtonPalette();
+            ToolWindowCaptionButtonPressed = new HooveredButtonPalette();
+            ToolWindowCaptionButtonInactiveHovered = new HooveredButtonPalette();
             ToolWindowTabSelectedActive = new ToolWindowTabPalette();
             ToolWindowTabSelectedInactive = new ToolWindowTabPalette();
             ToolWindowTabUnselected = new ToolWindowUnselectedTabPalette();
@@ -53,10 +53,10 @@ namespace WeifenLuo.Docking
         public ButtonPalette OverflowButtonDefault { get; set; }
 
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public HoveredButtonPalette OverflowButtonHovered { get; set; }
+        public HooveredButtonPalette OverflowButtonHovered { get; set; }
 
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public HoveredButtonPalette OverflowButtonPressed { get; set; }
+        public HooveredButtonPalette OverflowButtonPressed { get; set; }
 
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public TabPalette TabSelectedActive { get; set; }
@@ -71,22 +71,22 @@ namespace WeifenLuo.Docking
         public TabPalette TabUnselectedHovered { get; set; }
 
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public HoveredButtonPalette TabButtonSelectedActiveHovered { get; set; }
+        public HooveredButtonPalette TabButtonSelectedActiveHovered { get; set; }
 
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public HoveredButtonPalette TabButtonSelectedActivePressed { get; set; }
+        public HooveredButtonPalette TabButtonSelectedActivePressed { get; set; }
 
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public HoveredButtonPalette TabButtonSelectedInactiveHovered { get; set; }
+        public HooveredButtonPalette TabButtonSelectedInactiveHovered { get; set; }
 
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public HoveredButtonPalette TabButtonSelectedInactivePressed { get; set; }
+        public HooveredButtonPalette TabButtonSelectedInactivePressed { get; set; }
 
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public HoveredButtonPalette TabButtonUnselectedTabHoveredButtonHovered { get; set; }
+        public HooveredButtonPalette TabButtonUnselectedTabHoveredButtonHovered { get; set; }
 
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public HoveredButtonPalette TabButtonUnselectedTabHoveredButtonPressed { get; set; }
+        public HooveredButtonPalette TabButtonUnselectedTabHoveredButtonPressed { get; set; }
 
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public MainWindowStatusBarPalette MainWindowStatusBarDefault { get; set; }
@@ -98,13 +98,13 @@ namespace WeifenLuo.Docking
         public ToolWindowCaptionPalette ToolWindowCaptionInactive { get; set; }
 
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public HoveredButtonPalette ToolWindowCaptionButtonActiveHovered { get; set; }
+        public HooveredButtonPalette ToolWindowCaptionButtonActiveHovered { get; set; }
 
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public HoveredButtonPalette ToolWindowCaptionButtonPressed { get; set; }
+        public HooveredButtonPalette ToolWindowCaptionButtonPressed { get; set; }
 
         [TypeConverter(typeof(ExpandableObjectConverter))]
-        public HoveredButtonPalette ToolWindowCaptionButtonInactiveHovered { get; set; }
+        public HooveredButtonPalette ToolWindowCaptionButtonInactiveHovered { get; set; }
 
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public ToolWindowTabPalette ToolWindowTabSelectedActive { get; set; }
@@ -119,8 +119,6 @@ namespace WeifenLuo.Docking
         public ToolWindowTabPalette ToolWindowTabUnselectedHovered { get; set; }
 
         public Color ToolWindowBorder { get; set; }
-
-        public Color ToolWindowSeparator { get; set; }
 
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public DockTargetPalette DockTarget { get; set; }
@@ -268,7 +266,7 @@ namespace WeifenLuo.Docking
         public Color GlyphBorder { get; set; }
     }
 
-    public class HoveredButtonPalette
+    public class HooveredButtonPalette
     {
         public Color Background { get; set; }
         public Color Border { get; set; }

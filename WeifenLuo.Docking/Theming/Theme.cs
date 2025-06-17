@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace WeifenLuo.Docking
@@ -87,11 +88,11 @@ namespace WeifenLuo.Docking
         [DefaultValue(typeof(SystemFonts), "MenuFont")]
         public Font TextFont { get; set; } = SystemFonts.MenuFont; // new Font("Segoe UI", 9);
 
-        [Category("Colors")]
+        [Category("Colors"), Display(Order = 1)]
         public Colors Colors { get; set; }
 
 
-        [Category("Colors")]
+        [Category("Colors"), Display(Order = 2)]
         [TypeConverter(typeof(ExpandableObjectConverter))]
         public DockPanelColorPalette ColorPalette { get; set; }
 

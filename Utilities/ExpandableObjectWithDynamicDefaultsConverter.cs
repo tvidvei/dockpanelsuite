@@ -8,35 +8,57 @@ namespace Utilities
     {
         public override PropertyDescriptorCollection GetProperties(ITypeDescriptorContext? context, object value, Attribute[]? attributes)
         {
+            BackingFieldNamesAttribute? backingFieldNamesAttr =
+                value.GetType().GetCustomAttribute<BackingFieldNamesAttribute>() ??
+                value.GetType().Assembly.GetCustomAttribute<BackingFieldNamesAttribute>();
             var pdc = TypeDescriptor.GetProperties(value, attributes);
             var pdA = new PropertyDescriptor[pdc.Count];
-            for (int i = 0; i < pdc.Count; i++) pdA[i] = new PropertyWithDynamicDefaultsDescriptor(pdc[i]);
+            for (int i = 0; i < pdc.Count; i++) pdA[i] = new PropertyWithDynamicDefaultsDescriptor(pdc[i], backingFieldNamesAttr?.GetBackingFieldName);
             return new PropertyDescriptorCollection(pdA, readOnly: true);
         }
     }
 
 
-    [System.AttributeUsage(System.AttributeTargets.Property)]
-    public class DefaultValuePropertyAttribute : Attribute
+    public delegate string GetBackingFieldNameFunc(string propertyName);
+
+    /// <summary>
+    /// Provide a function to derive the backing field name from the property name
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Class | AttributeTargets.Assembly)]
+    public class BackingFieldNamesAttribute : Attribute
     {
 
         /// <summary>
-        /// Name of property to be used as the value
+        /// function to derive the backing field name from the property name
         /// </summary>
-        public string? DefaultValuePropertyName { get; set; }
+        /// If no function is given, backingFields are assumed to be the same as the property name with a lower case first letter
+        public GetBackingFieldNameFunc GetBackingFieldName { get; set; } = (s) => s;
+
+        public BackingFieldNamesAttribute() { }
+
+        public BackingFieldNamesAttribute(GetBackingFieldNameFunc getBackingFieldName)
+        {
+            GetBackingFieldName = getBackingFieldName;
+        }
+
+    }
+
+
+    [AttributeUsage(AttributeTargets.Property)]
+    public class BackingFieldAttribute : Attribute
+    {
 
         /// <summary>
-        /// Name of field or property holding the assigned value
+        /// Name of field holding the assigned value
         /// </summary>
         /// If AssignedValue is not given, it is assumed to be same as the property name with a lower case first letter 
-        public string? AssignedValueFieldName { get; set; }
+        public string? BackingFieldName { get; set; }
 
-        public DefaultValuePropertyAttribute() { }
+        public BackingFieldAttribute() { }
 
-        public DefaultValuePropertyAttribute(string? defaultValuePropertyName, string? assignedValueFieldName = null)
+        public BackingFieldAttribute(string? backingFieldName = null)
         {
-            DefaultValuePropertyName = defaultValuePropertyName;
-            AssignedValueFieldName = assignedValueFieldName;
+            BackingFieldName = backingFieldName;
         }
     }
 
@@ -53,30 +75,26 @@ namespace Utilities
 
         private PropertyDescriptor pd;
 
-        public bool HasDynamicDefault => DefaultValueProperty != null;
+        public bool HasBackingField => BackingField != null;
 
-        public PropertyInfo? DefaultValueProperty = null;
-        public FieldInfo? AssignedValueField = null;
+        public FieldInfo? BackingField = null;
         public object? TypeDefaultValue;
 
-        public PropertyWithDynamicDefaultsDescriptor(PropertyDescriptor propertyDescription) : base(propertyDescription)
+        public PropertyWithDynamicDefaultsDescriptor(PropertyDescriptor propertyDescription, GetBackingFieldNameFunc? getBackingFieldName = null) : base(propertyDescription)
         {
             pd = propertyDescription;
-            string assignedValueName = Name[0].ToString().ToLower() + Name.Substring(1);             // Default name for assigned value field
-            string defaultValueName = assignedValueName + "Default";                                 // Default name for default value property
+            string backingFieldName = getBackingFieldName != null ? getBackingFieldName(Name) : 
+                Name[0].ToString().ToLower() + Name.Substring(1);  // Default name for assigned value field
 
-            var ddAttrs = pd.Attributes.OfType<DefaultValuePropertyAttribute>();
+            var ddAttrs = pd.Attributes.OfType<BackingFieldAttribute>();
             if (ddAttrs.Count() > 0)
             {
                 var ddAttr = ddAttrs.First();
-                if (ddAttr.AssignedValueFieldName != null) assignedValueName = ddAttr.AssignedValueFieldName;
-                if (ddAttr.DefaultValuePropertyName != null) defaultValueName = ddAttr.DefaultValuePropertyName;
-
+                if (ddAttr.BackingFieldName != null) backingFieldName = ddAttr.BackingFieldName;
             }
 
             TypeDefaultValue = Activator.CreateInstance(PropertyType);
-            DefaultValueProperty = ComponentType.GetProperty(defaultValueName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
-            AssignedValueField = ComponentType.GetField(assignedValueName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+            BackingField = ComponentType.GetField(backingFieldName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
         }
 
         public override Type ComponentType => pd.ComponentType;
@@ -97,7 +115,7 @@ namespace Utilities
 
         public override void ResetValue(object component)
         {
-            if (HasDynamicDefault) pd.SetValue(component, TypeDefaultValue);
+            if (HasBackingField) pd.SetValue(component, TypeDefaultValue);
             else pd.ResetValue(component);
         }
 
@@ -106,16 +124,10 @@ namespace Utilities
             pd.SetValue(component, value);
         }
 
-        public object? GetDefaultValue(object? component)
-        {
-            return HasDynamicDefault ? DefaultValueProperty?.GetValue(component) : TypeDefaultValue;  // Todo: Må håndtere defaultverdi fra DefaultValueAttribute, og uten som er TypeDefaultValue
-        }
-
-
         public override bool ShouldSerializeValue(object component)
         {
             return
-                HasDynamicDefault ? !String.IsNullOrEmpty(Converter.ConvertToString(AssignedValueField!.GetValue(component)))
+                HasBackingField ? !string.IsNullOrEmpty(Converter.ConvertToString(BackingField!.GetValue(component)))
                                     : pd.ShouldSerializeValue(component);
         }
 

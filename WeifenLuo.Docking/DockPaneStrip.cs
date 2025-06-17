@@ -879,7 +879,7 @@ namespace WeifenLuo.Docking
         private void DrawTabStrip_ToolWindow(Graphics g)
         {
             var rect = TabStripRectangle_ToolWindow;
-            Color borderColor = DockPane.DockPanel.Theme.ColorPalette.ToolWindowBorder;
+            Color borderColor = DockPane.DockPanel.Theme.Colors.MainBorder;
 
             g.DrawLine(DockPane.DockPanel.Theme.PaintingService.GetPen(borderColor), rect.Left, rect.Top,
                 rect.Right, rect.Top);
@@ -992,17 +992,17 @@ namespace WeifenLuo.Docking
             Rectangle rectTab = DrawHelper.RtlTransform(this, rect);
             rectText = DrawHelper.RtlTransform(this, rectText);
             rectIcon = DrawHelper.RtlTransform(this, rectIcon);
-            Color borderColor = DockPane.DockPanel.Theme.ColorPalette.ToolWindowBorder;
+            Color borderColor = DockPane.DockPanel.Theme.Colors.MainBorder;
+            //Color borderColor = DockPane.DockPanel.Theme.ColorPalette.ToolWindowBorder;
 
-            Color separatorColor = DockPane.DockPanel.Theme.ColorPalette.ToolWindowSeparator;
             if (DockPane.ActiveContent == tab.Content)
             {
                 Color textColor;
                 Color backgroundColor;
                 if (DockPane.IsActiveDocumentPane)
                 {
-                    textColor = DockPane.DockPanel.Theme.ColorPalette.ToolWindowTabSelectedActive.Text;
-                    backgroundColor = DockPane.DockPanel.Theme.ColorPalette.ToolWindowTabSelectedActive.Background;
+                    textColor = DockPane.DockPanel.Theme.Colors.TabActiveText;
+                    backgroundColor = DockPane.DockPanel.Theme.Colors.TabActiveBackground;
                 }
                 else
                 {
@@ -1025,13 +1025,13 @@ namespace WeifenLuo.Docking
                 Color backgroundColor;
                 if (tab.Content == DockPane.MouseOverTab)
                 {
-                    textColor = DockPane.DockPanel.Theme.ColorPalette.ToolWindowTabUnselectedHovered.Text;
-                    backgroundColor = DockPane.DockPanel.Theme.ColorPalette.ToolWindowTabUnselectedHovered.Background;
+                    textColor = DockPane.DockPanel.Theme.Colors.TabHooveredText;
+                    backgroundColor = DockPane.DockPanel.Theme.Colors.TabHooveredBackground;
                 }
                 else
                 {
-                    textColor = DockPane.DockPanel.Theme.ColorPalette.ToolWindowTabUnselected.Text;
-                    backgroundColor = DockPane.DockPanel.Theme.Colors.MainBackground;
+                    textColor = DockPane.DockPanel.Theme.Colors.TabNormalText;
+                    backgroundColor = DockPane.DockPanel.Theme.Colors.TabNormalBackground;
                 }
 
                 g.FillRectangle(DockPane.DockPanel.Theme.PaintingService.GetBrush(backgroundColor), rect);
@@ -1080,12 +1080,12 @@ namespace WeifenLuo.Docking
             rectIcon = DrawHelper.RtlTransform(this, rectIcon);
 
             Color activeColor = DockPane.DockPanel.Theme.Colors.TabActiveBackground;
-            Color lostFocusColor = DockPane.DockPanel.Theme.Colors.TabNormalBackground;
-            Color inactiveColor = DockPane.DockPanel.Theme.Colors.MainBackground;
+            Color lostFocusColor = DockPane.DockPanel.Theme.Colors.TabSelectedBackground;
+            Color inactiveColor = DockPane.DockPanel.Theme.Colors.TabNormalBackground;
             Color mouseHoverColor = DockPane.DockPanel.Theme.Colors.TabHooveredBackground;
 
             Color activeText = DockPane.DockPanel.Theme.Colors.TabActiveText;
-            Color lostFocusText = DockPane.DockPanel.Theme.Colors.TabNormalText;
+            Color lostFocusText = DockPane.DockPanel.Theme.Colors.TabSelectedText;
             Color inactiveText = DockPane.DockPanel.Theme.Colors.TabNormalText;
             Color mouseHoverText = DockPane.DockPanel.Theme.Colors.TabHooveredText;
 

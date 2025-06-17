@@ -1393,7 +1393,7 @@ namespace WeifenLuo.Docking
 
         protected override void OnPaint(PaintEventArgs e) {
             base.OnPaint(e);
-            var color = DockPanel.Theme.ColorPalette.ToolWindowBorder;
+            var color = DockPanel.Theme.Colors.MainBorder;
             e.Graphics.FillRectangle(DockPanel.Theme.PaintingService.GetBrush(color), e.ClipRectangle);
         }
 
